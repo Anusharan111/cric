@@ -66,6 +66,31 @@ export function formatCareerStat(value: number, type: "runs" | "wickets" | "avg"
   }
 }
 
+const COUNTRY_CODES: Record<string, string> = {
+  Afghanistan: "AFG",
+  Australia: "AUS",
+  Bangladesh: "BAN",
+  Canada: "CAN",
+  England: "ENG",
+  India: "IND",
+  Ireland: "IRE",
+  Nepal: "NEP",
+  Netherlands: "NED",
+  "New Zealand": "NZ",
+  Pakistan: "PAK",
+  Scotland: "SCO",
+  "South Africa": "RSA",
+  "Sri Lanka": "SL",
+  "United Arab Emirates": "UAE",
+  "West Indies": "WI",
+  Zimbabwe: "ZIM",
+  "Hong Kong": "HK",
+};
+
+export function getCountryCode(country: string): string {
+  return COUNTRY_CODES[country] || country.toUpperCase().slice(0, 3);
+}
+
 export function getPlayerRoleColor(role: string): string {
   const colors: Record<string, string> = {
     Batter: "#f59e0b",

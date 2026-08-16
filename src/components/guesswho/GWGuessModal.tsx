@@ -8,7 +8,7 @@ import {
   ChevronLeft,
 } from "lucide-react";
 import { CricketPlayer } from "../../types";
-import { getRarityConfig } from "../../utils/cricketStats";
+import { getRarityConfig, getCountryCode } from "../../utils/cricketStats";
 import CharacterImage from "../../components/common/CharacterImage";
 
 interface GWGuessModalProps {
@@ -108,6 +108,12 @@ export default function GWGuessModal({
                         : `${config.border} hover:border-cricket-green/60`
                     }`}
                   >
+                    <div className="flex items-center justify-between px-1.5 py-0.5 border-b border-cricket-gold/10 bg-cricket-dark/90">
+                      <span className="text-[8px] sm:text-[9px] font-black tracking-widest text-cricket-gold">
+                        {getCountryCode(player.country)}
+                      </span>
+                      <span className="text-[9px] leading-none">{player.flag}</span>
+                    </div>
                     <div className="relative aspect-[3/4] overflow-hidden">
                       <CharacterImage
                         url={player.image}
@@ -116,10 +122,9 @@ export default function GWGuessModal({
                         className="w-full h-full"
                       />
                     </div>
-                    <div className="flex items-center gap-1.5 px-2 py-1.5 border-t border-cricket-gold/10 bg-cricket-dark/80">
-                      <span className="text-sm leading-none">{player.flag}</span>
-                      <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wide text-cricket-cream/85 truncate">
-                        {player.country}
+                    <div className="px-1.5 py-1 border-t border-cricket-gold/10 bg-cricket-dark/80">
+                      <span className="block text-[8px] sm:text-[10px] font-bold text-cricket-cream/90 truncate">
+                        {player.name}
                       </span>
                     </div>
 

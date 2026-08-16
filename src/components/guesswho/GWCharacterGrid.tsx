@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { X, Eye } from "lucide-react";
 import { CricketPlayer } from "../../types";
-import { getRarityConfig } from "../../utils/cricketStats";
+import { getRarityConfig, getCountryCode } from "../../utils/cricketStats";
 import CharacterImage from "../../components/common/CharacterImage";
 
 interface GWCharacterGridProps {
@@ -79,7 +79,15 @@ export default function GWCharacterGrid({
                   : "cursor-pointer"
               } bg-cricket-dark/60`}
             >
-              {/* Player image — fills ~85% of the card */}
+              {/* Country short form — top of card */}
+              <div className={`flex items-center justify-between px-1.5 py-0.5 border-b border-cricket-gold/10 bg-cricket-dark/90 ${isEliminated ? "opacity-40" : ""}`}>
+                <span className="text-[8px] sm:text-[9px] font-black tracking-widest text-cricket-gold">
+                  {getCountryCode(player.country)}
+                </span>
+                <span className="text-[9px] leading-none">{player.flag}</span>
+              </div>
+
+              {/* Player image — fills most of the card */}
               <div className={`relative aspect-[3/4] overflow-hidden ${isEliminated ? "grayscale brightness-50" : ""}`}>
                 <CharacterImage
                   url={player.image}
@@ -89,11 +97,10 @@ export default function GWCharacterGrid({
                 />
               </div>
 
-              {/* Country strip — small section at the bottom */}
-              <div className={`flex items-center gap-1.5 px-2 py-1.5 border-t border-cricket-gold/10 bg-cricket-dark/80 ${isEliminated ? "opacity-40" : ""}`}>
-                <span className="text-sm leading-none">{player.flag}</span>
-                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wide text-cricket-cream/85 truncate">
-                  {player.country}
+              {/* Player name — bottom of card */}
+              <div className={`px-1.5 py-1 border-t border-cricket-gold/10 bg-cricket-dark/80 ${isEliminated ? "opacity-40" : ""}`}>
+                <span className="block text-[8px] sm:text-[10px] font-bold text-cricket-cream/90 truncate">
+                  {player.name}
                 </span>
               </div>
 

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { Shield, Star } from "lucide-react";
 import { CricketPlayer } from "../../types";
-import { getRarityConfig, getRoleBadge } from "../../utils/cricketStats";
+import { getRarityConfig, getRoleBadge, getCountryCode } from "../../utils/cricketStats";
 import CharacterImage from "../../components/common/CharacterImage";
 
 interface GWSecretCardProps {
@@ -31,9 +31,12 @@ export default function GWSecretCard({ character }: GWSecretCardProps) {
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         className="rounded-xl border-2 border-cricket-gold/50 bg-cricket-dark/70 cricket-glass overflow-hidden"
       >
-        <div className="px-3 py-1.5 bg-cricket-gold/10 border-b border-cricket-gold/20 flex items-center gap-1.5">
-          <Shield className="w-3 h-3 text-cricket-gold" />
-          <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-cricket-gold">
+<div className="px-3 py-1.5 bg-cricket-gold/10 border-b border-cricket-gold/20 flex items-center justify-between">
+          <span className="text-[11px] font-black tracking-[0.2em] text-cricket-gold">
+            {getCountryCode(character.country)}
+          </span>
+          <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-cricket-gold flex items-center gap-1.5">
+            <Shield className="w-3 h-3" />
             Your Secret Player
           </span>
         </div>

@@ -172,22 +172,23 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
       }
     });
 
-    channel.bind("client-gw-game-started", ({ roomId: roomIdentifier, p1Name, p2Name, p1GridIds, p2GridIds, p1SecretId, p2SecretId }: any) => {
+    channel.bind("client-gw-game-started", ({ roomId: roomIdentifier, p1Name, p2Name, gridIds, p1SecretId, p2SecretId }: any) => {
       console.log("client-gw-game-started received:", { roomIdentifier, p1Name, p2Name });
       setRoomId(roomIdentifier);
       roomIdRef.current = roomIdentifier;
 
       const idMap = new Map(ALL_PLAYERS.map(c => [c.id, c]));
-      const resolvedP1Grid = (p1GridIds as string[]).map(id => idMap.get(id)).filter(Boolean) as CricketPlayer[];
-      const resolvedP2Grid = (p2GridIds as string[]).map(id => idMap.get(id)).filter(Boolean) as CricketPlayer[];
+      const resolvedGrid = (gridIds as string[]).map(id => idMap.get(id)).filter(Boolean) as CricketPlayer[];
       const resolvedP1Secret = idMap.get(p1SecretId) || null;
       const resolvedP2Secret = idMap.get(p2SecretId) || null;
 
       const myCurrentSide = mySideRef.current;
       setMyName(myCurrentSide === "p1" ? p1Name : p2Name);
       setOpponentName(myCurrentSide === "p1" ? p2Name : p1Name);
-      setGrid(myCurrentSide === "p1" ? resolvedP1Grid : resolvedP2Grid);
-      setOpponentGrid(myCurrentSide === "p1" ? resolvedP2Grid : resolvedP1Grid);
+      // Both players share the same tracking board, so each player's
+      // target (the opponent's secret) is always on the board to guess.
+      setGrid(resolvedGrid);
+      setOpponentGrid(resolvedGrid);
       setP1Secret(resolvedP1Secret);
       setP2Secret(resolvedP2Secret);
       setMySecret(myCurrentSide === "p1" ? resolvedP1Secret : resolvedP2Secret);
@@ -258,18 +259,21 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
     const poolFor = (countries: string[]) =>
       countries.length > 0 ? ALL_PLAYERS.filter(p => countries.includes(p.country)) : [...ALL_PLAYERS];
 
-    const p1Grid = [...poolFor(hostCountries)].sort(() => Math.random() - 0.5).slice(0, 24);
-    const p2Grid = [...poolFor(hostCountries)].sort(() => Math.random() - 0.5).slice(0, 24);
+    // One shared board for both players — both secrets come from it, so
+    // whoever is guessing always has their target on the board.
+    const grid = [...poolFor(hostCountries)].sort(() => Math.random() - 0.5).slice(0, 24);
 
-    const p1Secret = p1Grid[Math.floor(Math.random() * p1Grid.length)];
-    const p2Secret = p2Grid[Math.floor(Math.random() * p2Grid.length)];
+    const p1Secret = grid[Math.floor(Math.random() * grid.length)];
+    let p2Secret = grid[Math.floor(Math.random() * grid.length)];
+    if (p2Secret.id === p1Secret.id) {
+      p2Secret = grid[(grid.indexOf(p2Secret) + 1) % grid.length];
+    }
 
     const payload = {
       roomId: rid,
       p1Name,
       p2Name,
-      p1GridIds: p1Grid.map(c => c.id),
-      p2GridIds: p2Grid.map(c => c.id),
+      gridIds: grid.map(c => c.id),
       p1SecretId: p1Secret.id,
       p2SecretId: p2Secret.id,
     };
@@ -279,8 +283,8 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
 
       setMyName(p1Name);
       setOpponentName(p2Name);
-      setGrid(p1Grid);
-      setOpponentGrid(p2Grid);
+      setGrid(grid);
+      setOpponentGrid(grid);
       setP1Secret(p1Secret);
       setP2Secret(p2Secret);
       setMySecret(p1Secret);
@@ -697,9 +701,9 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
       <AnimatePresence>
         {showGuessModal && (
           <GWGuessModal
-            characters={opponentGrid}
-            candidateLabel={opponentName && opponentGrid.length > 0
-              ? `Possible players for ${opponentName}'s secret (${Array.from(new Set(opponentGrid.map(p => p.country))).join(", ")})`
+            characters={grid}
+            candidateLabel={grid.length > 0
+              ? `Possible players for ${opponentName}'s secret (${Array.from(new Set(grid.map(p => p.country))).join(", ")})`
               : undefined}
             eliminatedIds={eliminatedIds}
             onGuess={handleGuess}

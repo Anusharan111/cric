@@ -383,7 +383,7 @@
       "name": "Asghar Afghan",
       "country": "Afghanistan",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Asghar_Afghan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -483,7 +483,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikipedia exact player page",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -491,7 +491,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm offbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Asghar Afghan"
     },
     {
       "player_id": "afghanistan_azmatullah-omarzai",
@@ -1320,8 +1321,8 @@
       "player_id": "afghanistan_hamid-hassan",
       "name": "Hamid Hassan",
       "country": "Afghanistan",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Hamid_Hassan",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Hamid_Hassan_in_May_2019.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -1421,15 +1422,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Hamid_Hassan",
       "born": null,
       "birth_place": null,
       "role": "Bowler",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Hamid Hassan",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Hamid_Hassan"
     },
     {
       "player_id": "afghanistan_hashmatullah-shahidi",
@@ -1668,8 +1671,8 @@
       "player_id": "afghanistan_ibrahim-zadran",
       "name": "Ibrahim Zadran",
       "country": "Afghanistan",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Ibrahim_Zadran",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Ibrahim_Zadran.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -1768,15 +1771,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Ibrahim_Zadran",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Ibrahim Zadran",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Ibrahim_Zadran"
     },
     {
       "player_id": "afghanistan_ikram-alikhil",
@@ -2251,7 +2256,7 @@
       "name": "Mohammad Shahzad",
       "country": "Afghanistan",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/xFFfufWhRuNoEDll.png",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -2350,7 +2355,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -2358,7 +2363,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": null,
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "afghanistan_mujeeb-ur-rahman",
@@ -3064,8 +3070,8 @@
       "player_id": "afghanistan_nawroz-mangal",
       "name": "Nawroz Mangal",
       "country": "Afghanistan",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Nawroz_Mangal",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Mangal_batting.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -3165,15 +3171,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Nawroz_Mangal",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm offbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Nawroz Mangal",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Nawroz_Mangal"
     },
     {
       "player_id": "afghanistan_noor-ahmad",
@@ -3298,7 +3306,7 @@
       "name": "Qais Ahmad",
       "country": "Afghanistan",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Dina_Al_Ahmad_-um_qais_-_Jordan.jpg/3840px-Dina_Al_Ahmad_-um_qais_-_Jordan.jpg?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=thumbnail",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -3398,7 +3406,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikimedia Commons REST exact-name search",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -3406,7 +3414,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm legbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "File:Dina Al Ahmad -um qais - Jordan.jpg"
     },
     {
       "player_id": "afghanistan_rahmanullah-gurbaz",
@@ -4112,7 +4121,7 @@
       "name": "Usman Ghani",
       "country": "Afghanistan",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/View_of_Makli_by_Usman_Ghani_%28cropped%29.jpg/3840px-View_of_Makli_by_Usman_Ghani_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=thumbnail",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -4212,7 +4221,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikimedia Commons REST exact-name search",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -4220,7 +4229,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm offbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "File:View of Makli by Usman Ghani (cropped).jpg"
     },
     {
       "player_id": "afghanistan_yamin-ahmadzai",
@@ -9352,7 +9362,7 @@
       "name": "Abdur Razzak",
       "country": "Bangladesh",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Abdur_Razzak%2C_Ganabhaban_Dhaka_2016-06-28_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -9452,7 +9462,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikimedia Commons REST exact-name search",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -9460,7 +9470,8 @@
       "batting_style": "Left Handed Bat",
       "bowling_style": "Slow left-arm orthodox",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "File:Abdur Razzak, Ganabhaban Dhaka 2016-06-28 (cropped).jpg"
     },
     {
       "player_id": "bangladesh_afif-hossain",
@@ -9586,7 +9597,7 @@
       "name": "Aftab Ahmed",
       "country": "Bangladesh",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Raja_Aftab_Ahmed_Khan.jpg?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -9685,7 +9696,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikimedia Commons REST exact-name search",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -9693,7 +9704,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "File:Raja Aftab Ahmed Khan.jpg"
     },
     {
       "player_id": "bangladesh_alok-kapali",
@@ -10049,8 +10061,8 @@
       "player_id": "bangladesh_habibul-bashar",
       "name": "Habibul Bashar",
       "country": "Bangladesh",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Habibul_Bashar",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Cake_Cutting_At_Bangladesh_Cricket_Test_Anniversary_Event_2025-06-26_%28PID-0001207%29_%28cropped_-_Bashar%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -10150,15 +10162,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Habibul_Bashar",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm offbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Habibul Bashar",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Habibul_Bashar"
     },
     {
       "player_id": "bangladesh_hasan-mahmud",
@@ -10517,7 +10531,7 @@
       "name": "Khaled Mashud",
       "country": "Bangladesh",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/63/Khaled_Mashud_Pilot.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -10616,7 +10630,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikipedia cricket search v3",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -10624,7 +10638,9 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": null,
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Khaled Mashud",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Khaled_Mashud"
     },
     {
       "player_id": "bangladesh_litton-das",
@@ -11101,8 +11117,8 @@
       "player_id": "bangladesh_mashrafe-mortaza",
       "name": "Mashrafe Mortaza",
       "country": "Bangladesh",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Mashrafe_Mortaza",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/20/Mashrafe_conference_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -11202,15 +11218,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Mashrafe_Mortaza",
       "born": null,
       "birth_place": null,
       "role": "Bowling Allrounder",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast-medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Mashrafe Mortaza",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Mashrafe_Mortaza"
     },
     {
       "player_id": "bangladesh_mehidy-hasan-miraz",
@@ -11334,8 +11352,8 @@
       "player_id": "bangladesh_mohammad-ashraful",
       "name": "Mohammad Ashraful",
       "country": "Bangladesh",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Mohammad_Ashraful",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/%E0%A6%AE%E0%A7%8B%E0%A6%B9%E0%A6%BE%E0%A6%AE%E0%A7%8D%E0%A6%AE%E0%A6%A6_%E0%A6%86%E0%A6%B6%E0%A6%B0%E0%A6%BE%E0%A6%AB%E0%A7%81%E0%A6%B2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -11435,15 +11453,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Mohammad_Ashraful",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm offbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Mohammad Ashraful",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Mohammad_Ashraful"
     },
     {
       "player_id": "bangladesh_mominul-haque",
@@ -11916,7 +11936,7 @@
       "name": "Nafees Iqbal",
       "country": "Bangladesh",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Nafees_Iqbal_2005.jpg?utm_source=commons.wikimedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -12016,7 +12036,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikimedia Commons REST exact-name search",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -12024,7 +12044,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm offbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "File:Nafees Iqbal 2005.jpg"
     },
     {
       "player_id": "bangladesh_nahid-rana",
@@ -13439,8 +13460,8 @@
       "player_id": "bangladesh_tamim-iqbal",
       "name": "Tamim Iqbal",
       "country": "Bangladesh",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Tamim_Iqbal",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Tamim_Iqbal_Khan.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -13539,15 +13560,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Tamim_Iqbal",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Left Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Tamim Iqbal",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Tamim_Iqbal"
     },
     {
       "player_id": "bangladesh_tanzid-hasan-tamim",
@@ -17633,8 +17656,8 @@
       "player_id": "canada_saad-bin-zafar",
       "name": "Saad Bin Zafar",
       "country": "Canada",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Saad_Bin_Zafar",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/SaadBinZafarDisplay.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -17734,15 +17757,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Saad_Bin_Zafar",
       "born": null,
       "birth_place": null,
       "role": "Bowling Allrounder",
       "batting_style": "Left Handed Bat",
       "bowling_style": "Slow left-arm orthodox",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Saad Bin Zafar",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Saad_Bin_Zafar"
     },
     {
       "player_id": "canada_shreyas-movva",
@@ -28727,7 +28752,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast-medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "ireland_cade-carmichael",
@@ -29086,8 +29112,8 @@
       "player_id": "ireland_ed-joyce",
       "name": "Ed Joyce",
       "country": "Ireland",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Ed_Joyce",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Ed_Joyce_2007_cropped.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -29186,15 +29212,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Ed_Joyce",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Left Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Ed Joyce",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Ed_Joyce"
     },
     {
       "player_id": "ireland_fionn-hand",
@@ -34437,7 +34465,7 @@
       "name": "Jitendra Mukhiya",
       "country": "Nepal",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Jitendra_mukhiya_NP.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -34476,7 +34504,7 @@
       "clues": [
         "Known Nepal international; detailed fields not reliably available in the base source and therefore left null."
       ],
-      "image_source": null,
+      "image_source": "Wikipedia verified cricketer page",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -34484,7 +34512,9 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast-medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Jitendra Mukhiya",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Jitendra_Mukhiya"
     },
     {
       "player_id": "nepal_kamal-singh-airee",
@@ -37831,8 +37861,8 @@
       "player_id": "netherlands_colin-ackermann",
       "name": "Colin Ackermann",
       "country": "Netherlands",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Colin_Ackermann",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Colin_Ackermann.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -37932,15 +37962,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Colin_Ackermann",
       "born": null,
       "birth_place": null,
       "role": "Batting Allrounder",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm offbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Colin Ackermann",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Colin_Ackermann"
     },
     {
       "player_id": "netherlands_daan-van-bunge",
@@ -39821,8 +39853,8 @@
       "player_id": "netherlands_ryan-ten-doeschate",
       "name": "Ryan ten Doeschate",
       "country": "Netherlands",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Ryan_ten_Doeschate",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Ryan_ten_doeschate.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -39922,15 +39954,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Ryan_ten_Doeschate",
       "born": null,
       "birth_place": null,
       "role": "Batting Allrounder",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium-fast",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Ryan ten Doeschate",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Ryan_ten_Doeschate"
     },
     {
       "player_id": "netherlands_scott-edwards",
@@ -44038,8 +44072,8 @@
       "player_id": "new-zealand_martin-crowe",
       "name": "Martin Crowe",
       "country": "New Zealand",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Martin_Crowe",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Martin_Crowe_2011.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -44138,15 +44172,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Martin_Crowe",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Martin Crowe",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Martin_Crowe"
     },
     {
       "player_id": "new-zealand_martin-guptill",
@@ -45326,7 +45362,7 @@
       "name": "Shane Bond",
       "country": "New Zealand",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/MZkQtHuYmUpQrSSH.png",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -45426,7 +45462,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -45434,7 +45470,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "new-zealand_stephen-fleming",
@@ -52705,8 +52742,8 @@
       "player_id": "scotland_dougie-brown",
       "name": "Dougie Brown",
       "country": "Scotland",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Dougie_Brown",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Dougie_Brown.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -52806,15 +52843,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Dougie_Brown",
       "born": null,
       "birth_place": null,
       "role": "Bowling Allrounder",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium-fast",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Dougie Brown",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Dougie_Brown"
     },
     {
       "player_id": "scotland_dylan-budge",
@@ -55854,8 +55893,8 @@
       "player_id": "south-africa_ab-de-villiers",
       "name": "AB de Villiers",
       "country": "South Africa",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/AB_de_Villiers",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/AB_de_Villiers_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -55954,15 +55993,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/AB_de_Villiers",
       "born": null,
       "birth_place": null,
       "role": "WK-Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "AB de Villiers",
+      "image_profile_url": "https://en.wikipedia.org/wiki/AB_de_Villiers"
     },
     {
       "player_id": "south-africa_aiden-markram",
@@ -56087,8 +56128,8 @@
       "player_id": "south-africa_allan-donald",
       "name": "Allan Donald",
       "country": "South Africa",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Allan_Donald",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Allan_Donald.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -56188,15 +56229,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Allan_Donald",
       "born": null,
       "birth_place": null,
       "role": "Bowler",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Allan Donald",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Allan_Donald"
     },
     {
       "player_id": "south-africa_andile-phehlukwayo",
@@ -56675,8 +56718,8 @@
       "player_id": "south-africa_dale-steyn",
       "name": "Dale Steyn",
       "country": "South Africa",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Dale_Steyn",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Dale_Steyn_YM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -56776,15 +56819,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Dale_Steyn",
       "born": null,
       "birth_place": null,
       "role": "Bowler",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Dale Steyn",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Dale_Steyn"
     },
     {
       "player_id": "south-africa_david-miller",
@@ -57144,7 +57189,7 @@
       "name": "Gary Kirsten",
       "country": "South Africa",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/LwuotNYlYaJiJIPz.png",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -57243,7 +57288,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -57251,7 +57296,8 @@
       "batting_style": "Left Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "south-africa_gerald-coetzee",
@@ -57376,7 +57422,7 @@
       "name": "Graeme Smith",
       "country": "South Africa",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/yFFCJxQKaekIBoBg.png",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -57475,7 +57521,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -57483,14 +57529,15 @@
       "batting_style": "Left Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "south-africa_hashim-amla",
       "name": "Hashim Amla",
       "country": "South Africa",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Hashim_Amla",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Hashim_Amla.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -57589,15 +57636,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Hashim_Amla",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Hashim Amla",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Hashim_Amla"
     },
     {
       "player_id": "south-africa_heinrich-klaasen",
@@ -57722,8 +57771,8 @@
       "player_id": "south-africa_herschelle-gibbs",
       "name": "Herschelle Gibbs",
       "country": "South Africa",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Herschelle_Gibbs",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Herschelle_Gibbs_2025_interview_%28cropped%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -57822,22 +57871,24 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Herschelle_Gibbs",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Herschelle Gibbs",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Herschelle_Gibbs"
     },
     {
       "player_id": "south-africa_jacques-kallis",
       "name": "Jacques Kallis",
       "country": "South Africa",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Jacques_Kallis",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Jacques_Kallis_6.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -57937,15 +57988,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Jacques_Kallis",
       "born": null,
       "birth_place": null,
       "role": "Batting Allrounder",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast-medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Jacques Kallis",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Jacques_Kallis"
     },
     {
       "player_id": "south-africa_kagiso-rabada",
@@ -58889,8 +58942,8 @@
       "player_id": "south-africa_mark-boucher",
       "name": "Mark Boucher",
       "country": "South Africa",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Mark_Boucher",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Markboucher.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -58989,15 +59042,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Mark_Boucher",
       "born": null,
       "birth_place": null,
       "role": "WK-Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": null,
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Mark Boucher",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Mark_Boucher"
     },
     {
       "player_id": "south-africa_matthew-breetzke",
@@ -59827,8 +59882,8 @@
       "player_id": "south-africa_shaun-pollock",
       "name": "Shaun Pollock",
       "country": "South Africa",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Shaun_Pollock",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Shaun_Pollock.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -59928,15 +59983,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Shaun_Pollock",
       "born": null,
       "birth_place": null,
       "role": "Bowling Allrounder",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast-medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Shaun Pollock",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Shaun_Pollock"
     },
     {
       "player_id": "south-africa_tabraiz-shamsi",
@@ -60883,7 +60940,7 @@
       "name": "Arjuna Ranatunga",
       "country": "Sri Lanka",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/PHEeGctEkOCgnklx.jpg",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -60982,7 +61039,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -60990,7 +61047,8 @@
       "batting_style": "Left Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "sri-lanka_asitha-fernando",
@@ -61232,7 +61290,7 @@
       "name": "Chaminda Vaas",
       "country": "Sri Lanka",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/LmninhauNpskKxlw.jpg",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -61332,7 +61390,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -61340,7 +61398,8 @@
       "batting_style": "Left Handed Bat",
       "bowling_style": "Left-arm fast-medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "sri-lanka_charith-asalanka",
@@ -62409,8 +62468,8 @@
       "player_id": "sri-lanka_kumar-sangakkara",
       "name": "Kumar Sangakkara",
       "country": "Sri Lanka",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Kumar_Sangakkara",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Kumar_Sangakkara_bat_in_hand.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -62509,15 +62568,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Kumar_Sangakkara",
       "born": null,
       "birth_place": null,
       "role": "WK-Batsman",
       "batting_style": "Left Handed Bat",
       "bowling_style": null,
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Kumar Sangakkara",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Kumar_Sangakkara"
     },
     {
       "player_id": "sri-lanka_kusal-mendis",
@@ -62875,8 +62936,8 @@
       "player_id": "sri-lanka_lasith-malinga",
       "name": "Lasith Malinga",
       "country": "Sri Lanka",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Lasith_Malinga",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Lasith_Malinga_tossing_a_cricket_ball_at_practice.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -62976,15 +63037,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Lasith_Malinga",
       "born": null,
       "birth_place": null,
       "role": "Bowler",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Lasith Malinga",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Lasith_Malinga"
     },
     {
       "player_id": "sri-lanka_maheesh-theekshana",
@@ -63109,7 +63172,7 @@
       "name": "Mahela Jayawardene",
       "country": "Sri Lanka",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/ZPXDJyiGxyEemajN.png",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -63208,7 +63271,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -63216,7 +63279,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "sri-lanka_marvan-atapattu",
@@ -63571,7 +63635,7 @@
       "name": "Muttiah Muralitharan",
       "country": "Sri Lanka",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/ESxAoLynpYcrcgyb.png",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -63671,7 +63735,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -63679,7 +63743,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm offbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "sri-lanka_nishan-madushka",
@@ -64383,7 +64448,7 @@
       "name": "Rangana Herath",
       "country": "Sri Lanka",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/fGovdyPZLHtyarCB.png",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -64483,7 +64548,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -64491,7 +64556,8 @@
       "batting_style": "Left Handed Bat",
       "bowling_style": "Slow left-arm orthodox",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "sri-lanka_roshan-mahanama",
@@ -64727,8 +64793,8 @@
       "player_id": "sri-lanka_sanath-jayasuriya",
       "name": "Sanath Jayasuriya",
       "country": "Sri Lanka",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Sanath_Jayasuriya",
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/xNmjyGTMhclXChIJ.jpg",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -64828,15 +64894,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Google Images result, selected player-profile portrait",
+      "url": "https://en.wikipedia.org/wiki/Sanath_Jayasuriya",
       "born": null,
       "birth_place": null,
       "role": "Batting Allrounder",
       "batting_style": "Left Handed Bat",
       "bowling_style": "Left-arm orthodox",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null,
+      "image_profile_url": "https://en.wikipedia.org/wiki/Sanath_Jayasuriya"
     },
     {
       "player_id": "sri-lanka_tillakaratne-dilshan",
@@ -70683,8 +70751,8 @@
       "player_id": "west-indies_brian-lara",
       "name": "Brian Lara",
       "country": "West Indies",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Brian_Lara",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Brian_Lara_at_2012_Mumbai_Marathon_pre_bash.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -70784,22 +70852,24 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Brian_Lara",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Left Handed Bat",
       "bowling_style": "Right-arm legbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Brian Lara",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Brian_Lara"
     },
     {
       "player_id": "west-indies_chris-gayle",
       "name": "Chris Gayle",
       "country": "West Indies",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Chris_Gayle",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Two_views_of_Chris_Gayle_%2848020785077%29.jpg/3840px-Two_views_of_Chris_Gayle_%2848020785077%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -70899,22 +70969,24 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Chris_Gayle",
       "born": null,
       "birth_place": null,
       "role": "Batting Allrounder",
       "batting_style": "Left Handed Bat",
       "bowling_style": "Right-arm offbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Chris Gayle",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Chris_Gayle"
     },
     {
       "player_id": "west-indies_courtney-walsh",
       "name": "Courtney Walsh",
       "country": "West Indies",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Courtney_Walsh",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Courtney_Walsh.jpg/3840px-Courtney_Walsh.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -71014,22 +71086,24 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Courtney_Walsh",
       "born": null,
       "birth_place": null,
       "role": "Bowler",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Courtney Walsh",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Courtney_Walsh"
     },
     {
       "player_id": "west-indies_curtly-ambrose",
       "name": "Curtly Ambrose",
       "country": "West Indies",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Curtly_Ambrose",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Curtly_ambrose2_crop.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -71129,22 +71203,24 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Curtly_Ambrose",
       "born": null,
       "birth_place": null,
       "role": "Bowler",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Curtly Ambrose",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Curtly_Ambrose"
     },
     {
       "player_id": "west-indies_desmond-haynes",
       "name": "Desmond Haynes",
       "country": "West Indies",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Desmond_Haynes",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Desmond_Haynes_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -71243,15 +71319,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Desmond_Haynes",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Desmond Haynes",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Desmond_Haynes"
     },
     {
       "player_id": "west-indies_evin-lewis",
@@ -74182,8 +74260,8 @@
       "player_id": "west-indies_shivnarine-chanderpaul",
       "name": "Shivnarine Chanderpaul",
       "country": "West Indies",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Shivnarine_Chanderpaul",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Shivnarine_Chanderpaul.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -74283,15 +74361,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Shivnarine_Chanderpaul",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Left Handed Bat",
       "bowling_style": "Right-arm legbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Shivnarine Chanderpaul",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Shivnarine_Chanderpaul"
     },
     {
       "player_id": "west-indies_terrance-hinds",
@@ -74414,8 +74494,8 @@
       "player_id": "west-indies_viv-richards",
       "name": "Viv Richards",
       "country": "West Indies",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Viv_Richards",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Vivian_richards_crop.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -74514,22 +74594,24 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Viv_Richards",
       "born": null,
       "birth_place": null,
       "role": "Batsman",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Viv Richards",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Viv_Richards"
     },
     {
       "player_id": "zimbabwe_alistair-campbell",
       "name": "Alistair Campbell",
       "country": "Zimbabwe",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/FlHhxpjpUCEKyAXU.jpg",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -74628,7 +74710,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -74636,14 +74718,15 @@
       "batting_style": "Left Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "zimbabwe_andy-flower",
       "name": "Andy Flower",
       "country": "Zimbabwe",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/IuDKBYguBgZmrsJo.jpg",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -74742,7 +74825,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Google Images result, selected player-profile portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -74750,7 +74833,8 @@
       "batting_style": "Left Handed Bat",
       "bowling_style": null,
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": null
     },
     {
       "player_id": "zimbabwe_blessing-muzarabani",
@@ -75674,7 +75758,7 @@
       "name": "Duncan Fletcher",
       "country": "Zimbabwe",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Duncan_Fletcher.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -75773,7 +75857,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikimedia Commons name-matched portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -75781,7 +75865,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "File:Duncan Fletcher.jpg"
     },
     {
       "player_id": "zimbabwe_eddo-brandes",
@@ -75957,7 +76042,7 @@
       "name": "Gary Ballance",
       "country": "Zimbabwe",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/25_Gary_Ballance.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -76056,7 +76141,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikipedia exact player page",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -76064,7 +76149,8 @@
       "batting_style": "Left Handed Bat",
       "bowling_style": "Right-arm medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Gary Ballance"
     },
     {
       "player_id": "zimbabwe_graeme-cremer",
@@ -76752,7 +76838,7 @@
       "name": "Kyle Jarvis",
       "country": "Zimbabwe",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Kyle_Jarvis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=original",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -76852,7 +76938,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikipedia exact player page",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -76860,7 +76946,8 @@
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm fast-medium",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Kyle Jarvis"
     },
     {
       "player_id": "zimbabwe_luke-jongwe",
@@ -77899,7 +77986,7 @@
       "name": "Sean Williams",
       "country": "Zimbabwe",
       "profile_url": null,
-      "image_url": null,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/SeanWilliams.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -77999,7 +78086,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
+      "image_source": "Wikimedia Commons name-matched portrait",
       "url": null,
       "born": null,
       "birth_place": null,
@@ -78007,14 +78094,15 @@
       "batting_style": "Left Handed Bat",
       "bowling_style": "Slow left-arm orthodox",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "File:SeanWilliams.jpg"
     },
     {
       "player_id": "zimbabwe_sikandar-raza",
       "name": "Sikandar Raza",
       "country": "Zimbabwe",
-      "profile_url": null,
-      "image_url": null,
+      "profile_url": "https://en.wikipedia.org/wiki/Sikandar_Raza",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Sikandar_Raza_2022.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -78114,15 +78202,17 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": null,
-      "url": null,
+      "image_source": "Wikipedia REST player summary",
+      "url": "https://en.wikipedia.org/wiki/Sikandar_Raza",
       "born": null,
       "birth_place": null,
       "role": "Batting Allrounder",
       "batting_style": "Right Handed Bat",
       "bowling_style": "Right-arm offbreak",
       "teams": null,
-      "scraped_ok": false
+      "scraped_ok": false,
+      "image_file": "Sikandar Raza",
+      "image_profile_url": "https://en.wikipedia.org/wiki/Sikandar_Raza"
     },
     {
       "player_id": "zimbabwe_solomon-mire",

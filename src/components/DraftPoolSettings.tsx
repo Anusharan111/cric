@@ -330,14 +330,19 @@ export const DraftPoolSettings: React.FC<DraftPoolSettingsProps> = ({
   const allCountries = getCountries();
   const allPlayers = getAllPlayers();
 
+  // Global pool filter: [] means every nation is enabled. A full list
+  // (every nation present) means none are enabled — the "deselect all" state.
+  // Clicking a country from the "none" state enables just that one country.
+  const poolNone = globalCountries.length === allCountries.length;
+
   const globalEnabled = useMemo(
-    () => (globalCountries.length === 0 ? allCountries : globalCountries),
-    [globalCountries, allCountries]
+    () => (globalCountries.length === 0 ? allCountries : poolNone ? [] : globalCountries),
+    [globalCountries, allCountries, poolNone]
   );
 
   const globalPlayers = useMemo(
-    () => (globalCountries.length === 0 ? allPlayers : allPlayers.filter(p => globalCountries.includes(p.country))),
-    [globalCountries, allPlayers]
+    () => (globalCountries.length === 0 ? allPlayers : poolNone ? [] : allPlayers.filter(p => globalCountries.includes(p.country))),
+    [globalCountries, allPlayers, poolNone]
   );
 
   // Keep the invariant: a player can never hold a nation that is not part
@@ -375,9 +380,11 @@ export const DraftPoolSettings: React.FC<DraftPoolSettingsProps> = ({
     const isAll = globalCountries.length === 0;
     const next = isAll
       ? allCountries.filter(x => x !== country)
-      : (globalCountries.includes(country)
-          ? globalCountries.filter(x => x !== country)
-          : [...globalCountries, country]);
+      : poolNone
+        ? [country]
+        : (globalCountries.includes(country)
+            ? globalCountries.filter(x => x !== country)
+            : [...globalCountries, country]);
     const normalized = next.length === allCountries.length ? [] : next;
     setGlobalCountries(normalized);
   };
@@ -466,7 +473,9 @@ export const DraftPoolSettings: React.FC<DraftPoolSettingsProps> = ({
                     <p className="text-[8px] font-mono text-cricket-cream/40 uppercase tracking-widest truncate">
                       {globalCountries.length === 0
                         ? `All ${allCountries.length} nations in pool`
-                        : `${globalCountries.length} nation${globalCountries.length > 1 ? "s" : ""} in pool`}
+                        : poolNone
+                          ? "No nations in pool"
+                          : `${globalCountries.length} nation${globalCountries.length > 1 ? "s" : ""} in pool`}
                     </p>
                   </div>
                 </div>
@@ -490,10 +499,12 @@ export const DraftPoolSettings: React.FC<DraftPoolSettingsProps> = ({
                     className="overflow-hidden"
                   >
                     <div className="space-y-2.5 px-3.5 pb-3.5 pt-3 border-t border-white/5">
-                      <p className={`text-[9px] font-mono uppercase tracking-widest ${globalCountries.length > 0 ? "text-cricket-gold/80" : "text-cricket-cream/50"}`}>
+                      <p className={`text-[9px] font-mono uppercase tracking-widest ${globalCountries.length > 0 ? (poolNone ? "text-cricket-red/80" : "text-cricket-gold/80") : "text-cricket-cream/50"}`}>
                         {globalCountries.length === 0
-                          ? "🌍 Both players draw randomly from all 16 nations"
-                          : `Both players draw randomly from the ${globalCountries.length} nations below`}
+                          ? `🌍 Both players draw randomly from all ${allCountries.length} nations`
+                          : poolNone
+                            ? "⚠️ No nations in pool — both players are locked out"
+                            : `Both players draw randomly from the ${globalCountries.length} nations below`}
                       </p>
 
                       {/* Search input */}
@@ -523,7 +534,16 @@ export const DraftPoolSettings: React.FC<DraftPoolSettingsProps> = ({
                             {globalCountries.length === 0 && <Check className="w-3 h-3 inline mr-1" />}
                             All
                           </button>
-                          <span className={`text-[9px] font-mono ${globalCountries.length > 0 ? "text-cricket-gold" : "text-cricket-cream/50"}`}>
+                          {!poolNone && (
+                            <button
+                              type="button"
+                              onClick={() => setGlobalCountries(allCountries)}
+                              className="px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 text-cricket-cream/60 hover:bg-white/10 hover:text-cricket-red hover:border-cricket-red/40 text-[9px] font-black uppercase tracking-wider transition-all cursor-pointer"
+                            >
+                              Deselect All
+                            </button>
+                          )}
+                          <span className={`text-[9px] font-mono ${globalEnabled.length > 0 ? "text-cricket-gold" : "text-cricket-cream/50"}`}>
                             {globalEnabled.length} / {allCountries.length} nations
                           </span>
                         </div>
@@ -679,9 +699,14 @@ export const DraftPoolSummary: React.FC<DraftPoolSummaryProps> = ({
   const allCountries = getCountries();
   const allPlayers = getAllPlayers();
 
+  // A full list (every nation present) means none are enabled — the "deselect all" state.
+  const poolNone = globalCountries.length === allCountries.length;
+
   const globalPlayers = globalCountries.length === 0
     ? allPlayers
-    : allPlayers.filter(p => globalCountries.includes(p.country));
+    : poolNone
+      ? []
+      : allPlayers.filter(p => globalCountries.includes(p.country));
 
   const eligibleP1 = p1AllowedCountries.length === 0
     ? globalPlayers.length
@@ -728,7 +753,7 @@ export const DraftPoolSummary: React.FC<DraftPoolSummaryProps> = ({
 
       <p className="text-[10px] font-mono text-cricket-cream/80">
         <span className="text-cricket-cream/50">Global Pool:</span>{" "}
-        <span className="text-cricket-gold font-bold">{globalCountries.length === 0 ? allCountries.length : globalCountries.length} nations</span>{" "}
+        <span className="text-cricket-gold font-bold">{globalCountries.length === 0 ? allCountries.length : poolNone ? 0 : globalCountries.length} nations</span>{" "}
         ·{" "}
         <span className="text-cricket-gold font-bold">{globalPlayers.length} players</span>
       </p>

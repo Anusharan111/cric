@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { CricketPlayer } from "../types";
 import { getAllPlayers, getCountries, getPlayersByCountry } from "../utils/cricketData";
-import { Play, LogOut, Eye, Trophy, Crown } from "lucide-react";
+import { API_BASE } from "../config";
+import Pusher from "pusher-js";
+import { Copy, Check, Users, Play, LogOut, Eye, EyeOff, Crown, AlertTriangle, StopCircle } from "lucide-react";
 import { sfx } from "../utils/audio";
 import CricketCharacterCard from "../components/common/CricketCharacterCard";
 
@@ -10,82 +12,322 @@ interface CricketPartyGamesProps {
   onExit: () => void;
 }
 
-type LocalPhase = "lobby" | "playing-gc" | "playing-imp";
+type GamePhase = "lobby" | "lobby-wait" | "playing-gc" | "playing-imp";
 
-const COUNTRIES = getCountries();
+interface PlayerInfo {
+  id: string;
+  name: string;
+}
+
 const ALL_PLAYERS = getAllPlayers();
+const ID_MAP = new Map(ALL_PLAYERS.map((p) => [p.id, p]));
+const COUNTRIES = getCountries();
 
 export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
-  const [phase, setPhase] = useState<LocalPhase>("lobby");
+  const [phase, setPhase] = useState<GamePhase>("lobby");
 
-  // ── Lobby state ──
-  const [p1Name, setP1Name] = useState("Player 1");
-  const [p2Name, setP2Name] = useState("Player 2");
+  // ── Room state ──
+  const [myName, setMyName] = useState("");
+  const [joinCode, setJoinCode] = useState("");
+  const [roomId, setRoomId] = useState<string | null>(null);
+  const [isHost, setIsHost] = useState(false);
+  const [players, setPlayers] = useState<PlayerInfo[]>([]);
+  const [lobbyError, setLobbyError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  // ── Setup options (host picks) ──
   const [selectedMode, setSelectedMode] = useState<"guess-character" | "guess-imposter">("guess-character");
   const [category, setCategory] = useState<"all" | "choose">("all");
   const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
   const [countrySearchQuery, setCountrySearchQuery] = useState("");
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
-  const [lobbyError, setLobbyError] = useState<string | null>(null);
 
-  // ── Game state (fully local, pass & play) ──
-  const [p1Char, setP1Char] = useState<CricketPlayer | null>(null);
-  const [p2Char, setP2Char] = useState<CricketPlayer | null>(null);
-  const [p1Revealed, setP1Revealed] = useState(false);
-  const [p2Revealed, setP2Revealed] = useState(false);
-  const [imposterSide, setImposterSide] = useState<"p1" | "p2">("p1");
-  const [votes, setVotes] = useState<Record<"p1" | "p2", "p1" | "p2" | null>>({ p1: null, p2: null });
-  const [impRevealed, setImpRevealed] = useState(false);
+  // ── Game state (synced via Pusher) ──
+  const [myCharacter, setMyCharacter] = useState<CricketPlayer | null>(null);
+  const [otherPlayersChars, setOtherPlayersChars] = useState<{ name: string; character: CricketPlayer; socketId: string }[]>([]);
+  const [myCardRevealed, setMyCardRevealed] = useState(false);
+  const [myCardPeeked, setMyCardPeeked] = useState(false);
 
-  const resolvePool = () => {
+  // Imposter
+  const [imposterVotes, setImposterVotes] = useState<Record<string, string>>({});
+  const [revealedImposter, setRevealedImposter] = useState<{ name: string; character: CricketPlayer } | null>(null);
+  const [civiliansCharacter, setCiviliansCharacter] = useState<CricketPlayer | null>(null);
+  const [accusedName, setAccusedName] = useState<string | null>(null);
+  const [civCharId, setCivCharId] = useState<string | null>(null);
+  const [impCharId, setImpCharId] = useState<string | null>(null);
+
+  const pusherRef = useRef<Pusher | null>(null);
+  const channelRef = useRef<any>(null);
+  const isHostRef = useRef(false);
+  const mySocketIdRef = useRef<string | null>(null);
+  const playersRef = useRef<PlayerInfo[]>([]);
+  const impSocketIdRef = useRef<string | null>(null);
+
+  useEffect(() => { isHostRef.current = isHost; }, [isHost]);
+  useEffect(() => { playersRef.current = players; }, [players]);
+
+  const ensurePusher = useCallback(async (name: string) => {
+    if (pusherRef.current) return pusherRef.current;
+    const res = await fetch(`${API_BASE}/api/pusher/config`);
+    const config = await res.json();
+    if (!config.key || !config.cluster) {
+      alert("Multiplayer is offline: credentials not configured on the server.");
+      return null;
+    }
+    const pusher = new Pusher(config.key, {
+      cluster: config.cluster,
+      authEndpoint: `${API_BASE}/api/pusher/auth`,
+      auth: { params: { username: name } },
+    });
+    pusherRef.current = pusher;
+    return pusher;
+  }, []);
+
+  const cleanup = useCallback(() => {
+    if (channelRef.current) {
+      channelRef.current.unbind_all();
+      pusherRef.current?.unsubscribe(channelRef.current.name);
+      channelRef.current = null;
+    }
+    pusherRef.current?.disconnect();
+    pusherRef.current = null;
+  }, []);
+
+  const handleExit = useCallback(() => {
+    cleanup();
+    onExit();
+  }, [cleanup, onExit]);
+
+  useEffect(() => () => cleanup(), [cleanup]);
+
+  const applyGameStart = (data: any, mySocketId: string) => {
+    const { mode, assignments, civCharId, impCharId } = data;
+    setMyCardRevealed(false);
+    setMyCardPeeked(false);
+
+    if (mode === "guess-character") {
+      const myAssignment = assignments.find((a: any) => a.socketId === mySocketId);
+      const myChar = myAssignment ? ID_MAP.get(myAssignment.charId) || null : null;
+      const others = assignments
+        .filter((a: any) => a.socketId !== mySocketId)
+        .map((a: any) => ({ name: a.playerName, character: ID_MAP.get(a.charId)!, socketId: a.socketId }))
+        .filter((o: any) => o.character);
+      setMyCharacter(myChar);
+      setOtherPlayersChars(others);
+      setPhase("playing-gc");
+    } else {
+      const myAssignment = assignments.find((a: any) => a.socketId === mySocketId);
+      const civChar = ID_MAP.get(civCharId) || null;
+      const impChar = ID_MAP.get(impCharId) || null;
+      const myChar = myAssignment?.isImposter ? impChar : civChar;
+
+      setMyCharacter(myChar);
+      setCivCharId(civCharId);
+      setImpCharId(impCharId);
+      setOtherPlayersChars(assignments
+        .filter((a: any) => a.socketId !== mySocketId)
+        .map((a: any) => ({ name: a.playerName, character: civChar!, socketId: a.socketId }))
+        .filter((o: any) => o.character));
+      setCiviliansCharacter(civChar);
+      setRevealedImposter(null);
+      setAccusedName(null);
+      setImposterVotes({});
+      setPhase("playing-imp");
+    }
+    sfx.playCorrect();
+  };
+
+  const subscribeToChannel = useCallback((pusher: Pusher, rid: string, side: "host" | "player", name: string) => {
+    const channelName = `presence-cparty-${rid.toUpperCase()}`;
+    const channel = pusher.subscribe(channelName);
+    channelRef.current = channel;
+
+    channel.bind("pusher:subscription_succeeded", (members: any) => {
+      mySocketIdRef.current = pusher.connection.socket_id;
+      const allMembers: PlayerInfo[] = [];
+      members.each((m: any) => {
+        allMembers.push({ id: m.id, name: m.info?.name || "Player" });
+      });
+      setPlayers(allMembers);
+      setRoomId(rid);
+      setPhase("lobby-wait");
+    });
+
+    channel.bind("pusher:member_added", (member: any) => {
+      sfx.playSelect();
+      setPlayers(prev => [...prev, { id: member.id, name: member.info?.name || "Player" }]);
+    });
+
+    channel.bind("pusher:member_removed", (member: any) => {
+      setPlayers(prev => prev.filter(p => p.id !== member.id));
+    });
+
+    // Game start — host applies locally too (Pusher doesn't echo client events to sender)
+    channel.bind("client-party-game-started", (data: any) => {
+      applyGameStart(data, pusher.connection.socket_id);
+    });
+
+    channel.bind("client-party-vote", ({ voterId, accusedName }: any) => {
+      setImposterVotes(prev => ({ ...prev, [voterId]: accusedName }));
+    });
+
+    channel.bind("client-party-reveal", ({ accusedSocketId, imposterSocketId, civCharId, impCharId }: any) => {
+      const imposterPlayer = playersRef.current.find(p => p.id === imposterSocketId);
+      const accused = playersRef.current.find(p => p.id === accusedSocketId);
+      const impChar = ID_MAP.get(impCharId) || null;
+      const civChar = ID_MAP.get(civCharId) || null;
+      if (imposterPlayer && impChar && civChar) {
+        setCiviliansCharacter(civChar);
+        setRevealedImposter({ name: imposterPlayer.name, character: impChar });
+        setAccusedName(accused ? accused.name : null);
+      }
+    });
+
+    // Everyone returns to the waiting room when the host ends the round
+    channel.bind("client-party-end-game", () => {
+      setPhase("lobby-wait");
+      setMyCharacter(null);
+      setOtherPlayersChars([]);
+      setImposterVotes({});
+      setRevealedImposter(null);
+      setCiviliansCharacter(null);
+      setAccusedName(null);
+      setCivCharId(null);
+      setImpCharId(null);
+      setMyCardRevealed(false);
+      setMyCardPeeked(false);
+    });
+
+    // A player receives this when another player reveals their card
+    channel.bind("client-party-reveal-member-card", ({ targetSocketId }: any) => {
+      if (targetSocketId === pusher.connection.socket_id) {
+        setMyCardRevealed(true);
+        sfx.playCorrect();
+      }
+    });
+  }, []);
+
+  const handleCreateRoom = async () => {
+    if (!myName.trim()) { setLobbyError("Please enter your name."); return; }
+    setLobbyError(null);
+    const rid = Math.random().toString(36).substring(2, 7).toUpperCase();
+    const pusher = await ensurePusher(myName.trim());
+    if (!pusher) return;
+    setIsHost(true);
+    isHostRef.current = true;
+    subscribeToChannel(pusher, rid, "host", myName.trim());
+  };
+
+  const handleJoinRoom = async () => {
+    if (!myName.trim()) { setLobbyError("Please enter your name."); return; }
+    if (!joinCode.trim()) { setLobbyError("Please enter a room code."); return; }
+    setLobbyError(null);
+    const pusher = await ensurePusher(myName.trim());
+    if (!pusher) return;
+    subscribeToChannel(pusher, joinCode.trim().toUpperCase(), "player", myName.trim());
+  };
+
+  const handleStartGame = async () => {
+    if (!channelRef.current || !roomId) return;
+    const currentPlayers = playersRef.current;
+    if (currentPlayers.length < 2) { setLobbyError("Need at least 2 players to start."); return; }
+
     let pool = [...ALL_PLAYERS];
     if (category === "choose" && selectedCountries.length > 0) {
       pool = pool.filter(c => selectedCountries.includes(c.country));
     }
-    return pool;
-  };
 
-  const handleStart = () => {
-    if (!p1Name.trim() || !p2Name.trim()) {
-      setLobbyError("Please enter both player names.");
-      return;
+    if (selectedMode === "guess-character") {
+      if (pool.length < currentPlayers.length) {
+        setLobbyError(`Not enough players in selected country pool (${pool.length} available) for all players (${currentPlayers.length} players).`);
+        return;
+      }
+    } else {
+      if (pool.length < 2) {
+        setLobbyError("Need at least 2 players in the selected country pool for Guess Imposter.");
+        return;
+      }
     }
-    const pool = resolvePool();
-    if (pool.length < 2) {
-      setLobbyError("Need at least 2 players in the selected pool.");
-      return;
-    }
+
     setLobbyError(null);
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    const [c1, c2] = shuffled;
-    setP1Char(c1);
-    setP2Char(c2);
-    setP1Revealed(false);
-    setP2Revealed(false);
-    setVotes({ p1: null, p2: null });
-    setImpRevealed(false);
-    if (selectedMode === "guess-imposter") {
-      setImposterSide(Math.random() < 0.5 ? "p1" : "p2");
-      setPhase("playing-imp");
+
+    if (selectedMode === "guess-character") {
+      const assignments = currentPlayers.map((p, i) => ({
+        socketId: p.id,
+        playerName: p.name,
+        charId: (shuffled[i] || shuffled[i % shuffled.length]).id,
+      }));
+      const payload = { mode: "guess-character", assignments };
+      channelRef.current.trigger("client-party-game-started", payload);
+      applyGameStart(payload, pusherRef.current!.connection.socket_id);
     } else {
-      setPhase("playing-gc");
+      const localCivCharId = shuffled[0].id;
+      const localImpCharId = shuffled[1].id;
+      const imposterIdx = Math.floor(Math.random() * currentPlayers.length);
+      impSocketIdRef.current = currentPlayers[imposterIdx].id;
+      const assignments = currentPlayers.map((p, i) => ({
+        socketId: p.id,
+        playerName: p.name,
+        isImposter: i === imposterIdx,
+      }));
+      const payload = { mode: "guess-imposter", assignments, civCharId: localCivCharId, impCharId: localImpCharId };
+      channelRef.current.trigger("client-party-game-started", payload);
+      applyGameStart(payload, pusherRef.current!.connection.socket_id);
     }
-    sfx.playSelect();
   };
 
-  const backToLobby = () => {
-    setPhase("lobby");
-    setP1Char(null);
-    setP2Char(null);
-    setP1Revealed(false);
-    setP2Revealed(false);
-    setVotes({ p1: null, p2: null });
-    setImpRevealed(false);
+  const handleVote = (accusedName: string) => {
+    if (!channelRef.current || !pusherRef.current) return;
+    const voterId = pusherRef.current.connection.socket_id;
+    channelRef.current.trigger("client-party-vote", { voterId, accusedName });
+    setImposterVotes(prev => ({ ...prev, [voterId]: accusedName }));
   };
 
-  const revealCard = (side: "p1" | "p2") => {
-    (side === "p1" ? setP1Revealed : setP2Revealed)(true);
-    sfx.playCorrect();
+  const handleRevealImposter = (accusedSocketId: string) => {
+    if (!channelRef.current || !civCharId || !impCharId) return;
+    const imposterSocketId = impSocketIdRef.current || accusedSocketId;
+    channelRef.current.trigger("client-party-reveal", { accusedSocketId, imposterSocketId, civCharId, impCharId });
+    // Apply locally for host
+    const imposterPlayer = playersRef.current.find(p => p.id === imposterSocketId);
+    const accused = playersRef.current.find(p => p.id === accusedSocketId);
+    const impChar = ID_MAP.get(impCharId) || null;
+    const civChar = ID_MAP.get(civCharId) || null;
+    if (imposterPlayer && impChar && civChar) {
+      setCiviliansCharacter(civChar);
+      setRevealedImposter({ name: imposterPlayer.name, character: impChar });
+      setAccusedName(accused ? accused.name : null);
+    }
+  };
+
+  const handleRevealPlayerCard = (targetSocketId: string) => {
+    if (!channelRef.current) return;
+    channelRef.current.trigger("client-party-reveal-member-card", { targetSocketId });
+  };
+
+  // Host ends the current round and returns everyone to the waiting room
+  const handleEndGame = () => {
+    if (!channelRef.current) return;
+    channelRef.current.trigger("client-party-end-game", {});
+    setPhase("lobby-wait");
+    setMyCharacter(null);
+    setOtherPlayersChars([]);
+    setImposterVotes({});
+    setRevealedImposter(null);
+    setCiviliansCharacter(null);
+    setAccusedName(null);
+    setCivCharId(null);
+    setImpCharId(null);
+    setMyCardRevealed(false);
+    setMyCardPeeked(false);
+  };
+
+  const copyCode = () => {
+    if (roomId) {
+      navigator.clipboard.writeText(roomId);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
   };
 
   const toggleCountry = (country: string) => {
@@ -100,18 +342,20 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
     c.toLowerCase().includes(countrySearchQuery.toLowerCase())
   );
 
-  const impCivChar = p1Char; // everyone sees this character except the imposter
-  const impChar = p2Char;
-  const p1DisplayChar = imposterSide === "p1" ? impChar : impCivChar;
-  const p2DisplayChar = imposterSide === "p2" ? impChar : impCivChar;
-  const bothVoted = votes.p1 !== null && votes.p2 !== null;
-  const unanimousAccused = votes.p1 === votes.p2 ? votes.p1 : null;
+  const mySocketId = pusherRef.current?.connection.socket_id || "";
+  const voteCount = Object.keys(imposterVotes).length;
+  const voteTally: Record<string, number> = {};
+  Object.values(imposterVotes).forEach(name => {
+    voteTally[name] = (voteTally[name] || 0) + 1;
+  });
+  const topVoted = Object.entries(voteTally).sort((a, b) => b[1] - a[1])[0];
+  const civiliansWin = accusedName !== null && revealedImposter !== null && accusedName === revealedImposter.name;
 
   return (
     <div className="w-full min-h-[80vh] flex flex-col items-center justify-start py-6 px-3 bg-cricket-dark text-cricket-cream">
       <AnimatePresence mode="wait">
 
-        {/* ══════════ LOBBY (local 2-player) ══════════ */}
+        {/* ══════════ CREATE / JOIN ROOM ══════════ */}
         {phase === "lobby" && (
           <motion.div
             key="lobby"
@@ -122,36 +366,109 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
           >
             <div className="text-center space-y-2">
               <h1 className="text-4xl font-black italic tracking-wider text-cricket-cream cricket-glow-text">🏏 CRICKET PARTY GAMES</h1>
-              <p className="text-cricket-gold/70 text-sm">Local 2-player party game — pass &amp; play on one device</p>
+              <p className="text-cricket-gold/70 text-sm">Online multiplayer — play from any device</p>
             </div>
 
             <div className="cricket-panel rounded-2xl p-6 space-y-4">
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="text-xs font-bold text-cricket-gold/70 uppercase tracking-wider">Player 1</label>
-                  <input
-                    type="text"
-                    value={p1Name}
-                    onChange={e => setP1Name(e.target.value)}
-                    placeholder="Player 1 name..."
-                    maxLength={16}
-                    className="mt-1 w-full bg-cricket-dark border border-cricket-green/40 rounded-xl px-4 py-3 text-cricket-cream focus:outline-none focus:border-cricket-gold transition"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-bold text-cricket-gold/70 uppercase tracking-wider">Player 2</label>
-                  <input
-                    type="text"
-                    value={p2Name}
-                    onChange={e => setP2Name(e.target.value)}
-                    placeholder="Player 2 name..."
-                    maxLength={16}
-                    className="mt-1 w-full bg-cricket-dark border border-cricket-red/40 rounded-xl px-4 py-3 text-cricket-cream focus:outline-none focus:border-cricket-gold transition"
-                  />
-                </div>
+              <div>
+                <label className="text-xs font-bold text-cricket-gold/70 uppercase tracking-wider">Your Name</label>
+                <input
+                  type="text"
+                  value={myName}
+                  onChange={e => setMyName(e.target.value)}
+                  placeholder="Enter your name..."
+                  maxLength={16}
+                  className="mt-1 w-full bg-cricket-dark border border-cricket-green/40 rounded-xl px-4 py-3 text-cricket-cream focus:outline-none focus:border-cricket-gold transition"
+                />
               </div>
 
-              <div className="space-y-1.5">
+              {lobbyError && <p className="text-sm text-cricket-red font-medium">{lobbyError}</p>}
+
+              <button
+                onClick={handleCreateRoom}
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream font-extrabold text-base flex items-center justify-center gap-2 shadow-lg shadow-cricket-green/30 transition cursor-pointer active:scale-[0.98]"
+              >
+                <Crown className="w-5 h-5" /> CREATE GAME
+              </button>
+
+              <div className="flex items-center gap-3">
+                <div className="flex-1 border-t border-cricket-gold/10" />
+                <span className="text-cricket-gold/50 text-xs font-bold">OR</span>
+                <div className="flex-1 border-t border-cricket-gold/10" />
+              </div>
+
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={joinCode}
+                  onChange={e => setJoinCode(e.target.value.toUpperCase())}
+                  placeholder="Enter Room Code..."
+                  maxLength={5}
+                  className="flex-1 bg-cricket-dark border border-cricket-red/40 rounded-xl px-4 py-3 text-cricket-cream focus:outline-none focus:border-cricket-gold transition uppercase font-mono tracking-widest text-center"
+                />
+                <button
+                  onClick={handleJoinRoom}
+                  className="px-5 py-3 rounded-xl bg-cricket-red hover:bg-red-700 text-cricket-cream font-bold flex items-center gap-2 transition shadow-lg cursor-pointer"
+                >
+                  JOIN
+                </button>
+              </div>
+            </div>
+
+            <button onClick={handleExit} className="w-full text-cricket-gold/60 hover:text-cricket-cream text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+              <LogOut className="w-4 h-4" /> Back to Main Menu
+            </button>
+          </motion.div>
+        )}
+
+        {/* ══════════ WAITING ROOM ══════════ */}
+        {phase === "lobby-wait" && (
+          <motion.div
+            key="lobby-wait"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="w-full max-w-md space-y-6"
+          >
+            <div className="text-center">
+              <h1 className="text-3xl font-black italic tracking-wider text-cricket-cream">🏏 PARTY LOBBY</h1>
+            </div>
+
+            {/* Room Code */}
+            <div className="cricket-panel rounded-2xl p-5 flex items-center justify-between border border-cricket-green/30">
+              <div>
+                <p className="text-xs text-cricket-gold/60 font-bold uppercase tracking-wider">Room Code</p>
+                <p className="text-4xl font-black tracking-[0.3em] text-cricket-cream font-mono mt-1">{roomId}</p>
+              </div>
+              <button onClick={copyCode} className="p-3 rounded-xl bg-cricket-green/10 border border-cricket-green/30 text-cricket-gold hover:bg-cricket-green/20 transition cursor-pointer">
+                {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
+              </button>
+            </div>
+
+            {/* Players list */}
+            <div className="cricket-panel rounded-2xl p-5 space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="text-sm font-bold text-cricket-gold flex items-center gap-2">
+                  <Users className="w-4 h-4" /> Players ({players.length})
+                </h3>
+              </div>
+              <div className="space-y-2">
+                {players.map((p, i) => (
+                  <div key={p.id} className="flex items-center gap-3 bg-cricket-dark px-4 py-2.5 rounded-xl border border-cricket-gold/10">
+                    <div className={`w-2 h-2 rounded-full ${i === 0 ? "bg-cricket-gold" : "bg-cricket-green"} animate-pulse`} />
+                    <span className="text-cricket-cream font-medium">{p.name}</span>
+                    {i === 0 && <span className="ml-auto text-[10px] font-black text-cricket-gold uppercase tracking-wider">HOST</span>}
+                  </div>
+                ))}
+                {players.length < 2 && (
+                  <p className="text-cricket-gold/40 text-xs text-center py-2">Waiting for more players to join...</p>
+                )}
+              </div>
+            </div>
+
+            {/* Setup — host only */}
+            {isHost && (
+              <div className="space-y-3">
                 <p className="text-xs font-bold text-cricket-gold/70 uppercase tracking-wider">Game Mode</p>
                 <div className="grid grid-cols-2 gap-3">
                   {(["guess-character", "guess-imposter"] as const).map(mode => (
@@ -170,122 +487,126 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
                     </button>
                   ))}
                 </div>
-              </div>
 
-              <div className="space-y-2 pt-2 border-t border-cricket-gold/5">
-                <p className="text-xs font-bold text-cricket-gold/60 uppercase tracking-wider">Player Pool Filter</p>
-                <div className="grid grid-cols-2 gap-3">
-                  <button
-                    onClick={() => { setCategory("all"); setSelectedCountries([]); }}
-                    className={`py-2.5 px-3 rounded-xl border text-[10px] font-black uppercase tracking-wide transition-all cursor-pointer ${
-                      category === "all"
-                        ? "border-cricket-green bg-cricket-green/10 text-cricket-gold shadow-[0_0_15px_rgba(26,92,46,0.25)]"
-                        : "border-cricket-gold/10 bg-cricket-dark/30 text-cricket-gold/70 hover:border-cricket-gold/30"
-                    }`}
-                  >
-                    🌍 World XI
-                  </button>
-                  <button
-                    onClick={() => setCategory("choose")}
-                    className={`py-2.5 px-3 rounded-xl border text-[10px] font-black uppercase tracking-wide transition-all cursor-pointer ${
-                      category === "choose"
-                        ? "border-cricket-green bg-cricket-green/10 text-cricket-gold shadow-[0_0_15px_rgba(26,92,46,0.25)]"
-                        : "border-cricket-gold/10 bg-cricket-dark/30 text-cricket-gold/70 hover:border-cricket-gold/30"
-                    }`}
-                  >
-                    🎯 Choose Countries
-                  </button>
+                {/* Player Pool Filter */}
+                <div className="space-y-2 pt-2 border-t border-cricket-gold/5">
+                  <p className="text-xs font-bold text-cricket-gold/60 uppercase tracking-wider">Player Pool Filter</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      onClick={() => { setCategory("all"); setSelectedCountries([]); }}
+                      className={`py-2.5 px-3 rounded-xl border text-[10px] font-black uppercase tracking-wide transition-all cursor-pointer ${
+                        category === "all"
+                          ? "border-cricket-green bg-cricket-green/10 text-cricket-gold shadow-[0_0_15px_rgba(26,92,46,0.25)]"
+                          : "border-cricket-gold/10 bg-cricket-dark/30 text-cricket-gold/70 hover:border-cricket-gold/30"
+                      }`}
+                    >
+                      🌍 World XI
+                    </button>
+                    <button
+                      onClick={() => setCategory("choose")}
+                      className={`py-2.5 px-3 rounded-xl border text-[10px] font-black uppercase tracking-wide transition-all cursor-pointer ${
+                        category === "choose"
+                          ? "border-cricket-green bg-cricket-green/10 text-cricket-gold shadow-[0_0_15px_rgba(26,92,46,0.25)]"
+                          : "border-cricket-gold/10 bg-cricket-dark/30 text-cricket-gold/70 hover:border-cricket-gold/30"
+                      }`}
+                    >
+                      🎯 Choose Countries
+                    </button>
+                  </div>
+
+                  {category === "choose" && (
+                    <div className="space-y-2 pt-1 relative animate-fadeIn">
+                      <input
+                        type="text"
+                        value={countrySearchQuery}
+                        onFocus={() => setIsCountryDropdownOpen(true)}
+                        onBlur={() => setTimeout(() => setIsCountryDropdownOpen(false), 200)}
+                        onChange={(e) => setCountrySearchQuery(e.target.value)}
+                        placeholder="Select or search countries…"
+                        className="w-full bg-cricket-dark/50 border border-cricket-gold/10 rounded-xl py-2.5 px-3.5 text-xs text-cricket-cream font-mono font-bold focus:border-cricket-gold focus:outline-none cursor-pointer"
+                      />
+                      {isCountryDropdownOpen && (
+                        <div className="absolute z-20 left-0 right-0 top-full mt-1 bg-cricket-dark border border-cricket-gold/10 rounded-xl max-h-40 overflow-y-auto shadow-2xl">
+                          {filteredCountries.map((country) => {
+                            const info = {
+                              flag: getPlayersByCountry(country)[0]?.flag || "🏏",
+                              count: getPlayersByCountry(country).length,
+                            };
+                            return (
+                              <button
+                                key={country}
+                                onMouseDown={() => {
+                                  if (!selectedCountries.includes(country)) {
+                                    setSelectedCountries((prev) => [...prev, country]);
+                                  }
+                                  setCountrySearchQuery("");
+                                  setIsCountryDropdownOpen(false);
+                                }}
+                                className={`w-full text-left px-3.5 py-2 text-xs font-mono hover:bg-cricket-green/15 transition-colors cursor-pointer ${
+                                  selectedCountries.includes(country) ? "text-cricket-gold bg-cricket-green/10" : "text-cricket-cream"
+                                }`}
+                              >
+                                <span className="text-base">{info.flag}</span> {country} <span className="text-cricket-gold/50">({info.count})</span>
+                              </button>
+                            );
+                          })}
+                          {filteredCountries.length === 0 && (
+                            <p className="px-3.5 py-2 text-[10px] text-cricket-gold/40 font-mono">No countries found matching "{countrySearchQuery}"</p>
+                          )}
+                        </div>
+                      )}
+                      {selectedCountries.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5 mt-2">
+                          {selectedCountries.map((country) => (
+                            <span
+                              key={country}
+                              className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-cricket-gold bg-cricket-green/10 border border-cricket-green/30 px-2.5 py-1 rounded-lg animate-fadeIn"
+                            >
+                              🌍 {country}
+                              <button
+                                type="button"
+                                onClick={() => toggleCountry(country)}
+                                className="hover:text-cricket-red font-bold font-sans cursor-pointer transition-colors"
+                              >
+                                ✕
+                              </button>
+                            </span>
+                          ))}
+                          <button
+                            type="button"
+                            onClick={() => { setSelectedCountries([]); setCountrySearchQuery(""); }}
+                            className="text-[9px] font-mono text-cricket-gold/60 hover:text-cricket-red transition-colors cursor-pointer self-center ml-1"
+                          >
+                            ✕ clear all
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
 
-                {category === "choose" && (
-                  <div className="space-y-2 pt-1 relative animate-fadeIn">
-                    <input
-                      type="text"
-                      value={countrySearchQuery}
-                      onFocus={() => setIsCountryDropdownOpen(true)}
-                      onBlur={() => setTimeout(() => setIsCountryDropdownOpen(false), 200)}
-                      onChange={(e) => setCountrySearchQuery(e.target.value)}
-                      placeholder="Select or search countries…"
-                      className="w-full bg-cricket-dark/50 border border-cricket-gold/10 rounded-xl py-2.5 px-3.5 text-xs text-cricket-cream font-mono font-bold focus:border-cricket-gold focus:outline-none cursor-pointer"
-                    />
-                    {isCountryDropdownOpen && (
-                      <div className="absolute z-20 left-0 right-0 top-full mt-1 bg-cricket-dark border border-cricket-gold/10 rounded-xl max-h-40 overflow-y-auto shadow-2xl">
-                        {filteredCountries.map((country) => {
-                          const info = {
-                            flag: getPlayersByCountry(country)[0]?.flag || "🏏",
-                            count: getPlayersByCountry(country).length,
-                          };
-                          return (
-                            <button
-                              key={country}
-                              onMouseDown={() => {
-                                if (!selectedCountries.includes(country)) {
-                                  setSelectedCountries((prev) => [...prev, country]);
-                                }
-                                setCountrySearchQuery("");
-                                setIsCountryDropdownOpen(false);
-                              }}
-                              className={`w-full text-left px-3.5 py-2 text-xs font-mono hover:bg-cricket-green/15 transition-colors cursor-pointer ${
-                                selectedCountries.includes(country) ? "text-cricket-gold bg-cricket-green/10" : "text-cricket-cream"
-                              }`}
-                            >
-                              <span className="text-base">{info.flag}</span> {country} <span className="text-cricket-gold/50">({info.count})</span>
-                            </button>
-                          );
-                        })}
-                        {filteredCountries.length === 0 && (
-                          <p className="px-3.5 py-2 text-[10px] text-cricket-gold/40 font-mono">No countries found matching "{countrySearchQuery}"</p>
-                        )}
-                      </div>
-                    )}
-                    {selectedCountries.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 mt-2">
-                        {selectedCountries.map((country) => (
-                          <span
-                            key={country}
-                            className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-cricket-gold bg-cricket-green/10 border border-cricket-green/30 px-2.5 py-1 rounded-lg animate-fadeIn"
-                          >
-                            🌍 {country}
-                            <button
-                              type="button"
-                              onClick={() => setSelectedCountries((prev) => prev.filter((a) => a !== country))}
-                              className="hover:text-cricket-red font-bold font-sans cursor-pointer transition-colors"
-                            >
-                              ✕
-                            </button>
-                          </span>
-                        ))}
-                        <button
-                          type="button"
-                          onClick={() => { setSelectedCountries([]); setCountrySearchQuery(""); }}
-                          className="text-[9px] font-mono text-cricket-gold/60 hover:text-cricket-red transition-colors cursor-pointer self-center ml-1"
-                        >
-                          ✕ clear all
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                )}
+                <button
+                  onClick={handleStartGame}
+                  disabled={players.length < 2}
+                  className="w-full py-4 rounded-xl bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green disabled:opacity-40 disabled:cursor-not-allowed text-cricket-cream font-extrabold text-base flex items-center justify-center gap-2 shadow-lg shadow-cricket-green/30 transition cursor-pointer"
+                >
+                  <Play className="w-5 h-5" fill="currentColor" /> START GAME
+                </button>
               </div>
+            )}
 
-              {lobbyError && <p className="text-sm text-cricket-red font-medium">{lobbyError}</p>}
+            {!isHost && (
+              <p className="text-center text-cricket-gold/50 text-sm animate-pulse">Waiting for the host to start the game...</p>
+            )}
 
-              <button
-                onClick={handleStart}
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream font-extrabold text-base flex items-center justify-center gap-2 shadow-lg shadow-cricket-green/30 transition cursor-pointer active:scale-[0.98]"
-              >
-                <Play className="w-5 h-5" fill="currentColor" /> START GAME
-              </button>
-            </div>
-
-            <button onClick={onExit} className="w-full text-cricket-gold/60 hover:text-cricket-cream text-sm flex items-center justify-center gap-2 transition cursor-pointer">
-              <LogOut className="w-4 h-4" /> Back to Main Menu
+            <button onClick={handleExit} className="w-full text-cricket-gold/60 hover:text-cricket-cream text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+              <LogOut className="w-4 h-4" /> Leave Room
             </button>
           </motion.div>
         )}
 
-        {/* ══════════ GUESS PLAYER (local) ══════════ */}
-        {phase === "playing-gc" && p1Char && p2Char && (
+        {/* ══════════ GUESS PLAYER (online) ══════════ */}
+        {phase === "playing-gc" && myCharacter && (
           <motion.div
             key="playing-gc"
             initial={{ opacity: 0 }}
@@ -299,12 +620,20 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
                   <h2 className="text-2xl font-black italic tracking-wider text-cricket-cream">🏏 GUESS PLAYER</h2>
                   <p className="text-cricket-gold/60 text-sm">Your card is hidden from YOU — the other player reveals it when you guess right!</p>
                 </div>
-                <button
-                  onClick={backToLobby}
-                  className="px-4 py-2 rounded-lg bg-cricket-red/20 border border-cricket-red/40 text-cricket-red hover:bg-cricket-red/40 hover:text-cricket-cream transition flex items-center gap-2 text-xs font-bold shadow-md cursor-pointer"
-                >
-                  <Eye className="w-3.5 h-3.5" /> End Game
-                </button>
+                <div>
+                  {isHost ? (
+                    <button
+                      onClick={handleEndGame}
+                      className="px-4 py-2 rounded-lg bg-cricket-red/20 border border-cricket-red/40 text-cricket-red hover:bg-cricket-red/40 hover:text-cricket-cream transition flex items-center gap-2 text-xs font-bold shadow-md cursor-pointer"
+                    >
+                      <StopCircle className="w-3.5 h-3.5" /> End Game
+                    </button>
+                  ) : (
+                    <span className="px-3 py-1 rounded-full bg-cricket-dark border border-cricket-gold/10 text-cricket-gold/50 text-[10px] uppercase font-bold font-mono">
+                      Waiting for host...
+                    </span>
+                  )}
+                </div>
               </div>
 
               <p className="text-center text-[10px] font-mono text-cricket-gold/50 uppercase tracking-widest border border-cricket-gold/10 bg-black/20 rounded-full px-4 py-2 animate-pulse max-w-lg mx-auto">
@@ -312,44 +641,53 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                {[{ name: p1Name, char: p1Char, revealed: p1Revealed, side: "p1" as const },
-                  { name: p2Name, char: p2Char, revealed: p2Revealed, side: "p2" as const }].map((p) => (
-                  <div key={p.side} className="flex flex-col items-center gap-3">
-                    <div className={`px-4 py-1.5 rounded-full border text-xs font-black uppercase tracking-widest ${
-                      p.side === "p1"
-                        ? "bg-cricket-green/15 border-cricket-green/40 text-cricket-light"
-                        : "bg-cricket-red/15 border-cricket-red/40 text-cricket-red"
-                    }`}>
-                      {p.name}'s card
+                {/* My card — hidden from me */}
+                <div className="flex flex-col items-center gap-3">
+                  <div className="px-4 py-1.5 rounded-full border text-xs font-black uppercase tracking-widest bg-cricket-green/15 border-cricket-green/40 text-cricket-light">
+                    Your card
+                  </div>
+                  <div className="relative select-none w-full max-w-[280px]">
+                    <div className="pointer-events-none">
+                      <CricketCharacterCard player={myCharacter} isFlipped={!myCardRevealed} />
+                    </div>
+                    <div className="absolute inset-x-0 bottom-6 flex justify-center z-30 pointer-events-none">
+                      <span className="bg-cricket-dark/90 text-cricket-cream border border-cricket-gold/10 px-3.5 py-2 rounded-full text-xs font-black shadow-2xl flex items-center gap-1.5 backdrop-blur-md">
+                        {myCardRevealed
+                          ? <span className="text-cricket-light">✓ Card Revealed — You are {myCharacter.flag} {myCharacter.name}!</span>
+                          : <span className="text-cricket-gold/40">Card Hidden — don't look!</span>}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-[9px] font-mono text-cricket-gold/40 text-center -mt-1">
+                    {myCardRevealed
+                      ? "You now know who you are!"
+                      : "The other player reveals this once you guess correctly"}
+                  </p>
+                </div>
+
+                {/* Other players' cards — visible to me */}
+                {otherPlayersChars.map((other) => (
+                  <div key={other.socketId} className="flex flex-col items-center gap-3">
+                    <div className="px-4 py-1.5 rounded-full border text-xs font-black uppercase tracking-widest bg-cricket-red/15 border-cricket-red/40 text-cricket-red">
+                      {other.name}'s card
                     </div>
                     <div className="relative select-none w-full max-w-[280px]">
-                      <div className="pointer-events-none">
-                        <CricketCharacterCard player={p.char} isFlipped={!p.revealed} />
-                      </div>
+                      <CricketCharacterCard player={other.character} isFlipped={false} />
                       <div className="absolute inset-x-0 bottom-6 flex justify-center z-30 pointer-events-none">
                         <span className="bg-cricket-dark/90 text-cricket-cream border border-cricket-gold/10 px-3.5 py-2 rounded-full text-xs font-black shadow-2xl flex items-center gap-1.5 backdrop-blur-md">
-                          {p.revealed
-                            ? <span className="text-cricket-light">✓ Card Revealed — You are {p.char.flag} {p.char.name}!</span>
-                            : <span className="text-cricket-gold/40">Card Hidden — don't look!</span>}
+                          <span className="text-cricket-gold/70">{other.character.flag} {other.character.name}</span>
                         </span>
                       </div>
                     </div>
                     <button
-                      onClick={() => revealCard(p.side)}
-                      disabled={p.revealed}
-                      className={`w-full max-w-[280px] py-2.5 rounded-xl border text-xs font-black tracking-wider transition-all flex items-center justify-center gap-2 ${
-                        p.revealed
-                          ? "bg-cricket-light/20 border-cricket-light/20 text-cricket-light opacity-60 cursor-default"
-                          : "bg-cricket-green text-cricket-dark border-cricket-green hover:bg-cricket-light shadow-md cursor-pointer active:scale-95"
-                      }`}
+                      onClick={() => handleRevealPlayerCard(other.socketId)}
+                      className={`w-full max-w-[280px] py-2.5 rounded-xl border text-xs font-black tracking-wider transition-all flex items-center justify-center gap-2 bg-cricket-green text-cricket-dark border-cricket-green hover:bg-cricket-light shadow-md cursor-pointer active:scale-95`}
                     >
                       <Eye className="w-3.5 h-3.5" />
-                      {p.revealed ? "Revealed" : `Reveal for ${p.name}`}
+                      Reveal for {other.name}
                     </button>
                     <p className="text-[9px] font-mono text-cricket-gold/40 text-center -mt-1">
-                      {p.revealed
-                        ? `${p.name} now knows who they are!`
-                        : `The other player reveals this once ${p.name} guesses correctly`}
+                      Reveal {other.name}'s card once they guess correctly
                     </p>
                   </div>
                 ))}
@@ -358,8 +696,8 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
           </motion.div>
         )}
 
-        {/* ══════════ GUESS IMPOSTER (local) ══════════ */}
-        {phase === "playing-imp" && impCivChar && impChar && (
+        {/* ══════════ GUESS IMPOSTER (online) ══════════ */}
+        {phase === "playing-imp" && myCharacter && (
           <motion.div
             key="playing-imp"
             initial={{ opacity: 0 }}
@@ -371,154 +709,173 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 cricket-panel rounded-xl p-4 border border-cricket-gold/10">
                 <div>
                   <h2 className="text-2xl font-black italic tracking-wider text-cricket-cream">🕵️ GUESS IMPOSTER</h2>
-                  <p className="text-cricket-gold/60 text-sm">One of you has a DIFFERENT character — find out who!</p>
+                  <p className="text-cricket-gold/60 text-sm">Discuss, then vote on who you think is the Imposter!</p>
                 </div>
-                <button
-                  onClick={backToLobby}
-                  className="px-4 py-2 rounded-lg bg-cricket-red/20 border border-cricket-red/40 text-cricket-red hover:bg-cricket-red/40 hover:text-cricket-cream transition flex items-center gap-2 text-xs font-bold shadow-md cursor-pointer"
-                >
-                  <Eye className="w-3.5 h-3.5" /> End Game
-                </button>
+                <div>
+                  {isHost ? (
+                    <button
+                      onClick={handleEndGame}
+                      className="px-4 py-2 rounded-lg bg-cricket-red/20 border border-cricket-red/40 text-cricket-red hover:bg-cricket-red/40 hover:text-cricket-cream transition flex items-center gap-2 text-xs font-bold shadow-md cursor-pointer"
+                    >
+                      <StopCircle className="w-3.5 h-3.5" /> End Game
+                    </button>
+                  ) : (
+                    <span className="px-3 py-1 rounded-full bg-cricket-dark border border-cricket-gold/10 text-cricket-gold/50 text-[10px] uppercase font-bold font-mono">
+                      Waiting for host...
+                    </span>
+                  )}
+                </div>
               </div>
 
               <AnimatePresence mode="wait">
-                {impRevealed ? (
+                {revealedImposter && civiliansCharacter ? (
                   <motion.div
                     key="reveal"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className={`${unanimousAccused === imposterSide ? "bg-cricket-green/20 border-cricket-green/40" : "bg-cricket-red/30 border-cricket-red/30"} border rounded-2xl p-6 text-center space-y-4 flex-1 animate-pulse`}
+                    className={`${civiliansWin ? "bg-cricket-green/20 border-cricket-green/40" : "bg-cricket-red/30 border-cricket-red/30"} border rounded-2xl p-6 text-center space-y-4 flex-1`}
                   >
-                    <Trophy className={`w-10 h-10 mx-auto ${unanimousAccused === imposterSide ? "text-cricket-gold" : "text-cricket-red"}`} />
+                    <Crown className={`w-10 h-10 mx-auto ${civiliansWin ? "text-cricket-gold" : "text-cricket-red"}`} />
                     <h3 className="text-2xl font-black uppercase tracking-wider text-cricket-cream">
-                      {unanimousAccused === imposterSide
-                        ? `🎉 ${unanimousAccused === "p1" ? p1Name : p2Name} was the Imposter — Civilians win!`
-                        : unanimousAccused
-                          ? `The Imposter escaped! ${unanimousAccused === "p1" ? p1Name : p2Name} was innocent.`
-                          : "Votes were split — the Imposter got away!"}
+                      {civiliansWin
+                        ? `🎉 ${revealedImposter.name} was the Imposter — Civilians win!`
+                        : accusedName
+                          ? `The Imposter escaped! ${accusedName} was innocent.`
+                          : "The Imposter got away!"}
                     </h3>
                     <div className="flex flex-wrap justify-center gap-8">
                       <div className="flex flex-col items-center gap-2">
                         <span className="text-cricket-gold/60 text-xs font-bold uppercase">Everyone had</span>
                         <div className="scale-90 opacity-80">
-                          <CricketCharacterCard player={impCivChar} isFlipped={false} />
+                          <CricketCharacterCard player={civiliansCharacter} isFlipped={false} />
                         </div>
                         <span className="px-3 py-1 rounded-full bg-cricket-green/15 border border-cricket-green/40 text-cricket-light text-[10px] font-black uppercase tracking-widest">
-                          Civ: {imposterSide === "p1" ? p2Name : p1Name}
+                          Civilians
                         </span>
                       </div>
                       <div className="flex flex-col items-center gap-2">
                         <span className="text-cricket-red text-xs font-bold uppercase">Imposter had</span>
                         <div className="shadow-[0_0_40px_rgba(196,30,58,0.4)] rounded-2xl">
-                          <CricketCharacterCard player={impChar} isFlipped={false} />
+                          <CricketCharacterCard player={revealedImposter.character} isFlipped={false} />
                         </div>
                         <span className="px-3 py-1 rounded-full bg-cricket-red/15 border border-cricket-red/40 text-cricket-red text-[10px] font-black uppercase tracking-widest">
-                          Imp: {imposterSide === "p1" ? p1Name : p2Name}
+                          Imp: {revealedImposter.name}
                         </span>
                       </div>
                     </div>
-                    <button
-                      onClick={backToLobby}
-                      className="px-6 py-3 rounded-xl bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-cricket-green/30 transition cursor-pointer mx-auto active:scale-95"
-                    >
-                      <Play className="w-4 h-4" fill="currentColor" /> Next Game
-                    </button>
+                    {isHost && (
+                      <button
+                        onClick={handleEndGame}
+                        className="px-6 py-3 rounded-xl bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-cricket-green/30 transition cursor-pointer mx-auto active:scale-95"
+                      >
+                        <Play className="w-4 h-4" fill="currentColor" /> Next Game
+                      </button>
+                    )}
                   </motion.div>
                 ) : (
                   <motion.div key="game" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-5 flex-1">
-                    {/* Two hidden cards — each player reveals their own */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                      {[{ name: p1Name, char: p1DisplayChar, revealed: p1Revealed, side: "p1" as const },
-                        { name: p2Name, char: p2DisplayChar, revealed: p2Revealed, side: "p2" as const }].map((p) => (
-                        <div key={p.side} className="flex flex-col items-center gap-3">
-                          <div className={`px-4 py-1.5 rounded-full border text-xs font-black uppercase tracking-widest ${
-                            p.side === "p1"
-                              ? "bg-cricket-green/15 border-cricket-green/40 text-cricket-light"
-                              : "bg-cricket-red/15 border-cricket-red/40 text-cricket-red"
-                          }`}>
-                            {p.name}'s card
-                          </div>
-                          <div className="relative select-none w-full max-w-[280px]">
-                            <div className="pointer-events-none">
-                              <CricketCharacterCard player={p.char} isFlipped={!p.revealed} />
-                            </div>
-                            <div className="absolute inset-x-0 bottom-6 flex justify-center z-30 pointer-events-none">
-                              <span className="bg-cricket-dark/90 text-cricket-cream border border-cricket-gold/10 px-3.5 py-2 rounded-full text-xs font-black shadow-2xl flex items-center gap-1.5 backdrop-blur-md">
-                                {p.revealed
-                                  ? <span className="text-cricket-light">✓ {p.char.flag} {p.char.name}</span>
-                                  : <span className="text-cricket-gold/40">Pass device to {p.name} to peek…</span>}
-                              </span>
-                            </div>
-                          </div>
-                          <button
-                            onClick={() => revealCard(p.side)}
-                            disabled={p.revealed}
-                            className={`w-full max-w-[280px] py-2.5 rounded-xl border text-xs font-black tracking-wider transition-all flex items-center justify-center gap-2 ${
-                              p.revealed
-                                ? "bg-cricket-light/20 border-cricket-light/20 text-cricket-light opacity-60 cursor-default"
-                                : "bg-cricket-dark border-cricket-gold/40 text-cricket-gold hover:bg-cricket-green/15 hover:border-cricket-green cursor-pointer active:scale-95"
-                            }`}
-                          >
-                            <Eye className="w-3.5 h-3.5" />
-                            {p.revealed ? "Card Peeked" : `Peek My Card (${p.name})`}
-                          </button>
+                    {/* My character card — tap to peek */}
+                    <div className="cricket-panel rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6">
+                      <div
+                        onClick={() => { setMyCardPeeked(prev => !prev); sfx.playSelect(); }}
+                        className="cursor-pointer select-none relative shrink-0 transition-transform active:scale-95"
+                      >
+                        <div className="pointer-events-none">
+                          <CricketCharacterCard player={myCharacter} isFlipped={!myCardPeeked} />
                         </div>
-                      ))}
+                        <div className="absolute inset-x-0 bottom-6 flex justify-center z-30 pointer-events-none">
+                          <span className="bg-cricket-dark/90 text-cricket-cream border border-cricket-gold/10 px-3.5 py-2 rounded-full text-xs font-black shadow-2xl flex items-center gap-1.5 backdrop-blur-md">
+                            {myCardPeeked ? <EyeOff className="w-3.5 h-3.5 text-cricket-red" /> : <Eye className="w-3.5 h-3.5 text-cricket-light" />}
+                            {myCardPeeked ? "Tap to Hide" : "Tap to Reveal"}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="space-y-3 text-center sm:text-left flex-1">
+                        <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-bold font-mono ${myCardPeeked ? "bg-cricket-green/10 border-cricket-green/30 text-cricket-light" : "bg-cricket-dark border-cricket-gold/10 text-cricket-gold/60"}`}>
+                          {myCardPeeked ? <Eye className="w-3.5 h-3.5" /> : <EyeOff className="w-3.5 h-3.5" />}
+                          {myCardPeeked ? "CARD REVEALED" : "CARD HIDDEN"}
+                        </div>
+
+                        <h3 className="text-2xl font-black text-cricket-cream">
+                          {myCardPeeked ? `${myCharacter.flag} ${myCharacter.name}` : "Your Player is Hidden"}
+                        </h3>
+                        <p className="text-cricket-gold/50 text-sm">{myCardPeeked ? `${myCharacter.country} • ${myCharacter.role}` : "???"}</p>
+
+                        <p className="text-cricket-gold/60 text-sm leading-relaxed max-w-xl">
+                          {myCardPeeked ? (
+                            <>
+                              You revealed your player! Discuss with the group — give subtle hints, but don't say the name! Tap the card again to hide it.
+                            </>
+                          ) : (
+                            <>
+                              Tap your card to peek. Keep it hidden from players near you! Give subtle hints about your player, and figure out who has a different player.
+                            </>
+                          )}
+                        </p>
+                      </div>
                     </div>
 
                     {/* Voting */}
-                    <div className="bg-cricket-dark/50 border border-cricket-gold/5 rounded-2xl p-5 space-y-4">
+                    <div className="cricket-panel rounded-2xl p-5 space-y-4">
                       <div className="flex items-center justify-between">
                         <h3 className="text-sm font-bold text-cricket-gold/70 uppercase tracking-wider">Vote for the Imposter</h3>
-                        <span className="text-xs text-cricket-gold/50 font-bold">
-                          {Object.values(votes).filter(v => v !== null).length}/2 voted
-                        </span>
+                        <span className="text-xs text-cricket-gold/50 font-bold">{voteCount}/{players.length} voted</span>
                       </div>
+
                       <div className="grid grid-cols-2 gap-3">
-                        {[{ side: "p1" as const, name: p1Name }, { side: "p2" as const, name: p2Name }].map((p) => {
-                          const myVote = votes[p.side];
+                        {players.map(p => {
+                          const isMe = p.id === mySocketId;
+                          const myVote = Object.entries(imposterVotes).find(([voterId]) => voterId === mySocketId)?.[1] || null;
+                          const tally = voteTally[p.name] || 0;
+                          const hasVotedForThis = myVote === p.name;
+
                           return (
                             <button
-                              key={p.side}
-                              onClick={() => {
-                                if (votes[p.side] !== null) return;
-                                sfx.playSelect();
-                                setVotes(prev => ({ ...prev, [p.side]: p.side === "p1" ? "p2" : "p1" }));
-                              }}
-                              disabled={votes[p.side] !== null}
+                              key={p.id}
+                              onClick={() => !isMe && !myVote && handleVote(p.name)}
+                              disabled={!!myVote || isMe}
                               className={`relative p-4 rounded-xl border-2 text-left transition-all cursor-pointer ${
-                                myVote !== null
-                                  ? "border-cricket-red bg-cricket-red/40 opacity-70"
-                                  : "border-cricket-gold/10 bg-cricket-dark hover:border-cricket-red/50 hover:bg-cricket-red/20"
+                                isMe
+                                  ? "border-cricket-gold/10 bg-cricket-dark/30 opacity-40 cursor-not-allowed"
+                                  : hasVotedForThis
+                                    ? "border-cricket-red bg-cricket-red/30"
+                                    : myVote
+                                      ? "border-cricket-gold/10 bg-cricket-dark opacity-60"
+                                      : "border-cricket-gold/10 bg-cricket-dark hover:border-cricket-red/50 hover:bg-cricket-red/20"
                               }`}
                             >
                               <div className="flex items-center justify-between">
                                 <span className="font-bold text-cricket-cream">{p.name}</span>
-                                {myVote !== null && (
-                                  <span className="text-[10px] font-black text-cricket-red uppercase tracking-wider">
-                                    Voted {myVote === "p1" ? p1Name : p2Name}
+                                {tally > 0 && (
+                                  <span className="text-xs font-black text-cricket-red bg-cricket-red/20 px-2 py-0.5 rounded-full border border-cricket-red/40">
+                                    {tally} vote{tally > 1 ? "s" : ""}
                                   </span>
                                 )}
                               </div>
-                              <span className="text-xs text-cricket-gold/50 mt-1 block">
-                                {myVote !== null ? "(Vote locked)" : "Tap if you suspect this player"}
-                              </span>
+                              {isMe && <span className="text-xs text-cricket-gold/40">(You)</span>}
+                              {hasVotedForThis && (
+                                <span className="text-[10px] font-black text-cricket-red uppercase tracking-wider block mt-1">Your vote ✓</span>
+                              )}
                             </button>
                           );
                         })}
                       </div>
-                      <button
-                        onClick={() => { setImpRevealed(true); sfx.playShowdown(); }}
-                        disabled={!bothVoted}
-                        className={`w-full py-3 rounded-xl font-black flex items-center justify-center gap-2 shadow-lg transition cursor-pointer ${
-                          bothVoted
-                            ? "bg-gradient-to-r from-cricket-red to-orange-600 hover:from-red-600 hover:to-orange-500 text-cricket-cream animate-pulse"
-                            : "bg-neutral-700/50 text-neutral-400 opacity-50 cursor-not-allowed"
-                        }`}
-                      >
-                        <Crown className="w-4 h-4" />
-                        {bothVoted ? "REVEAL IMPOSTER" : "Waiting for both players to vote…"}
-                      </button>
+
+                      {isHost && voteCount > 0 && topVoted && (
+                        <button
+                          onClick={() => {
+                            const topPlayer = players.find(p => p.name === topVoted[0]);
+                            if (!topPlayer) return;
+                            handleRevealImposter(topPlayer.id);
+                            sfx.playShowdown();
+                          }}
+                          className="w-full py-3 rounded-xl bg-gradient-to-r from-cricket-red to-orange-600 hover:from-red-600 hover:to-orange-500 text-cricket-cream font-black flex items-center justify-center gap-2 shadow-lg transition cursor-pointer"
+                        >
+                          <AlertTriangle className="w-4 h-4" />
+                          REVEAL IMPOSTER ({topVoted[0]} — {topVoted[1]} votes)
+                        </button>
+                      )}
                     </div>
                   </motion.div>
                 )}

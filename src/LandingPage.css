@@ -1,18 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
   --bg: #061d15;
+  --bg-deep: #040a06;
   --deep: #03120d;
-  --panel: #0b2b20;
+  --panel: #0d2012;
+  --panel-light: #132c19;
   --cream: #f1eee4;
-  --muted: #8fa69a;
+  --text: #f4f1e8;
+  --muted: #7e9381;
 
   --green: #a7df77;
-  --gold: #e0bd68;
+  --lime: #9bef62;
+  --gold: #efb94c;
+  --orange: #e88643;
   --red: #e27979;
   --blue: #76b6e5;
 
-  --line: rgba(255,255,255,.10);
+  --line: rgba(255,255,255,.075);
 }
 
 /* =====================================================
@@ -729,7 +734,7 @@
    MODES
 ===================================================== */
 .modes {
-  padding: 32px 48px;
+  padding: 0;
   background: 
     radial-gradient(circle at 30% 50%, rgba(167,223,119,.06), transparent 50%),
     var(--bg);
@@ -1101,7 +1106,8 @@
    DATABASE
 ===================================================== */
 .database {
-  margin-top: 15px;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto 70px;
   min-height: 220px;
   border: 1px solid var(--line);
   padding: 45px;
@@ -1258,6 +1264,499 @@
 
   .ball {
     display: none;
+  }
+}
+
+/* =====================================================
+   GAME ARENA (Exact design from provided HTML)
+===================================================== */
+
+.app {
+  position: relative;
+  width: min(1180px, calc(100% - 40px));
+  margin: auto;
+  padding: 42px 0 70px;
+}
+
+/* ================= HEADER ================= */
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 45px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: linear-gradient(135deg, var(--lime), #4e9e31);
+  color: #061008;
+  font-size: 18px;
+  box-shadow: 0 0 25px rgba(155,239,98,.18);
+}
+
+.brand-name {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 17px;
+  letter-spacing: -.03em;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  color: var(--muted);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 12px var(--lime);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(.7);
+    opacity: .5;
+  }
+}
+
+/* ================= INTRO ================= */
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 28px;
+}
+
+.intro small {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: var(--lime);
+  margin-bottom: 9px;
+}
+
+.intro h1 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(35px, 5vw, 58px);
+  line-height: .9;
+  letter-spacing: -.05em;
+}
+
+.intro p {
+  max-width: 300px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ================= MAIN ARENA ================= */
+
+.arena {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* ================= SHARED GLASS CARD ================= */
+
+.cricket-battle,
+.game-mode {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease, box-shadow .35s ease, background .35s ease;
+}
+
+/* GLASS REFLECTION (ambient sheen fade-in) */
+
+.cricket-battle::after,
+.game-mode::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(125deg, rgba(255,255,255,.13) 0%, rgba(255,255,255,.045) 25%, transparent 48%, rgba(255,255,255,.025) 100%);
+  backdrop-filter: blur(0px);
+  transition: opacity .35s ease, backdrop-filter .35s ease;
+  z-index: 1;
+}
+
+.cricket-battle:hover::after,
+.game-mode:hover::after {
+  opacity: 1;
+  backdrop-filter: blur(8px);
+}
+
+/* GLASS GLARE (moving light sweep on hover) */
+
+.cricket-battle::before,
+.game-mode::before {
+  content: "";
+  position: absolute;
+  top: -75%;
+  left: -25%;
+  width: 150%;
+  height: 60%;
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,.02) 30%, rgba(255,255,255,.35) 46%, rgba(255,255,255,.55) 50%, rgba(255,255,255,.35) 54%, rgba(255,255,255,.02) 70%, transparent 100%);
+  transform: translateY(-75%) rotate(11deg);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: transform 1.8s cubic-bezier(.2,.75,.2,1), opacity .3s ease;
+}
+
+.cricket-battle:hover::before,
+.game-mode:hover::before {
+  opacity: 1;
+  transform: translateY(400%) rotate(11deg);
+}
+
+/* ================= CRICKET BATTLE ================= */
+
+.cricket-battle {
+  min-height: 470px;
+  padding: 30px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background: radial-gradient(circle at 80% 20%, rgba(155,239,98,.16), transparent 30%), linear-gradient(145deg, #15341d, #09160d);
+  border: 1px solid rgba(155,239,98,.22);
+}
+
+.cricket-battle:hover {
+  transform: translateY(-6px);
+  border-color: rgba(155,239,98,.5);
+  background: radial-gradient(circle at 80% 20%, rgba(155,239,98,.22), transparent 40%), rgba(20,55,30,.72);
+  box-shadow: 0 25px 70px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.12), 0 0 45px rgba(155,239,98,.08);
+}
+
+/* BATTLE RINGS */
+
+.battle-ring {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  right: -190px;
+  bottom: -190px;
+  border: 1px solid rgba(155,239,98,.13);
+  box-shadow: 0 0 0 45px rgba(155,239,98,.025), 0 0 0 90px rgba(155,239,98,.015);
+}
+
+/* ================= MODE TOP ================= */
+
+.mode-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mode-number {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,.28);
+}
+
+/* ================= SHARED ICON ================= */
+
+.mode-icon {
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  font-size: 20px;
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(255,255,255,.05);
+  position: relative;
+  z-index: 2;
+  transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+}
+
+/* CRICKET BATTLE ICON */
+
+.battle-icon {
+  color: var(--lime);
+  background: linear-gradient(135deg, rgba(155,239,98,.16), rgba(255,255,255,.04));
+  border-color: rgba(155,239,98,.14);
+  box-shadow: 0 0 25px rgba(155,239,98,.05);
+}
+
+.cricket-battle:hover .battle-icon {
+  transform: scale(1.08);
+  background: rgba(155,239,98,.16);
+  box-shadow: 0 0 30px rgba(155,239,98,.14);
+}
+
+/* ================= BATTLE CONTENT ================= */
+
+.battle-content {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+
+.battle-content h2 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(48px, 5vw, 70px);
+  line-height: .82;
+  letter-spacing: -.06em;
+  margin-bottom: 18px;
+}
+
+.battle-content h2 span {
+  color: var(--lime);
+}
+
+.battle-content p {
+  max-width: 340px;
+  color: #9daf9f;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* BATTLE BUTTON */
+
+.battle-btn {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 7px 7px 17px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: var(--text);
+  color: #071008;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 11px;
+  transition: .25s;
+  cursor: pointer;
+  border: none;
+}
+
+.battle-btn:hover {
+  background: var(--lime);
+  transform: translateY(-2px);
+}
+
+.battle-btn span {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: #071008;
+  color: var(--lime);
+  font-size: 16px;
+}
+
+/* ================= RIGHT GRID ================= */
+
+.other-modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 18px;
+}
+
+/* ================= GAME MODE ================= */
+
+.game-mode {
+  min-height: 226px;
+  padding: 22px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255,255,255,.035), transparent), var(--panel);
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.game-mode:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.025)), rgba(19,44,25,.72);
+  border-color: rgba(255,255,255,.2);
+  box-shadow: 0 20px 50px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+/* PARTY MODE */
+
+.party {
+  grid-column: 1 / -1;
+  min-height: 0;
+  background: radial-gradient(circle at 85% 50%, rgba(232,134,67,.11), transparent 28%), var(--panel);
+}
+
+.party:hover {
+  border-color: rgba(232,134,67,.4);
+}
+
+/* ================= MODE NUMBER ================= */
+
+.mode-bg {
+  position: absolute;
+  right: -5px;
+  top: -28px;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 120px;
+  color: rgba(255,255,255,.025);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* SMALL CARD ICONS */
+
+.game-mode .mode-icon {
+  margin-bottom: 20px;
+}
+
+.trivia .mode-icon {
+  color: var(--gold);
+}
+
+.guess .mode-icon {
+  color: var(--lime);
+}
+
+.party .mode-icon {
+  color: var(--orange);
+}
+
+.game-mode:hover .mode-icon {
+  transform: scale(1.08) rotate(-3deg);
+  background: rgba(255,255,255,.09);
+  box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+/* ================= MODE TEXT ================= */
+
+.game-mode h3 {
+  position: relative;
+  z-index: 2;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 21px;
+  letter-spacing: -.03em;
+  margin-bottom: 7px;
+}
+
+.game-mode p {
+  position: relative;
+  z-index: 2;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 220px;
+}
+
+/* PLAY LINK */
+
+.play-mini {
+  position: absolute;
+  z-index: 2;
+  left: 22px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.65);
+  transition: .25s;
+}
+
+.game-mode:hover .play-mini {
+  color: var(--lime);
+  gap: 11px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer-bar {
+  margin-top: 18px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,.018);
+  backdrop-filter: blur(10px);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  color: var(--muted);
+}
+
+.players {
+  color: var(--text);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+  .arena {
+    grid-template-columns: 1fr;
+  }
+  .cricket-battle {
+    min-height: 430px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    width: min(100% - 28px, 1180px);
+    padding-top: 25px;
+  }
+  .intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .other-modes {
+    grid-template-columns: 1fr;
+  }
+  .party {
+    grid-column: auto;
+    min-height: 210px;
+  }
+  .game-mode {
+    min-height: 210px;
+  }
+  .footer-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
 

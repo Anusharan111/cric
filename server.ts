@@ -3,12 +3,25 @@ import { createServer } from "http";
 import { createServer as createViteServer } from "vite";
 import path from "path";
 import express from "express";
+import Pusher from "pusher";
 
 // Load environment variables
 dotenv.config();
 
 const app = express();
 const PORT = parseInt(process.env.PORT || "5176", 10);
+
+// Pusher server SDK — used to sign channel subscription auth tokens.
+const pusher = new Pusher({
+  appId: process.env.PUSHER_APP_ID || "",
+  key: process.env.PUSHER_KEY || "",
+  secret: process.env.PUSHER_SECRET || "",
+  cluster: process.env.PUSHER_CLUSTER || "",
+  useTLS: true,
+});
+
+const hasPusherCredentials = () =>
+  Boolean(process.env.PUSHER_APP_ID && process.env.PUSHER_KEY && process.env.PUSHER_SECRET && process.env.PUSHER_CLUSTER);
 
 // API routes
 app.get("/api/health", (_req, res) => {
@@ -17,21 +30,30 @@ app.get("/api/health", (_req, res) => {
 
 // Pusher config endpoint (if needed for multiplayer)
 app.get("/api/pusher/config", (_req, res) => {
-  res.json({ 
-    key: process.env.PUSHER_KEY || "", 
-    cluster: process.env.PUSHER_CLUSTER || "" 
+  res.json({
+    key: process.env.PUSHER_KEY || "",
+    cluster: process.env.PUSHER_CLUSTER || "",
   });
 });
 
-// Auth endpoint for Pusher
-app.post("/api/pusher/auth", express.json(), (req, res) => {
+// Auth endpoint for Pusher — signs the socket_id + channel_name so the
+// client can subscribe to private / presence channels.
+app.post("/api/pusher/auth", express.json(), express.urlencoded({ extended: true }), (req, res) => {
   const { socket_id, channel_name, username } = req.body;
-  if (!socket_id || !channel_name || !username) {
+  if (!socket_id || !channel_name) {
     return res.status(400).json({ error: "Missing required fields" });
   }
-  // In production, use Pusher server SDK to authenticate
-  // For now, allow all
-  res.json({ auth: "" });
+  if (!hasPusherCredentials()) {
+    return res.status(503).json({ error: "Pusher credentials not configured on the server." });
+  }
+
+  const isPresence = channel_name.startsWith("presence-");
+  const presenceData = isPresence
+    ? { user_id: username ? String(username).slice(0, 64) : `user-${socket_id}`, user_info: { name: username || "Player" } }
+    : undefined;
+
+  const auth = pusher.authorizeChannel(socket_id, channel_name, presenceData);
+  res.json(auth);
 });
 
 async function startServer() {

@@ -13,7 +13,6 @@ import {
   Zap,
   ArrowRight,
   ShieldAlert,
-  Flame,
   Award,
   AlertCircle,
   Cpu,
@@ -31,7 +30,6 @@ import { CHARACTERS } from "./data/characters";
 import CharacterCard from "./components/common/CharacterCard";
 import TeamSlots from "./components/common/TeamSlots";
 import DeployModal from "./components/ui/DeployModal";
-import CharacterSearch from "./components/common/CharacterSearch";
 import AnimeFeudGame from "./pages/AnimeFeudGame";
 import AnimeGuessWhoGame from "./pages/AnimeGuessWhoGame";
 import AnimePartyGames from "./pages/AnimePartyGames";
@@ -97,12 +95,8 @@ import { API_BASE } from "./config";
 import {
   MIN_RECOMMENDED_POOL,
   ABSOLUTE_MIN,
-  DraftQuality,
-  getDraftQuality,
-  getDraftQualityLabel,
   getAnimeKey,
   buildAnimeCatalog,
-  getSuggestions,
   dedupeCharacters,
   DraftQueue,
 } from "./utils/draftPool";
@@ -746,10 +740,9 @@ useEffect(() => {
     (total, country) => total + getAllPlayers().filter((player) => player.country === country).length,
     0
   );
-  const draftQuality = getDraftQuality(selectedAnimeCharacterCount);
-  const canStartDraft = category === "all" || 
-    (category === "choose" && selectedAnimes.length > 0 && selectedAnimeCharacterCount >= ABSOLUTE_MIN);
-  const isPoolLimited = category === "choose" && selectedAnimeCharacterCount < MIN_RECOMMENDED_POOL && selectedAnimeCharacterCount >= ABSOLUTE_MIN;
+  const poolLocked = globalCountries.length === getCountries().length;
+  const canStartDraft = !poolLocked && (category === "all" || 
+    (category === "choose" && selectedAnimes.length > 0 && selectedAnimeCharacterCount >= ABSOLUTE_MIN));
 
   const importCastForAnime = async (anime: string) => {
     const key = getAnimeKey(anime);
@@ -815,23 +808,6 @@ useEffect(() => {
       return chars;
     } catch {
       return [];
-    }
-  };
-
-  const importStarterAllAnimeCasts = async () => {
-    const starterAnimes = [
-      "Jujutsu Kaisen",
-      "One Piece",
-      "Attack on Titan",
-      "Naruto",
-      "Bleach",
-      "Demon Slayer: Kimetsu no Yaiba",
-    ];
-
-    try {
-      await Promise.all(starterAnimes.map(anime => importCastForAnime(anime)));
-    } catch (error) {
-      console.warn("Auto import failed", error);
     }
   };
 
@@ -2122,7 +2098,7 @@ useEffect(() => {
                   {selectedGameHubMode === "hub" ? (
                     <LandingPage
                       onSelectBattle={() => setSelectedGameHubMode("battle")}
-                      onSelectFeud={() => setView("cricket-party")}
+                      onSelectFeud={() => setView("feud")}
                       onSelectGuessWho={() => setView("cricket-guesswho")}
                       onSelectParty={() => setView("cricket-party")}
                       onOpenAbout={() => setShowAbout(true)}
@@ -2133,7 +2109,7 @@ useEffect(() => {
                       <div className="max-w-5xl mx-auto flex justify-start pb-4 w-full">
                         <button
                           onClick={() => setSelectedGameHubMode("hub")}
-                          className="px-4 py-2 rounded-xl bg-neutral-900 border border-white/10 text-xs font-bold text-neutral-300 hover:text-white hover:border-violet-500/40 transition duration-200 cursor-pointer flex items-center gap-2"
+                          className="px-4 py-2 rounded-xl bg-black/30 border border-cricket-gold/20 text-xs font-bold text-cricket-cream/70 hover:text-cricket-cream hover:border-cricket-gold/50 hover:bg-cricket-gold/10 transition duration-200 cursor-pointer flex items-center gap-2"
                         >
                           ← Back to Game Hub
                         </button>
@@ -2142,18 +2118,25 @@ useEffect(() => {
                       {/* GAME SETUP MATRIX */}
                       <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto items-stretch">
                         {/* Setup Controls */}
-                        <div className="rounded-3xl border border-neutral-800/80 mirror-panel p-5 sm:p-8 flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden shadow-2xl">
+                        <div className="rounded-3xl border border-cricket-gold/15 mirror-panel p-5 sm:p-8 flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden shadow-2xl">
                           <div className="space-y-5">
-                            <div className="flex border-b border-white/5 pb-4 items-center gap-2.5">
-                              <Flame className="w-5 h-5 text-violet-400" />
-                              <h2 className="text-base sm:text-lg font-black uppercase text-white font-mono tracking-wider">
-                                STADIUM MATCH REGISTRATION
-                              </h2>
+                            <div className="flex border-b border-cricket-gold/15 pb-4 items-center gap-2.5">
+                              <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-cricket-green to-cricket-light flex items-center justify-center shadow-[0_0_18px_rgba(26,92,46,0.45)] flex-shrink-0">
+                                <Swords className="w-4.5 h-4.5 text-white" />
+                              </span>
+                              <div>
+                                <p className="text-[8px] font-mono text-cricket-gold/70 uppercase tracking-[0.2em]">
+                                  Battle System v2.0 / Match Setup
+                                </p>
+                                <h2 className="text-base sm:text-lg font-black uppercase text-cricket-cream font-mono tracking-wider">
+                                  STADIUM MATCH REGISTRATION
+                                </h2>
+                              </div>
                             </div>
 
                             {/* Mode selectors */}
                             <div className="space-y-2">
-                              <label className="text-[10px] font-mono text-neutral-400 tracking-widest uppercase">
+                              <label className="text-[10px] font-mono text-cricket-gold/70 tracking-widest uppercase">
                                 SELECT BATTLE DESIGN
                               </label>
                               <div className="grid grid-cols-3 gap-2 sm:gap-3.5">
@@ -2165,14 +2148,14 @@ useEffect(() => {
                                     setOnlineAction(null);
                                   }}
                                   className={`p-3 sm:p-4 rounded-xl border flex flex-col items-center gap-1.5 sm:gap-2 text-center transition-all cursor-pointer ${!isHostJoined ? "opacity-40 pointer-events-none" : ""} ${gameMode === "vs-ai"
-                                      ? "border-violet-500 bg-violet-950/20 text-white shadow-[0_0_15px_rgba(139,92,246,0.2)]"
-                                      : "border-neutral-900 bg-neutral-900/20 text-neutral-400 hover:border-neutral-800"
+                                      ? "border-cricket-gold bg-cricket-gold/10 text-white shadow-[0_0_15px_rgba(212,168,23,0.25)]"
+                                      : "border-white/10 bg-black/30 text-cricket-cream/50 hover:border-cricket-green/60 hover:bg-cricket-green/10 hover:text-cricket-cream"
                                     }`}
                                 >
-                                  <Computer className="w-4 h-4 sm:w-5 sm:h-5" />
+                                  <Computer className={`w-4 h-4 sm:w-5 sm:h-5 ${gameMode === "vs-ai" ? "text-cricket-gold" : "text-cricket-cream/50"}`} />
                                   <div>
                                     <p className="text-[10px] sm:text-xs font-black uppercase tracking-wide">P1 VS AI</p>
-                                    <p className="text-[8px] sm:text-[9px] font-mono text-neutral-500 mt-0.5">Solo Bot</p>
+                                    <p className={`text-[8px] sm:text-[9px] font-mono mt-0.5 ${gameMode === "vs-ai" ? "text-cricket-cream/60" : "text-cricket-cream/35"}`}>Solo Bot</p>
                                   </div>
                                 </button>
 
@@ -2184,14 +2167,14 @@ useEffect(() => {
                                     setOnlineAction(null);
                                   }}
                                   className={`p-3 sm:p-4 rounded-xl border flex flex-col items-center gap-1.5 sm:gap-2 text-center transition-all cursor-pointer ${!isHostJoined ? "opacity-40 pointer-events-none" : ""} ${gameMode === "local-2p"
-                                      ? "border-violet-500 bg-violet-950/20 text-white shadow-[0_0_15px_rgba(139,92,246,0.2)]"
-                                      : "border-neutral-900 bg-neutral-900/20 text-neutral-400 hover:border-neutral-800"
+                                      ? "border-cricket-gold bg-cricket-gold/10 text-white shadow-[0_0_15px_rgba(212,168,23,0.25)]"
+                                      : "border-white/10 bg-black/30 text-cricket-cream/50 hover:border-cricket-green/60 hover:bg-cricket-green/10 hover:text-cricket-cream"
                                     }`}
                                 >
-                                  <Users className="w-4 h-4 sm:w-5 sm:h-5" />
+                                  <Users className={`w-4 h-4 sm:w-5 sm:h-5 ${gameMode === "local-2p" ? "text-cricket-gold" : "text-cricket-cream/50"}`} />
                                   <div>
                                     <p className="text-[10px] sm:text-xs font-black uppercase tracking-wide">LOCAL 2P</p>
-                                    <p className="text-[8px] sm:text-[9px] font-mono text-neutral-500 mt-0.5">Pass & Play</p>
+                                    <p className={`text-[8px] sm:text-[9px] font-mono mt-0.5 ${gameMode === "local-2p" ? "text-cricket-cream/60" : "text-cricket-cream/35"}`}>Pass & Play</p>
                                   </div>
                                 </button>
 
@@ -2202,32 +2185,32 @@ useEffect(() => {
                                     setOnlineAction(null);
                                   }}
                                   className={`p-3 sm:p-4 rounded-xl border flex flex-col items-center gap-1.5 sm:gap-2 text-center transition-all cursor-pointer ${!isHostJoined ? "opacity-40 pointer-events-none" : ""} ${gameMode === "online-2p"
-                                      ? "border-violet-500 bg-violet-950/20 text-white shadow-[0_0_15px_rgba(139,92,246,0.2)]"
-                                      : "border-neutral-900 bg-neutral-900/20 text-neutral-400 hover:border-neutral-800"
+                                      ? "border-cricket-gold bg-cricket-gold/10 text-white shadow-[0_0_15px_rgba(212,168,23,0.25)]"
+                                      : "border-white/10 bg-black/30 text-cricket-cream/50 hover:border-cricket-green/60 hover:bg-cricket-green/10 hover:text-cricket-cream"
                                     }`}
                                 >
-                                  <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
+                                  <Globe className={`w-4 h-4 sm:w-5 sm:h-5 ${gameMode === "online-2p" ? "text-cricket-gold" : "text-cricket-cream/50"}`} />
                                   <div>
                                     <p className="text-[10px] sm:text-xs font-black uppercase tracking-wide">ONLINE 2P</p>
-                                    <p className="text-[8px] sm:text-[9px] font-mono text-neutral-500 mt-0.5">Play Online</p>
+                                    <p className={`text-[8px] sm:text-[9px] font-mono mt-0.5 ${gameMode === "online-2p" ? "text-cricket-cream/60" : "text-cricket-cream/35"}`}>Play Online</p>
                                   </div>
                                 </button>
                               </div>
                             </div>
 
                             {gameMode === "online-2p" && !onlineRoomId && (
-                              <div className="space-y-4 p-4 rounded-2xl border border-violet-500/20 bg-violet-500/5 animate-fadeIn">
+                              <div className="space-y-4 p-4 rounded-2xl border border-cricket-gold/25 bg-cricket-gold/5 animate-fadeIn">
                                 {!onlineAction ? (
                                   <div className="grid grid-cols-2 gap-3">
                                     <button
                                       onClick={() => setOnlineAction("create")}
-                                      className="py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all cursor-pointer"
+                                      className="py-3 rounded-xl bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg shadow-cricket-green/25"
                                     >
                                       <Plus className="w-4 h-4" /> Create Room
                                     </button>
                                     <button
                                       onClick={() => setOnlineAction("join")}
-                                      className="py-3 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all cursor-pointer"
+                                      className="py-3 rounded-xl bg-black/40 hover:bg-black/60 border border-cricket-gold/30 text-cricket-cream text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all cursor-pointer"
                                     >
                                       <LogIn className="w-4 h-4" /> Join Room
                                     </button>
@@ -2235,12 +2218,12 @@ useEffect(() => {
                                 ) : (
                                   <div className="space-y-4">
                                     <div className="flex justify-between items-center">
-                                      <p className="text-[10px] font-mono text-violet-300 uppercase tracking-widest">
+                                      <p className="text-[10px] font-mono text-cricket-gold uppercase tracking-widest">
                                         {onlineAction === "create" ? "Configure your room" : "Enter room details"}
                                       </p>
                                       <button
                                         onClick={() => setOnlineAction(null)}
-                                        className="text-[9px] font-mono text-neutral-500 hover:text-white uppercase transition-colors cursor-pointer"
+                                        className="text-[9px] font-mono text-cricket-cream/40 hover:text-cricket-cream uppercase transition-colors cursor-pointer"
                                       >
                                         ← Back
                                       </button>
@@ -2253,11 +2236,11 @@ useEffect(() => {
                                           value={joinRoomId}
                                           onChange={(e) => setJoinRoomId(e.target.value)}
                                           placeholder="ROOM CODE"
-                                          className="w-full bg-neutral-900 border border-neutral-800 rounded-xl py-3 px-3 text-[10px] text-white font-mono font-bold focus:border-violet-500 focus:outline-none uppercase"
+                                          className="w-full bg-black/40 border border-cricket-gold/20 rounded-xl py-3 px-3 text-[10px] text-cricket-cream font-mono font-bold focus:border-cricket-gold focus:outline-none uppercase"
                                         />
                                         <button
                                           onClick={joinOnlineRoom}
-                                          className="absolute right-1 top-1 bottom-1 px-3 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-[9px] font-black uppercase cursor-pointer"
+                                          className="absolute right-1 top-1 bottom-1 px-3 rounded-lg bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream text-[9px] font-black uppercase cursor-pointer"
                                         >
                                           Join
                                         </button>
@@ -2265,7 +2248,7 @@ useEffect(() => {
                                     )}
 
                                     {onlineAction === "join" && !isHostJoined && (
-                                      <div className="flex items-center justify-center gap-2 text-[9px] text-amber-400 font-mono uppercase animate-pulse">
+                                      <div className="flex items-center justify-center gap-2 text-[9px] text-cricket-gold font-mono uppercase animate-pulse">
                                         <Loader2 className="w-3 h-3 animate-spin" /> Waiting for room admin to join...
                                       </div>
                                     )}
@@ -2273,7 +2256,7 @@ useEffect(() => {
                                     {onlineAction === "create" && (
                                       <button
                                         onClick={createOnlineRoom}
-                                        className="w-full py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-lg shadow-violet-500/20 cursor-pointer"
+                                        className="w-full py-3 rounded-xl bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream text-[10px] font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all shadow-lg shadow-cricket-green/25 cursor-pointer"
                                       >
                                         <Plus className="w-4 h-4" /> Initialize & Generate Room
                                       </button>
@@ -2337,125 +2320,8 @@ useEffect(() => {
                               </div>
                             )}
 
-{/* Cricket player pool */}
-                            {false && (gameMode !== "online-2p" || onlineAction === "create" || (onlineRoomId && onlineSide === "p1")) && (
-                              <div className="space-y-3 pt-1 animate-fadeIn">
-                                <label className="text-[10px] font-mono text-neutral-400 tracking-widest uppercase flex items-center gap-2">
-                                  CHARACTER POOL FILTER
-                                </label>
-                                <div className="flex gap-2 items-center">
-                                  <button
-                                    type="button"
-                                    onClick={() => {
-                                      setAllAnime(true);
-                                      setCategory("all");
-                                      setSelectedAnimes([]);
-                                      importStarterAllAnimeCasts().catch(console.warn);
-                                    }}
-                                    className={`px-2 py-1 rounded text-xs font-mono ${allAnime ? "bg-purple-600 text-white" : "bg-neutral-800 border border-neutral-700 hover:border-amber-500 hover:bg-amber-500/10"}`}
-                                  >
-                                    All Anime
-                                  </button>
-                                  <button
-                                    type="button"
-                                    onClick={() => {
-                                      setAllAnime(false);
-                                      setCategory("choose");
-                                    }}
-                                    className={`px-2 py-1 rounded text-xs font-mono ${!allAnime ? "bg-purple-600 text-white" : "bg-neutral-800 border border-neutral-700 hover:border-amber-500 hover:bg-amber-500/10"}`}
-                                  >
-                                    Choose Anime
-                                  </button>
-                                </div>
-
-
-                                {!allAnime && category === "choose" && (
-                                  <div className="space-y-2">
-                                    {/* Draft Quality Indicator */}
-                                    <div className="flex items-center justify-between gap-2 px-1">
-                                      <div className="flex items-center gap-1.5">
-                                        <span className={`text-[10px] font-mono font-bold ${draftQuality === "excellent" ? "text-green-400" : draftQuality === "good" ? "text-green-400" : draftQuality === "recommended" ? "text-yellow-400" : draftQuality === "limited" ? "text-orange-400" : draftQuality === "very-small" ? "text-red-400" : "text-red-400"}`}>
-                                          {getDraftQualityLabel(draftQuality)}
-                                        </span>
-                                        <span className="hidden text-[9px] text-slate-500 font-mono">Pool: {selectedAnimeCharacterCount} characters</span>
-                                      </div>
-                                      <div className="h-2 flex-1 bg-neutral-800 rounded-full overflow-hidden max-w-[150px]">
-                                        <div 
-                                          className={`h-full rounded-full transition-all ${draftQuality === "excellent" ? "bg-green-500" : draftQuality === "good" ? "bg-green-500" : draftQuality === "recommended" ? "bg-yellow-500" : draftQuality === "limited" ? "bg-orange-500" : "bg-red-500"}`}
-                                          style={{ width: `${Math.min(100, (selectedAnimeCharacterCount / 100) * 100)}%` }}
-                                        />
-                                      </div>
-                                    </div>
-
-                                    {/* Suggestions when pool < 50 */}
-                                    {selectedAnimeCharacterCount < MIN_RECOMMENDED_POOL && selectedAnimes.length > 0 && (
-                                      <div className="bg-amber-500/10 border border-amber-500/20 rounded-xl p-3 text-[9px] font-mono text-amber-300">
-                                        <div className="flex items-center gap-1.5 mb-1.5">
-                                          <AlertCircle className="w-3 h-3" />
-                                          <span>Limited Character Variety ({selectedAnimeCharacterCount}/{MIN_RECOMMENDED_POOL})</span>
-                                        </div>
-                                        <p className="text-slate-400 mb-2">Add these anime for better variety:</p>
-                                        <div className="flex flex-wrap gap-1.5">
-                                          {getSuggestions(animeCounts, selectedAnimes, 3).map(({ anime, count }) => (
-                                              <button
-                                                key={anime}
-                                                onClick={() => {
-                                                  setSelectedAnimes((prev) => [...prev, anime]);
-                                                  importCastForAnime(anime).catch(console.warn);
-                                                }}
-                                                className="px-2 py-1 bg-neutral-800 border border-neutral-700 rounded-lg hover:border-amber-500 hover:bg-amber-500/10 transition-colors cursor-pointer text-[9px] font-mono"
-                                              >
-                                                +{anime}
-                                              </button>
-                                            ))}
-                                        </div>
-                                      </div>
-                                    )}
-                                    {/* Anime Search & Selection (Rating Dataset) */}
-                                    <CharacterSearch
-                                      onSelectAnime={(animeName) => {
-                                        setSelectedAnimes((prev) => [...new Set([...prev, animeName])]);
-                                      }}
-                                      placeholder="Search anime… e.g. One Piece, Naruto, Dragon Ball"
-                                      selectedAnimes={selectedAnimes}
-                                      animeList={animeList}
-                                    />
-                                     
-                                     {selectedAnimes.length > 0 && (
-                                      <div className="flex flex-wrap gap-1.5 mt-2">
-                                        {selectedAnimes.map((anime) => (
-                                          <span
-                                            key={anime}
-                                            className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-purple-400 bg-purple-500/10 border border-purple-500/30 px-2.5 py-1 rounded-lg"
-                                          >
-                                            🎯 {anime} 
-                                            <button
-                                              type="button"
-                                              onClick={() => {
-                                                setSelectedAnimes((prev) => prev.filter((a) => a !== anime));
-                                              }}
-                                              className="hover:text-red-400 font-bold font-sans cursor-pointer transition-colors"
-                                            >
-                                              ✕
-                                            </button>
-                                          </span>
-                                        ))}
-                                        <button
-                                          type="button"
-                                          onClick={() => {
-                                            setSelectedAnimes([]);
-                                          }}
-                                          className="text-[9px] font-mono text-slate-400 hover:text-red-400 transition-colors cursor-pointer self-center ml-1"
-                                        >
-                                          ✕ clear all
-                                        </button>
-                                      </div>
-                                    )}
-                                  </div>
-                                )}
-                              </div>
-                            )}
-
+{/* Cricket player pool — hidden in online-2p until host creates a room */}
+                            {(gameMode !== "online-2p" || (onlineRoomId && onlineSide === "p1")) && (
                             <DraftPoolSettings
                               globalCountries={globalCountries}
                               setGlobalCountries={setGlobalCountries}
@@ -2464,12 +2330,13 @@ useEffect(() => {
                               p2AllowedCountries={p2AllowedCountries}
                               setP2AllowedCountries={setP2AllowedCountries}
                             />
+                            )}
 
                             {/* Player Names */}
                             {(gameMode !== "online-2p" || onlineAction !== null) && (
                               <div className="space-y-3 pt-2 animate-fadeIn">
                                 <div className="space-y-1.5">
-                                  <label className="text-[10px] font-mono text-neutral-400 tracking-widest uppercase">
+                                  <label className="text-[10px] font-mono text-cricket-gold/70 tracking-widest uppercase">
                                     PLAYER 1 SIGNATURE CALL
                                   </label>
                                   <input
@@ -2479,13 +2346,13 @@ useEffect(() => {
                                     onChange={(e) => setPlayer1Name(e.target.value)}
                                     placeholder="Fighter 1 Name"
                                     maxLength={16}
-                                    className="w-full bg-neutral-900/50 border border-neutral-800 rounded-xl py-2.5 px-3.5 text-xs text-white font-mono font-bold focus:border-violet-500 focus:outline-none"
+                                    className="w-full bg-black/40 border border-cricket-gold/20 rounded-xl py-2.5 px-3.5 text-xs text-cricket-cream font-mono font-bold focus:border-cricket-gold focus:outline-none"
                                   />
                                 </div>
 
                                 {gameMode === "local-2p" && (
                                   <div className="space-y-1.5">
-                                    <label className="text-[10px] font-mono text-neutral-400 tracking-widest uppercase">
+                                    <label className="text-[10px] font-mono text-cricket-gold/70 tracking-widest uppercase">
                                       PLAYER 2 SIGNATURE CALL
                                     </label>
                                     <input
@@ -2495,7 +2362,7 @@ useEffect(() => {
                                       onChange={(e) => setPlayer2Name(e.target.value)}
                                       placeholder="Fighter 2 Name"
                                       maxLength={16}
-                                      className="w-full bg-neutral-900/50 border border-neutral-800 rounded-xl py-2.5 px-3.5 text-xs text-white font-mono font-bold focus:border-violet-500 focus:outline-none"
+                                      className="w-full bg-black/40 border border-cricket-gold/20 rounded-xl py-2.5 px-3.5 text-xs text-cricket-cream font-mono font-bold focus:border-cricket-gold focus:outline-none"
                                     />
                                   </div>
                                 )}
@@ -2517,11 +2384,20 @@ useEffect(() => {
                             </div>
                           )}
 
+                          {poolLocked && (
+                            <div className="flex items-center gap-2 text-cricket-red bg-cricket-red/10 border border-cricket-red/25 px-4 py-3 rounded-xl font-mono text-[10px] font-bold leading-normal mt-4 shadow-sm animate-pulse">
+                              <AlertCircle className="w-4 h-4 shrink-0" />
+                              <span>No nations in pool — select at least one nation before starting.</span>
+                            </div>
+                          )}
+
+                          {(gameMode !== "online-2p" || (onlineRoomId && onlineSide === "p1")) && (
                           <DraftPoolSummary
                             globalCountries={globalCountries}
                             p1AllowedCountries={p1AllowedCountries}
                             p2AllowedCountries={p2AllowedCountries}
                           />
+                          )}
 
                           {(gameMode !== "online-2p" || (onlineRoomId && onlineSide === "p1")) && (
                             isMobile ? (
@@ -2530,11 +2406,11 @@ useEffect(() => {
                                 onClick={() => startNewGame(gameMode)}
                                 disabled={!canStartDraft}
                                 className={`w-full py-4 rounded-xl text-xs uppercase tracking-[0.2em] font-black transition-all flex items-center justify-center gap-2 mt-6 cursor-pointer ${!canStartDraft
-                                    ? "bg-neutral-800 text-neutral-500 border border-neutral-700/50 cursor-not-allowed opacity-50 shadow-none scale-100"
-                                    : "bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white shadow-[0_0_30px_rgba(139,92,246,0.35)] hover:shadow-[0_0_35px_rgba(139,92,246,0.45)] active:scale-95"
+                                    ? "bg-black/40 text-cricket-cream/30 border border-cricket-gold/10 cursor-not-allowed opacity-50 shadow-none scale-100"
+                                    : "bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream shadow-[0_0_30px_rgba(26,92,46,0.45)] hover:shadow-[0_0_35px_rgba(26,92,46,0.55)] active:scale-95"
                                   }`}
                               >
-                                <Play className="w-4 h-4 fill-white" /> ENTER DRAFTING ARENA <ArrowRight className="w-4 h-4" />
+                                <Play className="w-4 h-4 fill-cricket-gold" /> ENTER DRAFTING ARENA <ArrowRight className="w-4 h-4" />
                               </button>
                             ) : (
                               <button
@@ -2542,26 +2418,26 @@ useEffect(() => {
                                 onClick={() => startNewGame(gameMode)}
                                 disabled={!canStartDraft}
                                 className={`w-full py-4 rounded-xl text-xs uppercase tracking-[0.2em] font-black transition-all flex items-center justify-center gap-2 mt-6 cursor-pointer ${!canStartDraft
-                                    ? "bg-neutral-800 text-neutral-500 border border-neutral-700/50 cursor-not-allowed opacity-50 shadow-none scale-100"
-                                    : "bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white shadow-[0_0_30px_rgba(139,92,246,0.35)] hover:shadow-[0_0_35px_rgba(139,92,246,0.45)] active:scale-95"
+                                    ? "bg-black/40 text-cricket-cream/30 border border-cricket-gold/10 cursor-not-allowed opacity-50 shadow-none scale-100"
+                                    : "bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream shadow-[0_0_30px_rgba(26,92,46,0.45)] hover:shadow-[0_0_35px_rgba(26,92,46,0.55)] active:scale-95"
                                   }`}
                               >
-                                <Play className="w-4 h-4 fill-white" /> ENTER DRAFTING ARENA <ArrowRight className="w-4 h-4" />
+                                <Play className="w-4 h-4 fill-cricket-gold" /> ENTER DRAFTING ARENA <ArrowRight className="w-4 h-4" />
                               </button>
                             )
                           )}
                         </div>
 
                         {/* Spotlight Roster Card */}
-                        <div className="rounded-3xl border border-neutral-800/85 mirror-panel p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden">
+                        <div className="rounded-3xl border border-cricket-gold/15 mirror-panel p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden">
                           <div className="absolute inset-0 z-0 pointer-events-none opacity-20 filter blur-xl scale-75" style={{ background: hottestSpotlight.themeColor }} />
 
                           <div className="relative z-10 space-y-4">
-                            <div className="flex justify-between items-center border-b border-white/5 pb-3">
-                              <p className="text-[10px] font-mono text-violet-400 tracking-widest uppercase font-black">
+                            <div className="flex justify-between items-center border-b border-cricket-gold/10 pb-3">
+                              <p className="text-[10px] font-mono text-cricket-gold tracking-widest uppercase font-black">
                                 FEATURED SPOTLIGHT CARDS
                               </p>
-                              <span className="text-[9px] font-mono bg-neutral-900 border border-white/5 px-2 py-0.5 rounded text-neutral-400 flex items-center gap-1">
+                              <span className="text-[9px] font-mono bg-black/40 border border-cricket-gold/15 px-2 py-0.5 rounded text-cricket-cream/60 flex items-center gap-1">
                                 <RefreshCw className="w-2.5 h-2.5 animate-spin" style={{ animationDuration: "10s" }} /> Rotating roster
                               </span>
                             </div>
@@ -2582,31 +2458,31 @@ useEffect(() => {
                               </div>
 
                               <div className="space-y-1.5 sm:space-y-2 min-w-0">
-                                <span className="text-[8px] font-mono font-bold border border-amber-500/30 text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded uppercase">
+                                <span className="text-[8px] font-mono font-bold border border-cricket-gold/40 text-cricket-gold bg-cricket-gold/10 px-2 py-0.5 rounded uppercase">
                                   {hottestSpotlight.rarity}
                                 </span>
-                                <h3 className="text-lg sm:text-xl font-extrabold text-white leading-tight truncate">{hottestSpotlight.name}</h3>
-                                <p className="text-[10px] text-neutral-400 font-mono uppercase truncate">{hottestSpotlight.anime}</p>
-                                <p className="text-xs text-neutral-400 leading-relaxed max-w-sm line-clamp-2">
+                                <h3 className="text-lg sm:text-xl font-extrabold text-cricket-cream leading-tight truncate">{hottestSpotlight.name}</h3>
+                                <p className="text-[10px] text-cricket-cream/50 font-mono uppercase truncate">{hottestSpotlight.anime}</p>
+                                <p className="text-xs text-cricket-cream/60 leading-relaxed max-w-sm line-clamp-2">
                                   {hottestSpotlight.description}
                                 </p>
                               </div>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-3 bg-neutral-900/30 border border-white/5 p-3 rounded-xl font-mono text-[10px]">
+                            <div className="grid grid-cols-2 gap-3 bg-black/30 border border-cricket-gold/10 p-3 rounded-xl font-mono text-[10px]">
                               <div>
-                                <span className="text-neutral-500">RARITY CLASS</span>
-                                <p className="text-base sm:text-lg font-black text-white">{hottestSpotlight.rarity}</p>
+                                <span className="text-cricket-cream/40">RARITY CLASS</span>
+                                <p className="text-base sm:text-lg font-black text-cricket-cream">{hottestSpotlight.rarity}</p>
                               </div>
                               <div>
-                                <span className="text-neutral-500">SIGNATURE MANIFESTO</span>
-                                <p className="text-xs font-bold text-violet-400 mt-1 truncate">{hottestSpotlight.quote ? `"${hottestSpotlight.quote}"` : "Absolute Dominance"}</p>
+                                <span className="text-cricket-cream/40">SIGNATURE MANIFESTO</span>
+                                <p className="text-xs font-bold text-cricket-gold mt-1 truncate">{hottestSpotlight.quote ? `"${hottestSpotlight.quote}"` : "Absolute Dominance"}</p>
                               </div>
                             </div>
                           </div>
 
-                          <div className="border-t border-white/5 pt-3.5 mt-4 sm:mt-6 text-center">
-                            <p className="text-[9px] font-mono uppercase text-neutral-500 tracking-widest">
+                          <div className="border-t border-cricket-gold/10 pt-3.5 mt-4 sm:mt-6 text-center">
+                            <p className="text-[9px] font-mono uppercase text-cricket-cream/40 tracking-widest">
                               DATABASE STATUS: {totalCharacters} PLAYERS SYNCED SUCCESSFULLY
                             </p>
                           </div>

@@ -525,7 +525,7 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
               </div>
 
               <button
-                onClick={handleCreateRoom}
+                onClick={() => handleCreateRoom(myName)}
                 className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream font-extrabold text-base flex items-center justify-center gap-2 shadow-lg shadow-cricket-green/30 transition"
               >
                 <Flag className="w-5 h-5" /> CREATE ROOM

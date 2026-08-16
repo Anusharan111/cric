@@ -255,103 +255,97 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
         {/* Game Modes Section - full width bg, constrained content */}
         <section className="modes" id="modes">
-          <div className="landing-container">
-            <div className="section-title">
-              <span>SELECT YOUR GAME</span>
-            </div>
-          </div>
-
-          {/* Featured Game Mode - Cricket Battle */}
-          <article id="arena" className="featured-mode reveal" onClick={onSelectBattle}>
-            <div className="featured-bg">
-              <div className="featured-glow" />
-            </div>
-            <div className="featured-content">
-              <div className="featured-badge">
-                <span className="badge-icon">⚔</span>
-                <span>FEATURED GAME MODE</span>
-                <span className="badge-number">01</span>
+          <div className="app">
+            <header className="top">
+              <div className="brand">
+                <div className="brand-icon">🏏</div>
+                <div className="brand-name">CRICKETVERSE</div>
               </div>
-              <h2 className="featured-title">
-                CRICKET<br />BATTLE
-              </h2>
-              <p className="featured-desc">
-                Draft your squad. Assign tactical roles (C, VC, WK). Counter your opponent
-                and discover the strongest possible combination of players.
+              <div className="status">
+                <span className="status-dot" />
+                ARENA ONLINE
+              </div>
+            </header>
+
+            <section className="intro">
+              <div>
+                <small>GAME ARENA / SELECT MODE</small>
+                <h1>
+                  WHAT ARE<br />
+                  WE PLAYING?
+                </h1>
+              </div>
+              <p>
+                Pick a mode, challenge your friends, and prove who really knows cricket.
               </p>
-              <div className="featured-stats">
-                <div className="stat-item">
-                  <div className="stat-header">
-                    <span className="stat-label">POWER</span>
-                    <span className="stat-value">92</span>
-                  </div>
-                  <div className="stat-bar"><i style={{ width: "92%" }} /></div>
+            </section>
+
+            <main className="arena">
+              <section className="cricket-battle" onClick={onSelectBattle}>
+                <div className="mode-bg">01</div>
+                <div className="battle-ring" />
+                <div className="mode-top">
+                  <div className="mode-icon battle-icon">⚔</div>
+                  <div className="mode-number">01 / 04</div>
                 </div>
-                <div className="stat-item">
-                  <div className="stat-header">
-                    <span className="stat-label">STRATEGY</span>
-                    <span className="stat-value">88</span>
-                  </div>
-                  <div className="stat-bar"><i style={{ width: "88%" }} /></div>
+                <div className="battle-content">
+                  <h2>
+                    CRICKET<br />
+                    <span>BATTLE</span>
+                  </h2>
+                  <p>
+                    Draft your squad, assign tactical roles, build powerful combinations and outsmart your opponent.
+                  </p>
+                  <a
+                    href="#arena"
+                    className="battle-btn"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onSelectBattle();
+                    }}
+                  >
+                    ENTER ARENA
+                    <span>→</span>
+                  </a>
                 </div>
-                <div className="stat-item">
-                  <div className="stat-header">
-                    <span className="stat-label">SYNERGY</span>
-                    <span className="stat-value">95</span>
-                  </div>
-                  <div className="stat-bar"><i style={{ width: "95%" }} /></div>
-                </div>
-              </div>
-              <button className="featured-cta" onClick={onSelectBattle}>
-                <span>ENTER BATTLE</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              </section>
+
+              <section className="other-modes">
+                <article className="game-mode trivia reveal" onClick={handleFeudClick} onMouseMove={handleCardMouseMove} onMouseLeave={handleCardMouseLeave}>
+                  <div className="mode-bg">02</div>
+                  <div className="mode-icon">?</div>
+                  <h3>Trivia<br />Clash</h3>
+                  <p>Cricket knowledge. Fast answers. Big risks.</p>
+                  <div className="play-mini">PLAY →</div>
+                </article>
+
+                <article className="game-mode guess reveal" onClick={handleGuessWhoClick} onMouseMove={handleCardMouseMove} onMouseLeave={handleCardMouseLeave}>
+                  <div className="mode-bg">03</div>
+                  <div className="mode-icon">◉</div>
+                  <h3>Guess<br />Who?</h3>
+                  <p>Find the mystery cricketer before anyone.</p>
+                  <div className="play-mini">PLAY →</div>
+                </article>
+
+                <article className="game-mode party reveal" onClick={handlePartyClick} onMouseMove={handleCardMouseMove} onMouseLeave={handleCardMouseLeave}>
+                  <div className="mode-bg">04</div>
+                  <div className="mode-icon">✦</div>
+                  <h3>Party Games</h3>
+                  <p>Quick, chaotic cricket challenges designed for friends and groups.</p>
+                  <div className="play-mini">OPEN PARTY →</div>
+                </article>
+              </section>
+            </main>
+
+            <div className="footer-bar">
+              <span>
+                AVAILABLE MODES: <strong className="players">04</strong>
+              </span>
+              <span>
+                PLAYER DATABASE: <strong className="players">400+</strong>
+              </span>
+              <span>● READY TO PLAY</span>
             </div>
-          </article>
-
-          {/* Secondary Game Modes Grid */}
-          <div className="modes-grid">
-            <article className="mode-card trivia reveal" onClick={handleFeudClick} onMouseMove={handleCardMouseMove} onMouseLeave={handleCardMouseLeave}>
-              <div className="mode-header">
-                <span className="mode-num">02</span>
-                <div className="mode-icon-wrap red">
-                  <Trophy className="w-7 h-7" />
-                </div>
-              </div>
-              <h3 className="mode-title">TRIVIA CLASH</h3>
-              <p className="mode-desc">Test your cricket knowledge, steal points, and defeat your friends in fast-paced rounds.</p>
-              <button className="mode-cta red" onClick={handleFeudClick}>
-                PLAY FEUD <ArrowRight className="w-4 h-4" />
-              </button>
-            </article>
-
-            <article className="mode-card guess reveal" onClick={handleGuessWhoClick} onMouseMove={handleCardMouseMove} onMouseLeave={handleCardMouseLeave}>
-              <div className="mode-header">
-                <span className="mode-num">03</span>
-                <div className="mode-icon-wrap blue">
-                  <Crosshair className="w-7 h-7" />
-                </div>
-              </div>
-              <h3 className="mode-title">GUESS WHO</h3>
-              <p className="mode-desc">Ask questions, eliminate players, and identify the mystery cricketer before your rival does.</p>
-              <button className="mode-cta blue" onClick={handleGuessWhoClick}>
-                START SEARCH <ArrowRight className="w-4 h-4" />
-              </button>
-            </article>
-
-            <article className="mode-card party reveal" onClick={handlePartyClick} onMouseMove={handleCardMouseMove} onMouseLeave={handleCardMouseLeave}>
-              <div className="mode-header">
-                <span className="mode-num">04</span>
-                <div className="mode-icon-wrap green">
-                  <Users className="w-7 h-7" />
-                </div>
-              </div>
-              <h3 className="mode-title">PARTY GAMES</h3>
-              <p className="mode-desc">Quick cricket games designed for friends, groups, and chaotic match nights.</p>
-              <button className="mode-cta green" onClick={handlePartyClick}>
-                OPEN PARTY <ArrowRight className="w-4 h-4" />
-              </button>
-            </article>
           </div>
 
           {/* Database Section */}

@@ -1,4 +1,4 @@
-// Cricket Feud — Question Bank (loaded from feud.json, 115 questions)
+// Cricket Feud — Question Bank (loaded from feud.json, 300 questions)
 
 import feudData from "../../feud.json";
 
@@ -14,15 +14,21 @@ export interface FeudQuestion {
   answers: FeudAnswer[];
 }
 
-export const FEUD_CATEGORIES = ["All", "Cricket"] as const;
+export const FEUD_CATEGORIES: string[] = [
+  "All",
+  ...Array.from(new Set(feudData.map((board) => board.category))),
+];
 
 export type FeudCategory = (typeof FEUD_CATEGORIES)[number];
 
-export const FEUD_QUESTIONS: FeudQuestion[] = feudData.boards.map((board) => ({
+export const FEUD_QUESTIONS: FeudQuestion[] = feudData.map((board) => ({
   id: board.id,
-  category: "Cricket",
+  category: board.category,
   question: board.question,
-  answers: board.answers,
+  answers: board.answers.map((a) => ({
+    text: a.answer,
+    points: a.points,
+  })),
 }));
 
 /** Returns a shuffled subset of questions, optionally filtered by category */

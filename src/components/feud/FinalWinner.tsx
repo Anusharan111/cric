@@ -21,9 +21,9 @@ export default function FinalWinner({
   const winner = ranked[0];
 
   return (
-    <div className="w-full max-w-xl mx-auto p-8 text-center nexus-glass rounded-2xl border border-violet-500/20 text-white shadow-2xl relative overflow-hidden">
+    <div className="w-full max-w-xl mx-auto p-8 text-center nexus-glass rounded-2xl border border-cricket-green/25 text-white shadow-2xl relative overflow-hidden">
       {/* Glow Effect */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-64 h-64 bg-fuchsia-600/20 rounded-full blur-3xl" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-64 h-64 bg-cricket-gold/15 rounded-full blur-3xl" />
 
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
@@ -55,7 +55,7 @@ export default function FinalWinner({
             <div
               key={team.id}
               className={`px-4 py-3 flex justify-between items-center ${
-                index === 0 ? "bg-violet-950/20" : ""
+                index === 0 ? "bg-cricket-green/10" : ""
               }`}
             >
               <div className="flex items-center gap-3">
@@ -85,7 +85,7 @@ export default function FinalWinner({
         <div className="flex gap-4 w-full mt-8">
           <button
             onClick={onRestart}
-            className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-violet-650 to-fuchsia-650 hover:from-violet-550 hover:to-fuchsia-550 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-violet-950/20 transition duration-300 transform hover:scale-103"
+            className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-cricket-green/30 transition duration-300 transform hover:scale-103"
           >
             <RefreshCw className="w-4 h-4" />
             <span>Play Again</span>

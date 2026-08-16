@@ -32,7 +32,7 @@ export default function GuessInput({
   };
 
   return (
-    <div className="w-full max-w-xl mx-auto p-4 rounded-xl bg-slate-900/60 border border-violet-500/10 shadow-lg">
+    <div className="w-full max-w-xl mx-auto p-4 rounded-xl bg-slate-900/60 border border-cricket-green/10 shadow-lg">
       <div className="flex items-center justify-between mb-2">
         <span className="text-xs font-semibold text-slate-400">
           {isStealPhase ? (
@@ -43,7 +43,7 @@ export default function GuessInput({
             "CURRENT GUESSER:"
           )}
         </span>
-        <span className="text-sm font-black text-violet-300">
+        <span className="text-sm font-black text-cricket-light">
           {activePlayerName}
         </span>
       </div>
@@ -60,14 +60,14 @@ export default function GuessInput({
               ? "Waiting..."
               : isStealPhase
               ? "Type one final team guess to steal the points!"
-              : "Type your anime guess here..."
+              : "Type your cricket guess here..."
           }
-          className="flex-1 px-4 py-2.5 rounded-lg bg-slate-950 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 disabled:opacity-55 disabled:cursor-not-allowed transition"
+          className="flex-1 px-4 py-2.5 rounded-lg bg-slate-950 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cricket-green focus:ring-1 focus:ring-cricket-green disabled:opacity-55 disabled:cursor-not-allowed transition"
         />
         <button
           type="submit"
           disabled={disabled || !guess.trim()}
-          className="px-4 py-2.5 rounded-lg bg-gradient-to-r from-violet-650 to-fuchsia-650 hover:from-violet-550 hover:to-fuchsia-550 text-white text-sm font-bold flex items-center gap-1.5 shadow-md shadow-violet-950/20 disabled:opacity-40 disabled:cursor-not-allowed transition"
+          className="px-4 py-2.5 rounded-lg bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-white text-sm font-bold flex items-center gap-1.5 shadow-md shadow-cricket-green/30 disabled:opacity-40 disabled:cursor-not-allowed transition"
         >
           <span>Submit</span>
           <Send className="w-4 h-4" />

@@ -309,7 +309,7 @@ export default function AnimeFeudGame({ onExit }: AnimeFeudGameProps) {
                   key={idx}
                   className={`w-5 h-2.5 rounded-full transition-all duration-300 ${
                     idx === currentRoundIdx
-                      ? "bg-violet-500 shadow-md shadow-violet-500/50"
+                      ? "bg-cricket-green shadow-md shadow-cricket-green/50"
                       : idx < currentRoundIdx
                       ? "bg-emerald-500"
                       : "bg-slate-800"
@@ -360,7 +360,7 @@ export default function AnimeFeudGame({ onExit }: AnimeFeudGameProps) {
           {/* Strikes & Round Bank Info */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
             {mode !== "party" && (
-              <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-950/40 border border-violet-500/10 min-h-[78px] text-center">
+              <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-950/40 border border-cricket-green/10 min-h-[78px] text-center">
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500">
                   Round Point Bank
                 </span>
@@ -404,14 +404,14 @@ export default function AnimeFeudGame({ onExit }: AnimeFeudGameProps) {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="w-full max-w-md mx-auto p-4 rounded-xl bg-slate-950/80 border border-violet-500/20 text-center space-y-4"
+                className="w-full max-w-md mx-auto p-4 rounded-xl bg-slate-950/80 border border-cricket-green/20 text-center space-y-4"
               >
-                <div className="text-sm font-bold text-violet-300">
+                <div className="text-sm font-bold text-cricket-light">
                   Round finished! All points tallied.
                 </div>
                 <button
                   onClick={handleNextRound}
-                  className="w-full py-2.5 rounded-lg bg-gradient-to-r from-violet-650 to-fuchsia-650 hover:from-violet-550 hover:to-fuchsia-550 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-violet-950/20 transition"
+                  className="w-full py-2.5 rounded-lg bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-cricket-green/30 transition"
                 >
                   <span>
                     {currentRoundIdx + 1 === roundsCount ? "View Final Standings" : "Next Round"}

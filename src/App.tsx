@@ -1923,8 +1923,8 @@ useEffect(() => {
       <header className="sticky top-0 z-50 cricket-glass bg-[rgba(9,20,26,0.72)] backdrop-blur-2xl border-b border-white/10 py-2.5 px-3 sm:py-3 sm:px-5">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 cursor-pointer group" onClick={() => setView("landing")}>
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cricket-green to-cricket-light flex items-center justify-center shadow-[0_0_12px_rgba(34,197,94,0.5)] group-hover:scale-110 transition-transform duration-300">
-              <Swords className="w-5 h-5 text-white" />
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cricket-green to-cricket-light flex items-center justify-center shadow-[0_0_12px_rgba(34,197,94,0.5)] group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+              <img src="/logo.png" alt="Cricketverse logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <h1 className="text-sm sm:text-base font-black tracking-[0.1em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-cricket-cream via-cricket-gold to-cricket-light cricket-glow-text">
@@ -3028,7 +3028,7 @@ useEffect(() => {
             </motion.div>
           )}
 
-          {/* 4. ANIME FEUD VIEW */}
+          {/* 4. CRICKET FEUD VIEW */}
           {view === "feud" && (
             <motion.div
               key="feud"

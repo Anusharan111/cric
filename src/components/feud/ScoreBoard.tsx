@@ -37,13 +37,13 @@ export default function ScoreBoard({
             key={team.id}
             className={`p-4 rounded-xl border transition-all duration-300 relative overflow-hidden ${
               isActive
-                ? "bg-gradient-to-br from-violet-900/30 to-fuchsia-950/20 border-violet-500/80 shadow-lg shadow-violet-500/10 scale-[1.02]"
+                ? "bg-gradient-to-br from-cricket-green/25 to-cricket-gold/10 border-cricket-green/70 shadow-lg shadow-cricket-green/10 scale-[1.02]"
                 : "bg-slate-950/40 border-white/5"
             }`}
           >
             {/* Active Glow Bar */}
             {isActive && (
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-violet-500 via-fuchsia-500 to-cyan-500 animate-pulse" />
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-cricket-green via-cricket-light to-cricket-blue animate-pulse" />
             )}
 
             <div className="flex justify-between items-start">
@@ -51,7 +51,7 @@ export default function ScoreBoard({
                 <h4 className="font-extrabold text-white text-base tracking-wide flex items-center gap-1.5">
                   {team.name}
                   {isActive && (
-                    <span className="inline-block px-1.5 py-0.5 rounded bg-violet-500/20 text-violet-300 text-[8px] uppercase tracking-wider font-extrabold border border-violet-500/30">
+                    <span className="inline-block px-1.5 py-0.5 rounded bg-cricket-green/20 text-cricket-light text-[8px] uppercase tracking-wider font-extrabold border border-cricket-green/40">
                       Active
                     </span>
                   )}

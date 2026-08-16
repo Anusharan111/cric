@@ -1,0 +1,1 @@
+﻿// Backup types file removed to prevent duplicate identifier errors

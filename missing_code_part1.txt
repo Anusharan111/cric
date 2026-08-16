@@ -1,0 +1,81 @@
+      }
+    });
+
+    channel.bind("client-room-cancelled", () => {
+      alert("The room was cancelled.");
+      resetOnlineLobby();
+    });
+
+    channel.bind("pusher:member_removed", (member: any) => {
+      console.log("Member left:", member.id, member.info);
+      alert("Opponent disconnected. Returning to lobby.");
+      resetOnlineLobby();
+    });
+  }, [resetOnlineLobby]);
+
+  const triggerGameStart = (channel: any, roomId: string, p1Name: string, p2Name: string) => {
+    setTimeout(() => {
+      console.log("Triggering client-game-started...");
+      const activeAnimes = categoryRef.current === "choose" ? [...selectedAnimesRef.current] : [];
+      const useAll = allAnimeRef.current || categoryRef.current !== "choose";
+      const matchTypeRoll: MatchType = Math.random() < 0.5 ? "ODI" : "T20I";
+      channel.trigger("client-game-started", {
+        roomId,
+        p1Name,
+        p2Name,
+        activeAnimes,
+        useAll,
+        matchType: matchTypeRoll,
+        p1AllowedCountries,
+        p2AllowedCountries,
+      });
+
+      // P1 must apply the game start state locally since Pusher does not echo client events to the sender
+      console.log("Applying game start state locally for P1...");
+      setOnlineRoomId(roomId);
+      onlineRoomIdRef.current = roomId;
+      setPlayer1Name(p1Name);
+      setPlayer2Name(p2Name);
+      setIsWaitingForOpponent(false);
+      setOnlineAction(null);
+      setRound(1);
+      setActiveTurn("p1");
+      setP1Slots(initialSlots);
+      setP2Slots(initialSlots);
+      setP1SkipUsed(false);
+      setP2SkipUsed(false);
+      setExcludedIds([]);
+      setMustPick(false);
+      setResultData(null);
+      resetCinematicClash();
+      setMatchType(matchTypeRoll);
+      resetCaptaincy();
+      setView("draft");
+      setIsDeployModalOpen(false);
+
+      // Build the persistent pool before the first draw
+      buildDraftPool(activeAnimes, useAll).then(() => {
+        requestAnimationFrame(() => {
+          pullNewCharacterRef.current([], [], initialSlots, "p1");
+        });
+      });
+    }, 500);
+  };
+
+  // Load history and characters on startup
+  useEffect(() => {
+    fetchMatchHistory();
+    return () => {
+      if (channelRef.current) {
+        channelRef.current.unbind_all();
+        pusherRef.current?.unsubscribe(channelRef.current.name);
+      }
+      pusherRef.current?.disconnect();
+      pusherRef.current = null;
+      channelRef.current = null;
+    };
+  }, []);
+
+  // Auto-calculate winner in online mode when both teams are full (driven by either side)
+  useEffect(() => {
+    if (gameMode === "online-2p") {

@@ -1,0 +1,6 @@
+{
+  "name": "Anime Battle",
+  "description": "Tactical anime character card drafting game featuring strategic skips, smart AI draft bots, and hilarious live casting match commentaries powered by Gemini.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

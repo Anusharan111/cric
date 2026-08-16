@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: anime-battle
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build:full
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: VITE_BASE_PATH
+        value: /
+      - key: PORT
+        value: 5174
+      - key: GEMINI_API_KEY
+        sync: false

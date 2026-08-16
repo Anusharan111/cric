@@ -290,7 +290,7 @@ export default function AnimeFeudGame({ onExit }: AnimeFeudGameProps) {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start py-8 px-4 bg-[#050816] text-white">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start py-8 px-4 text-white">
       {phase === "setup" && (
         <PlayerSetup onStartGame={handleStartGame} onBack={onExit} />
       )}

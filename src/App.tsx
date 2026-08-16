@@ -105,7 +105,7 @@ const normalizeCharacterName = (name: string) => name.toLowerCase().replace(/[^a
 
 const CRICKET_THEME_COLORS: Record<string, string> = {
   India: "#2d8cff",
-  Australia: "#d4a817",
+  Australia: "#fbbf24",
   England: "#d94b58",
   Pakistan: "#42bd77",
   Nepal: "#df5666",
@@ -1870,20 +1870,22 @@ useEffect(() => {
                         </div>
                       </button>
 
-                      <button
-                        id={`btn-skip-${activeCharacter.id}`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleSkip();
-                        }}
-                        disabled={activeTurn === "p1" ? p1SkipUsed : p2SkipUsed}
-                        className={`w-full py-3 sm:py-3 rounded-xl border-2 font-black text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] transition-all duration-500 flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation ${(activeTurn === "p1" ? !p1SkipUsed : !p2SkipUsed)
-                            ? "border-red-500/20 bg-red-500/5 text-red-400 hover:bg-red-500/10 hover:border-red-500/40 active:scale-95 cursor-pointer shadow-lg"
-                            : "border-white/5 bg-white/5 text-slate-600 cursor-not-allowed opacity-40"
-                          }`}
-                      >
-                        <Zap className="w-3 h-3" /> TACTICAL SKIP {activeTurn === "p1" ? (p1SkipUsed ? "(OFFLINE)" : "(ACTIVE)") : (p2SkipUsed ? "(OFFLINE)" : "(ACTIVE)")}
-</button>
+                      {!isMobile && (
+                        <button
+                          id={`btn-skip-${activeCharacter.id}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleSkip();
+                          }}
+                          disabled={activeTurn === "p1" ? p1SkipUsed : p2SkipUsed}
+                          className={`w-full py-3 sm:py-3 rounded-xl border-2 font-black text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] transition-all duration-500 flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation ${(activeTurn === "p1" ? !p1SkipUsed : !p2SkipUsed)
+                              ? "border-red-500/20 bg-red-500/5 text-red-400 hover:bg-red-500/10 hover:border-red-500/40 active:scale-95 cursor-pointer shadow-lg"
+                              : "border-white/5 bg-white/5 text-slate-600 cursor-not-allowed opacity-40"
+                            }`}
+                        >
+                          <Zap className="w-3 h-3" /> TACTICAL SKIP {activeTurn === "p1" ? (p1SkipUsed ? "(OFFLINE)" : "(ACTIVE)") : (p2SkipUsed ? "(OFFLINE)" : "(ACTIVE)")}
+                        </button>
+                      )}
                       </> )}
                   </motion.div>
                 )}
@@ -1916,17 +1918,17 @@ useEffect(() => {
   const opponentOnlineName = ownOnlineSide === "p2" ? player1Name : player2Name;
 
   return (
-    <div className={`${view === "draft" ? "h-[100dvh] overflow-hidden" : "min-h-screen overflow-x-clip"} bg-[#07130f] text-slate-100 flex flex-col font-sans relative selection:bg-cricket-gold/30`}>
+    <div className={`${view === "draft" ? "h-[100dvh] overflow-hidden" : "min-h-screen overflow-x-clip"} bg-[#07100d] text-slate-100 flex flex-col font-sans relative selection:bg-cricket-gold/30`}>
       {/* Global Header/Navbar - compact */}
-      <header className="sticky top-0 z-50 cricket-glass bg-[rgba(13,57,37,0.62)] backdrop-blur-2xl border-b border-cricket-gold/20 py-2.5 px-3 sm:py-3 sm:px-5">
+      <header className="sticky top-0 z-50 cricket-glass bg-[rgba(9,20,26,0.72)] backdrop-blur-2xl border-b border-white/10 py-2.5 px-3 sm:py-3 sm:px-5">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 cursor-pointer group" onClick={() => setView("landing")}>
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cricket-green to-cricket-light flex items-center justify-center shadow-[0_0_12px_rgba(26,92,46,0.5)] group-hover:scale-110 transition-transform duration-300">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cricket-green to-cricket-light flex items-center justify-center shadow-[0_0_12px_rgba(34,197,94,0.5)] group-hover:scale-110 transition-transform duration-300">
               <Swords className="w-5 h-5 text-white" />
             </div>
             <div>
               <h1 className="text-sm sm:text-base font-black tracking-[0.1em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-cricket-cream via-cricket-gold to-cricket-light cricket-glow-text">
-                Cricket Battle
+                Cricketverse
               </h1>
               <div className="flex items-center gap-1.5">
                 <span className="text-[9px] font-mono tracking-widest text-cricket-gold/70 uppercase">Battle System v2.0</span>
@@ -1969,7 +1971,7 @@ useEffect(() => {
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
             className="fixed top-12 left-1/2 -translate-x-1/2 z-[90] w-[calc(100%-24px)] max-w-md pointer-events-none"
           >
-            <div className="flex items-start gap-2.5 rounded-2xl border border-cricket-gold/40 bg-gradient-to-r from-cricket-dark/95 via-black/95 to-cricket-dark/95 backdrop-blur-md px-4 py-3 shadow-[0_0_25px_rgba(212,168,23,0.25)]">
+            <div className="flex items-start gap-2.5 rounded-2xl border border-cricket-gold/40 bg-gradient-to-r from-cricket-dark/95 via-black/95 to-cricket-dark/95 backdrop-blur-md px-4 py-3 shadow-[0_0_25px_rgba(251,191,36,0.25)]">
               <span className="w-7 h-7 rounded-full bg-cricket-gold/15 border border-cricket-gold/40 flex items-center justify-center flex-shrink-0">
                 <Award className="w-3.5 h-3.5 text-cricket-gold" />
               </span>
@@ -1985,8 +1987,8 @@ useEffect(() => {
       {/* 🌌 Animated Background */}
       {view !== "landing" && (
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,#173c2b_0%,#0d241d_45%,#06100d_100%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#d4a81712_1px,transparent_1px),linear-gradient(to_bottom,#d4a81712_1px,transparent_1px)] bg-[size:40px_40px] [transform:perspective(1000px)_rotateX(60deg)_translateY(-100px)] opacity-35" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,#0d1c22_0%,#09141a_45%,#07100d_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#f8fafc08_1px,transparent_1px),linear-gradient(to_bottom,#f8fafc08_1px,transparent_1px)] bg-[size:40px_40px] [transform:perspective(1000px)_rotateX(60deg)_translateY(-100px)] opacity-35" />
           <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white rounded-full animate-ping opacity-20" />
           <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-cricket-gold rounded-full animate-pulse opacity-40 delay-700" />
           <div className="absolute bottom-1/3 left-1/2 w-1.5 h-1.5 bg-cricket-green rounded-full animate-bounce opacity-20 delay-1000" />
@@ -2039,7 +2041,17 @@ useEffect(() => {
               </AnimatePresence>
 
               {showLeaderboard ? (
-                <div className="w-full max-w-3xl mx-auto rounded-2xl border border-neutral-800 mirror-panel p-6 space-y-6">
+                <div
+                  onClick={() => setShowLeaderboard(false)}
+                  className="w-full cursor-pointer rounded-2xl border border-neutral-800/50 bg-black/25 backdrop-blur-[2px] p-4 sm:p-6"
+                >
+                  <p className="text-center text-[9px] font-mono uppercase tracking-widest text-neutral-500 mb-3 hover:text-neutral-400 transition-colors select-none">
+                    ← Click anywhere outside to return home
+                  </p>
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-full max-w-3xl mx-auto rounded-2xl border border-neutral-800 mirror-panel p-6 space-y-6 cursor-default"
+                  >
                   <div className="flex justify-between items-center border-b border-white/5 pb-3">
                     <div>
                       <h2 className="text-xl font-black text-white uppercase flex items-center gap-2">
@@ -2092,6 +2104,7 @@ useEffect(() => {
                       ))}
                     </div>
                   )}
+                  </div>
                 </div>
               ) : (
                 <>
@@ -2121,7 +2134,7 @@ useEffect(() => {
                         <div className="rounded-3xl border border-cricket-gold/15 mirror-panel p-5 sm:p-8 flex flex-col justify-between space-y-6 sm:space-y-8 relative overflow-hidden shadow-2xl">
                           <div className="space-y-5">
                             <div className="flex border-b border-cricket-gold/15 pb-4 items-center gap-2.5">
-                              <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-cricket-green to-cricket-light flex items-center justify-center shadow-[0_0_18px_rgba(26,92,46,0.45)] flex-shrink-0">
+                              <span className="w-9 h-9 rounded-xl bg-gradient-to-br from-cricket-green to-cricket-light flex items-center justify-center shadow-[0_0_18px_rgba(34,197,94,0.45)] flex-shrink-0">
                                 <Swords className="w-4.5 h-4.5 text-white" />
                               </span>
                               <div>
@@ -2148,11 +2161,11 @@ useEffect(() => {
                                     setOnlineAction(null);
                                   }}
                                   className={`p-3 sm:p-4 rounded-xl border flex flex-col items-center gap-1.5 sm:gap-2 text-center transition-all cursor-pointer ${!isHostJoined ? "opacity-40 pointer-events-none" : ""} ${gameMode === "vs-ai"
-                                      ? "border-cricket-gold bg-cricket-gold/10 text-white shadow-[0_0_15px_rgba(212,168,23,0.25)]"
+                                      ? "border-cricket-green bg-cricket-green/10 text-white shadow-[0_0_15px_rgba(34,197,94,0.25)]"
                                       : "border-white/10 bg-black/30 text-cricket-cream/50 hover:border-cricket-green/60 hover:bg-cricket-green/10 hover:text-cricket-cream"
                                     }`}
                                 >
-                                  <Computer className={`w-4 h-4 sm:w-5 sm:h-5 ${gameMode === "vs-ai" ? "text-cricket-gold" : "text-cricket-cream/50"}`} />
+                                  <Computer className={`w-4 h-4 sm:w-5 sm:h-5 ${gameMode === "vs-ai" ? "text-cricket-green" : "text-cricket-cream/50"}`} />
                                   <div>
                                     <p className="text-[10px] sm:text-xs font-black uppercase tracking-wide">P1 VS AI</p>
                                     <p className={`text-[8px] sm:text-[9px] font-mono mt-0.5 ${gameMode === "vs-ai" ? "text-cricket-cream/60" : "text-cricket-cream/35"}`}>Solo Bot</p>
@@ -2167,11 +2180,11 @@ useEffect(() => {
                                     setOnlineAction(null);
                                   }}
                                   className={`p-3 sm:p-4 rounded-xl border flex flex-col items-center gap-1.5 sm:gap-2 text-center transition-all cursor-pointer ${!isHostJoined ? "opacity-40 pointer-events-none" : ""} ${gameMode === "local-2p"
-                                      ? "border-cricket-gold bg-cricket-gold/10 text-white shadow-[0_0_15px_rgba(212,168,23,0.25)]"
+                                      ? "border-cricket-green bg-cricket-green/10 text-white shadow-[0_0_15px_rgba(34,197,94,0.25)]"
                                       : "border-white/10 bg-black/30 text-cricket-cream/50 hover:border-cricket-green/60 hover:bg-cricket-green/10 hover:text-cricket-cream"
                                     }`}
                                 >
-                                  <Users className={`w-4 h-4 sm:w-5 sm:h-5 ${gameMode === "local-2p" ? "text-cricket-gold" : "text-cricket-cream/50"}`} />
+                                  <Users className={`w-4 h-4 sm:w-5 sm:h-5 ${gameMode === "local-2p" ? "text-cricket-green" : "text-cricket-cream/50"}`} />
                                   <div>
                                     <p className="text-[10px] sm:text-xs font-black uppercase tracking-wide">LOCAL 2P</p>
                                     <p className={`text-[8px] sm:text-[9px] font-mono mt-0.5 ${gameMode === "local-2p" ? "text-cricket-cream/60" : "text-cricket-cream/35"}`}>Pass & Play</p>
@@ -2185,11 +2198,11 @@ useEffect(() => {
                                     setOnlineAction(null);
                                   }}
                                   className={`p-3 sm:p-4 rounded-xl border flex flex-col items-center gap-1.5 sm:gap-2 text-center transition-all cursor-pointer ${!isHostJoined ? "opacity-40 pointer-events-none" : ""} ${gameMode === "online-2p"
-                                      ? "border-cricket-gold bg-cricket-gold/10 text-white shadow-[0_0_15px_rgba(212,168,23,0.25)]"
+                                      ? "border-cricket-green bg-cricket-green/10 text-white shadow-[0_0_15px_rgba(34,197,94,0.25)]"
                                       : "border-white/10 bg-black/30 text-cricket-cream/50 hover:border-cricket-green/60 hover:bg-cricket-green/10 hover:text-cricket-cream"
                                     }`}
                                 >
-                                  <Globe className={`w-4 h-4 sm:w-5 sm:h-5 ${gameMode === "online-2p" ? "text-cricket-gold" : "text-cricket-cream/50"}`} />
+                                  <Globe className={`w-4 h-4 sm:w-5 sm:h-5 ${gameMode === "online-2p" ? "text-cricket-green" : "text-cricket-cream/50"}`} />
                                   <div>
                                     <p className="text-[10px] sm:text-xs font-black uppercase tracking-wide">ONLINE 2P</p>
                                     <p className={`text-[8px] sm:text-[9px] font-mono mt-0.5 ${gameMode === "online-2p" ? "text-cricket-cream/60" : "text-cricket-cream/35"}`}>Play Online</p>
@@ -2407,7 +2420,7 @@ useEffect(() => {
                                 disabled={!canStartDraft}
                                 className={`w-full py-4 rounded-xl text-xs uppercase tracking-[0.2em] font-black transition-all flex items-center justify-center gap-2 mt-6 cursor-pointer ${!canStartDraft
                                     ? "bg-black/40 text-cricket-cream/30 border border-cricket-gold/10 cursor-not-allowed opacity-50 shadow-none scale-100"
-                                    : "bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream shadow-[0_0_30px_rgba(26,92,46,0.45)] hover:shadow-[0_0_35px_rgba(26,92,46,0.55)] active:scale-95"
+                                    : "bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream shadow-[0_0_30px_rgba(34,197,94,0.45)] hover:shadow-[0_0_35px_rgba(34,197,94,0.55)] active:scale-95"
                                   }`}
                               >
                                 <Play className="w-4 h-4 fill-cricket-gold" /> ENTER DRAFTING ARENA <ArrowRight className="w-4 h-4" />
@@ -2419,7 +2432,7 @@ useEffect(() => {
                                 disabled={!canStartDraft}
                                 className={`w-full py-4 rounded-xl text-xs uppercase tracking-[0.2em] font-black transition-all flex items-center justify-center gap-2 mt-6 cursor-pointer ${!canStartDraft
                                     ? "bg-black/40 text-cricket-cream/30 border border-cricket-gold/10 cursor-not-allowed opacity-50 shadow-none scale-100"
-                                    : "bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream shadow-[0_0_30px_rgba(26,92,46,0.45)] hover:shadow-[0_0_35px_rgba(26,92,46,0.55)] active:scale-95"
+                                    : "bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green text-cricket-cream shadow-[0_0_30px_rgba(34,197,94,0.45)] hover:shadow-[0_0_35px_rgba(34,197,94,0.55)] active:scale-95"
                                   }`}
                               >
                                 <Play className="w-4 h-4 fill-cricket-gold" /> ENTER DRAFTING ARENA <ArrowRight className="w-4 h-4" />

@@ -358,7 +358,7 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
   const civiliansWin = accusedName !== null && revealedImposter !== null && accusedName === revealedImposter.name;
 
   return (
-    <div className="w-full min-h-[80vh] flex flex-col items-center justify-start py-6 px-3 bg-cricket-dark text-cricket-cream">
+    <div className="w-full min-h-[80vh] flex flex-col items-center justify-start py-6 px-3 text-cricket-cream">
       <AnimatePresence mode="wait">
 
         {/* ══════════ CREATE / JOIN ROOM ══════════ */}
@@ -484,8 +484,8 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
                       className={`p-4 rounded-xl text-left border-2 transition-all text-sm font-bold cursor-pointer ${
                         selectedMode === mode
                           ? mode === "guess-character"
-                            ? "bg-cricket-green/20 border-cricket-green text-cricket-gold shadow-[0_0_15px_rgba(26,92,46,0.3)]"
-                            : "bg-cricket-red/20 border-cricket-red text-cricket-red shadow-[0_0_15px_rgba(196,30,58,0.3)]"
+                            ? "bg-cricket-green/20 border-cricket-green text-cricket-gold shadow-[0_0_15px_rgba(34,197,94,0.3)]"
+                            : "bg-cricket-red/20 border-cricket-red text-cricket-red shadow-[0_0_15px_rgba(239,68,68,0.3)]"
                           : "bg-cricket-dark border-cricket-gold/10 text-cricket-gold/70 hover:border-cricket-gold/30"
                       }`}
                     >
@@ -502,7 +502,7 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
                       onClick={() => { setCategory("all"); setSelectedCountries([]); }}
                       className={`py-2.5 px-3 rounded-xl border text-[10px] font-black uppercase tracking-wide transition-all cursor-pointer ${
                         category === "all"
-                          ? "border-cricket-green bg-cricket-green/10 text-cricket-gold shadow-[0_0_15px_rgba(26,92,46,0.25)]"
+                          ? "border-cricket-green bg-cricket-green/10 text-cricket-gold shadow-[0_0_15px_rgba(34,197,94,0.25)]"
                           : "border-cricket-gold/10 bg-cricket-dark/30 text-cricket-gold/70 hover:border-cricket-gold/30"
                       }`}
                     >
@@ -512,7 +512,7 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
                       onClick={() => setCategory("choose")}
                       className={`py-2.5 px-3 rounded-xl border text-[10px] font-black uppercase tracking-wide transition-all cursor-pointer ${
                         category === "choose"
-                          ? "border-cricket-green bg-cricket-green/10 text-cricket-gold shadow-[0_0_15px_rgba(26,92,46,0.25)]"
+                          ? "border-cricket-green bg-cricket-green/10 text-cricket-gold shadow-[0_0_15px_rgba(34,197,94,0.25)]"
                           : "border-cricket-gold/10 bg-cricket-dark/30 text-cricket-gold/70 hover:border-cricket-gold/30"
                       }`}
                     >
@@ -761,7 +761,7 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
                       </div>
                       <div className="flex flex-col items-center gap-2">
                         <span className="text-cricket-red text-xs font-bold uppercase">Imposter had</span>
-                        <div className="shadow-[0_0_40px_rgba(196,30,58,0.4)] rounded-2xl">
+                        <div className="shadow-[0_0_40px_rgba(239,68,68,0.4)] rounded-2xl">
                           <CricketCharacterCard player={revealedImposter.character} isFlipped={false} />
                         </div>
                         <span className="px-3 py-1 rounded-full bg-cricket-red/15 border border-cricket-red/40 text-cricket-red text-[10px] font-black uppercase tracking-widest">

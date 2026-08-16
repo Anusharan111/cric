@@ -101,16 +101,16 @@ export default function GWGameOver({
             className="inline-block"
           >
             {won ? (
-              <Trophy className="w-16 h-16 text-cricket-gold mx-auto mb-3 drop-shadow-[0_0_20px_rgba(212,168,23,0.5)]" />
+              <Trophy className="w-16 h-16 text-cricket-gold mx-auto mb-3 drop-shadow-[0_0_20px_rgba(251,191,36,0.5)]" />
             ) : (
-              <Skull className="w-16 h-16 text-cricket-red mx-auto mb-3 drop-shadow-[0_0_20px_rgba(196,30,58,0.4)]" />
+              <Skull className="w-16 h-16 text-cricket-red mx-auto mb-3 drop-shadow-[0_0_20px_rgba(239,68,68,0.4)]" />
             )}
           </motion.div>
 
           <h2
             className={`text-4xl sm:text-5xl font-black tracking-wider ${
               won
-                ? "bg-gradient-to-r from-cricket-gold via-yellow-400 to-cricket-gold bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(212,168,23,0.4)]"
+                ? "bg-gradient-to-r from-cricket-gold via-yellow-400 to-cricket-gold bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,191,36,0.4)]"
                 : "bg-gradient-to-r from-cricket-red via-red-500 to-rose-500 bg-clip-text text-transparent"
             }`}
           >

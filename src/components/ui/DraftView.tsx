@@ -261,37 +261,9 @@ const DraftView: React.FC<DraftViewProps> = ({
             </div>
           </div>
 ) : (
-        <div className="grid lg:grid-cols-12 gap-5 lg:gap-6 items-center h-full min-h-0">
+        <div className="grid lg:grid-cols-12 gap-5 lg:gap-6 items-stretch h-full min-h-0">
           {/* Left: P1 Roster */}
           <div className="lg:col-span-4 flex flex-col min-h-0">
-            {/* Top Area: Opponent in Online/AI mode */}
-            {(gameMode === "online-2p" || gameMode === "vs-ai") && (
-              <div className="w-full flex justify-center px-4 animate-fadeInDown">
-                <div className="w-full max-w-md">
-                  <TeamSlots
-                      playerName={gameMode === "vs-ai" ? "Smart AI" : (onlineSide === "p2" ? player1Name : player2Name)}
-                      allowedCountries={onlineSide === "p2" ? p1AllowedCountries : p2AllowedCountries}
-                      isAI={gameMode === "vs-ai"}
-                      slots={onlineSide === "p2" ? p1Slots : p2Slots}
-                      skipUsed={onlineSide === "p2" ? p1SkipUsed : p2SkipUsed}
-                      activeTurn={activeTurn === (onlineSide === "p2" ? "p1" : "p2")}
-                      layout="compact-horizontal-top"
-                      isMobile={true}
-                      slotSide={onlineSide === "p2" ? "p1" : "p2"}
-                      captainRoleId={onlineSide === "p2" ? captainRoleId.p1 : captainRoleId.p2}
-                      viceCaptainRoleId={onlineSide === "p2" ? viceCaptainRoleId.p1 : viceCaptainRoleId.p2}
-                      wicketkeeperRoleId={onlineSide === "p2" ? wicketkeeperRoleId.p1 : wicketkeeperRoleId.p2}
-                      onSetCaptain={(r) => onSetCaptain(onlineSide === "p2" ? "p1" : "p2", r)}
-                      onSetViceCaptain={(r) => onSetViceCaptain(onlineSide === "p2" ? "p1" : "p2", r)}
-                      onSetWicketkeeper={(r) => onSetWicketkeeper(onlineSide === "p2" ? "p1" : "p2", r)}
-                      onClearCaptain={() => onClearCaptain(onlineSide === "p2" ? "p1" : "p2")}
-                      onClearViceCaptain={() => onClearViceCaptain(onlineSide === "p2" ? "p1" : "p2")}
-                      onClearWicketkeeper={() => onClearWicketkeeper(onlineSide === "p2" ? "p1" : "p2")}
-                      awaitingCaptaincy={awaitingCaptaincy}
-                    />
-                </div>
-              </div>
-            )}
             <TeamSlots
               playerName={player1Name}
               slots={p1Slots}

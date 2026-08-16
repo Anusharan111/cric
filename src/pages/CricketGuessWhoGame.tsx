@@ -445,7 +445,7 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start py-6 px-3 bg-cricket-dark text-cricket-cream">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start py-6 px-3 text-cricket-cream">
       <AnimatePresence mode="wait">
         {phase === "lobby" && (
           <motion.div
@@ -489,7 +489,7 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
                         onClick={() => toggleCountry(country)}
                         className={`flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                           selectedCountries.includes(country)
-                            ? "bg-cricket-gold/20 border-cricket-gold/40 text-cricket-gold shadow-[0_0_10px_rgba(212,168,23,0.3)]"
+                            ? "bg-cricket-gold/20 border-cricket-gold/40 text-cricket-gold shadow-[0_0_10px_rgba(251,191,36,0.3)]"
                             : "bg-cricket-dark border-cricket-gold/10 text-cricket-cream/70 hover:border-cricket-gold/30 hover:bg-cricket-green/20"
                         }`}
                       >
@@ -632,8 +632,8 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
               <div className="flex items-center gap-3">
                 <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider border ${
                   isMyTurn
-                    ? "bg-cricket-green/40 border-cricket-gold/40 text-cricket-gold animate-pulse"
-                    : "bg-cricket-dark border-cricket-gold/10 text-cricket-gold/50"
+                    ? "bg-cricket-green/20 border-cricket-green/60 text-cricket-light animate-pulse"
+                    : "bg-cricket-dark border-white/10 text-cricket-slate/50"
                 }`}>
                   {isMyTurn ? "YOUR TURN" : "OPPONENT'S TURN"}
                 </span>

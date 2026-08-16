@@ -110,8 +110,8 @@ export default function CricketCharacterCard({
         width: 64px;
         height: 64px;
         border-radius: 12px;
-        border: 2px solid #d4a817;
-        box-shadow: 0 0 20px rgba(212,168,23,0.6), 0 0 40px rgba(212,168,23,0.3);
+        border: 2px solid #fbbf24;
+        box-shadow: 0 0 20px rgba(251,191,36,0.6), 0 0 40px rgba(251,191,36,0.3);
         background-size: cover;
         background-position: center top;
         background-image: url(${player.image});
@@ -230,7 +230,7 @@ export default function CricketCharacterCard({
       onTouchEnd={handleTouchEnd}
     >
       {isSelected && (
-        <div className="absolute -inset-2 rounded-3xl border-2 border-cricket-gold shadow-[0_0_30px_rgba(212,168,23,0.5),inset_0_0_30px_rgba(212,168,23,0.1)] animate-pulse pointer-events-none z-50" />
+        <div className="absolute -inset-2 rounded-3xl border-2 border-cricket-gold shadow-[0_0_30px_rgba(251,191,36,0.5),inset_0_0_30px_rgba(251,191,36,0.1)] animate-pulse pointer-events-none z-50" />
       )}
       <motion.div
         className="w-full h-full relative preserve-3d"
@@ -401,7 +401,7 @@ export default function CricketCharacterCard({
         {/* BACK SIDE */}
         <div 
           onClick={handleBackClick}
-          className={`absolute inset-0 w-full h-full rounded-2xl bg-cricket-dark border-2 border-cricket-gold/30 backface-hidden rotate-y-180 shadow-[0_0_30px_rgba(212,168,23,0.2)] flex items-center justify-center overflow-hidden ${isFlipped && !isSpinning ? "cursor-pointer group-hover:border-cricket-gold/50" : "pointer-events-none"}`}
+          className={`absolute inset-0 w-full h-full rounded-2xl bg-cricket-dark border-2 border-cricket-gold/30 backface-hidden rotate-y-180 shadow-[0_0_30px_rgba(251,191,36,0.2)] flex items-center justify-center overflow-hidden ${isFlipped && !isSpinning ? "cursor-pointer group-hover:border-cricket-gold/50" : "pointer-events-none"}`}
         >
           <div className="absolute inset-0 z-[100]" />
 
@@ -424,9 +424,9 @@ export default function CricketCharacterCard({
 
             <div className="relative z-10 flex flex-col items-center gap-3 sm:gap-6 md:gap-8">
               <div className="relative">
-                <div className="w-20 h-20 sm:w-24 md:w-32 rounded-3xl border-2 border-cricket-gold/30 rotate-45 animate-cricket-float flex items-center justify-center bg-cricket-green/5 shadow-[0_0_20px_rgba(212,168,23,0.1)]">
+                <div className="w-20 h-20 sm:w-24 md:w-32 rounded-3xl border-2 border-cricket-gold/30 rotate-45 animate-cricket-float flex items-center justify-center bg-cricket-green/5 shadow-[0_0_20px_rgba(251,191,36,0.1)]">
                   <div className="w-13 h-13 sm:w-16 md:w-20 rounded-2xl border border-cricket-red/40 -rotate-45 flex items-center justify-center bg-black/40 backdrop-blur-xl">
-                    <span className="w-6 h-6 sm:w-7 md:w-10 text-cricket-gold drop-shadow-[0_0_10px_rgba(212,168,23,0.8)]" style={{fontSize: '1.5rem'}}>🏏</span>
+                    <span className="w-6 h-6 sm:w-7 md:w-10 text-cricket-gold drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]" style={{fontSize: '1.5rem'}}>🏏</span>
                   </div>
                 </div>
               </div>

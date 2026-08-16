@@ -3,8 +3,8 @@ import { RoleCategory } from "../types";
 // Eleven uncomplicated cricket positions. Captaincy is evaluated separately
 // from these slots using experience and consistency, so it is not a batting role.
 export const ROLE_CATEGORIES: RoleCategory[] = [
-  { id: "opening_batsman_1", name: "Opening Batsman", emoji: "🏏", icon: "swords", color: "#d4a817", description: "Top-order batter who can face the new ball." },
-  { id: "opening_batsman_2", name: "Opening Batsman", emoji: "🏏", icon: "swords", color: "#d4a817", description: "Second opening batter for a stable start." },
+  { id: "opening_batsman_1", name: "Opening Batsman", emoji: "🏏", icon: "swords", color: "#fbbf24", description: "Top-order batter who can face the new ball." },
+  { id: "opening_batsman_2", name: "Opening Batsman", emoji: "🏏", icon: "swords", color: "#fbbf24", description: "Second opening batter for a stable start." },
   { id: "batsman_1", name: "Batsman", emoji: "🏏", icon: "swords", color: "#c8a955", description: "Reliable specialist run scorer." },
   { id: "batsman_2", name: "Batsman", emoji: "🏏", icon: "swords", color: "#c8a955", description: "Reliable specialist run scorer." },
   { id: "batsman_3", name: "Batsman", emoji: "🏏", icon: "swords", color: "#c8a955", description: "Reliable specialist run scorer." },

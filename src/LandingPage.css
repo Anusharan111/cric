@@ -1,23 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --bg: #061d15;
-  --bg-deep: #040a06;
-  --deep: #03120d;
-  --panel: #0d2012;
-  --panel-light: #132c19;
-  --cream: #f1eee4;
-  --text: #f4f1e8;
-  --muted: #7e9381;
+  --bg: #07100d;
+  --bg-deep: #040a0c;
+  --deep: #031013;
+  --panel: #0d1c22;
+  --panel-light: #12252c;
+  --cream: #f8fafc;
+  --text: #f8fafc;
+  --muted: #64748b;
 
-  --green: #a7df77;
-  --lime: #9bef62;
-  --gold: #efb94c;
-  --orange: #e88643;
-  --red: #e27979;
-  --blue: #76b6e5;
+  --green: #22c55e;
+  --lime: #4ade80;
+  --gold: #fbbf24;
+  --orange: #fb923c;
+  --red: #ef4444;
+  --blue: #38bdf8;
 
-  --line: rgba(255,255,255,.075);
+  --line: rgba(255,255,255,.08);
 }
 
 /* =====================================================
@@ -58,7 +58,7 @@
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(150,220,110,.10), transparent 65%);
+  background: radial-gradient(circle, rgba(56,189,248,.08), transparent 65%);
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -84,7 +84,7 @@
   position: relative;
   z-index: 50;
   border-bottom: 1px solid var(--line);
-  background: rgba(6,29,21,.82);
+  background: rgba(9,20,26,.82);
   backdrop-filter: blur(20px);
 }
 
@@ -112,7 +112,7 @@
   height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(224,189,104,.4);
+  border: 1px solid rgba(251,191,36,.4);
   color: var(--gold);
   font-size: 20px;
 }
@@ -280,11 +280,11 @@
 
 .floodlight .lamp {
   position: absolute;
-  top: 0;
+  top: 88px;
   left: 50%;
   transform: translateX(-50%);
-  width: 240px;
-  height: 240px;
+  width: 170px;
+  height: 170px;
   border-radius: 18px;
   background: #161c18;
   border: 5px solid #303f37;
@@ -298,16 +298,16 @@
 
 .floodlight .grid {
   position: absolute;
-  inset: 20px;
+  inset: 14px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  gap: 10px;
+  gap: 7px;
 }
 
 .floodlight .bulb {
   background: #20302a;
-  border: 2px solid #172019;
+  border: 1.5px solid #172019;
   border-radius: 5px;
   transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
@@ -368,11 +368,11 @@
 .floodlight::after {
   content: "";
   position: absolute;
-  top: 60px;
+  top: 108px;
   left: 50%;
   transform: translateX(-50%) rotate(180deg);
-  width: 700px;
-  height: 700px;
+  width: 520px;
+  height: 520px;
   pointer-events: none;
   opacity: 0;
   background: radial-gradient(ellipse at center top, rgba(255,235,150,.35), rgba(255,220,100,.12) 35%, transparent 70%);
@@ -504,7 +504,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) perspective(800px) rotateX(65deg);
-  border: 1px solid rgba(167,223,119,.10);
+  border: 1px solid rgba(34,197,94,.10);
   opacity: .5;
   pointer-events: none;
 }
@@ -517,7 +517,7 @@
   transform: translateX(-50%);
   width: 1px;
   height: 100%;
-  background: rgba(167,223,119,.10);
+  background: rgba(34,197,94,.10);
 }
 
 .pitch::after {
@@ -736,7 +736,7 @@
 .modes {
   padding: 0;
   background: 
-    radial-gradient(circle at 30% 50%, rgba(167,223,119,.06), transparent 50%),
+    radial-gradient(circle at 30% 50%, rgba(34,197,94,.06), transparent 50%),
     var(--bg);
 }
 
@@ -768,24 +768,24 @@
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid rgba(224,189,104,.18);
+  border: 1px solid rgba(251,191,36,.18);
   transition: transform .4s, border-color .4s, box-shadow .4s;
 }
 
 .featured-mode:hover {
   transform: translateY(-6px);
-  border-color: rgba(224,189,104,.5);
+  border-color: rgba(251,191,36,.5);
   box-shadow: 
     0 25px 50px rgba(0,0,0,.35),
-    0 0 0 1px rgba(224,189,104,.25);
+    0 0 0 1px rgba(251,191,36,.25);
 }
 
 .featured-bg {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse at 20% 20%, rgba(224,189,104,.12), transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(167,223,119,.08), transparent 50%),
+    radial-gradient(ellipse at 20% 20%, rgba(251,191,36,.12), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(34,197,94,.08), transparent 50%),
     linear-gradient(135deg, rgba(22,28,24,.9) 0%, rgba(6,29,21,.95) 100%);
 }
 
@@ -795,7 +795,7 @@
   right: -30%;
   width: 60%;
   height: 120%;
-  background: radial-gradient(ellipse, rgba(224,189,104,.15), transparent 70%);
+  background: radial-gradient(ellipse, rgba(251,191,36,.15), transparent 70%);
   filter: blur(80px);
   opacity: 0;
   transition: opacity .6s ease;
@@ -820,8 +820,8 @@
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(224,189,104,.15);
-  border: 1px solid rgba(224,189,104,.3);
+  background: rgba(251,191,36,.15);
+  border: 1px solid rgba(251,191,36,.3);
   border-radius: 100px;
   font-family: "DM Mono", monospace;
   font-size: 9px;
@@ -837,7 +837,7 @@
 
 .badge-number {
   background: var(--gold);
-  color: #061d15;
+  color: #04120a;
   padding: 2px 10px;
   border-radius: 100px;
   font-weight: 700;
@@ -924,7 +924,7 @@
   gap: 12px;
   padding: 18px 36px;
   background: var(--gold);
-  color: #061d15;
+  color: #04120a;
   font-family: "DM Mono", monospace;
   font-size: 11px;
   letter-spacing: .12em;
@@ -939,7 +939,7 @@
 .featured-cta:hover {
   transform: translateY(-3px);
   background: #eccb7b;
-  box-shadow: 0 15px 40px rgba(224,189,104,.4);
+  box-shadow: 0 15px 40px rgba(251,191,36,.4);
 }
 
 /* Modes Grid */
@@ -956,7 +956,7 @@
   padding: 32px 24px;
   border-radius: 20px;
   border: 1px solid var(--line);
-  background: linear-gradient(145deg, rgba(22,28,24,.8), rgba(11,43,32,.9));
+  background: linear-gradient(145deg, rgba(22,43,51,.82), rgba(9,20,26,.95));
   transition: transform .35s, border-color .35s, background .35s, box-shadow .35s;
   cursor: pointer;
   display: flex;
@@ -982,9 +982,9 @@
   opacity: 1;
 }
 
-.mode-card.trivia:hover { border-color: rgba(226,121,121,.6); }
-.mode-card.guess:hover { border-color: rgba(118,182,229,.6); }
-.mode-card.party:hover { border-color: rgba(167,223,119,.6); }
+.mode-card.trivia:hover { border-color: rgba(239,68,68,.55); }
+.mode-card.guess:hover { border-color: rgba(56,189,248,.55); }
+.mode-card.party:hover { border-color: rgba(168,85,247,.55); }
 
 .mode-header {
   display: flex;
@@ -1015,20 +1015,20 @@
 }
 
 .mode-icon-wrap.red {
-  background: linear-gradient(135deg, rgba(226,121,121,.2), rgba(226,121,121,.05));
-  border: 1px solid rgba(226,121,121,.3);
+  background: linear-gradient(135deg, rgba(239,68,68,.2), rgba(239,68,68,.05));
+  border: 1px solid rgba(239,68,68,.3);
   color: var(--red);
 }
 
 .mode-icon-wrap.blue {
-  background: linear-gradient(135deg, rgba(118,182,229,.2), rgba(118,182,229,.05));
-  border: 1px solid rgba(118,182,229,.3);
+  background: linear-gradient(135deg, rgba(56,189,248,.2), rgba(56,189,248,.05));
+  border: 1px solid rgba(56,189,248,.3);
   color: var(--blue);
 }
 
 .mode-icon-wrap.green {
-  background: linear-gradient(135deg, rgba(167,223,119,.2), rgba(167,223,119,.05));
-  border: 1px solid rgba(167,223,119,.3);
+  background: linear-gradient(135deg, rgba(34,197,94,.2), rgba(34,197,94,.05));
+  border: 1px solid rgba(34,197,94,.3);
   color: var(--green);
 }
 
@@ -1069,18 +1069,18 @@
 }
 
 .mode-cta.red {
-  background: linear-gradient(135deg, var(--red), #c05555);
+  background: linear-gradient(135deg, var(--red), var(--red-dark));
   color: #fff;
 }
 
 .mode-cta.blue {
-  background: linear-gradient(135deg, var(--blue), #5aa0c8);
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
   color: #fff;
 }
 
 .mode-cta.green {
-  background: linear-gradient(135deg, var(--green), #6ec95e);
-  color: #061d15;
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  color: #04120a;
 }
 
 .mode-cta:hover {
@@ -1114,7 +1114,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(120deg, rgba(167,223,119,.08), transparent 55%);
+  background: linear-gradient(120deg, rgba(34,197,94,.07), transparent 55%);
 }
 
 .database h2 {
@@ -1299,10 +1299,10 @@
   display: grid;
   place-items: center;
   border-radius: 11px;
-  background: linear-gradient(135deg, var(--lime), #4e9e31);
+  background: linear-gradient(135deg, var(--lime), var(--green-dark));
   color: #061008;
   font-size: 18px;
-  box-shadow: 0 0 25px rgba(155,239,98,.18);
+  box-shadow: 0 0 25px rgba(74,222,128,.18);
 }
 
 .brand-name {
@@ -1447,15 +1447,15 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  background: radial-gradient(circle at 80% 20%, rgba(155,239,98,.16), transparent 30%), linear-gradient(145deg, #15341d, #09160d);
-  border: 1px solid rgba(155,239,98,.22);
+  background: radial-gradient(circle at 80% 20%, rgba(239,68,68,.14), transparent 32%), linear-gradient(145deg, #162b33, #09141a);
+  border: 1px solid rgba(239,68,68,.25);
 }
 
 .cricket-battle:hover {
   transform: translateY(-6px);
-  border-color: rgba(155,239,98,.5);
-  background: radial-gradient(circle at 80% 20%, rgba(155,239,98,.22), transparent 40%), rgba(20,55,30,.72);
-  box-shadow: 0 25px 70px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.12), 0 0 45px rgba(155,239,98,.08);
+  border-color: rgba(251,146,60,.5);
+  background: radial-gradient(circle at 80% 20%, rgba(251,146,60,.18), transparent 40%), rgba(20,35,43,.72);
+  box-shadow: 0 25px 70px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.12), 0 0 45px rgba(239,68,68,.08);
 }
 
 /* BATTLE RINGS */
@@ -1467,8 +1467,8 @@
   border-radius: 50%;
   right: -190px;
   bottom: -190px;
-  border: 1px solid rgba(155,239,98,.13);
-  box-shadow: 0 0 0 45px rgba(155,239,98,.025), 0 0 0 90px rgba(155,239,98,.015);
+  border: 1px solid rgba(239,68,68,.13);
+  box-shadow: 0 0 0 45px rgba(239,68,68,.025), 0 0 0 90px rgba(239,68,68,.015);
 }
 
 /* ================= MODE TOP ================= */
@@ -1506,16 +1506,16 @@
 /* CRICKET BATTLE ICON */
 
 .battle-icon {
-  color: var(--lime);
-  background: linear-gradient(135deg, rgba(155,239,98,.16), rgba(255,255,255,.04));
-  border-color: rgba(155,239,98,.14);
-  box-shadow: 0 0 25px rgba(155,239,98,.05);
+  color: var(--orange);
+  background: linear-gradient(135deg, rgba(251,146,60,.16), rgba(255,255,255,.04));
+  border-color: rgba(251,146,60,.16);
+  box-shadow: 0 0 25px rgba(251,146,60,.05);
 }
 
 .cricket-battle:hover .battle-icon {
   transform: scale(1.08);
-  background: rgba(155,239,98,.16);
-  box-shadow: 0 0 30px rgba(155,239,98,.14);
+  background: rgba(251,146,60,.16);
+  box-shadow: 0 0 30px rgba(251,146,60,.14);
 }
 
 /* ================= BATTLE CONTENT ================= */
@@ -1535,12 +1535,12 @@
 }
 
 .battle-content h2 span {
-  color: var(--lime);
+  color: var(--orange);
 }
 
 .battle-content p {
   max-width: 340px;
-  color: #9daf9f;
+  color: var(--muted);
   font-size: 13px;
   line-height: 1.6;
   margin-bottom: 25px;
@@ -1567,7 +1567,7 @@
 }
 
 .battle-btn:hover {
-  background: var(--lime);
+  background: var(--orange);
   transform: translateY(-2px);
 }
 
@@ -1578,7 +1578,7 @@
   place-items: center;
   border-radius: 7px;
   background: #071008;
-  color: var(--lime);
+  color: var(--orange);
   font-size: 16px;
 }
 
@@ -1604,7 +1604,7 @@
 
 .game-mode:hover {
   transform: translateY(-6px);
-  background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.025)), rgba(19,44,25,.72);
+  background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.025)), rgba(27,52,61,.72);
   border-color: rgba(255,255,255,.2);
   box-shadow: 0 20px 50px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.1);
 }
@@ -1614,11 +1614,11 @@
 .party {
   grid-column: 1 / -1;
   min-height: 0;
-  background: radial-gradient(circle at 85% 50%, rgba(232,134,67,.11), transparent 28%), var(--panel);
+  background: radial-gradient(circle at 85% 50%, rgba(168,85,247,.12), transparent 28%), var(--panel);
 }
 
 .party:hover {
-  border-color: rgba(232,134,67,.4);
+  border-color: rgba(168,85,247,.45);
 }
 
 /* ================= MODE NUMBER ================= */
@@ -1645,11 +1645,11 @@
 }
 
 .guess .mode-icon {
-  color: var(--lime);
+  color: var(--blue);
 }
 
 .party .mode-icon {
-  color: var(--orange);
+  color: var(--purple);
 }
 
 .game-mode:hover .mode-icon {
@@ -1730,6 +1730,37 @@
   }
   .cricket-battle {
     min-height: 430px;
+  }
+}
+
+/* Mobile floodlights: tucked into the bottom corners as
+   background decor, behind all content, heads tilted inward */
+@media (max-width: 768px) {
+  .floodlight {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 260px;
+    height: 720px;
+    transform: scale(0.42);
+    transform-origin: bottom left;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .floodlight.right {
+    left: auto;
+    right: 0;
+    transform-origin: bottom right;
+  }
+  .floodlight .lamp {
+    transform: translateX(-50%) rotate(8deg);
+    transform-origin: 50% 100%;
+  }
+  .floodlight.right .lamp {
+    transform: translateX(-50%) rotate(-8deg);
+  }
+  .floodlight::after {
+    display: none;
   }
 }
 

@@ -63,18 +63,18 @@ interface NationPickerModalProps {
 
 const ACCENTS: Record<"gold" | "green" | "red", { chip: string; glow: string; label: string }> = {
   gold: {
-    chip: "bg-cricket-dark border-cricket-gold text-cricket-cream",
-    glow: "shadow-[0_0_10px_rgba(212,168,23,0.35)]",
+    chip: "bg-cricket-dark border-cricket-gold/60 text-cricket-gold",
+    glow: "shadow-[0_0_10px_rgba(251,191,36,0.3)]",
     label: "text-cricket-gold",
   },
   green: {
-    chip: "bg-cricket-green border-cricket-gold text-cricket-cream",
-    glow: "shadow-[0_0_10px_rgba(26,92,46,0.5)]",
+    chip: "bg-cricket-green/15 border-cricket-green/60 text-cricket-light",
+    glow: "shadow-[0_0_10px_rgba(34,197,94,0.35)]",
     label: "text-cricket-light",
   },
   red: {
-    chip: "bg-cricket-green border-cricket-gold text-cricket-cream",
-    glow: "shadow-[0_0_10px_rgba(196,30,58,0.35)]",
+    chip: "bg-cricket-red/15 border-cricket-red/60 text-cricket-red",
+    glow: "shadow-[0_0_10px_rgba(239,68,68,0.35)]",
     label: "text-cricket-red",
   },
 };
@@ -148,7 +148,7 @@ const NationPickerModal: React.FC<NationPickerModalProps> = ({
                 onClick={onSetAll}
                 className={`px-3 py-1.5 rounded-lg border text-[9px] font-black uppercase tracking-wider transition-all cursor-pointer ${
                   selected.length === 0
-                    ? "border-cricket-gold/60 bg-cricket-green/20 text-cricket-cream shadow-[0_0_12px_rgba(26,92,46,0.4)]"
+                    ? "border-cricket-gold/60 bg-cricket-green/20 text-cricket-cream shadow-[0_0_12px_rgba(34,197,94,0.4)]"
                     : "border-white/10 bg-white/5 text-cricket-cream/60 hover:bg-white/10"
                 }`}
               >
@@ -269,7 +269,7 @@ const PlayerRestrictionCard: React.FC<{
                 layout
                 initial={{ opacity: 0, scale: 0.7 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-cricket-dark/80 border border-cricket-gold/30 text-[10px] font-bold text-cricket-cream shadow-[0_0_8px_rgba(212,168,23,0.15)]"
+                className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-cricket-dark/80 border border-cricket-gold/30 text-[10px] font-bold text-cricket-cream shadow-[0_0_8px_rgba(251,191,36,0.15)]"
               >
                 <span className="text-[13px] leading-none">{getFlag(country)}</span>
                 <span>{country}</span>
@@ -410,7 +410,7 @@ export const DraftPoolSettings: React.FC<DraftPoolSettingsProps> = ({
         className={`w-full flex items-center justify-between gap-3 rounded-xl border px-3.5 py-3.5 transition-all cursor-pointer active:scale-[0.98] ${
           restrictMode
             ? "border-cricket-gold/40 bg-gradient-to-r from-cricket-dark/90 via-black/60 to-cricket-dark/90"
-            : "border-cricket-green/50 bg-gradient-to-r from-cricket-green/25 via-black/60 to-cricket-dark/90 shadow-[0_0_16px_rgba(26,92,46,0.35)]"
+            : "border-cricket-green/50 bg-gradient-to-r from-cricket-green/25 via-black/60 to-cricket-dark/90 shadow-[0_0_16px_rgba(34,197,94,0.35)]"
         }`}
       >
         <div className="flex items-center gap-2.5 min-w-0">
@@ -527,7 +527,7 @@ export const DraftPoolSettings: React.FC<DraftPoolSettingsProps> = ({
                             onClick={() => setGlobalCountries([])}
                             className={`px-3 py-1.5 rounded-lg border text-[9px] font-black uppercase tracking-wider transition-all cursor-pointer ${
                               globalCountries.length === 0
-                                ? "border-cricket-gold/60 bg-cricket-green/20 text-cricket-cream shadow-[0_0_12px_rgba(26,92,46,0.4)]"
+                                ? "border-cricket-gold/60 bg-cricket-green/20 text-cricket-cream shadow-[0_0_12px_rgba(34,197,94,0.4)]"
                                 : "border-white/10 bg-white/5 text-cricket-cream/60 hover:bg-white/10"
                             }`}
                           >
@@ -566,7 +566,7 @@ export const DraftPoolSettings: React.FC<DraftPoolSettingsProps> = ({
                               onClick={() => togglePoolCountry(country)}
                               className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] font-bold border transition-all cursor-pointer ${
                                 inPool
-                                  ? "bg-cricket-dark border-cricket-gold text-cricket-cream shadow-[0_0_10px_rgba(212,168,23,0.35)]"
+                                  ? "bg-cricket-dark border-cricket-gold text-cricket-cream shadow-[0_0_10px_rgba(251,191,36,0.35)]"
                                   : "bg-black/30 border-white/10 text-cricket-cream/50 hover:border-cricket-red/40 hover:text-cricket-red"
                               }`}
                             >
@@ -736,7 +736,7 @@ export const DraftPoolSummary: React.FC<DraftPoolSummaryProps> = ({
   return (
     <div className={`rounded-xl border p-3.5 space-y-2 backdrop-blur-md transition-colors ${
       anyRestriction
-        ? "border-cricket-gold/40 bg-gradient-to-r from-cricket-dark/80 via-black/60 to-cricket-dark/80 shadow-[0_0_18px_rgba(212,168,23,0.1)]"
+        ? "border-cricket-gold/40 bg-gradient-to-r from-cricket-dark/80 via-black/60 to-cricket-dark/80 shadow-[0_0_18px_rgba(251,191,36,0.1)]"
         : "border-white/10 bg-black/30"
     }`}>
       <div className="flex items-center gap-2">

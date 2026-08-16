@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cricket-green: #1a5c2e;
-  --color-cricket-dark: #0d3d1a;
-  --color-cricket-light: #2d7d3a;
-  --color-cricket-gold: #d4a817;
-  --color-cricket-red: #c41e3a;
-  --color-cricket-white: #f5f0e1;
-  --color-cricket-cream: #fdf6e3;
-  --color-pitch-brown: #8b6914;
-  --color-pitch-dark: #5d4a0a;
+  --color-cricket-green: #22c55e;
+  --color-cricket-dark: #09141a;
+  --color-cricket-light: #4ade80;
+  --color-cricket-gold: #fbbf24;
+  --color-cricket-red: #ef4444;
+  --color-cricket-white: #f8fafc;
+  --color-cricket-cream: #f8fafc;
+  --color-cricket-surface: #162b33;
+  --color-cricket-surface-hover: #1b343d;
+  --color-cricket-slate: #94a3b8;
+  --color-cricket-blue: #38bdf8;
+  --color-cricket-purple: #a855f7;
+  --color-pitch-brown: #b45309;
+  --color-pitch-dark: #78350f;
   
   --animate-cricket-pulse: cricket-pulse 3s infinite;
   --animate-cricket-float: cricket-float 6s ease-in-out infinite;
@@ -17,8 +22,8 @@
   --animate-cricket-shimmer: cricket-shimmer 2s infinite;
 
   @keyframes cricket-pulse {
-    0%, 100% { opacity: 0.4; box-shadow: 0 0 20px rgba(26, 92, 46, 0.3); }
-    50% { opacity: 0.8; box-shadow: 0 0 40px rgba(212, 168, 23, 0.5); }
+    0%, 100% { opacity: 0.4; box-shadow: 0 0 20px rgba(34, 197, 94, 0.25); }
+    50% { opacity: 0.8; box-shadow: 0 0 40px rgba(251, 191, 36, 0.35); }
   }
 
   @keyframes cricket-float {
@@ -37,21 +42,62 @@
   }
 }
 
+:root {
+  --bg-base: #07100d;
+  --bg-deep: #09141a;
+  --bg-secondary: #0d1c22;
+  --bg-elevated: #12252c;
+  --surface: #162b33;
+  --surface-hover: #1b343d;
+
+  --green: #22c55e;
+  --green-bright: #4ade80;
+  --green-dark: #15803d;
+  --green-glow: rgba(34, 197, 94, 0.25);
+
+  --blue: #38bdf8;
+  --blue-dark: #0284c7;
+  --blue-glow: rgba(56, 189, 248, 0.22);
+
+  --gold: #fbbf24;
+  --gold-dark: #d97706;
+  --gold-glow: rgba(251, 191, 36, 0.25);
+
+  --purple: #a855f7;
+  --purple-dark: #7e22ce;
+  --purple-glow: rgba(168, 85, 247, 0.25);
+
+  --red: #ef4444;
+  --red-dark: #b91c1c;
+  --red-glow: rgba(239, 68, 68, 0.22);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-disabled: #475569;
+
+  --border-default: rgba(148, 163, 184, 0.18);
+  --border-strong: rgba(148, 163, 184, 0.35);
+
+  --cream: #f8fafc;
+}
+
 @layer base {
   html {
     margin:0; padding:0;
     min-height:100vh;
-    background: #061d15;
+    background: var(--bg-base);
   }
   body {
     margin:0; padding:0;
-    background: #061d15;
-    color: var(--cream);
+    background: var(--bg-base);
+    color: var(--text-primary);
     overflow-x: clip;
     background-image: 
-      radial-gradient(ellipse at 20% 20%, rgba(26, 92, 46, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, rgba(139, 105, 20, 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(196, 30, 58, 0.05) 0%, transparent 70%);
+      radial-gradient(ellipse at 20% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 10%, rgba(56, 189, 248, 0.05) 0%, transparent 45%),
+      radial-gradient(ellipse at 70% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 10% 90%, rgba(251, 191, 36, 0.05) 0%, transparent 45%);
   }
 }
 
@@ -59,23 +105,22 @@
   .cricket-glass {
     position: relative;
     isolation: isolate;
-    border: 1px solid rgba(212, 168, 23, 0.2);
+    border: 1px solid rgba(148, 163, 184, 0.16);
     background:
-      linear-gradient(150deg, rgba(26, 92, 46, 0.9), rgba(13, 61, 26, 0.95) 46%, rgba(26, 92, 46, 0.9));
+      linear-gradient(165deg, rgba(18, 37, 44, 0.85), rgba(9, 20, 26, 0.92) 46%, rgba(13, 28, 34, 0.85));
     backdrop-filter: blur(26px) saturate(1.4);
     -webkit-backdrop-filter: blur(26px) saturate(1.4);
     box-shadow: 
       0 8px 32px 0 rgba(0,0,0,0.5),
-      inset 0 1px 0 rgba(212, 168, 23, 0.1),
-      0 0 0 1px rgba(212, 168, 23, 0.05);
+      inset 0 1px 0 rgba(255,255,255,0.04);
   }
 
   .cricket-card {
     position: relative;
     isolation: isolate;
-    border: 1px solid rgba(212, 168, 23, 0.15);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     background:
-      linear-gradient(150deg, rgba(26, 92, 46, 0.85), rgba(13, 61, 26, 0.9) 46%, rgba(26, 92, 46, 0.85));
+      linear-gradient(165deg, rgba(22, 43, 51, 0.9), rgba(13, 28, 34, 0.92) 46%, rgba(18, 37, 44, 0.9));
     backdrop-filter: blur(22px) saturate(1.4);
     -webkit-backdrop-filter: blur(22px) saturate(1.4);
     box-shadow: 
@@ -87,25 +132,25 @@
     position: relative;
     isolation: isolate;
     background:
-      linear-gradient(160deg, rgba(26, 92, 46, 0.9), rgba(13, 61, 26, 0.95) 44%, rgba(26, 92, 46, 0.9));
+      linear-gradient(165deg, rgba(18, 37, 44, 0.92), rgba(9, 20, 26, 0.95) 44%, rgba(13, 28, 34, 0.92));
     backdrop-filter: blur(26px) saturate(1.4);
     -webkit-backdrop-filter: blur(26px) saturate(1.4);
     box-shadow: 
       0 8px 30px rgba(0,0,0,0.45),
-      inset 0 1px 0 rgba(212, 168, 23, 0.08);
-    border: 1px solid rgba(212, 168, 23, 0.12);
+      inset 0 1px 0 rgba(255,255,255,0.04);
+    border: 1px solid rgba(148, 163, 184, 0.16);
   }
 
   .cricket-panel-subtle {
     background:
-      linear-gradient(160deg, rgba(26, 92, 46, 0.7), rgba(13, 61, 26, 0.8) 45%, rgba(26, 92, 46, 0.7));
+      linear-gradient(165deg, rgba(13, 28, 34, 0.75), rgba(9, 20, 26, 0.8) 45%, rgba(13, 28, 34, 0.75));
     backdrop-filter: blur(18px) saturate(1.3);
     -webkit-backdrop-filter: blur(18px) saturate(1.3);
-    border: 1px solid rgba(212, 168, 23, 0.08);
+    border: 1px solid rgba(148, 163, 184, 0.12);
   }
 
   .cricket-glow-text {
-    @apply drop-shadow-[0_0_8px_rgba(212,168,23,0.6)];
+    @apply drop-shadow-[0_0_8px_rgba(251,191,36,0.45)];
   }
 
   .cricket-border-futuristic {
@@ -123,21 +168,21 @@
         90deg,
         transparent,
         transparent 2px,
-        rgba(139, 105, 20, 0.03) 2px,
-        rgba(139, 105, 20, 0.03) 4px
+        rgba(180, 83, 9, 0.03) 2px,
+        rgba(180, 83, 9, 0.03) 4px
       ),
       repeating-linear-gradient(
         0deg,
         transparent,
         transparent 2px,
-        rgba(139, 105, 20, 0.03) 2px,
-        rgba(139, 105, 20, 0.03) 4px
+        rgba(180, 83, 9, 0.03) 2px,
+        rgba(180, 83, 9, 0.03) 4px
       );
   }
 
   .grass-texture {
     background-image: 
-      radial-gradient(circle at 1px 1px, rgba(26, 92, 46, 0.1) 1px, transparent 0);
+      radial-gradient(circle at 1px 1px, rgba(34, 197, 94, 0.06) 1px, transparent 0);
     background-size: 20px 20px;
   }
 
@@ -154,8 +199,8 @@
     height: 100%;
     background: repeating-linear-gradient(
       0deg,
-      #c41e3a,
-      #c41e3a 4px,
+      #ef4444,
+      #ef4444 4px,
       transparent 4px,
       transparent 8px
     );
@@ -181,14 +226,14 @@
 }
 
 .touch-drag-hover {
-  border-color: #d4a817 !important;
+  border-color: #fbbf24 !important;
   background-color: rgba(212, 168, 23, 0.25) !important;
   box-shadow: 0 0 25px rgba(212, 168, 23, 0.5), inset 0 0 15px rgba(212, 168, 23, 0.15) !important;
   transform: scale(1.15) !important;
   transition: all 0.15s ease-out !important;
 }
 
-#root{width:100%;min-height:100vh;background:#061d15;}
+#root{width:100%;min-height:100vh;background:var(--bg-base);}
 
 @layer utilities {
   .text-cricket-gradient {
@@ -196,11 +241,11 @@
   }
   
   .border-cricket-gradient {
-    border-image: linear-gradient(135deg, #d4a817, #c41e3a, #22c55e) 1;
+    border-image: linear-gradient(135deg, #fbbf24, #ef4444, #22c55e) 1;
   }
   
   .bg-cricket-field {
     background: 
-      radial-gradient(ellipse at center, #1a5c2e 0%, #0d3d1a 70%, #0a1a0a 100%);
+      radial-gradient(ellipse at center, #14532d 0%, #0a1f18 70%, #07100d 100%);
   }
 }

@@ -256,17 +256,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         {/* Game Modes Section - full width bg, constrained content */}
         <section className="modes" id="modes">
           <div className="app">
-            <header className="top">
-              <div className="brand">
-                <div className="brand-icon">🏏</div>
-                <div className="brand-name">CRICKETVERSE</div>
-              </div>
-              <div className="status">
-                <span className="status-dot" />
-                ARENA ONLINE
-              </div>
-            </header>
-
             <section className="intro">
               <div>
                 <small>GAME ARENA / SELECT MODE</small>

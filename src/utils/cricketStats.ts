@@ -2,11 +2,11 @@ import { CricketPlayer } from "../types";
 
 export const RARITY_CONFIG: Record<CricketPlayer["rarity"], { color: string; bg: string; glow: string; border: string; text: string }> = {
   Legendary: {
-    color: "#f59e0b",
+    color: "#fbbf24",
     bg: "from-amber-900/40 via-emerald-950/40 to-amber-950/40",
-    glow: "shadow-[0_0_40px_rgba(245,158,11,0.4)]",
-    border: "border-amber-500/60",
-    text: "text-amber-400",
+    glow: "shadow-[0_0_40px_rgba(251,191,36,0.4)]",
+    border: "border-yellow-400/60",
+    text: "text-yellow-300",
   },
   Epic: {
     color: "#a855f7",

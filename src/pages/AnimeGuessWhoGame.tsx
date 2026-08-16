@@ -432,7 +432,7 @@ export default function AnimeGuessWhoGame({ onExit }: AnimeGuessWhoGameProps) {
   const isMyTurn = currentTurn === mySide;
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start py-6 px-3 bg-[#050816] text-white">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start py-6 px-3 text-white">
       <AnimatePresence mode="wait">
         {/* LOBBY PHASE */}
         {phase === "lobby" && (

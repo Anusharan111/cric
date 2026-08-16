@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { CricketPlayer } from "../../types";
 import { getRarityConfig } from "../../utils/cricketStats";
-import CricketCharacterCard from "../../components/common/CricketCharacterCard";
+import CharacterImage from "../../components/common/CharacterImage";
 
 interface GWGuessModalProps {
   characters: CricketPlayer[];
@@ -102,19 +102,32 @@ export default function GWGuessModal({
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setSelected(player.id)}
-                    className={`relative rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                    className={`relative rounded-lg overflow-hidden border-2 transition-all duration-200 text-left bg-cricket-dark/60 ${
                       isSelected
-                        ? "border-cricket-gold shadow-lg shadow-cricket-gold/30 ring-2 ring-cricket-gold/30"
-                        : `${config.border} hover:border-cricket-gold/60`
-                    } bg-cricket-dark/60`}
+                        ? "border-cricket-green shadow-lg shadow-cricket-green/30 ring-2 ring-cricket-green/30"
+                        : `${config.border} hover:border-cricket-green/60`
+                    }`}
                   >
-                    <CricketCharacterCard player={player} isFlipped={false} isCompact={true} showFullStats={false} />
-                    
+                    <div className="relative aspect-[3/4] overflow-hidden">
+                      <CharacterImage
+                        url={player.image}
+                        name={player.name}
+                        themeColor={config.color}
+                        className="w-full h-full"
+                      />
+                    </div>
+                    <div className="flex items-center gap-1.5 px-2 py-1.5 border-t border-cricket-gold/10 bg-cricket-dark/80">
+                      <span className="text-sm leading-none">{player.flag}</span>
+                      <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wide text-cricket-cream/85 truncate">
+                        {player.country}
+                      </span>
+                    </div>
+
                     {isSelected && (
                       <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="absolute top-1 right-1 w-5 h-5 rounded-full bg-cricket-gold flex items-center justify-center shadow-lg"
+                        className="absolute top-1 right-1 w-5 h-5 rounded-full bg-cricket-green flex items-center justify-center shadow-lg z-10"
                       >
                         <Check className="w-3 h-3 text-cricket-dark" />
                       </motion.div>
@@ -127,10 +140,15 @@ export default function GWGuessModal({
 
           <div className="px-4 py-3 border-t border-cricket-gold/10 bg-cricket-dark/60">
             {selectedChar ? (
-              <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 min-w-0">
-                  <div className="w-8 h-8 rounded-md overflow-hidden border border-cricket-gold/40 flex-shrink-0">
-                    <CricketCharacterCard player={selectedChar} isFlipped={false} isCompact={true} sizeClass="w-8 h-8" />
+                  <div className="w-10 h-10 rounded-md overflow-hidden border border-cricket-gold/40 flex-shrink-0 bg-cricket-dark/60">
+                    <CharacterImage
+                      url={selectedChar.image}
+                      name={selectedChar.name}
+                      themeColor="#fbbf24"
+                      className="w-full h-full"
+                    />
                   </div>
                   <div className="min-w-0">
                     <p className="text-sm font-bold text-cricket-cream truncate">

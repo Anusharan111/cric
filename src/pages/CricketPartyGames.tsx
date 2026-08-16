@@ -346,7 +346,7 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
   const voteCount = Object.keys(imposterVotes).length;
   const voteTally: Record<string, number> = {};
   Object.values(imposterVotes).forEach(name => {
-    voteTally[name] = (voteTally[name] || 0) + 1;
+    voteTally[name as string] = (voteTally[name as string] || 0) + 1;
   });
   const topVoted = Object.entries(voteTally).sort((a, b) => b[1] - a[1])[0];
   const civiliansWin = accusedName !== null && revealedImposter !== null && accusedName === revealedImposter.name;

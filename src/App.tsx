@@ -1918,30 +1918,30 @@ useEffect(() => {
   return (
     <div className={`${view === "draft" ? "h-[100dvh] overflow-hidden" : "min-h-screen overflow-x-clip"} bg-[#07130f] text-slate-100 flex flex-col font-sans relative selection:bg-cricket-gold/30`}>
       {/* Global Header/Navbar - compact */}
-      <header className="sticky top-0 z-50 cricket-glass bg-[rgba(13,57,37,0.62)] backdrop-blur-2xl border-b border-cricket-gold/20 py-1.5 px-2 sm:py-2 sm:px-4">
+      <header className="sticky top-0 z-50 cricket-glass bg-[rgba(13,57,37,0.62)] backdrop-blur-2xl border-b border-cricket-gold/20 py-2.5 px-3 sm:py-3 sm:px-5">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center gap-1.5 cursor-pointer group" onClick={() => setView("landing")}>
-            <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-cricket-green to-cricket-light flex items-center justify-center shadow-[0_0_10px_rgba(26,92,46,0.4)] group-hover:scale-110 transition-transform duration-300">
-              <Swords className="w-4 h-4 text-white" />
+          <div className="flex items-center gap-2 cursor-pointer group" onClick={() => setView("landing")}>
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cricket-green to-cricket-light flex items-center justify-center shadow-[0_0_12px_rgba(26,92,46,0.5)] group-hover:scale-110 transition-transform duration-300">
+              <Swords className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="text-xs font-black tracking-[0.1em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-cricket-cream via-cricket-gold to-cricket-light cricket-glow-text">
+              <h1 className="text-sm sm:text-base font-black tracking-[0.1em] uppercase bg-clip-text text-transparent bg-gradient-to-r from-cricket-cream via-cricket-gold to-cricket-light cricket-glow-text">
                 Cricket Battle
               </h1>
-              <div className="flex items-center gap-1">
-                <span className="text-[6px] font-mono tracking-widest text-cricket-gold/70 uppercase">Battle System v2.0</span>
-                <div className="w-0.5 h-0.5 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="flex items-center gap-1.5">
+                <span className="text-[9px] font-mono tracking-widest text-cricket-gold/70 uppercase">Battle System v2.0</span>
+                <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
               </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 relative">
+          <div className="flex items-center gap-2.5 relative">
             {(view === "draft" || view === "results") && (
-              <div className={`flex items-center gap-1.5 border rounded-lg px-2 py-1 font-mono text-[8px] sm:text-[9px] font-black tracking-widest uppercase ${matchType === "T20I"
+              <div className={`flex items-center gap-1.5 border rounded-lg px-2.5 py-1.5 font-mono text-[10px] sm:text-[11px] font-black tracking-widest uppercase ${matchType === "T20I"
                   ? "border-nexus-cyan/40 text-nexus-cyan bg-nexus-blue/10"
                   : "border-amber-400/40 text-amber-300 bg-amber-500/10"
                 }`}>
-                <span className="w-1 h-1 rounded-full bg-cricket-gold animate-ping" />
+                <span className="w-1.5 h-1.5 rounded-full bg-cricket-gold animate-ping" />
                 {matchType} MATCH
               </div>
             )}
@@ -1951,9 +1951,9 @@ useEffect(() => {
                 setShowLeaderboard(!showLeaderboard);
                 setView("landing");
               }}
-              className="py-1 px-2.5 rounded-lg nexus-glass border border-white/5 hover:border-nexus-cyan/40 text-[8px] sm:text-[9px] font-mono font-bold text-slate-300 transition-all flex items-center gap-1 group"
+              className="py-1.5 px-3 rounded-lg nexus-glass border border-white/5 hover:border-nexus-cyan/40 text-[10px] sm:text-xs font-mono font-bold text-slate-300 transition-all flex items-center gap-1.5 group"
             >
-              <Award className="w-2.5 h-2.5 text-nexus-cyan group-hover:scale-125 transition-transform" /> TOP
+              <Award className="w-3.5 h-3.5 text-nexus-cyan group-hover:scale-125 transition-transform" /> TOP
             </button>
           </div>
         </div>

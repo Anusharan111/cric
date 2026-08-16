@@ -12,12 +12,17 @@ import GWSecretCard from "../components/guesswho/GWSecretCard";
 import GWGuessModal from "../components/guesswho/GWGuessModal";
 import GWGameOver from "../components/guesswho/GWGameOver";
 import CricketCharacterCard from "../components/common/CricketCharacterCard";
-import { Search, Target, LogOut, Flag } from "lucide-react";
+import { Search, Target, LogOut, Flag, Copy, Check, Users } from "lucide-react";
 
 interface QuestionEntry {
   question: string;
   answer: "yes" | "no" | null;
   askedBy: "p1" | "p2";
+}
+
+interface PlayerInfo {
+  id: string;
+  name: string;
 }
 
 interface CricketGuessWhoGameProps {
@@ -28,14 +33,15 @@ const COUNTRIES = getCountries();
 const ALL_PLAYERS = getAllPlayers();
 
 export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps) {
-  const [phase, setPhase] = useState<"lobby" | "playing" | "gameover">("lobby");
+  const [phase, setPhase] = useState<"lobby" | "waiting" | "playing" | "gameover">("lobby");
 
   const [roomId, setRoomId] = useState<string | null>(null);
   const [mySide, setMySide] = useState<"p1" | "p2" | null>(null);
-  const [isWaiting, setIsWaiting] = useState(false);
   const [lobbyError, setLobbyError] = useState<string | null>(null);
   const [myName, setMyName] = useState("Player");
   const [opponentName, setOpponentName] = useState("Opponent");
+  const [players, setPlayers] = useState<PlayerInfo[]>([]);
+  const [copied, setCopied] = useState(false);
 
   const [grid, setGrid] = useState<CricketPlayer[]>([]);
   const [opponentGrid, setOpponentGrid] = useState<CricketPlayer[]>([]);
@@ -61,24 +67,15 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
   const channelRef = useRef<any>(null);
   const roomIdRef = useRef<string | null>(null);
   const mySideRef = useRef<"p1" | "p2" | null>(null);
-  const phaseRef = useRef<"lobby" | "playing" | "gameover">("lobby");
+  const phaseRef = useRef<"lobby" | "waiting" | "playing" | "gameover">("lobby");
   const selectedCountriesRef = useRef<string[]>([]);
-  const p2CountriesRef = useRef<string[]>([]);
+  const playersRef = useRef<PlayerInfo[]>([]);
 
   useEffect(() => { roomIdRef.current = roomId; }, [roomId]);
   useEffect(() => { mySideRef.current = mySide; }, [mySide]);
   useEffect(() => { phaseRef.current = phase; }, [phase]);
   useEffect(() => { selectedCountriesRef.current = selectedCountries; }, [selectedCountries]);
-
-  useEffect(() => {
-    if (mySide === "p2" && phase === "lobby" && channelRef.current) {
-      try {
-        channelRef.current.trigger("client-gw-country-selected", { countries: selectedCountries });
-      } catch (err) {
-        console.warn("Could not send country selection:", err);
-      }
-    }
-  }, [selectedCountries, mySide, phase]);
+  useEffect(() => { playersRef.current = players; }, [players]);
 
   const ensurePusher = useCallback(async (playerName: string) => {
     if (pusherRef.current) return pusherRef.current;
@@ -146,52 +143,33 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
 
     channel.bind("pusher:subscription_succeeded", (members: any) => {
       console.log("GW Presence subscription succeeded. Members count:", members.count);
-      
-      if (side === "p1") {
-        setRoomId(rid);
-        roomIdRef.current = rid;
-        setMySide("p1");
-        mySideRef.current = "p1";
-        setIsWaiting(true);
 
-        if (members.count >= 2) {
-          let p2Name = "Player 2";
-          members.each((member: any) => {
-            if (member.id !== members.myID) {
-              p2Name = member.info?.name || "Player 2";
-            }
-          });
-          
-          console.log("P2 already in room, starting game shortly.");
-          setTimeout(() => triggerGameStart(channel, rid, playerName, p2Name), 1500);
-        }
-      } else {
-        setRoomId(rid);
-        roomIdRef.current = rid;
-        setMySide("p2");
-        mySideRef.current = "p2";
-        setIsWaiting(true);
-        setTimeout(() => {
-          try {
-            channel.trigger("client-gw-country-selected", { countries: selectedCountriesRef.current });
-          } catch (err) {
-            console.warn("Could not send country selection:", err);
-          }
-        }, 300);
-      }
+      setRoomId(rid);
+      roomIdRef.current = rid;
+      setMySide(side);
+      mySideRef.current = side;
+
+      const allMembers: PlayerInfo[] = [];
+      members.each((member: any) => {
+        allMembers.push({ id: member.id, name: member.info?.name || "Player" });
+      });
+      setPlayers(allMembers);
+
+      setPhase("waiting");
     });
 
     channel.bind("pusher:member_added", (member: any) => {
       console.log("Member joined:", member.id, member.info);
-      if (side === "p1") {
-        const p2Name = member.info?.name || "Player 2";
-        setTimeout(() => triggerGameStart(channel, rid, playerName, p2Name), 1500);
-      }
+      setPlayers(prev => [...prev, { id: member.id, name: member.info?.name || "Player" }]);
     });
 
-    channel.bind("client-gw-country-selected", ({ countries }: any) => {
-      console.log("P2 country selection received:", countries);
-      p2CountriesRef.current = Array.isArray(countries) ? countries : [];
+    channel.bind("pusher:member_removed", (member: any) => {
+      console.log("Member left:", member.id, member.info);
+      setPlayers(prev => prev.filter(p => p.id !== member.id));
+      if (phaseRef.current === "playing" || phaseRef.current === "gameover") {
+        alert("Opponent disconnected!");
+        handleExit();
+      }
     });
 
     channel.bind("client-gw-game-started", ({ roomId: roomIdentifier, p1Name, p2Name, p1GridIds, p2GridIds, p1SecretId, p2SecretId }: any) => {
@@ -214,7 +192,6 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
       setP2Secret(resolvedP2Secret);
       setMySecret(myCurrentSide === "p1" ? resolvedP1Secret : resolvedP2Secret);
       setCurrentTurn("p1");
-      setIsWaiting(false);
       setPhase("playing");
       sfx.playCorrect();
     });
@@ -273,25 +250,16 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
       alert("Room was cancelled.");
       handleExit();
     });
-
-    channel.bind("pusher:member_removed", (member: any) => {
-      console.log("Member left:", member.id, member.info);
-      if (phaseRef.current === "playing" || phaseRef.current === "gameover") {
-        alert("Opponent disconnected!");
-        handleExit();
-      }
-    });
   }, [handleExit]);
 
   const triggerGameStart = (channel: any, rid: string, p1Name: string, p2Name: string) => {
-    const p1Countries = selectedCountriesRef.current;
-    const p2Countries = p2CountriesRef.current;
+    const hostCountries = selectedCountriesRef.current;
 
     const poolFor = (countries: string[]) =>
       countries.length > 0 ? ALL_PLAYERS.filter(p => countries.includes(p.country)) : [...ALL_PLAYERS];
 
-    const p1Grid = [...poolFor(p1Countries)].sort(() => Math.random() - 0.5).slice(0, 24);
-    const p2Grid = [...poolFor(p2Countries)].sort(() => Math.random() - 0.5).slice(0, 24);
+    const p1Grid = [...poolFor(hostCountries)].sort(() => Math.random() - 0.5).slice(0, 24);
+    const p2Grid = [...poolFor(hostCountries)].sort(() => Math.random() - 0.5).slice(0, 24);
 
     const p1Secret = p1Grid[Math.floor(Math.random() * p1Grid.length)];
     const p2Secret = p2Grid[Math.floor(Math.random() * p2Grid.length)];
@@ -317,10 +285,29 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
       setP2Secret(p2Secret);
       setMySecret(p1Secret);
       setCurrentTurn("p1");
-      setIsWaiting(false);
       setPhase("playing");
       sfx.playCorrect();
     }, 500);
+  };
+
+  const handleStartGame = () => {
+    if (!channelRef.current || !roomIdRef.current) return;
+    const currentPlayers = playersRef.current;
+    if (currentPlayers.length < 2) {
+      setLobbyError("Need 2 players to start the game.");
+      return;
+    }
+    setLobbyError(null);
+    const opponent = currentPlayers.find(p => p.name !== myName) || currentPlayers[1];
+    triggerGameStart(channelRef.current, roomIdRef.current, myName.trim() || "Player 1", opponent?.name || "Player 2");
+  };
+
+  const copyCode = () => {
+    if (roomId) {
+      navigator.clipboard.writeText(roomId);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
   };
 
   useEffect(() => {
@@ -443,9 +430,8 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
     setGameResult(null);
     setRoomId(null);
     setMySide(null);
-    setIsWaiting(false);
     setSelectedCountries([]);
-    p2CountriesRef.current = [];
+    setPlayers([]);
   };
 
   const isMyTurn = currentTurn === mySide;
@@ -557,6 +543,71 @@ export default function CricketGuessWhoGame({ onExit }: CricketGuessWhoGameProps
 
             <button onClick={handleExit} className="w-full mt-4 text-cricket-gold/60 hover:text-cricket-cream text-sm flex items-center justify-center gap-2 transition">
               <LogOut className="w-4 h-4" /> Back to Main Menu
+            </button>
+          </motion.div>
+        )}
+
+        {phase === "waiting" && (
+          <motion.div
+            key="waiting"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            className="w-full max-w-lg space-y-6"
+          >
+            <div className="text-center space-y-2 mb-2">
+              <h1 className="text-3xl font-black italic tracking-wider text-cricket-cream cricket-glow-text">🏏 CRICKET GUESS WHO</h1>
+              <p className="text-cricket-gold/60 text-xs uppercase tracking-widest font-mono">Waiting Room</p>
+            </div>
+
+            {/* Room Code */}
+            <div className="cricket-panel rounded-2xl p-5 flex items-center justify-between border border-cricket-green/30">
+              <div>
+                <p className="text-xs text-cricket-gold/60 font-bold uppercase tracking-wider">Room Code</p>
+                <p className="text-4xl font-black tracking-[0.3em] text-cricket-cream font-mono mt-1">{roomId}</p>
+              </div>
+              <button onClick={copyCode} className="p-3 rounded-xl bg-cricket-green/10 border border-cricket-green/30 text-cricket-gold hover:bg-cricket-green/20 transition cursor-pointer">
+                {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
+              </button>
+            </div>
+
+            {/* Players list */}
+            <div className="cricket-panel rounded-2xl p-5 space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="text-sm font-bold text-cricket-gold flex items-center gap-2">
+                  <Users className="w-4 h-4" /> Players ({players.length})
+                </h3>
+              </div>
+              <div className="space-y-2">
+                {players.map((p, i) => (
+                  <div key={p.id} className="flex items-center gap-3 bg-cricket-dark px-4 py-2.5 rounded-xl border border-cricket-gold/10">
+                    <div className={`w-2 h-2 rounded-full ${i === 0 ? "bg-cricket-gold" : "bg-cricket-green"} animate-pulse`} />
+                    <span className="text-cricket-cream font-medium">{p.name}</span>
+                    {i === 0 && <span className="ml-auto text-[10px] font-black text-cricket-gold uppercase tracking-wider">HOST</span>}
+                  </div>
+                ))}
+                {players.length < 2 && (
+                  <p className="text-cricket-gold/40 text-xs text-center py-2">Waiting for the other player to join...</p>
+                )}
+              </div>
+            </div>
+
+            {lobbyError && <p className="text-sm text-cricket-red font-medium text-center">{lobbyError}</p>}
+
+            {mySide === "p1" ? (
+              <button
+                onClick={handleStartGame}
+                disabled={players.length < 2}
+                className="w-full py-4 rounded-xl bg-gradient-to-r from-cricket-green to-cricket-light hover:from-cricket-light hover:to-cricket-green disabled:opacity-40 disabled:cursor-not-allowed text-cricket-cream font-extrabold text-base flex items-center justify-center gap-2 shadow-lg shadow-cricket-green/30 transition cursor-pointer"
+              >
+                <Flag className="w-5 h-5" /> START GAME
+              </button>
+            ) : (
+              <p className="text-center text-cricket-gold/50 text-sm animate-pulse">Waiting for the host to start the game...</p>
+            )}
+
+            <button onClick={handleExit} className="w-full text-cricket-gold/60 hover:text-cricket-cream text-sm flex items-center justify-center gap-2 transition cursor-pointer">
+              <LogOut className="w-4 h-4" /> Leave Room
             </button>
           </motion.div>
         )}

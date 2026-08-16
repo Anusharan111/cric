@@ -54,7 +54,8 @@ export default function AnimePartyGames({ onExit }: AnimePartyGamesProps) {
   const pusherRef = useRef<Pusher | null>(null);
   const channelRef = useRef<any>(null);
   const isHostRef = useRef(false);
-  const mySocketIdRef = useRef<string | null>(null);
+  const myMemberIdRef = useRef<string | null>(null);
+  const [myMemberId, setMyMemberId] = useState<string | null>(null);
   const playersRef = useRef<PlayerInfo[]>([]);
 
   useEffect(() => { isHostRef.current = isHost; }, [isHost]);
@@ -113,11 +114,16 @@ export default function AnimePartyGames({ onExit }: AnimePartyGamesProps) {
     channelRef.current = channel;
 
     channel.bind("pusher:subscription_succeeded", (members: any) => {
-      mySocketIdRef.current = pusher.connection.socket_id;
+      let selfId: string | null = null;
       const allMembers: PlayerInfo[] = [];
       members.each((m: any) => {
         allMembers.push({ id: m.id, name: m.info?.name || "Player" });
+        if (m.id === members.me?.id) selfId = m.id;
+        if (m.info?.name === name) selfId = m.id;
       });
+      if (!selfId) selfId = name;
+      myMemberIdRef.current = selfId;
+      setMyMemberId(selfId);
       setPlayers(allMembers);
       setRoomId(rid);
       setPhase("lobby-wait");
@@ -134,7 +140,7 @@ export default function AnimePartyGames({ onExit }: AnimePartyGamesProps) {
 
     // HOST receives this — Pusher doesn't echo client events to sender, so host applies state locally too
     channel.bind("client-party-game-started", (data: any) => {
-      applyGameStart(data, pusher.connection.socket_id);
+      applyGameStart(data, myMemberIdRef.current || "");
     });
 
     channel.bind("client-party-vote", ({ voterId, accusedName }: any) => {
@@ -167,24 +173,24 @@ export default function AnimePartyGames({ onExit }: AnimePartyGamesProps) {
 
     // Player receives this when another player reveals their card
     channel.bind("client-party-reveal-member-card", ({ targetSocketId }: any) => {
-      if (targetSocketId === pusher.connection.socket_id) {
+      if (targetSocketId === myMemberIdRef.current) {
         setMyCardRevealed(true);
         sfx.playCorrect();
       }
     });
   }, []);
 
-  const applyGameStart = (data: any, mySocketId: string) => {
+  const applyGameStart = (data: any, myMemberId: string) => {
     const { mode, assignments, civCharId, impCharId } = data;
     const idMap = new Map(CHARACTERS.map(c => [c.id, c]));
     setMyCardRevealed(false);
 
     if (mode === "guess-character") {
       // assignments: [{socketId, charId, playerName}]
-      const myAssignment = assignments.find((a: any) => a.socketId === mySocketId);
+      const myAssignment = assignments.find((a: any) => a.socketId === myMemberId);
       const myChar = myAssignment ? idMap.get(myAssignment.charId) || null : null;
       const others = assignments
-        .filter((a: any) => a.socketId !== mySocketId)
+        .filter((a: any) => a.socketId !== myMemberId)
         .map((a: any) => ({ name: a.playerName, character: idMap.get(a.charId)!, socketId: a.socketId }))
         .filter((o: any) => o.character);
 
@@ -193,7 +199,7 @@ export default function AnimePartyGames({ onExit }: AnimePartyGamesProps) {
       setPhase("playing-gc");
     } else {
       // imposter mode
-      const myAssignment = assignments.find((a: any) => a.socketId === mySocketId);
+      const myAssignment = assignments.find((a: any) => a.socketId === myMemberId);
       const civChar = idMap.get(civCharId) || null;
       const impChar = idMap.get(impCharId) || null;
       const myChar = myAssignment?.isImposter ? impChar : civChar;
@@ -203,7 +209,7 @@ export default function AnimePartyGames({ onExit }: AnimePartyGamesProps) {
       setCivCharId(civCharId);
       setImpCharId(impCharId);
       setOtherPlayersChars(assignments
-        .filter((a: any) => a.socketId !== mySocketId)
+        .filter((a: any) => a.socketId !== myMemberId)
         .map((a: any) => ({ name: a.playerName, character: myChar!, socketId: a.socketId })));
       setCiviliansCharacter(civChar);
       setRevealedImposter(null);
@@ -269,7 +275,7 @@ export default function AnimePartyGames({ onExit }: AnimePartyGamesProps) {
       const payload = { mode: "guess-character", assignments };
       channelRef.current.trigger("client-party-game-started", payload);
       // Host applies locally
-      applyGameStart(payload, pusherRef.current!.connection.socket_id);
+      applyGameStart(payload, myMemberIdRef.current || "");
     } else {
       const localCivCharId = shuffled[0].id;
       const localImpCharId = shuffled[1].id;
@@ -281,13 +287,13 @@ export default function AnimePartyGames({ onExit }: AnimePartyGamesProps) {
       }));
       const payload = { mode: "guess-imposter", assignments, civCharId: localCivCharId, impCharId: localImpCharId };
       channelRef.current.trigger("client-party-game-started", payload);
-      applyGameStart(payload, pusherRef.current!.connection.socket_id);
+      applyGameStart(payload, myMemberIdRef.current || "");
     }
   };
 
   const handleVote = (accusedName: string) => {
-    if (!channelRef.current || !pusherRef.current) return;
-    const voterId = pusherRef.current.connection.socket_id;
+    if (!channelRef.current) return;
+    const voterId = myMemberIdRef.current || "";
     channelRef.current.trigger("client-party-vote", { voterId, accusedName });
     setImposterVotes(prev => ({ ...prev, [voterId]: accusedName }));
   };
@@ -634,7 +640,7 @@ export default function AnimePartyGames({ onExit }: AnimePartyGamesProps) {
             <GuessImposterMode
               myCharacter={myCharacter}
               players={players}
-              mySocketId={pusherRef.current?.connection.socket_id || ""}
+              mySocketId={myMemberId || ""}
               isHost={isHost}
               votes={imposterVotes}
               revealedImposter={revealedImposter}

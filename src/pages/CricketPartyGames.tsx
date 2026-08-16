@@ -59,9 +59,10 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
   const pusherRef = useRef<Pusher | null>(null);
   const channelRef = useRef<any>(null);
   const isHostRef = useRef(false);
-  const mySocketIdRef = useRef<string | null>(null);
+  const myMemberIdRef = useRef<string | null>(null);
   const playersRef = useRef<PlayerInfo[]>([]);
   const impSocketIdRef = useRef<string | null>(null);
+  const [myMemberId, setMyMemberId] = useState<string | null>(null);
 
   useEffect(() => { isHostRef.current = isHost; }, [isHost]);
   useEffect(() => { playersRef.current = players; }, [players]);
@@ -100,23 +101,23 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
 
   useEffect(() => () => cleanup(), [cleanup]);
 
-  const applyGameStart = (data: any, mySocketId: string) => {
+  const applyGameStart = (data: any, myMemberId: string | null) => {
     const { mode, assignments, civCharId, impCharId } = data;
     setMyCardRevealed(false);
     setMyCardPeeked(false);
 
     if (mode === "guess-character") {
-      const myAssignment = assignments.find((a: any) => a.socketId === mySocketId);
+      const myAssignment = assignments.find((a: any) => a.socketId === myMemberId);
       const myChar = myAssignment ? ID_MAP.get(myAssignment.charId) || null : null;
       const others = assignments
-        .filter((a: any) => a.socketId !== mySocketId)
+        .filter((a: any) => a.socketId !== myMemberId)
         .map((a: any) => ({ name: a.playerName, character: ID_MAP.get(a.charId)!, socketId: a.socketId }))
         .filter((o: any) => o.character);
       setMyCharacter(myChar);
       setOtherPlayersChars(others);
       setPhase("playing-gc");
     } else {
-      const myAssignment = assignments.find((a: any) => a.socketId === mySocketId);
+      const myAssignment = assignments.find((a: any) => a.socketId === myMemberId);
       const civChar = ID_MAP.get(civCharId) || null;
       const impChar = ID_MAP.get(impCharId) || null;
       const myChar = myAssignment?.isImposter ? impChar : civChar;
@@ -125,7 +126,7 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
       setCivCharId(civCharId);
       setImpCharId(impCharId);
       setOtherPlayersChars(assignments
-        .filter((a: any) => a.socketId !== mySocketId)
+        .filter((a: any) => a.socketId !== myMemberId)
         .map((a: any) => ({ name: a.playerName, character: civChar!, socketId: a.socketId }))
         .filter((o: any) => o.character));
       setCiviliansCharacter(civChar);
@@ -143,11 +144,16 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
     channelRef.current = channel;
 
     channel.bind("pusher:subscription_succeeded", (members: any) => {
-      mySocketIdRef.current = pusher.connection.socket_id;
+      let selfId: string | null = null;
       const allMembers: PlayerInfo[] = [];
       members.each((m: any) => {
         allMembers.push({ id: m.id, name: m.info?.name || "Player" });
+        if (m.id === members.me?.id) selfId = m.id;
+        if (m.info?.name === name) selfId = m.id;
       });
+      if (!selfId) selfId = name;
+      myMemberIdRef.current = selfId;
+      setMyMemberId(selfId);
       setPlayers(allMembers);
       setRoomId(rid);
       setPhase("lobby-wait");
@@ -164,7 +170,7 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
 
     // Game start — host applies locally too (Pusher doesn't echo client events to sender)
     channel.bind("client-party-game-started", (data: any) => {
-      applyGameStart(data, pusher.connection.socket_id);
+      applyGameStart(data, myMemberIdRef.current);
     });
 
     channel.bind("client-party-vote", ({ voterId, accusedName }: any) => {
@@ -200,7 +206,7 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
 
     // A player receives this when another player reveals their card
     channel.bind("client-party-reveal-member-card", ({ targetSocketId }: any) => {
-      if (targetSocketId === pusher.connection.socket_id) {
+      if (targetSocketId === myMemberIdRef.current) {
         setMyCardRevealed(true);
         sfx.playCorrect();
       }
@@ -260,7 +266,7 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
       }));
       const payload = { mode: "guess-character", assignments };
       channelRef.current.trigger("client-party-game-started", payload);
-      applyGameStart(payload, pusherRef.current!.connection.socket_id);
+      applyGameStart(payload, myMemberIdRef.current);
     } else {
       const localCivCharId = shuffled[0].id;
       const localImpCharId = shuffled[1].id;
@@ -273,13 +279,13 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
       }));
       const payload = { mode: "guess-imposter", assignments, civCharId: localCivCharId, impCharId: localImpCharId };
       channelRef.current.trigger("client-party-game-started", payload);
-      applyGameStart(payload, pusherRef.current!.connection.socket_id);
+      applyGameStart(payload, myMemberIdRef.current);
     }
   };
 
   const handleVote = (accusedName: string) => {
-    if (!channelRef.current || !pusherRef.current) return;
-    const voterId = pusherRef.current.connection.socket_id;
+    if (!channelRef.current) return;
+    const voterId = myMemberIdRef.current || "";
     channelRef.current.trigger("client-party-vote", { voterId, accusedName });
     setImposterVotes(prev => ({ ...prev, [voterId]: accusedName }));
   };
@@ -342,7 +348,7 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
     c.toLowerCase().includes(countrySearchQuery.toLowerCase())
   );
 
-  const mySocketId = pusherRef.current?.connection.socket_id || "";
+  const myMemberIdFinal = myMemberId || "";
   const voteCount = Object.keys(imposterVotes).length;
   const voteTally: Record<string, number> = {};
   Object.values(imposterVotes).forEach(name => {
@@ -825,8 +831,8 @@ export default function CricketPartyGames({ onExit }: CricketPartyGamesProps) {
 
                       <div className="grid grid-cols-2 gap-3">
                         {players.map(p => {
-                          const isMe = p.id === mySocketId;
-                          const myVote = Object.entries(imposterVotes).find(([voterId]) => voterId === mySocketId)?.[1] || null;
+                          const isMe = p.id === myMemberIdFinal;
+                          const myVote = Object.entries(imposterVotes).find(([voterId]) => voterId === myMemberIdFinal)?.[1] || null;
                           const tally = voteTally[p.name] || 0;
                           const hasVotedForThis = myVote === p.name;
 

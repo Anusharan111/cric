@@ -388,124 +388,136 @@
       "image_source_page": null
     },
     {
-      "player_id": "afghanistan_asghar-afghan",
-      "name": "Asghar Afghan",
-      "country": "Afghanistan",
-      "profile_url": null,
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Asghar_Afghan.jpg?download=1",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batsman",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm offbreak"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/KjBEpWVHVKVScjLD.png",
-      "bowling_category": "Spin",
-      "favorable_positions": [
-        "batsman_1",
-        "batsman_2"
-      ],
-      "secondary_positions": [
-        "batsman_3"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Batter",
-        "Right-Handed Batter",
-        "Spin Specialist"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Wikimedia direct-file URL",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Batsman",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm offbreak",
-      "teams": null,
-      "scraped_ok": false,
-      "image_file": "Asghar Afghan",
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": null
-    },
+"player_id": "afghanistan_asghar-afghan",
+"name": "Asghar Afghan",
+"country": "Afghanistan",
+"profile_url": "https://www.espncricinfo.com/cricketers/asghar-afghan-320652",
+"image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Asghar_Afghan.jpg",
+"bio": {
+"born": "1987-12-26",
+"birth_place": "Kabul, Afghanistan",
+"role": "Batsman",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm medium-fast"
+},
+"formats": {
+"ODI": {
+"matches": 114,
+"innings": 108,
+"runs": 2424,
+"balls": null,
+"highest": 101,
+"average": 24.73,
+"sr": 66.77,
+"not_out": 10,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 12,
+"100s": 1,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 3,
+"avg": null,
+"eco": null,
+"bbi": "1/1",
+"bbm": "1/1",
+"4w": 0,
+"5w": 0,
+"10w": 0
+},
+"T20I": {
+"matches": 75,
+"innings": 70,
+"runs": 1361,
+"balls": null,
+"highest": 62,
+"average": 21.6,
+"sr": null,
+"not_out": 7,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 3,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 1,
+"avg": 4,
+"eco": null,
+"bbi": "1/4",
+"bbm": "1/4",
+"4w": 0,
+"5w": 0,
+"10w": 0
+}
+},
+"country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/KjBEpWVHVKVScjLD.png",
+"bowling_category": "Fast",
+"favorable_positions": [
+"batsman_1",
+"batsman_2"
+],
+"secondary_positions": [
+"batsman_3"
+],
+"captaincy": {
+"is_captain": true,
+"matches_as_captain": 111,
+"wins": 76,
+"losses": 30,
+"win_percentage": 68.47,
+"icc_trophies": []
+},
+"keeping": {
+"is_specialist": false,
+"catches": null,
+"stumpings": 0
+},
+"traits": [
+"Batter",
+"Right-Handed Batter",
+"Former Afghanistan Captain",
+"Leadership"
+],
+"peak_ranking": {
+"batting_rank": null,
+"bowling_rank": null,
+"allrounder_rank": null
+},
+"achievements": [
+"One of Afghanistan's most successful international captains",
+"Led Afghanistan to 42 wins in 52 T20I matches as captain",
+"Led Afghanistan to their first Test match in 2018",
+"First Afghanistan captain in Test cricket"
+],
+"clues": [
+"Former long-serving captain of Afghanistan.",
+"Led Afghanistan during their rise from Associate cricket to Test status.",
+"Played his final international match against Namibia at the 2021 T20 World Cup."
+],
+"image_source": "Wikipedia/Wikimedia Commons direct image URL",
+"url": "https://www.espncricinfo.com/cricketers/asghar-afghan-320652",
+"born": "1987-12-26",
+"birth_place": "Kabul, Afghanistan",
+"role": "Batsman",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm medium-fast",
+"teams": [
+"Afghanistan",
+"Kabul Eagles",
+"Amo Region"
+],
+"scraped_ok": true,
+"image_file": "Asghar Afghan",
+"image_verified": true,
+"image_verification_method": "source_backed_direct_image",
+"image_source_page": "https://en.wikipedia.org/wiki/Asghar_Afghan"
+},
     {
       "player_id": "afghanistan_azmatullah-omarzai",
       "name": "Azmatullah Omarzai",
@@ -4825,7 +4837,7 @@
       "name": "Aaron Finch",
       "country": "Australia",
       "profile_url": null,
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzg5OS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJwb3NpdGlvbiI6InRvcCIsIndpZHRoIjoyMDAsImhlaWdodCI6MjAwfSwid2VicCI6eyJxdWFsaXR5Ijo2MCwibG9zc2xlc3MiOmZhbHNlfX0sIm91dHB1dEZvcm1hdCI6IndlYnAifQ==",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQihv8ivtvCTM4AqDDHf58ruDmq0UfzES3yzGi5WctAjpk3EZYn5zCXc-2cs0PGwyjDrdNoC-tmeOPesebdfSCLRKsTe33OpPyTgzYCRjA&s=10",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -4924,7 +4936,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": "FanCode player profile",
+      "image_source": "Wikipedia/Wikimedia Commons direct image URL",
       "image_file": "File:Aaron Finch 2010.jpg",
       "url": null,
       "born": null,
@@ -4935,15 +4947,15 @@
       "teams": null,
       "scraped_ok": true,
       "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.fancode.com/cricket/players/aaron-finch/899"
+      "image_verification_method": "source_backed_direct_image",
+      "image_source_page": "https://en.wikipedia.org/wiki/Aaron_Finch"
     },
     {
       "player_id": "australia_adam-gilchrist",
       "name": "Adam Gilchrist",
       "country": "Australia",
       "profile_url": "https://www.cricbuzz.com/profiles/36/adam-gilchrist",
-      "image_url": "https://static.cricbuzz.com/a/img/v1/i1/c156206/adam-gilchrist.jpg?d=low&p=gthumb",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu0_thOHjwh2Ub6UKsrE29RB7ZvZ-Qg08jhpI3NPesig&s=10",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -5042,7 +5054,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": "Cricbuzz player profile (canonical portrait)",
+      "image_source": "Wikipedia/Wikimedia Commons direct image URL",
       "image_file": "File:Coota plaque Adam Gilchrist.jpg",
       "url": null,
       "born": null,
@@ -5054,8 +5066,8 @@
       "scraped_ok": true,
       "stats_source": "https://www.cricbuzz.com/profiles/36/adam-gilchrist",
       "image_verified": true,
-      "image_verification_method": "source_backed_existing_match",
-      "image_source_page": null
+      "image_verification_method": "source_backed_direct_image",
+      "image_source_page": "https://en.wikipedia.org/wiki/Adam_Gilchrist"
     },
     {
       "player_id": "australia_adam-zampa",
@@ -5298,123 +5310,7 @@
       "image_verification_method": "source_backed_existing_match",
       "image_source_page": null
     },
-    {
-      "player_id": "australia_allan-border",
-      "name": "Allan Border",
-      "country": "Australia",
-      "profile_url": "https://en.wikipedia.org/wiki/Allan_Border",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Allan_Border%2C_Ricky_Ponting_and_Steve_Waugh_October_2014_%28Border_cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batsman",
-        "batting_style": "Left Handed Bat",
-        "bowling_style": "Right-arm medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/wfrAyqiITRmZmFdR.png",
-      "bowling_category": null,
-      "favorable_positions": [
-        "batsman_1",
-        "batsman_2"
-      ],
-      "secondary_positions": [
-        "batsman_3"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Batter",
-        "Left-Handed Batter"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Wikipedia exact player page",
-      "url": "https://en.wikipedia.org/wiki/Allan_Border",
-      "born": null,
-      "birth_place": null,
-      "role": "Batsman",
-      "batting_style": "Left Handed Bat",
-      "bowling_style": "Right-arm medium",
-      "teams": null,
-      "scraped_ok": true,
-      "image_verified": true,
-      "image_verification_method": "source_backed_existing_match",
-      "image_source_page": null
-    },
+   
     {
       "player_id": "australia_ben-dwarshuis",
       "name": "Ben Dwarshuis",
@@ -5537,123 +5433,142 @@
       "image_source_page": null
     },
     {
-      "player_id": "australia_brett-lee",
-      "name": "Brett Lee",
-      "country": "Australia",
-      "profile_url": "https://en.wikipedia.org/wiki/Brett_Lee",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Brett_lee_closeup2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Bowler",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm fast"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/wfrAyqiITRmZmFdR.png",
-      "bowling_category": "Fast",
-      "favorable_positions": [
-        "bowler_1",
-        "last_bowler"
-      ],
-      "secondary_positions": [
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Bowler",
-        "Right-Handed Batter",
-        "Pace Bowler"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Wikipedia exact player page",
-      "url": "https://en.wikipedia.org/wiki/Brett_Lee",
-      "born": null,
-      "birth_place": null,
-      "role": "Bowler",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm fast",
-      "teams": null,
-      "scraped_ok": true,
-      "image_verified": true,
-      "image_verification_method": "source_backed_existing_match",
-      "image_source_page": null
-    },
+"player_id": "australia_brett-lee",
+"name": "Brett Lee",
+"country": "Australia",
+"profile_url": "[https://www.espncricinfo.com/cricketers/brett-lee-6278](https://www.espncricinfo.com/cricketers/brett-lee-6278)",
+"image_url": "[https://upload.wikimedia.org/wikipedia/commons/9/9f/Brett_lee_closeup2.jpg](https://upload.wikimedia.org/wikipedia/commons/9/9f/Brett_lee_closeup2.jpg)",
+"bio": {
+"born": "1976-11-08",
+"birth_place": "Wollongong, New South Wales, Australia",
+"role": "Bowler",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm fast"
+},
+"formats": {
+"ODI": {
+"matches": 221,
+"innings": 151,
+"runs": 1176,
+"balls": null,
+"highest": 59,
+"average": 17.29,
+"sr": null,
+"not_out": 83,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 1,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 380,
+"avg": 23.36,
+"eco": 4.76,
+"bbi": "5/22",
+"bbm": "5/22",
+"4w": 7,
+"5w": 9,
+"10w": 0
+},
+"T20I": {
+"matches": 25,
+"innings": 19,
+"runs": 117,
+"balls": null,
+"highest": 22,
+"average": 11.7,
+"sr": null,
+"not_out": 9,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 0,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 28,
+"avg": 25.57,
+"eco": 7.53,
+"bbi": "3/27",
+"bbm": "3/27",
+"4w": 0,
+"5w": 0,
+"10w": 0
+}
+},
+"country_logo": "[https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/wfrAyqiITRmZmFdR.png](https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/wfrAyqiITRmZmFdR.png)",
+"bowling_category": "Fast",
+"favorable_positions": [
+"bowler_1",
+"last_bowler"
+],
+"secondary_positions": [
+"bowler_2"
+],
+"captaincy": {
+"is_captain": false,
+"matches_as_captain": 0,
+"wins": 0,
+"losses": 0,
+"win_percentage": 0,
+"icc_trophies": [
+"2003 ICC Cricket World Cup",
+"2007 ICC Cricket World Cup"
+]
+},
+"keeping": {
+"is_specialist": false,
+"catches": null,
+"stumpings": 0
+},
+"traits": [
+"Bowler",
+"Right-Handed Batter",
+"Pace Bowler",
+"Express Pace"
+],
+"peak_ranking": {
+"batting_rank": null,
+"bowling_rank": 1,
+"allrounder_rank": null
+},
+"achievements": [
+"Two-time ICC Cricket World Cup winner",
+"Took 380 wickets in ODI cricket",
+"One of the fastest bowlers in cricket history",
+"Member of Australia's 2003 and 2007 World Cup-winning teams"
+],
+"clues": [
+"Australian express fast bowler.",
+"Known for regularly bowling at speeds above 150 km/h.",
+"Won two ICC Cricket World Cups with Australia.",
+"Took 380 wickets in One Day Internationals."
+],
+"image_source": "Wikipedia/Wikimedia Commons direct image URL",
+"url": "[https://en.wikipedia.org/wiki/Brett_Lee](https://en.wikipedia.org/wiki/Brett_Lee)",
+"born": "1976-11-08",
+"birth_place": "Wollongong, New South Wales, Australia",
+"role": "Bowler",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm fast",
+"teams": [
+"Australia",
+"New South Wales",
+"Kings XI Punjab",
+"Kolkata Knight Riders",
+"Wellington"
+],
+"scraped_ok": true,
+"image_verified": true,
+"image_verification_method": "source_backed_direct_image",
+"image_source_page": "[https://en.wikipedia.org/wiki/Brett_Lee](https://en.wikipedia.org/wiki/Brett_Lee)"
+}
+,
     {
       "player_id": "australia_cameron-green",
       "name": "Cameron Green",
@@ -9604,7 +9519,7 @@
       "name": "Abdur Razzak",
       "country": "Bangladesh",
       "profile_url": null,
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzE4NS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJwb3NpdGlvbiI6InRvcCIsIndpZHRoIjoyMDAsImhlaWdodCI6MjAwfSwid2VicCI6eyJxdWFsaXR5Ijo2MCwibG9zc2xlc3MiOmZhbHNlfX0sIm91dHB1dEZvcm1hdCI6IndlYnAifQ==",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAa30DOH8ISdFMwShJbxUyl2nuRhXXiz1rvT_PvKq5Zg&s=10",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -9840,242 +9755,7 @@
       "image_verification_method": "existing_dataset_image",
       "image_source_page": null
     },
-    {
-      "player_id": "bangladesh_aftab-ahmed",
-      "name": "Aftab Ahmed",
-      "country": "Bangladesh",
-      "profile_url": null,
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzE4NC5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJwb3NpdGlvbiI6InRvcCIsIndpZHRoIjoyMDAsImhlaWdodCI6MjAwfSwid2VicCI6eyJxdWFsaXR5Ijo2MCwibG9zc2xlc3MiOmZhbHNlfX0sIm91dHB1dEZvcm1hdCI6IndlYnAifQ==",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batsman",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/dIzaXqivBhOjQqtr.png",
-      "bowling_category": null,
-      "favorable_positions": [
-        "batsman_1",
-        "batsman_2"
-      ],
-      "secondary_positions": [
-        "batsman_3"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Batter",
-        "Right-Handed Batter"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Batsman",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm medium",
-      "teams": null,
-      "scraped_ok": false,
-      "image_file": "File:Raja Aftab Ahmed Khan.jpg",
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.fancode.com/cricket/players/aftab-ahmed/184"
-    },
-    {
-      "player_id": "bangladesh_alok-kapali",
-      "name": "Alok Kapali",
-      "country": "Bangladesh",
-      "profile_url": null,
-      "image_url": "https://e1.365dm.com/07/10/800x600/Alok_Kapali_589219.jpg?20071026061612",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batting Allrounder",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm legbreak"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/dIzaXqivBhOjQqtr.png",
-      "bowling_category": "Spin",
-      "favorable_positions": [
-        "all_rounder_1"
-      ],
-      "secondary_positions": [
-        "batsman_3",
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "All-Rounder",
-        "Right-Handed Batter",
-        "Spin Specialist"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Batting Allrounder",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm legbreak",
-      "teams": null,
-      "scraped_ok": false,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.skysports.com/cricket/player/3418/alok-kapali"
-    },
+  
     {
       "player_id": "bangladesh_anamul-haque",
       "name": "Anamul Haque",
@@ -19298,359 +18978,7 @@
       "image_verification_method": "source_backed_existing_match",
       "image_source_page": null
     },
-    {
-      "player_id": "england_alastair-cook",
-      "name": "Alastair Cook",
-      "country": "England",
-      "profile_url": "https://en.wikipedia.org/wiki/List_of_international_cricket_centuries_by_Alastair_Cook",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzI0NS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJwb3NpdGlvbiI6InRvcCIsIndpZHRoIjoyMDAsImhlaWdodCI6MjAwfSwid2VicCI6eyJxdWFsaXR5Ijo2MCwibG9zc2xlc3MiOmZhbHNlfX0sIm91dHB1dEZvcm1hdCI6IndlYnAifQ==",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batsman",
-        "batting_style": "Left Handed Bat",
-        "bowling_style": "Right-arm medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/DibdTrzFPoWwlXcn.png",
-      "bowling_category": null,
-      "favorable_positions": [
-        "batsman_1",
-        "batsman_2"
-      ],
-      "secondary_positions": [
-        "batsman_3"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Batter",
-        "Left-Handed Batter"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": "https://en.wikipedia.org/wiki/List_of_international_cricket_centuries_by_Alastair_Cook",
-      "born": null,
-      "birth_place": null,
-      "role": "Batsman",
-      "batting_style": "Left Handed Bat",
-      "bowling_style": "Right-arm medium",
-      "teams": null,
-      "scraped_ok": true,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.fancode.com/sport/players/alastair-cook/245"
-    },
-    {
-      "player_id": "england_alec-stewart",
-      "name": "Alec Stewart",
-      "country": "England",
-      "profile_url": null,
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/AlecStewart.jpg?download=1",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "WK-Batsman",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": null
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/DibdTrzFPoWwlXcn.png",
-      "bowling_category": null,
-      "favorable_positions": [
-        "all_rounder_wicketkeeper"
-      ],
-      "secondary_positions": [
-        "batsman_2",
-        "batsman_3"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": true,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Wicketkeeper-Batter",
-        "Right-Handed Batter"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Wikimedia direct-file URL",
-      "image_file": "File:AlecStewart.jpg",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "WK-Batsman",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": null,
-      "teams": null,
-      "scraped_ok": true,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": null
-    },
-    {
-      "player_id": "england_andrew-flintoff",
-      "name": "Andrew Flintoff",
-      "country": "England",
-      "profile_url": "https://en.wikipedia.org/wiki/Andrew_Flintoff",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Rachel_and_cricketer_husband_Freddie_Flintoff_%2823820118063%29_%28cropped%29.jpg/960px-Rachel_and_cricketer_husband_Freddie_Flintoff_%2823820118063%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Bowling Allrounder",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm fast"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/DibdTrzFPoWwlXcn.png",
-      "bowling_category": "Fast",
-      "favorable_positions": [
-        "all_rounder_1"
-      ],
-      "secondary_positions": [
-        "batsman_3",
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "All-Rounder",
-        "Right-Handed Batter",
-        "Pace Bowler"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Wikipedia exact player page",
-      "url": "https://en.wikipedia.org/wiki/Andrew_Flintoff",
-      "born": null,
-      "birth_place": null,
-      "role": "Bowling Allrounder",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm fast",
-      "teams": null,
-      "scraped_ok": true,
-      "image_verified": true,
-      "image_verification_method": "source_backed_existing_match",
-      "image_source_page": null
-    },
+   
     {
       "player_id": "england_ben-duckett",
       "name": "Ben Duckett",
@@ -25423,7 +24751,7 @@
       "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHIN5CsPi6KILPU87il4h987brG1y4bQ0wTBQPgerSLyx_a9RVQmcq_PQ3-hp6ZB7HUpOt94L03L4HepAiiftJaZXfN2gT7DeNbCSci0cPKQ&s=10",
       "bio": {
         "born": null,
-      "birth_place": null,
+        "birth_place": null,
         "role": "WK-Batsman",
         "batting_style": "Right Handed Bat",
         "bowling_style": null
@@ -28896,123 +28224,7 @@
       "image_verification_method": "source_backed_existing_match",
       "image_source_page": null
     },
-    {
-      "player_id": "ireland_andrew-white",
-      "name": "Andrew White",
-      "country": "Ireland",
-      "profile_url": null,
-      "image_url": "https://northdowncricketclub.co.uk/wp-content/uploads/2022/05/Andrew-White-1.jpg",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batting Allrounder",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/etengOanSPEWZKaU.png",
-      "bowling_category": null,
-      "favorable_positions": [
-        "all_rounder_1"
-      ],
-      "secondary_positions": [
-        "batsman_3",
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "All-Rounder",
-        "Right-Handed Batter"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Batting Allrounder",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm medium",
-      "teams": null,
-      "scraped_ok": false,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://northdowncricketclub.co.uk/player/andrew-white/"
-    },
+   
     {
       "player_id": "ireland_andy-mcbrine",
       "name": "Andy McBrine",
@@ -29376,125 +28588,7 @@
       "image_verification_method": "source_backed_existing_match",
       "image_source_page": null
     },
-    {
-      "player_id": "ireland_boyd-rankin",
-      "name": "Boyd Rankin",
-      "country": "Ireland",
-      "profile_url": null,
-      "image_url": "https://static.cricbuzz.com/a/img/v1/i1/c171134/boyd-rankin.jpg?d=low&p=gthumb",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Bowler",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm fast-medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/etengOanSPEWZKaU.png",
-      "bowling_category": "Fast",
-      "favorable_positions": [
-        "bowler_1",
-        "last_bowler"
-      ],
-      "secondary_positions": [
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Bowler",
-        "Right-Handed Batter",
-        "Pace Bowler"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Cricbuzz player profile (canonical portrait)",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Bowler",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm fast-medium",
-      "teams": null,
-      "scraped_ok": false,
-      "image_file": null,
-      "image_verified": true,
-      "image_verification_method": "cricbuzz_profile",
-      "image_source_page": "https://www.cricbuzz.com/profiles/626/boyd-rankin"
-    },
+    
     {
       "player_id": "ireland_cade-carmichael",
       "name": "Cade Carmichael",
@@ -38551,242 +37645,258 @@
       "image_verification_method": "source_backed_existing_match",
       "image_source_page": null
     },
-    {
-      "player_id": "netherlands_aryan-dutt",
-      "name": "Aryan Dutt",
-      "country": "Netherlands",
-      "profile_url": null,
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Amsterdam_Flames.png?download=1",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Bowler",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm offbreak"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/LmYEtcnFjKReggfH.png",
-      "bowling_category": "Spin",
-      "favorable_positions": [
-        "bowler_1",
-        "last_bowler"
-      ],
-      "secondary_positions": [
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Bowler",
-        "Right-Handed Batter",
-        "Spin Specialist"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Wikimedia direct-file URL",
-      "url": null,
-      "born": null,
-      "birth_place": null,
+  {
+    "player_id": "netherlands_aryan-dutt",
+    "name": "Aryan Dutt",
+    "country": "Netherlands",
+    "profile_url": "https://www.espncricinfo.com/cricketers/aryan-dutt-1195672",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQENMw7kMpRVKNSJIte5fLSXhISym_WM1l501WASUvRUvIemp66P10PvpHDOj7Dzaz5sASTJmCP0DOgHkRbbfE0xS0PD9m6BHsw61NsxdihhQ&s=10",
+    "bio": {
+      "born": "2003-05-12",
+      "birth_place": "The Hague, Netherlands",
       "role": "Bowler",
       "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm offbreak",
-      "teams": null,
-      "scraped_ok": false,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": null
+      "bowling_style": "Right-arm offbreak"
     },
-    {
-      "player_id": "netherlands_bas-de-leede",
-      "name": "Bas de Leede",
-      "country": "Netherlands",
-      "profile_url": null,
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJwbGF5ZXItaW1hZ2VzL29wdGEtY3JpY2tldC8xNjEzMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJwb3NpdGlvbiI6InRvcCIsIndpZHRoIjoyMDAsImhlaWdodCI6MjAwfSwid2VicCI6eyJxdWFsaXR5Ijo2MCwibG9zc2xlc3MiOmZhbHNlfX0sIm91dHB1dEZvcm1hdCI6IndlYnAifQ==",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batting Allrounder",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm fast-medium"
+    "formats": {
+      "ODI": {
+        "matches": 53,
+        "innings": null,
+        "runs": 221,
+        "balls": null,
+        "highest": 23,
+        "average": 7.62,
+        "sr": null,
+        "not_out": null,
+        "fours": null,
+        "sixes": null,
+        "ducks": null,
+        "50s": 0,
+        "100s": 0,
+        "200s": 0,
+        "300s": 0,
+        "400s": 0,
+        "maidens": null,
+        "wickets": 62,
+        "avg": 32.88,
+        "eco": null,
+        "bbi": "6/34",
+        "bbm": null,
+        "4w": null,
+        "5w": 1,
+        "10w": 0
       },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/LmYEtcnFjKReggfH.png",
-      "bowling_category": "Fast",
-      "favorable_positions": [
-        "all_rounder_1"
-      ],
-      "secondary_positions": [
-        "batsman_3",
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "All-Rounder",
-        "Right-Handed Batter",
-        "Pace Bowler"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": null,
-      "born": null,
-      "birth_place": null,
+      "T20I": {
+        "matches": 30,
+        "innings": null,
+        "runs": 136,
+        "balls": null,
+        "highest": 30,
+        "average": 13.6,
+        "sr": null,
+        "not_out": null,
+        "fours": null,
+        "sixes": null,
+        "ducks": null,
+        "50s": 0,
+        "100s": 0,
+        "200s": 0,
+        "300s": 0,
+        "400s": 0,
+        "maidens": null,
+        "wickets": 30,
+        "avg": 22.5,
+        "eco": null,
+        "bbi": "3/17",
+        "bbm": null,
+        "4w": 0,
+        "5w": 0,
+        "10w": 0
+      }
+    },
+    "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/LmYEtcnFjKReggfH.png",
+    "bowling_category": "Spin",
+    "favorable_positions": [
+      "bowler_1",
+      "last_bowler"
+    ],
+    "secondary_positions": [
+      "bowler_2"
+    ],
+    "captaincy": {
+      "is_captain": false,
+      "matches_as_captain": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_percentage": 0,
+      "icc_trophies": []
+    },
+    "keeping": {
+      "is_specialist": false,
+      "catches": 14,
+      "stumpings": 0
+    },
+    "traits": [
+      "Bowler",
+      "Right-Handed Batter",
+      "Spin Specialist"
+    ],
+    "peak_ranking": {
+      "batting_rank": null,
+      "bowling_rank": null,
+      "allrounder_rank": null
+    },
+    "achievements": [],
+    "clues": [
+      "Dutch right-arm off-spin bowler.",
+      "Made his T20I debut against Nepal in April 2021.",
+      "Has taken a six-wicket haul in ODI cricket."
+    ],
+    "image_source": "Wikimedia direct-file URL",
+    "url": "https://www.espncricinfo.com/cricketers/aryan-dutt-1195672",
+    "born": "2003-05-12",
+    "birth_place": "The Hague, Netherlands",
+    "role": "Bowler",
+    "batting_style": "Right Handed Bat",
+    "bowling_style": "Right-arm offbreak",
+    "teams": [
+      "Netherlands"
+    ],
+    "scraped_ok": true,
+    "image_verified": true,
+    "image_verification_method": "direct_image_check",
+    "image_source_page": null
+  },
+  {
+    "player_id": "netherlands_bas-de-leede",
+    "name": "Bas de Leede",
+    "country": "Netherlands",
+    "profile_url": "https://www.espncricinfo.com/cricketers/bas-de-leede-1036191",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/53/1_02_Bas_de_Leede.jpg",
+    "bio": {
+      "born": "1999-11-15",
+      "birth_place": "Nootdorp, Netherlands",
       "role": "Batting Allrounder",
       "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm fast-medium",
-      "teams": null,
-      "scraped_ok": false,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.fancode.com/cricket/players/bas-de-leede/16132"
+      "bowling_style": "Right-arm fast-medium"
     },
+    "formats": {
+      "ODI": {
+        "matches": 54,
+        "innings": 50,
+        "runs": 1239,
+        "balls": 1789,
+        "highest": 123,
+        "average": 27.53,
+        "sr": 69.25,
+        "not_out": 5,
+        "fours": 90,
+        "sixes": 24,
+        "ducks": null,
+        "50s": 6,
+        "100s": 1,
+        "200s": 0,
+        "300s": 0,
+        "400s": 0,
+        "maidens": null,
+        "wickets": 45,
+        "avg": 32.4,
+        "eco": 5.93,
+        "bbi": "5/52",
+        "bbm": "5/52",
+        "4w": 1,
+        "5w": 1,
+        "10w": 0
+      },
+      "T20I": {
+        "matches": 49,
+        "innings": 44,
+        "runs": 881,
+        "balls": 826,
+        "highest": 91,
+        "average": 27.53,
+        "sr": 106.65,
+        "not_out": 12,
+        "fours": 65,
+        "sixes": 24,
+        "ducks": null,
+        "50s": 5,
+        "100s": 0,
+        "200s": 0,
+        "300s": 0,
+        "400s": 0,
+        "maidens": null,
+        "wickets": 44,
+        "avg": 19.43,
+        "eco": 7.96,
+        "bbi": "3/17",
+        "bbm": "3/17",
+        "4w": 0,
+        "5w": 0,
+        "10w": 0
+      }
+    },
+    "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/LmYEtcnFjKReggfH.png",
+    "bowling_category": "Fast",
+    "favorable_positions": [
+      "all_rounder_1"
+    ],
+    "secondary_positions": [
+      "batsman_3",
+      "bowler_2"
+    ],
+    "captaincy": {
+      "is_captain": false,
+      "matches_as_captain": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_percentage": 0,
+      "icc_trophies": []
+    },
+    "keeping": {
+      "is_specialist": false,
+      "catches": 50,
+      "stumpings": 0
+    },
+    "traits": [
+      "All-Rounder",
+      "Right-Handed Batter",
+      "Pace Bowler"
+    ],
+    "peak_ranking": {
+      "batting_rank": null,
+      "bowling_rank": null,
+      "allrounder_rank": null
+    },
+    "achievements": [
+      "ICC Associate Men's Cricketer of the Year 2023",
+      "Scored 123 and took 5/52 against Scotland in the 2023 Cricket World Cup Qualifier",
+      "Helped Netherlands qualify for the 2023 Cricket World Cup"
+    ],
+    "clues": [
+      "Dutch international all-rounder.",
+      "Son of former Netherlands cricketer Tim de Leede.",
+      "Scored a century and took five wickets in the same ODI during the 2023 World Cup Qualifier."
+    ],
+    "image_source": "Wikipedia/Wikimedia Commons direct image URL",
+    "url": "https://www.espncricinfo.com/cricketers/bas-de-leede-1036191",
+    "born": "1999-11-15",
+    "birth_place": "Nootdorp, Netherlands",
+    "role": "Batting Allrounder",
+    "batting_style": "Right Handed Bat",
+    "bowling_style": "Right-arm fast-medium",
+    "teams": [
+      "Netherlands",
+      "Durham",
+      "Northern Superchargers",
+      "MI Emirates",
+      "Desert Vipers"
+    ],
+    "scraped_ok": true,
+    "image_verified": true,
+    "image_verification_method": "source_backed_direct_image",
+    "image_source_page": "https://en.wikipedia.org/wiki/Bas_de_Leede"
+  },
     {
       "player_id": "netherlands_ben-cooper",
       "name": "Ben Cooper",
@@ -38908,243 +38018,272 @@
       "image_source_page": null
     },
     {
-      "player_id": "netherlands_brandon-glover",
-      "name": "Brandon Glover",
-      "country": "Netherlands",
-      "profile_url": null,
-      "image_url": "https://static.cricbuzz.com/a/img/v1/i1/c244599/brandon-glover.jpg?d=low&p=gthumb",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Bowler",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm fast-medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/LmYEtcnFjKReggfH.png",
-      "bowling_category": "Fast",
-      "favorable_positions": [
-        "bowler_1",
-        "last_bowler"
-      ],
-      "secondary_positions": [
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Bowler",
-        "Right-Handed Batter",
-        "Pace Bowler"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Cricbuzz player profile (canonical portrait)",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Bowler",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm fast-medium",
-      "teams": null,
-      "scraped_ok": false,
-      "image_verified": true,
-      "image_verification_method": "cricbuzz_profile",
-      "image_source_page": "https://www.cricbuzz.com/profiles/15121/brandon-glover"
-    },
-    {
-      "player_id": "netherlands_colin-ackermann",
-      "name": "Colin Ackermann",
-      "country": "Netherlands",
-      "profile_url": "https://en.wikipedia.org/wiki/Colin_Ackermann",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzE3MjQucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImNvdmVyIiwicG9zaXRpb24iOiJ0b3AiLCJ3aWR0aCI6MjAwLCJoZWlnaHQiOjIwMH0sIndlYnAiOnsicXVhbGl0eSI6NjAsImxvc3NsZXNzIjpmYWxzZX19LCJvdXRwdXRGb3JtYXQiOiJ3ZWJwIn0=",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batting Allrounder",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm offbreak"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/LmYEtcnFjKReggfH.png",
-      "bowling_category": "Spin",
-      "favorable_positions": [
-        "all_rounder_1"
-      ],
-      "secondary_positions": [
-        "batsman_3",
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "All-Rounder",
-        "Right-Handed Batter",
-        "Spin Specialist"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": "https://en.wikipedia.org/wiki/Colin_Ackermann",
-      "born": null,
-      "birth_place": null,
-      "role": "Batting Allrounder",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm offbreak",
-      "teams": null,
-      "scraped_ok": false,
-      "image_file": "Colin Ackermann",
-      "image_profile_url": "https://en.wikipedia.org/wiki/Colin_Ackermann",
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.fancode.com/sport/players/colin-ackermann/1724"
-    },
+"player_id": "netherlands_brandon-glover",
+"name": "Brandon Glover",
+"country": "Netherlands",
+"profile_url": "[https://www.espncricinfo.com/cricketers/brandon-glover-576824](https://www.espncricinfo.com/cricketers/brandon-glover-576824)",
+"image_url": "[https://static.cricbuzz.com/a/img/v1/i1/c244599/brandon-glover.jpg?d=low&p=gthumb](https://static.cricbuzz.com/a/img/v1/i1/c244599/brandon-glover.jpg?d=low&p=gthumb)",
+"bio": {
+"born": "1997-04-28",
+"birth_place": "Gqeberha, Eastern Cape, South Africa",
+"role": "Bowler",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm fast-medium"
+},
+"formats": {
+"ODI": {
+"matches": 34,
+"innings": 20,
+"runs": 70,
+"balls": null,
+"highest": 21,
+"average": 7.78,
+"sr": null,
+"not_out": 11,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 0,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 45,
+"avg": 24.91,
+"eco": 5.48,
+"bbi": "5/46",
+"bbm": "5/46",
+"4w": 1,
+"5w": 1,
+"10w": 0
+},
+"T20I": {
+"matches": 40,
+"innings": 22,
+"runs": 73,
+"balls": null,
+"highest": 15,
+"average": 7.3,
+"sr": null,
+"not_out": 12,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 0,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 56,
+"avg": 18.46,
+"eco": 7.26,
+"bbi": "4/12",
+"bbm": "4/12",
+"4w": 2,
+"5w": 0,
+"10w": 0
+}
+},
+"country_logo": "[https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/LmYEtcnFjKReggfH.png](https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/LmYEtcnFjKReggfH.png)",
+"bowling_category": "Fast",
+"favorable_positions": [
+"bowler_1",
+"last_bowler"
+],
+"secondary_positions": [
+"bowler_2"
+],
+"captaincy": {
+"is_captain": false,
+"matches_as_captain": 0,
+"wins": 0,
+"losses": 0,
+"win_percentage": 0,
+"icc_trophies": []
+},
+"keeping": {
+"is_specialist": false,
+"catches": null,
+"stumpings": 0
+},
+"traits": [
+"Bowler",
+"Right-Handed Batter",
+"Pace Bowler"
+],
+"peak_ranking": {
+"batting_rank": null,
+"bowling_rank": null,
+"allrounder_rank": null
+},
+"achievements": [
+"Took a hat-trick against Sri Lanka in the 2021 T20 World Cup",
+"One of Netherlands' leading fast bowlers in T20I cricket",
+"Represented Netherlands at multiple ICC tournaments"
+],
+"clues": [
+"Netherlands fast bowler born in South Africa.",
+"Took a famous hat-trick against Sri Lanka at the 2021 T20 World Cup.",
+"Known for his right-arm fast-medium bowling."
+],
+"image_source": "Cricbuzz player profile (canonical portrait)",
+"url": "[https://www.espncricinfo.com/cricketers/brandon-glover-576824](https://www.espncricinfo.com/cricketers/brandon-glover-576824)",
+"born": "1997-04-28",
+"birth_place": "Gqeberha, Eastern Cape, South Africa",
+"role": "Bowler",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm fast-medium",
+"teams": [
+"Netherlands",
+"Western Province",
+"Boland"
+],
+"scraped_ok": true,
+"image_verified": true,
+"image_verification_method": "cricbuzz_profile",
+"image_source_page": "[https://www.cricbuzz.com/profiles/15121/brandon-glover](https://www.cricbuzz.com/profiles/15121/brandon-glover)"
+}
+,
+   {
+"player_id": "netherlands_colin-ackermann",
+"name": "Colin Ackermann",
+"country": "Netherlands",
+"profile_url": "[https://en.wikipedia.org/wiki/Colin_Ackermann](https://en.wikipedia.org/wiki/Colin_Ackermann)",
+"image_url": "[https://upload.wikimedia.org/wikipedia/commons/2/23/Colin_Ackermann.jpg](https://upload.wikimedia.org/wikipedia/commons/2/23/Colin_Ackermann.jpg)",
+"bio": {
+"born": "1991-04-04",
+"birth_place": "George, South Africa",
+"role": "Batting Allrounder",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm offbreak"
+},
+"formats": {
+"ODI": {
+"matches": 21,
+"innings": 19,
+"runs": 505,
+"balls": 661,
+"highest": 81,
+"average": 28.05,
+"sr": 76.39,
+"not_out": 1,
+"fours": 52,
+"sixes": 4,
+"ducks": 2,
+"50s": 4,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": 9,
+"wickets": 15,
+"avg": 35.6,
+"eco": 4.43,
+"bbi": "4/22",
+"bbm": "4/22",
+"4w": 1,
+"5w": 0,
+"10w": 0
+},
+"T20I": {
+"matches": 29,
+"innings": 29,
+"runs": 590,
+"balls": 507,
+"highest": 62,
+"average": 23.6,
+"sr": 116.37,
+"not_out": 4,
+"fours": 43,
+"sixes": 14,
+"ducks": 3,
+"50s": 1,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": 1,
+"wickets": 11,
+"avg": 32.09,
+"eco": 6.66,
+"bbi": "3/15",
+"bbm": "3/15",
+"4w": 0,
+"5w": 0,
+"10w": 0
+}
+},
+"country_logo": "[https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/LmYEtcnFjKReggfH.png](https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/LmYEtcnFjKReggfH.png)",
+"bowling_category": "Spin",
+"favorable_positions": [
+"all_rounder_1"
+],
+"secondary_positions": [
+"batsman_3",
+"bowler_2"
+],
+"captaincy": {
+"is_captain": true,
+"matches_as_captain": null,
+"wins": null,
+"losses": null,
+"win_percentage": null,
+"icc_trophies": []
+},
+"keeping": {
+"is_specialist": false,
+"catches": 17,
+"stumpings": 0
+},
+"traits": [
+"All-Rounder",
+"Right-Handed Batter",
+"Spin Specialist"
+],
+"peak_ranking": {
+"batting_rank": null,
+"bowling_rank": null,
+"allrounder_rank": 88
+},
+"achievements": [
+"Set a world record in T20 cricket with bowling figures of 7/18 for Leicestershire",
+"Represented Netherlands at the 2023 ICC Cricket World Cup",
+"Former Leicestershire captain",
+"Scored 41 not out in Netherlands' famous T20 World Cup win over South Africa"
+],
+"clues": [
+"Dutch-South African batting all-rounder.",
+"Holds the record bowling figures of 7/18 in a professional T20 match.",
+"A former captain of Leicestershire.",
+"Known for right-handed batting and off-spin bowling."
+],
+"image_source": "Wikipedia/Wikimedia Commons direct image URL",
+"url": "[https://en.wikipedia.org/wiki/Colin_Ackermann](https://en.wikipedia.org/wiki/Colin_Ackermann)",
+"born": "1991-04-04",
+"birth_place": "George, South Africa",
+"role": "Batting Allrounder",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm offbreak",
+"teams": [
+"Netherlands",
+"Warriors",
+"Leicestershire",
+"Manchester Originals",
+"Sylhet Strikers",
+"Southern Brave",
+"Pretoria Capitals",
+"Durham"
+],
+"scraped_ok": true,
+"image_file": "Colin Ackermann",
+"image_profile_url": "[https://en.wikipedia.org/wiki/Colin_Ackermann](https://en.wikipedia.org/wiki/Colin_Ackermann)",
+"image_verified": true,
+"image_verification_method": "source_backed_direct_image",
+"image_source_page": "[https://en.wikipedia.org/wiki/Colin_Ackermann](https://en.wikipedia.org/wiki/Colin_Ackermann)"
+}
+,
     {
       "player_id": "netherlands_daan-van-bunge",
       "name": "Daan van Bunge",
@@ -43349,7 +42488,7 @@
       "name": "Blair Tickner",
       "country": "New Zealand",
       "profile_url": "https://www.espncricinfo.com/cricketers/blair-tickner-419927",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzg1MjUucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImNvdmVyIiwicG9zaXRpb24iOiJ0b3AiLCJ3aWR0aCI6MjAwLCJoZWlnaHQiOjIwMH0sIndlYnAiOnsicXVhbGl0eSI6NjAsImxvc3NsZXNzIjpmYWxzZX19LCJvdXRwdXRGb3JtYXQiOiJ3ZWJwIn0=",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtbGmDFbqQu3CCx1F0mSDEaGnDhvEDIFaYbHhQgqZfXA&s=10",
       "bio": {
         "born": "January 21, 1993 (33 years)",
         "birth_place": "Rotorua",
@@ -43452,7 +42591,7 @@
         "Bats right-handed.",
         "Bowling profile: Right-arm Fast-Medium."
       ],
-      "image_source": "FanCode player profile",
+      "image_source": "Wikipedia/Wikimedia Commons direct image URL",
       "url": "https://www.espncricinfo.com/cricketers/blair-tickner-419927",
       "born": "January 21, 1993 (33 years)",
       "birth_place": "Rotorua",
@@ -43462,246 +42601,10 @@
       "teams": null,
       "scraped_ok": true,
       "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.fancode.com/cricket/players/blair-tickner/8525"
+      "image_verification_method": "source_backed_direct_image",
+      "image_source_page": "https://en.wikipedia.org/wiki/Blair_Tickner"
     },
-    {
-      "player_id": "new-zealand_brendon-mccullum",
-      "name": "Brendon McCullum",
-      "country": "New Zealand",
-      "profile_url": null,
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Brendon_McCullum_ONZM_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "WK-Batsman",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/DKwOkMeLFtEVwwNc.png",
-      "bowling_category": null,
-      "favorable_positions": [
-        "all_rounder_wicketkeeper"
-      ],
-      "secondary_positions": [
-        "batsman_2",
-        "batsman_3"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": true,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Wicketkeeper-Batter",
-        "Right-Handed Batter"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Wikimedia Commons search (name-token verified)",
-      "image_file": "File:Brendon McCullum ONZM (cropped).jpg",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "WK-Batsman",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm medium",
-      "teams": null,
-      "scraped_ok": true,
-      "image_verified": true,
-      "image_verification_method": "source_backed_existing_match",
-      "image_source_page": null
-    },
-    {
-      "player_id": "new-zealand_chris-cairns",
-      "name": "Chris Cairns",
-      "country": "New Zealand",
-      "profile_url": "https://en.wikipedia.org/wiki/Chris_Cairns",
-      "image_url": "https://static.cricbuzz.com/a/img/v1/i1/c154547/chris-cairns.jpg?d=low&p=gthumb",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Bowling Allrounder",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm fast-medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/DKwOkMeLFtEVwwNc.png",
-      "bowling_category": "Fast",
-      "favorable_positions": [
-        "all_rounder_1"
-      ],
-      "secondary_positions": [
-        "batsman_3",
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "All-Rounder",
-        "Right-Handed Batter",
-        "Pace Bowler"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "image_file": "Chris Cairns",
-      "url": "https://en.wikipedia.org/wiki/Chris_Cairns",
-      "born": null,
-      "birth_place": null,
-      "role": "Bowling Allrounder",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm fast-medium",
-      "teams": null,
-      "scraped_ok": true,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.cricbuzz.com/profiles/52/chris-cairns"
-    },
+    
     {
       "player_id": "new-zealand_colin-de-grandhomme",
       "name": "Colin de Grandhomme",
@@ -52846,7 +51749,7 @@
       "name": "Adrian Neill",
       "country": "Scotland",
       "profile_url": "https://www.espncricinfo.com/cricketers/adrian-neill",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzIwOTc2LnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsInBvc2l0aW9uIjoidG9wIiwid2lkdGgiOjIwMCwiaGVpZ2h0IjoyMDB9LCJ3ZWJwIjp7InF1YWxpdHkiOjYwLCJsb3NzbGVzcyI6ZmFsc2V9fSwib3V0cHV0Rm9ybWF0Ijoid2VicCJ9",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7jg0ghUxsUagyilRLJOOkMcVDWV9s8BHr7vhuc65DSA&s=10",
       "bio": {
         "born": "August 21, 1996 (29 years)",
         "birth_place": "Perth, Scotland",
@@ -53084,123 +51987,133 @@
       "image_source_page": "https://www.fancode.com/cricket/players/alasdair-evans/3606"
     },
     {
-      "player_id": "scotland_brad-wheal",
-      "name": "Brad Wheal",
-      "country": "Scotland",
-      "profile_url": null,
-      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE0M97IUvhFatV0APzaNQSmfmhijKaOjHFDDQ_ZrHpXw&s=10",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Bowler",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm fast-medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/ciPUoqmdUybFBMpX.png",
-      "bowling_category": "Fast",
-      "favorable_positions": [
-        "bowler_1",
-        "last_bowler"
-      ],
-      "secondary_positions": [
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Bowler",
-        "Right-Handed Batter",
-        "Pace Bowler"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Bowler",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm fast-medium",
-      "teams": null,
-      "scraped_ok": false,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.fancode.com/sport/players/brad-wheal/6076"
-    },
+"player_id": "scotland_brad-wheal",
+"name": "Brad Wheal",
+"country": "Scotland",
+"profile_url": "[https://www.espncricinfo.com/cricketers/brad-wheal-913653](https://www.espncricinfo.com/cricketers/brad-wheal-913653)",
+"image_url": "[https://upload.wikimedia.org/wikipedia/commons/c/cd/1_19_Brad_Wheal.jpg](https://upload.wikimedia.org/wikipedia/commons/c/cd/1_19_Brad_Wheal.jpg)",
+"bio": {
+"born": "1996-08-28",
+"birth_place": "Durban, KwaZulu-Natal, South Africa",
+"role": "Bowler",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm fast-medium"
+},
+"formats": {
+"ODI": {
+"matches": 32,
+"innings": 20,
+"runs": 99,
+"balls": null,
+"highest": 28,
+"average": 9.9,
+"sr": null,
+"not_out": 10,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 0,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 41,
+"avg": 28.24,
+"eco": 5.36,
+"bbi": "5/44",
+"bbm": "5/44",
+"4w": 1,
+"5w": 1,
+"10w": 0
+},
+"T20I": {
+"matches": 39,
+"innings": 20,
+"runs": 55,
+"balls": null,
+"highest": 16,
+"average": 5.5,
+"sr": null,
+"not_out": 10,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 0,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 54,
+"avg": 17.83,
+"eco": 6.94,
+"bbi": "6/25",
+"bbm": "6/25",
+"4w": 2,
+"5w": 1,
+"10w": 0
+}
+},
+"country_logo": "[https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/ciPUoqmdUybFBMpX.png](https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/ciPUoqmdUybFBMpX.png)",
+"bowling_category": "Fast",
+"favorable_positions": [
+"bowler_1",
+"last_bowler"
+],
+"secondary_positions": [
+"bowler_2"
+],
+"captaincy": {
+"is_captain": false,
+"matches_as_captain": 0,
+"wins": 0,
+"losses": 0,
+"win_percentage": 0,
+"icc_trophies": []
+},
+"keeping": {
+"is_specialist": false,
+"catches": null,
+"stumpings": 0
+},
+"traits": [
+"Bowler",
+"Right-Handed Batter",
+"Pace Bowler"
+],
+"peak_ranking": {
+"batting_rank": null,
+"bowling_rank": null,
+"allrounder_rank": null
+},
+"achievements": [
+"Took 6/25 against New Zealand in the 2021 T20 World Cup",
+"Holds one of Scotland's best bowling figures in T20I cricket",
+"Key fast bowler for Scotland in ICC tournaments"
+],
+"clues": [
+"Scotland fast bowler born in South Africa.",
+"Took six wickets against New Zealand at the 2021 T20 World Cup.",
+"Known for his right-arm fast-medium bowling."
+],
+"image_source": "Wikipedia/Wikimedia Commons direct image URL",
+"url": "[https://www.espncricinfo.com/cricketers/brad-wheal-913653](https://www.espncricinfo.com/cricketers/brad-wheal-913653)",
+"born": "1996-08-28",
+"birth_place": "Durban, KwaZulu-Natal, South Africa",
+"role": "Bowler",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm fast-medium",
+"teams": [
+"Scotland",
+"Hampshire"
+],
+"scraped_ok": true,
+"image_verified": true,
+"image_verification_method": "source_backed_direct_image",
+"image_source_page": "[https://en.wikipedia.org/wiki/Brad_Wheal](https://en.wikipedia.org/wiki/Brad_Wheal)"
+}
+,
     {
       "player_id": "scotland_bradley-currie",
       "name": "Bradley Currie",
@@ -53327,7 +52240,7 @@
       "name": "Bradley Wheal",
       "country": "Scotland",
       "profile_url": "https://www.espncricinfo.com/cricketers/bradley-wheal",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzYwNzYucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImNvdmVyIiwicG9zaXRpb24iOiJ0b3AiLCJ3aWR0aCI6MjAwLCJoZWlnaHQiOjIwMH0sIndlYnAiOnsicXVhbGl0eSI6NjAsImxvc3NsZXNzIjpmYWxzZX19LCJvdXRwdXRGb3JtYXQiOiJ3ZWJwIn0=",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE0M97IUvhFatV0APzaNQSmfmhijKaOjHFDDQ_ZrHpXw&s=10",
       "bio": {
         "born": "August 28, 1996 (29 years)",
         "birth_place": "Durban, South Africa",
@@ -53430,7 +52343,7 @@
         "Bats right-handed.",
         "Bowling profile: Right-arm Fast-Medium."
       ],
-      "image_source": "FanCode player profile",
+      "image_source": "Wikipedia/Wikimedia Commons direct image URL",
       "url": "https://www.espncricinfo.com/cricketers/bradley-wheal",
       "born": "August 28, 1996 (29 years)",
       "birth_place": "Durban, South Africa",
@@ -53440,15 +52353,15 @@
       "teams": null,
       "scraped_ok": true,
       "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.fancode.com/sport/players/brad-wheal/6076"
+      "image_verification_method": "source_backed_direct_image",
+      "image_source_page": "https://en.wikipedia.org/wiki/Brad_Wheal"
     },
     {
       "player_id": "scotland_brandon-mcmullen",
       "name": "Brandon McMullen",
       "country": "Scotland",
       "profile_url": "https://www.espncricinfo.com/cricketers/brandon-mcmullen",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzExMDQwOS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJwb3NpdGlvbiI6InRvcCIsIndpZHRoIjoyMDAsImhlaWdodCI6MjAwfSwid2VicCI6eyJxdWFsaXR5Ijo2MCwibG9zc2xlc3MiOmZhbHNlfX0sIm91dHB1dEZvcm1hdCI6IndlYnAifQ==",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNajjDHE2EZSMTPG-jDjUAp56c2zr9vvrfVtJDFz5RPw&s",
       "bio": {
         "born": "September 15, 1999 (26 years)",
         "birth_place": "Adelaide, Australia",
@@ -53570,7 +52483,7 @@
       "name": "Calum MacLeod",
       "country": "Scotland",
       "profile_url": "https://www.espncricinfo.com/cricketers/calum-macleod",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzUyNi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJwb3NpdGlvbiI6InRvcCIsIndpZHRoIjoyMDAsImhlaWdodCI6MjAwfSwid2VicCI6eyJxdWFsaXR5Ijo2MCwibG9zc2xlc3MiOmZhbHNlfX0sIm91dHB1dEZvcm1hdCI6IndlYnAifQ==",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1bWW5ovVWzgwfpCIj4bpj9rn299APhAfN66zdmXdxFg&s=10",
       "bio": {
         "born": "November 15, 1988 (37 years)",
         "birth_place": "Glasgow, Scotland",
@@ -53811,7 +52724,7 @@
       "name": "Chris Greaves",
       "country": "Scotland",
       "profile_url": "https://www.espncricinfo.com/cricketers/chris-greaves",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzIwOTc1LnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJmaXQiOiJjb3ZlciIsInBvc2l0aW9uIjoidG9wIiwid2lkdGgiOjIwMCwiaGVpZ2h0IjoyMDB9LCJ3ZWJwIjp7InF1YWxpdHkiOjYwLCJsb3NzbGVzcyI6ZmFsc2V9fSwib3V0cHV0Rm9ybWF0Ijoid2VicCJ9",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBmNamfb5bJYIe5dNZG4FLQurVZtag25ytw8OTqlw2yw&s=10",
       "bio": {
         "born": "September 8, 1993 (32 years)",
         "birth_place": "Harare, Zimbabwe",
@@ -57760,132 +56673,13 @@
       "image_verification_method": "source_backed_existing_match",
       "image_source_page": null
     },
-    {
-      "player_id": "south-africa_allan-donald",
-      "name": "Allan Donald",
-      "country": "South Africa",
-      "profile_url": "https://en.wikipedia.org/wiki/Allan_Donald",
-      "image_url": "https://static.cricbuzz.com/a/img/v1/i1/c157340/allan-donald.jpg?d=low&p=gthumb",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Bowler",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm fast"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/VqMceksBbNrRAmIM.png",
-      "bowling_category": "Fast",
-      "favorable_positions": [
-        "bowler_1",
-        "last_bowler"
-      ],
-      "secondary_positions": [
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Bowler",
-        "Right-Handed Batter",
-        "Pace Bowler"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": "https://en.wikipedia.org/wiki/Allan_Donald",
-      "born": null,
-      "birth_place": null,
-      "role": "Bowler",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm fast",
-      "teams": null,
-      "scraped_ok": false,
-      "image_file": "Allan Donald",
-      "image_profile_url": "https://en.wikipedia.org/wiki/Allan_Donald",
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.cricbuzz.com/profiles/4582/allan-donald"
-    },
+   
     {
       "player_id": "south-africa_andile-phehlukwayo",
       "name": "Andile Phehlukwayo",
       "country": "South Africa",
       "profile_url": "https://www.espncricinfo.com/cricketers/andile-phehlukwayo-542023",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzE5NzgucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImNvdmVyIiwicG9zaXRpb24iOiJ0b3AiLCJ3aWR0aCI6MjAwLCJoZWlnaHQiOjIwMH0sIndlYnAiOnsicXVhbGl0eSI6NjAsImxvc3NsZXNzIjpmYWxzZX19LCJvdXRwdXRGb3JtYXQiOiJ3ZWJwIn0=",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3fx1pwbhk63coQ0qttfOKRwQXz4NdAGNK4gaT-AQs8w&s=10",
       "bio": {
         "born": "March 3, 1996 (29 years)",
         "birth_place": "Empangeni, KwaZulu-Natal",
@@ -58128,7 +56922,7 @@
       "name": "Bjorn Fortuin",
       "country": "South Africa",
       "profile_url": "https://www.espncricinfo.com/cricketers/bjorn-fortuin-542023",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzgyNzIucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7ImZpdCI6ImNvdmVyIiwicG9zaXRpb24iOiJ0b3AiLCJ3aWR0aCI6MjAwLCJoZWlnaHQiOjIwMH0sIndlYnAiOnsicXVhbGl0eSI6NjAsImxvc3NsZXNzIjpmYWxzZX19LCJvdXRwdXRGb3JtYXQiOiJ3ZWJwIn0=",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq7Tre5qdnF9NajhbUXtHQFv8w8tL_Yfw-MhcrwplXaw&s=10",
       "bio": {
         "born": "March 8, 1993 (32 years)",
         "birth_place": "Kimberley, Northern Cape",
@@ -62576,242 +61370,8 @@
       "image_verification_method": "source_backed_existing_match",
       "image_source_page": null
     },
-    {
-      "player_id": "sri-lanka_aravinda-de-silva",
-      "name": "Aravinda de Silva",
-      "country": "Sri Lanka",
-      "profile_url": null,
-      "image_url": "https://static.cricbuzz.com/a/img/v1/i1/c150089/aravinda-de-silva.jpg?d=low&p=gthumb",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batting Allrounder",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm offbreak"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/oJHZJlQNeoGUUjrk.png",
-      "bowling_category": "Spin",
-      "favorable_positions": [
-        "all_rounder_1"
-      ],
-      "secondary_positions": [
-        "batsman_3",
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "All-Rounder",
-        "Right-Handed Batter",
-        "Spin Specialist"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Batting Allrounder",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm offbreak",
-      "teams": null,
-      "scraped_ok": false,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.cricbuzz.com/profiles/3531/aravinda-de-silva"
-    },
-    {
-      "player_id": "sri-lanka_arjuna-ranatunga",
-      "name": "Arjuna Ranatunga",
-      "country": "Sri Lanka",
-      "profile_url": null,
-      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/PHEeGctEkOCgnklx.jpg",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batting Allrounder",
-        "batting_style": "Left Handed Bat",
-        "bowling_style": "Right-arm medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/oJHZJlQNeoGUUjrk.png",
-      "bowling_category": null,
-      "favorable_positions": [
-        "all_rounder_1"
-      ],
-      "secondary_positions": [
-        "batsman_3",
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "All-Rounder",
-        "Left-Handed Batter"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Google Images result, selected player-profile portrait",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Batting Allrounder",
-      "batting_style": "Left Handed Bat",
-      "bowling_style": "Right-arm medium",
-      "teams": null,
-      "scraped_ok": false,
-      "image_file": null,
-      "image_verified": false,
-      "image_verification_method": "original_dataset_asset_recovered",
-      "image_source_page": null
-    },
+    
+    
     {
       "player_id": "sri-lanka_asitha-fernando",
       "name": "Asitha Fernando",
@@ -63054,124 +61614,142 @@
       "image_source_page": null
     },
     {
-      "player_id": "sri-lanka_chaminda-vaas",
-      "name": "Chaminda Vaas",
-      "country": "Sri Lanka",
-      "profile_url": null,
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzE1MC5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJwb3NpdGlvbiI6InRvcCIsIndpZHRoIjoyMDAsImhlaWdodCI6MjAwfSwid2VicCI6eyJxdWFsaXR5Ijo2MCwibG9zc2xlc3MiOmZhbHNlfX0sIm91dHB1dEZvcm1hdCI6IndlYnAifQ==",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Bowler",
-        "batting_style": "Left Handed Bat",
-        "bowling_style": "Left-arm fast-medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/oJHZJlQNeoGUUjrk.png",
-      "bowling_category": "Fast",
-      "favorable_positions": [
-        "bowler_1",
-        "last_bowler"
-      ],
-      "secondary_positions": [
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Bowler",
-        "Left-Handed Batter",
-        "Pace Bowler"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Bowler",
-      "batting_style": "Left Handed Bat",
-      "bowling_style": "Left-arm fast-medium",
-      "teams": null,
-      "scraped_ok": false,
-      "image_file": null,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.fancode.com/cricket/players/chaminda-vaas/150"
-    },
+"player_id": "sri-lanka_chaminda-vaas",
+"name": "Chaminda Vaas",
+"country": "Sri Lanka",
+"profile_url": "[https://www.espncricinfo.com/cricketers/chaminda-vaas-50747](https://www.espncricinfo.com/cricketers/chaminda-vaas-50747)",
+"image_url": "[https://upload.wikimedia.org/wikipedia/commons/b/be/Chaminda_Vaas.jpg](https://upload.wikimedia.org/wikipedia/commons/b/be/Chaminda_Vaas.jpg)",
+"bio": {
+"born": "1974-01-27",
+"birth_place": "Mattumagala, Sri Lanka",
+"role": "Bowler",
+"batting_style": "Left Handed Bat",
+"bowling_style": "Left-arm fast-medium"
+},
+"formats": {
+"ODI": {
+"matches": 322,
+"innings": 250,
+"runs": 2025,
+"balls": null,
+"highest": 50,
+"average": 16.88,
+"sr": null,
+"not_out": 130,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 1,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 400,
+"avg": 27.54,
+"eco": 4.19,
+"bbi": "8/19",
+"bbm": "8/19",
+"4w": 9,
+"5w": 4,
+"10w": 0
+},
+"T20I": {
+"matches": 6,
+"innings": 4,
+"runs": 10,
+"balls": null,
+"highest": 6,
+"average": 5,
+"sr": null,
+"not_out": 2,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 0,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 5,
+"avg": 32.2,
+"eco": 8.05,
+"bbi": "2/28",
+"bbm": "2/28",
+"4w": 0,
+"5w": 0,
+"10w": 0
+}
+},
+"country_logo": "[https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/oJHZJlQNeoGUUjrk.png](https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/oJHZJlQNeoGUUjrk.png)",
+"bowling_category": "Fast",
+"favorable_positions": [
+"bowler_1",
+"last_bowler"
+],
+"secondary_positions": [
+"bowler_2"
+],
+"captaincy": {
+"is_captain": false,
+"matches_as_captain": 0,
+"wins": 0,
+"losses": 0,
+"win_percentage": 0,
+"icc_trophies": [
+"1996 ICC Cricket World Cup"
+]
+},
+"keeping": {
+"is_specialist": false,
+"catches": null,
+"stumpings": 0
+},
+"traits": [
+"Bowler",
+"Left-Handed Batter",
+"Pace Bowler",
+"Swing Bowler"
+],
+"peak_ranking": {
+"batting_rank": null,
+"bowling_rank": 2,
+"allrounder_rank": null
+},
+"achievements": [
+"ICC Cricket World Cup winner in 1996",
+"Took 8/19 against Zimbabwe, the best bowling figures in ODI history at the time",
+"First bowler to take four wickets in the first four balls of an ODI",
+"Took 400 wickets in ODI cricket"
+],
+"clues": [
+"Sri Lankan left-arm fast-medium bowler.",
+"Took four wickets in the first four balls of an ODI against Bangladesh.",
+"Recorded famous ODI figures of 8/19 against Zimbabwe.",
+"Won the 1996 Cricket World Cup with Sri Lanka."
+],
+"image_source": "Wikipedia/Wikimedia Commons direct image URL",
+"url": "[https://en.wikipedia.org/wiki/Chaminda_Vaas](https://en.wikipedia.org/wiki/Chaminda_Vaas)",
+"born": "1974-01-27",
+"birth_place": "Mattumagala, Sri Lanka",
+"role": "Bowler",
+"batting_style": "Left Handed Bat",
+"bowling_style": "Left-arm fast-medium",
+"teams": [
+"Sri Lanka",
+"Colts Cricket Club",
+"Worcestershire",
+"Middlesex",
+"Northamptonshire"
+],
+"scraped_ok": true,
+"image_file": null,
+"image_verified": true,
+"image_verification_method": "source_backed_direct_image",
+"image_source_page": "[https://en.wikipedia.org/wiki/Chaminda_Vaas](https://en.wikipedia.org/wiki/Chaminda_Vaas)"
+}
+,
     {
       "player_id": "sri-lanka_charith-asalanka",
       "name": "Charith Asalanka",
@@ -67244,124 +65822,7 @@
       "image_verification_method": "cricbuzz_profile",
       "image_source_page": "https://www.cricbuzz.com/profiles/23016/aayan-afzal-khan"
     },
-    {
-      "player_id": "united-arab-emirates_ahmed-raza",
-      "name": "Ahmed Raza",
-      "country": "United Arab Emirates",
-      "profile_url": null,
-      "image_url": "https://static.cricbuzz.com/a/img/v1/i1/c244856/ahmed-raza.jpg?d=low&p=gthumb",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Bowler",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm legbreak"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/XczKzKSgaqIgrkDU.png",
-      "bowling_category": "Spin",
-      "favorable_positions": [
-        "bowler_1",
-        "last_bowler"
-      ],
-      "secondary_positions": [
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Bowler",
-        "Right-Handed Batter",
-        "Spin Specialist"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Bowler",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm legbreak",
-      "teams": null,
-      "scraped_ok": false,
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.cricbuzz.com/profiles/9828/ahmed-raza"
-    },
+   
     {
       "player_id": "united-arab-emirates_alishan-sharafu",
       "name": "Alishan Sharafu",
@@ -67603,243 +66064,7 @@
       "image_verification_method": "direct_image_check",
       "image_source_page": "https://www.cricbuzz.com/profiles/13269/amir-hayat"
     },
-    {
-      "player_id": "united-arab-emirates_amjad-ali",
-      "name": "Amjad Ali",
-      "country": "United Arab Emirates",
-      "profile_url": null,
-      "image_url": "https://static.cricbuzz.com/a/img/v1/i1/c156682/amjad-ali.jpg?d=low&p=gthumb",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batsman",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm medium"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/XczKzKSgaqIgrkDU.png",
-      "bowling_category": null,
-      "favorable_positions": [
-        "batsman_1",
-        "batsman_2"
-      ],
-      "secondary_positions": [
-        "batsman_3"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "Batter",
-        "Right-Handed Batter"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Cricbuzz player profile (canonical portrait)",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Batsman",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm medium",
-      "teams": null,
-      "scraped_ok": false,
-      "image_verified": true,
-      "image_verification_method": "cricbuzz_profile",
-      "image_source_page": "https://www.cricbuzz.com/profiles/1365/amjad-ali"
-    },
-    {
-      "player_id": "united-arab-emirates_aryansh-sharma",
-      "name": "Aryansh Sharma",
-      "country": "United Arab Emirates",
-      "profile_url": "https://www.espncricinfo.com/cricketers/aryansh-sharma-1443921",
-      "image_url": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663730708331/JDOqDkACkGpRnSdN.png",
-      "bio": {
-        "born": "June 15, 2004 (21 years)",
-        "birth_place": "Dubai, UAE",
-        "role": "Wicketkeeper Batter",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": null
-      },
-      "formats": {
-        "ODI": {
-          "matches": "0",
-          "innings": "0",
-          "runs": "0",
-          "balls": "0",
-          "highest": "0",
-          "average": "0.0",
-          "sr": "0.0",
-          "not_out": "0",
-          "fours": "0",
-          "sixes": "0",
-          "ducks": "0",
-          "50s": "0",
-          "100s": "0",
-          "200s": "0",
-          "300s": "0",
-          "400s": "0",
-          "maidens": "0",
-          "wickets": "0",
-          "avg": "0.0",
-          "eco": "0",
-          "bbi": "-/-",
-          "bbm": "-/-",
-          "4w": "0",
-          "5w": "0",
-          "10w": "0"
-        },
-        "T20I": {
-          "matches": "15",
-          "innings": "15",
-          "runs": "350",
-          "balls": "290",
-          "highest": "55",
-          "average": "25.0",
-          "sr": "120.7",
-          "not_out": "1",
-          "fours": "32",
-          "sixes": "10",
-          "ducks": "0",
-          "50s": "2",
-          "100s": "0",
-          "200s": "0",
-          "300s": "0",
-          "400s": "0",
-          "maidens": "0",
-          "wickets": "0",
-          "avg": "0.0",
-          "eco": "0",
-          "bbi": "-/-",
-          "bbm": "-/-",
-          "4w": "0",
-          "5w": "0",
-          "10w": "0"
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/XczKzKSgaqIgrkDU.png",
-      "bowling_category": "None",
-      "favorable_positions": [
-        "batsman_2",
-        "all_rounder_wicketkeeper"
-      ],
-      "secondary_positions": [
-        "opening_batsman_2",
-        "batsman_3"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": 0,
-        "wins": null,
-        "losses": null,
-        "win_percentage": 0,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": true,
-        "catches": 0,
-        "stumpings": 0
-      },
-      "traits": [
-        "Wicketkeeper-Batter",
-        "Right-Handed Batter"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Listed as a wicketkeeper batter in the source profile.",
-        "Bats right-handed.",
-        "Has recorded 350 runs in the listed formats."
-      ],
-      "image_source": "Existing dataset image URL (recovered)",
-      "url": "https://www.espncricinfo.com/cricketers/aryansh-sharma-1443921",
-      "born": "June 15, 2004 (21 years)",
-      "birth_place": "Dubai, UAE",
-      "role": "Wicketkeeper Batter",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": null,
-      "teams": null,
-      "scraped_ok": true,
-      "image_verified": false,
-      "image_verification_method": "original_dataset_asset_recovered",
-      "image_source_page": "https://www.espncricinfo.com/cricketers/aryansh-sharma-1443921"
-    },
+    
     {
       "player_id": "united-arab-emirates_ashfaq-ahmed",
       "name": "Ashfaq Ahmed",
@@ -68201,123 +66426,131 @@
       "image_source_page": "https://www.cricbuzz.com/profiles/1428060/ayan-desai"
     },
     {
-      "player_id": "united-arab-emirates_basil-hameed",
-      "name": "Basil Hameed",
-      "country": "United Arab Emirates",
-      "profile_url": null,
-      "image_url": "https://static.cricbuzz.com/a/img/v1/i1/c244731/basil-hameed.jpg?d=low&p=gthumb",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batting Allrounder",
-        "batting_style": "Right Handed Bat",
-        "bowling_style": "Right-arm offbreak"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/XczKzKSgaqIgrkDU.png",
-      "bowling_category": "Spin",
-      "favorable_positions": [
-        "all_rounder_1"
-      ],
-      "secondary_positions": [
-        "batsman_3",
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "All-Rounder",
-        "Right-Handed Batter",
-        "Spin Specialist"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "Cricbuzz player profile (canonical portrait)",
-      "url": null,
-      "born": null,
-      "birth_place": null,
-      "role": "Batting Allrounder",
-      "batting_style": "Right Handed Bat",
-      "bowling_style": "Right-arm offbreak",
-      "teams": null,
-      "scraped_ok": false,
-      "image_verified": true,
-      "image_verification_method": "cricbuzz_profile",
-      "image_source_page": "https://www.cricbuzz.com/profiles/15842/basil-hameed"
-    },
+"player_id": "united-arab-emirates_basil-hameed",
+"name": "Basil Hameed",
+"country": "United Arab Emirates",
+"profile_url": "https://www.espncricinfo.com/cricketers/basil-hameed-1070191",
+"image_url": "https://static.cricbuzz.com/a/img/v1/i1/c244731/basil-hameed.jpg?d=low&p=gthumb",
+"bio": {
+"born": "1992-06-07",
+"birth_place": "Dubai, United Arab Emirates",
+"role": "Batting Allrounder",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm offbreak"
+},
+"formats": {
+"ODI": {
+"matches": 72,
+"innings": 65,
+"runs": 1695,
+"balls": null,
+"highest": 102,
+"average": 33.9,
+"sr": null,
+"not_out": 15,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 12,
+"100s": 1,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 20,
+"avg": 39.15,
+"eco": 4.7,
+"bbi": "3/41",
+"bbm": "3/41",
+"4w": 0,
+"5w": 0,
+"10w": 0
+},
+"T20I": {
+"matches": 78,
+"innings": 69,
+"runs": 1275,
+"balls": null,
+"highest": 63,
+"average": 28.33,
+"sr": null,
+"not_out": 24,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 7,
+"100s": 0,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 24,
+"avg": 27.54,
+"eco": 7.1,
+"bbi": "3/15",
+"bbm": "3/15",
+"4w": 0,
+"5w": 0,
+"10w": 0
+}
+},
+"country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/XczKzKSgaqIgrkDU.png",
+"bowling_category": "Spin",
+"favorable_positions": [
+"all_rounder_1"
+],
+"secondary_positions": [
+"batsman_3",
+"bowler_2"
+],
+"captaincy": {
+"is_captain": false,
+"matches_as_captain": 0,
+"wins": 0,
+"losses": 0,
+"win_percentage": 0,
+"icc_trophies": []
+},
+"keeping": {
+"is_specialist": false,
+"catches": null,
+"stumpings": 0
+},
+"traits": [
+"All-Rounder",
+"Right-Handed Batter",
+"Spin Specialist"
+],
+"peak_ranking": {
+"batting_rank": null,
+"bowling_rank": null,
+"allrounder_rank": null
+},
+"achievements": [
+"Scored an ODI century for the United Arab Emirates",
+"Established member of the UAE international team",
+"Contributed as a middle-order batter and off-spin bowling all-rounder"
+],
+"clues": [
+"UAE right-handed batting all-rounder.",
+"Known for useful off-spin bowling.",
+"Has represented the UAE in both ODI and T20I cricket."
+],
+"image_source": "Cricbuzz player profile (canonical portrait)",
+"url": "https://www.espncricinfo.com/cricketers/basil-hameed-1070191",
+"born": "1992-06-07",
+"birth_place": "Dubai, United Arab Emirates",
+"role": "Batting Allrounder",
+"batting_style": "Right Handed Bat",
+"bowling_style": "Right-arm offbreak",
+"teams": [
+"United Arab Emirates"
+],
+"scraped_ok": true,
+"image_verified": true,
+"image_verification_method": "cricbuzz_profile",
+"image_source_page": "https://www.cricbuzz.com/profiles/15842/basil-hameed"
+},
     {
       "player_id": "united-arab-emirates_chirag-suri",
       "name": "Chirag Suri",
@@ -72763,7 +70996,7 @@
       "name": "Brian Lara",
       "country": "West Indies",
       "profile_url": "https://www.cricbuzz.com/profiles/240/brian-lara",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Brian_Lara_at_2012_Mumbai_Marathon_pre_bash.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC7ep1hKUPA3VsREZI-DX0FY3hoha1i0Ff0UXGtRkh-ZwVnW6cDm_ERPLD&s=10",
       "bio": {
         "born": null,
         "birth_place": null,
@@ -72863,7 +71096,7 @@
       "clues": [
         "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
       ],
-      "image_source": "Original dataset candidate; direct image check",
+      "image_source": "Wikipedia/Wikimedia Commons direct image URL",
       "url": "https://en.wikipedia.org/wiki/Brian_Lara",
       "born": null,
       "birth_place": null,
@@ -72876,129 +71109,152 @@
       "image_profile_url": "https://en.wikipedia.org/wiki/Brian_Lara",
       "stats_source": "https://www.cricbuzz.com/profiles/240/brian-lara",
       "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.cricbuzz.com/profiles/240/brian-lara"
+      "image_verification_method": "source_backed_direct_image",
+      "image_source_page": "https://en.wikipedia.org/wiki/Brian_Lara"
     },
     {
-      "player_id": "west-indies_chris-gayle",
-      "name": "Chris Gayle",
-      "country": "West Indies",
-      "profile_url": "https://en.wikipedia.org/wiki/Chris_Gayle",
-      "image_url": "https://images.dream11.com/eyJrZXkiOiJmYy1wbGF5ZXItaW1hZ2VzLzMwOS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsiZml0IjoiY292ZXIiLCJwb3NpdGlvbiI6InRvcCIsIndpZHRoIjoyMDAsImhlaWdodCI6MjAwfSwid2VicCI6eyJxdWFsaXR5Ijo2MCwibG9zc2xlc3MiOmZhbHNlfX0sIm91dHB1dEZvcm1hdCI6IndlYnAifQ==",
-      "bio": {
-        "born": null,
-        "birth_place": null,
-        "role": "Batting Allrounder",
-        "batting_style": "Left Handed Bat",
-        "bowling_style": "Right-arm offbreak"
-      },
-      "formats": {
-        "ODI": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        },
-        "T20I": {
-          "matches": null,
-          "innings": null,
-          "runs": null,
-          "balls": null,
-          "highest": null,
-          "average": null,
-          "sr": null,
-          "not_out": null,
-          "fours": null,
-          "sixes": null,
-          "ducks": null,
-          "50s": null,
-          "100s": null,
-          "200s": null,
-          "300s": null,
-          "400s": null,
-          "maidens": null,
-          "wickets": null,
-          "avg": null,
-          "eco": null,
-          "bbi": null,
-          "bbm": null,
-          "4w": null,
-          "5w": null,
-          "10w": null
-        }
-      },
-      "country_logo": "https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/bEJQeZRyYpiDfFMr.png",
-      "bowling_category": "Spin",
-      "favorable_positions": [
-        "all_rounder_1"
-      ],
-      "secondary_positions": [
-        "batsman_3",
-        "bowler_2"
-      ],
-      "captaincy": {
-        "is_captain": false,
-        "matches_as_captain": null,
-        "wins": null,
-        "losses": null,
-        "win_percentage": null,
-        "icc_trophies": []
-      },
-      "keeping": {
-        "is_specialist": false,
-        "catches": null,
-        "stumpings": null
-      },
-      "traits": [
-        "All-Rounder",
-        "Left-Handed Batter",
-        "Spin Specialist"
-      ],
-      "peak_ranking": {
-        "batting_rank": null,
-        "bowling_rank": null,
-        "allrounder_rank": null
-      },
-      "achievements": [],
-      "clues": [
-        "Added from a curated list of internationally recognized or historically important players; unverified fields remain null."
-      ],
-      "image_source": "FanCode player profile",
-      "url": "https://en.wikipedia.org/wiki/Chris_Gayle",
-      "born": null,
-      "birth_place": null,
-      "role": "Batting Allrounder",
-      "batting_style": "Left Handed Bat",
-      "bowling_style": "Right-arm offbreak",
-      "teams": null,
-      "scraped_ok": false,
-      "image_file": "Chris Gayle",
-      "image_profile_url": "https://en.wikipedia.org/wiki/Chris_Gayle",
-      "image_verified": true,
-      "image_verification_method": "direct_image_check",
-      "image_source_page": "https://www.fancode.com/cricket/players/chris-gayle/309"
-    },
+"player_id": "west-indies_chris-gayle",
+"name": "Chris Gayle",
+"country": "West Indies",
+"profile_url": "[https://www.espncricinfo.com/cricketers/chris-gayle-51880](https://www.espncricinfo.com/cricketers/chris-gayle-51880)",
+"image_url": "[https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Two_views_of_Chris_Gayle_%2848020785077%29.jpg/3840px-Two_views_of_Chris_Gayle_%2848020785077%29.jpg](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Two_views_of_Chris_Gayle_%2848020785077%29.jpg/3840px-Two_views_of_Chris_Gayle_%2848020785077%29.jpg)",
+"bio": {
+"born": "1979-09-21",
+"birth_place": "Kingston, Jamaica",
+"role": "Batting Allrounder",
+"batting_style": "Left Handed Bat",
+"bowling_style": "Right-arm offbreak"
+},
+"formats": {
+"ODI": {
+"matches": 301,
+"innings": 294,
+"runs": 10480,
+"balls": null,
+"highest": 215,
+"average": 37.3,
+"sr": null,
+"not_out": 13,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 54,
+"100s": 25,
+"200s": 1,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 167,
+"avg": 35.43,
+"eco": 4.81,
+"bbi": "5/46",
+"bbm": "5/46",
+"4w": 1,
+"5w": 1,
+"10w": 0
+},
+"T20I": {
+"matches": 87,
+"innings": 84,
+"runs": 1899,
+"balls": null,
+"highest": 117,
+"average": 25.32,
+"sr": null,
+"not_out": 9,
+"fours": null,
+"sixes": null,
+"ducks": null,
+"50s": 2,
+"100s": 2,
+"200s": 0,
+"300s": 0,
+"400s": 0,
+"maidens": null,
+"wickets": 39,
+"avg": 29.48,
+"eco": 7.24,
+"bbi": "3/15",
+"bbm": "3/15",
+"4w": 0,
+"5w": 0,
+"10w": 0
+}
+},
+"country_logo": "[https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/bEJQeZRyYpiDfFMr.png](https://files.manuscdn.com/user_upload_by_module/session_file/310519663703624626/bEJQeZRyYpiDfFMr.png)",
+"bowling_category": "Spin",
+"favorable_positions": [
+"all_rounder_1"
+],
+"secondary_positions": [
+"batsman_3",
+"bowler_2"
+],
+"captaincy": {
+"is_captain": true,
+"matches_as_captain": 53,
+"wins": 17,
+"losses": 26,
+"win_percentage": 32.08,
+"icc_trophies": [
+"2012 ICC World Twenty20"
+]
+},
+"keeping": {
+"is_specialist": false,
+"catches": null,
+"stumpings": 0
+},
+"traits": [
+"All-Rounder",
+"Left-Handed Batter",
+"Spin Specialist",
+"Power Hitter"
+],
+"peak_ranking": {
+"batting_rank": 1,
+"bowling_rank": null,
+"allrounder_rank": null
+},
+"achievements": [
+"Two-time T20 World Cup winner",
+"First player to score two T20I centuries",
+"One of the highest run-scorers in T20 cricket history",
+"Scored a double century in ODI cricket",
+"First player to score 10,000 runs in T20 cricket"
+],
+"clues": [
+"West Indies left-handed power hitter known as the Universe Boss.",
+"Scored an ODI double century of 215.",
+"One of the greatest T20 batters in cricket history.",
+"Won the ICC World Twenty20 with West Indies."
+],
+"image_source": "Wikipedia/Wikimedia Commons direct image URL",
+"url": "[https://en.wikipedia.org/wiki/Chris_Gayle](https://en.wikipedia.org/wiki/Chris_Gayle)",
+"born": "1979-09-21",
+"birth_place": "Kingston, Jamaica",
+"role": "Batting Allrounder",
+"batting_style": "Left Handed Bat",
+"bowling_style": "Right-arm offbreak",
+"teams": [
+"West Indies",
+"Jamaica",
+"Kolkata Knight Riders",
+"Royal Challengers Bangalore",
+"Kings XI Punjab",
+"Melbourne Renegades",
+"Sydney Thunder",
+"Jamaica Tallawahs",
+"St Kitts and Nevis Patriots"
+],
+"scraped_ok": true,
+"image_file": "Chris Gayle",
+"image_profile_url": "[https://en.wikipedia.org/wiki/Chris_Gayle](https://en.wikipedia.org/wiki/Chris_Gayle)",
+"image_verified": true,
+"image_verification_method": "source_backed_direct_image",
+"image_source_page": "[https://en.wikipedia.org/wiki/Chris_Gayle](https://en.wikipedia.org/wiki/Chris_Gayle)"
+}
+,
     {
       "player_id": "west-indies_courtney-walsh",
       "name": "Courtney Walsh",

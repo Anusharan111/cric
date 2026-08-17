@@ -17,6 +17,7 @@ const COUNTRY_FLAGS: Record<string, string> = {
   "Hong Kong": "🇭🇰",
   "United Arab Emirates": "🇦🇪",
   "West Indies": "🇧🇧",
+  Zimbabwe: "🇿🇼",
   England: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
   Nepal: "🇳🇵",
 };

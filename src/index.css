@@ -1,4 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
+.font-teko {
+  font-family: 'Teko', sans-serif;
+}
+
+.font-space-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+.text-shadow-neon {
+  text-shadow: 0 0 8px var(--green-bright), 0 0 16px var(--green);
+}
 
 @theme {
   --color-cricket-green: #22c55e;
@@ -151,6 +164,14 @@
 
   .cricket-glow-text {
     @apply drop-shadow-[0_0_8px_rgba(251,191,36,0.45)];
+  }
+
+  .font-teko {
+    font-family: "Teko", "Inter", system-ui, sans-serif;
+  }
+
+  .font-space-mono {
+    font-family: "Space Mono", ui-monospace, monospace;
   }
 
   .cricket-border-futuristic {

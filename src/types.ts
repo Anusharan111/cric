@@ -187,6 +187,49 @@ export function getProxyImageUrl(url: string): string {
   return url;
 }
 
+export interface StadiumPitchProfile {
+  type: string;
+  condition: string;
+  description: string;
+  grass_level: number;
+  dryness: number;
+  hardness: number;
+  bounce: number;
+  spin_assistance: number;
+  pace_assistance: number;
+  batting_friendly: number;
+  image_url?: string;
+}
+
+export interface StadiumModifiers {
+  max_bonus: number;
+  max_penalty: number;
+}
+
+export interface StadiumRecommendedAttack {
+  spinner: number;
+  pace: number;
+  medium: number;
+}
+
+export interface Stadium {
+  id: string;
+  name: string;
+  city: string;
+  country: string;
+  country_code: string;
+  flag: string;
+  image_url: string;
+  pitch: StadiumPitchProfile;
+  recommended_attack: StadiumRecommendedAttack;
+  modifiers: StadiumModifiers;
+  pitch_profiles?: {
+    ODI?: StadiumPitchProfile;
+    T20I?: StadiumPitchProfile;
+  };
+  tags?: string[];
+}
+
 export type RoleId =
   | "opening_batsman_1" | "opening_batsman_2"
   | "batsman_1" | "batsman_2" | "batsman_3"

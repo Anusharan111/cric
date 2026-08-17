@@ -1,0 +1,1678 @@
+{
+  "dataset": "Cricket Battle Stadium Database",
+  "version": "1.0",
+  "research_note": "All numerical pitch values are normalized 0–100 gameplay values derived from researched real-world tendencies; they are not official scientific measurements. Conditions vary with format, preparation, weather, ball and match age.",
+  "stadiums": [
+    {
+      "id": "galle_international_stadium",
+      "name": "Galle International Stadium",
+      "city": "Galle",
+      "country": "Sri Lanka",
+      "country_code": "LK",
+      "flag": "🇱🇰",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRB6abgucRN-r0FbOyV0rJxo_9H48dBlJtS4WQnHr9N8u6wWj6HZsGv236&s=10",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "dry_turning",
+        "condition": "spin_friendly",
+        "description": "A coastal, clay-based Test venue with a strong reputation for increasing turn as the surface wears; long-format records and venue commentary point to a substantial spin role.",
+        "grass_level": 12,
+        "dryness": 88,
+        "hardness": 62,
+        "bounce": 46,
+        "spin_assistance": 91,
+        "pace_assistance": 25,
+        "batting_friendly": 51,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/778313308_1014351878094386_1799560095009375426_n.jpg?stp=dst-jpg_tt6&cstp=mx645x1192&ctp=s645x1192&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=pfQX9hV5plIQ7kNvwGDy2Rr&_nc_oc=AdqVYGMRKBU44VfV9R0kWB8VhTrFGEHGyMoHzt5DU5or9M7n4KhOdFi7Z5OaKcmiS-w&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQERmmVgPDe_ZU0oT4v3WUkZPqX3OLKhifgCJ1TzfJxdJQ&oe=6A88AB8A"
+      },
+      "recommended_attack": {
+        "spinner": 3,
+        "pace": 1,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 8,
+        "max_penalty": 8
+      },
+      "research_summary": "Galle is one of Sri Lanka’s clearest spin-oriented venues. The research supports low grass, high dryness, moderate hardness, modest bounce and strong deterioration/turn, while batting is possible before the surface breaks up.",
+      "tags": [
+        "spin_friendly",
+        "dry",
+        "dusty",
+        "turning",
+        "deteriorates"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo ground profile",
+          "url": "https://www.cricinfo.com/cricket-grounds/galle-international-stadium-59325"
+        },
+        {
+          "name": "Cricbuzz venue records",
+          "url": "https://www.cricbuzz.com/cricket-series/11749/new-zealand-a-tour-of-sri-lanka-2026/venues/113/galle-international-stadium"
+        }
+      ],
+      "pitch_profiles": {
+        "ODI": {
+          "type": "dry_turning",
+          "condition": "spin_friendly",
+          "description": "ODI surfaces at Galle are generally slower and more helpful to spin than a neutral batting venue.",
+          "grass_level": 15,
+          "dryness": 78,
+          "hardness": 66,
+          "bounce": 50,
+          "spin_assistance": 82,
+          "pace_assistance": 31,
+          "batting_friendly": 57
+        },
+        "T20I": {
+          "type": "dry_slow",
+          "condition": "balanced_to_spin",
+          "description": "Short-format preparation is usually firmer and more batting-friendly early, while grip remains available to spinners in the middle overs.",
+          "grass_level": 20,
+          "dryness": 68,
+          "hardness": 70,
+          "bounce": 53,
+          "spin_assistance": 72,
+          "pace_assistance": 37,
+          "batting_friendly": 66
+        }
+      }
+    },
+    {
+      "id": "r_premadasa_stadium",
+      "name": "R. Premadasa Stadium",
+      "city": "Colombo",
+      "country": "Sri Lanka",
+      "country_code": "LK",
+      "flag": "🇱🇰",
+      "image_url": "https://info.shalanka.com/wp-content/uploads/2017/07/R.-Premadasa-Stadium.jpg",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "slow_dry",
+        "condition": "spin_friendly",
+        "description": "A slow Colombo surface where slow bowlers have historically received substantial support; ODI evidence shows a meaningful first-innings advantage and difficult chasing.",
+        "grass_level": 18,
+        "dryness": 80,
+        "hardness": 58,
+        "bounce": 48,
+        "spin_assistance": 84,
+        "pace_assistance": 31,
+        "batting_friendly": 55,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/774236860_1014351874761053_2243917799525328925_n.jpg?stp=dst-jpg_tt6&cstp=mx663x1086&ctp=s663x1086&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Map7czz43tkQ7kNvwG681wd&_nc_oc=Adpq5e6op8yK42nHMYTpvV7ygobDABuTIzMRzHtfHjB4dAe98qqhRsZsqloKPcmmqXE&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQH86no65ZTlaA-X7oVq6McXYjljDjDOz18K4awa1uTX0g&oe=6A88A4E8"
+      },
+      "recommended_attack": {
+        "spinner": 3,
+        "pace": 1,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 8,
+        "max_penalty": 8
+      },
+      "research_summary": "The stadium’s ODI pitch reports describe a spinner’s paradise with a slow surface and a sizeable gap between average first- and second-innings scores. The values therefore favor spin and surface grip without making batting impossible.",
+      "tags": [
+        "spin_friendly",
+        "slow",
+        "dry",
+        "middle_overs"
+      ],
+      "sources": [
+        {
+          "name": "The Sporting News ODI pitch report",
+          "url": "https://www.sportingnews.com/in/cricket/news/r-premadasa-stadium-colombo-pitch-report-and-records-odis/19925e652f2d181db108ff9e"
+        },
+        {
+          "name": "Cricbuzz venue listing",
+          "url": "https://m.cricbuzz.com/cricket-series/11253/icc-mens-t20-world-cup-2026/venues/15/rpremadasa-stadium"
+        }
+      ],
+      "pitch_profiles": {
+        "ODI": {
+          "type": "slow_dry",
+          "condition": "spin_friendly",
+          "description": "The ODI report explicitly expects strong spin assistance through the middle overs and relatively hard chasing.",
+          "grass_level": 16,
+          "dryness": 84,
+          "hardness": 57,
+          "bounce": 46,
+          "spin_assistance": 88,
+          "pace_assistance": 28,
+          "batting_friendly": 52
+        },
+        "T20I": {
+          "type": "slow_batting",
+          "condition": "spin_friendly",
+          "description": "T20 preparation is firmer and slightly more batting-friendly, but the surface remains slow enough for spinners to control the middle overs.",
+          "grass_level": 22,
+          "dryness": 70,
+          "hardness": 65,
+          "bounce": 50,
+          "spin_assistance": 75,
+          "pace_assistance": 36,
+          "batting_friendly": 65
+        }
+      }
+    },
+    {
+      "id": "wankhede_stadium",
+      "name": "Wankhede Stadium",
+      "city": "Mumbai",
+      "country": "India",
+      "country_code": "IN",
+      "flag": "🇮🇳",
+      "image_url": "https://npcdn.ratopati.com/media/news/18-nepal-vs-italy_nepal-photo-library_-fan18_MsQoMNMiFH.jpg",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "hard_sea_breeze",
+        "condition": "batting_friendly",
+        "description": "A hard, generally good batting wicket with a quick outfield; the Arabian Sea and new ball can bring swing, while surface pace and short boundaries reward strokeplay.",
+        "grass_level": 28,
+        "dryness": 38,
+        "hardness": 78,
+        "bounce": 70,
+        "spin_assistance": 46,
+        "pace_assistance": 70,
+        "batting_friendly": 82,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/776666104_1014351998094374_1866419129510737628_n.jpg?stp=dst-jpg_tt6&cstp=mx589x1128&ctp=s589x1128&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=lwP2ZKmj-McQ7kNvwH-l8Ix&_nc_oc=AdpyfSEQP17m2uTZEsJrt8qMq-WOIlktKr3r_itsusyPfbG-pWemU22M-6f1WeadgjQ&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQETR1_fOJ1rtcc0NXcSGLuhcIh77Z4X5sprYlL8hhCr3g&oe=6A88B33D"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 2,
+        "medium": 1
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 6
+      },
+      "research_summary": "Wankhede research describes help for both pace and spin, sea-influenced swing, and a strong limited-overs batting profile. The normalized values make it batting-friendly and hard with moderate pace assistance rather than purely bowler-dominated.",
+      "tags": [
+        "batting_friendly",
+        "hard",
+        "quick_outfield",
+        "swing"
+      ],
+      "sources": [
+        {
+          "name": "Cricbuzz Wankhede venue profile",
+          "url": "https://www.cricbuzz.com/cricket-series/12299/t20-mumbai-2026/venues/81/wankhede-stadium"
+        },
+        {
+          "name": "Cricbuzz T20 World Cup pitch commentary",
+          "url": "https://www.cricbuzz.com/live-cricket-full-commentary/139274/sco-vs-nep-33rd-match-group-c-icc-mens-t20-world-cup-2026"
+        }
+      ],
+      "pitch_profiles": {
+        "T20I": {
+          "type": "hard_batting",
+          "condition": "batting_friendly",
+          "description": "T20I conditions emphasize the fast outfield, pace on the ball and boundary value, although the new ball can still swing.",
+          "grass_level": 30,
+          "dryness": 32,
+          "hardness": 80,
+          "bounce": 72,
+          "spin_assistance": 43,
+          "pace_assistance": 73,
+          "batting_friendly": 86
+        }
+      }
+    },
+    {
+      "id": "eden_gardens",
+      "name": "Eden Gardens",
+      "city": "Kolkata",
+      "country": "India",
+      "country_code": "IN",
+      "flag": "🇮🇳",
+      "image_url": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/370100/370122.jpg",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "balanced_flat",
+        "condition": "batting_friendly",
+        "description": "A high-quality, usually true surface with a fast outfield and strong batting reputation; spinners can influence the game as it progresses.",
+        "grass_level": 24,
+        "dryness": 42,
+        "hardness": 72,
+        "bounce": 61,
+        "spin_assistance": 54,
+        "pace_assistance": 55,
+        "batting_friendly": 78,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/776222436_1014351928094381_5130993671396430120_n.jpg?stp=dst-jpg_tt6&cstp=mx622x1100&ctp=s622x1100&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AifU1bd26TMQ7kNvwGAYsh0&_nc_oc=AdpHl8ef9rKi8QU-4wExkMU1WZAKOnYuPVcVAJcR5wkEDaNYEwu-D4oldkEwI61eTBQ&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQHhzyRKv52ULsNbct6U2ZlvqH5hCQbAslcoXuuGwODMSQ&oe=6A888F25"
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 6
+      },
+      "research_summary": "Eden Gardens is consistently described as one of India’s better batting surfaces, with a fast outfield and later spin involvement. Values emphasize batting and hardness while retaining moderate spin potential.",
+      "tags": [
+        "batting_friendly",
+        "balanced",
+        "fast_outfield",
+        "late_spin"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo ground profile",
+          "url": "https://www.cricinfo.com/cricket-grounds/eden-gardens-kolkata-57980"
+        },
+        {
+          "name": "Cricbuzz venue profile",
+          "url": "https://www.cricbuzz.com/cricket-series/11253/icc-mens-t20-world-cup-2026/venues/31/eden-gardens"
+        }
+      ]
+    },
+    {
+      "id": "ma_chidambaram_stadium",
+      "name": "M. A. Chidambaram Stadium",
+      "city": "Chennai",
+      "country": "India",
+      "country_code": "IN",
+      "flag": "🇮🇳",
+      "image_url": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_wide_w_640,q_50/lsci/db/PICTURES/CMS/128300/128358.jpg",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "dry_turning",
+        "condition": "spin_friendly",
+        "description": "Chepauk’s traditional identity is a dry, abrasive surface that can become slow and turn-friendly; historical venue commentary links its prepared wickets with spin assistance.",
+        "grass_level": 14,
+        "dryness": 82,
+        "hardness": 60,
+        "bounce": 45,
+        "spin_assistance": 86,
+        "pace_assistance": 28,
+        "batting_friendly": 55,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/778313308_1014351878094386_1799560095009375426_n.jpg?stp=dst-jpg_tt6&cstp=mx645x1192&ctp=s645x1192&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=pfQX9hV5plIQ7kNvwGDy2Rr&_nc_oc=AdqVYGMRKBU44VfV9R0kWB8VhTrFGEHGyMoHzt5DU5or9M7n4KhOdFi7Z5OaKcmiS-w&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQERmmVgPDe_ZU0oT4v3WUkZPqX3OLKhifgCJ1TzfJxdJQ&oe=6A88AB8A"
+      },
+      "recommended_attack": {
+        "spinner": 3,
+        "pace": 1,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 8,
+        "max_penalty": 8
+      },
+      "research_summary": "Chepauk’s research-backed profile is the classic Chennai slow turner: little grass, high dryness, moderate hardness and low-to-moderate bounce. Batting is playable but requires adjustment as grip increases.",
+      "tags": [
+        "spin_friendly",
+        "dry",
+        "slow",
+        "turning"
+      ],
+      "sources": [
+        {
+          "name": "Cricbuzz MA Chidambaram venue profile",
+          "url": "https://m.cricbuzz.com/cricket-series/11253/icc-mens-t20-world-cup-2026/venues/11/ma-chidambaram-stadium"
+        },
+        {
+          "name": "ESPNcricinfo India grounds directory",
+          "url": "https://www.espncricinfo.com/cricket-grounds/country/india-6"
+        }
+      ]
+    },
+    {
+      "id": "narendra_modi_stadium",
+      "name": "Narendra Modi Stadium",
+      "city": "Ahmedabad",
+      "country": "India",
+      "country_code": "IN",
+      "flag": "🇮🇳",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSACSg9xtyqjveg7fwWFn5l1E0uIvCEs2eLB69UPnUt0uKX5axdbXtDWAxI&s=10",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "slow_flat",
+        "condition": "balanced_slow",
+        "description": "The Motera profile describes a wicket that has slowed over time from its earlier bowler-friendly character; match records show moderate scoring and a meaningful fourth-innings decline in Tests.",
+        "grass_level": 20,
+        "dryness": 62,
+        "hardness": 68,
+        "bounce": 52,
+        "spin_assistance": 63,
+        "pace_assistance": 42,
+        "batting_friendly": 62,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/774236860_1014351874761053_2243917799525328925_n.jpg?stp=dst-jpg_tt6&cstp=mx663x1086&ctp=s663x1086&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Map7czz43tkQ7kNvwG681wd&_nc_oc=Adpq5e6op8yK42nHMYTpvV7ygobDABuTIzMRzHtfHjB4dAe98qqhRsZsqloKPcmmqXE&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQH86no65ZTlaA-X7oVq6McXYjljDjDOz18K4awa1uTX0g&oe=6A88A4E8"
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 7
+      },
+      "research_summary": "Cricbuzz describes Motera as a slow wicket that lost some of its earlier spice. The values therefore create a strategic, mildly spin-leaning surface with moderate bounce and balanced batting opportunity.",
+      "tags": [
+        "slow",
+        "balanced",
+        "dry_tendency",
+        "large_ground"
+      ],
+      "sources": [
+        {
+          "name": "Cricbuzz Narendra Modi venue profile",
+          "url": "https://www.cricbuzz.com/cricket-series/9237/indian-premier-league-2025/venues/50/narendra-modi-stadium"
+        },
+        {
+          "name": "Cricbuzz venue statistics and profile",
+          "url": "https://www.cricbuzz.com/cricket-series/9237/indian-premier-league-2025/venues/50/narendra-modi-stadium"
+        }
+      ]
+    },
+    {
+      "id": "m_chinnaswamy_stadium",
+      "name": "M. Chinnaswamy Stadium",
+      "city": "Bengaluru",
+      "country": "India",
+      "country_code": "IN",
+      "flag": "🇮🇳",
+      "image_url": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/389200/389290.jpg",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "high_altitude_flat",
+        "condition": "batting_friendly",
+        "description": "Short boundaries, altitude and a historically high-scoring limited-overs record make Chinnaswamy a prime batting venue, with little inherent spin or seam assistance.",
+        "grass_level": 22,
+        "dryness": 30,
+        "hardness": 70,
+        "bounce": 56,
+        "spin_assistance": 38,
+        "pace_assistance": 54,
+        "batting_friendly": 90,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/776222436_1014351928094381_5130993671396430120_n.jpg?stp=dst-jpg_tt6&cstp=mx622x1100&ctp=s622x1100&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AifU1bd26TMQ7kNvwGAYsh0&_nc_oc=AdpHl8ef9rKi8QU-4wExkMU1WZAKOnYuPVcVAJcR5wkEDaNYEwu-D4oldkEwI61eTBQ&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQHhzyRKv52ULsNbct6U2ZlvqH5hCQbAslcoXuuGwODMSQ&oe=6A888F25"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 2,
+        "medium": 1
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 5
+      },
+      "research_summary": "The venue profile explicitly characterizes Chinnaswamy as a limited-overs batting haven because of short boundaries and altitude. Normalized values reflect a hard, relatively true surface with very high batting friendliness.",
+      "tags": [
+        "batting_friendly",
+        "short_boundaries",
+        "high_scoring",
+        "true_bounce"
+      ],
+      "sources": [
+        {
+          "name": "Cricbuzz M. Chinnaswamy venue profile",
+          "url": "https://www.cricbuzz.com/cricket-series/9241/indian-premier-league-2026/venues/27/mchinnaswamy-stadium"
+        },
+        {
+          "name": "ESPNcricinfo ground profile",
+          "url": "https://www.cricinfo.com/cricket-grounds/m-chinnaswamy-stadium-bengaluru-57897"
+        }
+      ]
+    },
+    {
+      "id": "melbourne_cricket_ground",
+      "name": "Melbourne Cricket Ground",
+      "city": "Melbourne",
+      "country": "Australia",
+      "country_code": "AU",
+      "flag": "🇦🇺",
+      "image_url": "https://images.icc-cricket.com/image/upload/t_ratio21_9-size30-webp/prd/tahza8zwghhkkx65orsa",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "balanced_grassy",
+        "condition": "balanced",
+        "description": "The MCG has historically produced balanced contests, but recent Test preparation has left more grass and made batting tougher, with movement and occasional uneven bounce.",
+        "grass_level": 35,
+        "dryness": 48,
+        "hardness": 82,
+        "bounce": 72,
+        "spin_assistance": 40,
+        "pace_assistance": 72,
+        "batting_friendly": 58,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/775243689_1014355438094030_7947883373414242628_n.jpg?stp=dst-jpg_tt6&cstp=mx570x1154&ctp=s570x1154&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YN5L4-Az5PIQ7kNvwFnMYFF&_nc_oc=AdqACpxqSaaVAG-92ELPhvFfXxwd70qS7uB_SvW5BCuGW4oxHSYRJhL9XWH3MDamkvk&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=OO5RZ1tleKIgQZpRCSwI-g&_nc_ss=7b2a8&oh=00_AQG8Au9UtlJXkWMW6EVSge0AR4i2Ut9Rwogd_qPYSdEmyw&oe=6A888D5B"
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 8,
+        "max_penalty": 8
+      },
+      "research_summary": "The ground profile calls the MCG historically balanced, while recent ESPNcricinfo analysis documents more grass and a sharper bowler challenge. The values combine high hardness and bounce with meaningful pace assistance and only moderate batting friendliness.",
+      "tags": [
+        "balanced",
+        "hard",
+        "bouncy",
+        "grassy",
+        "pace_assist"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo MCG ground profile",
+          "url": "https://www.cricinfo.com/cricket-grounds/melbourne-cricket-ground-56441"
+        },
+        {
+          "name": "ESPNcricinfo Australian pitches analysis",
+          "url": "https://www.cricinfo.com/story/ashes-2025-26-will-australia-s-pitches-be-juicy-for-the-ashes-1510752"
+        }
+      ],
+      "pitch_profiles": {
+        "T20I": {
+          "type": "hard_true",
+          "condition": "balanced",
+          "description": "The new ball can do more in day-night cricket, but the hard surface generally offers true bounce and strokeplay once set.",
+          "grass_level": 28,
+          "dryness": 42,
+          "hardness": 84,
+          "bounce": 76,
+          "spin_assistance": 34,
+          "pace_assistance": 68,
+          "batting_friendly": 70
+        }
+      }
+    },
+    {
+      "id": "sydney_cricket_ground",
+      "name": "Sydney Cricket Ground",
+      "city": "Sydney",
+      "country": "Australia",
+      "country_code": "AU",
+      "flag": "🇦🇺",
+      "image_url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/19/db/e8/sydney-cricket-ground.jpg?w=900&h=500&s=1",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "hard_turning_balanced",
+        "condition": "balanced_to_spin",
+        "description": "The SCG is a generally hard Australian surface with a stronger historical spin role than many Australian grounds, though recent pitches have varied from lively to balanced.",
+        "grass_level": 30,
+        "dryness": 48,
+        "hardness": 78,
+        "bounce": 68,
+        "spin_assistance": 62,
+        "pace_assistance": 51,
+        "batting_friendly": 64,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/776666104_1014351998094374_1866419129510737628_n.jpg?stp=dst-jpg_tt6&cstp=mx589x1128&ctp=s589x1128&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=lwP2ZKmj-McQ7kNvwH-l8Ix&_nc_oc=AdpyfSEQP17m2uTZEsJrt8qMq-WOIlktKr3r_itsusyPfbG-pWemU22M-6f1WeadgjQ&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQETR1_fOJ1rtcc0NXcSGLuhcIh77Z4X5sprYlL8hhCr3g&oe=6A88B33D"
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 7
+      },
+      "research_summary": "Recent venue analysis notes substantial variation at the SCG, including a ball-dominated Test when staff tried to restore life to the square. The normalized profile stays balanced but gives spin a modest edge over typical Australian venues.",
+      "tags": [
+        "balanced",
+        "hard",
+        "late_spin",
+        "variable"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Australian pitches analysis",
+          "url": "https://www.cricinfo.com/story/ashes-2025-26-will-australia-s-pitches-be-juicy-for-the-ashes-1510752"
+        },
+        {
+          "name": "Sydney Cricket Ground reference",
+          "url": "https://en.wikipedia.org/wiki/Sydney_Cricket_Ground"
+        }
+      ]
+    },
+    {
+      "id": "perth_stadium",
+      "name": "Perth Stadium",
+      "city": "Perth",
+      "country": "Australia",
+      "country_code": "AU",
+      "flag": "🇦🇺",
+      "image_url": "https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/409400/409433.6.jpg",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "hard_fast_cracking",
+        "condition": "pace_friendly",
+        "description": "The Perth Stadium Test surface has delivered pace and bounce early, can flatten for a period, and has shown large cracks and unevenness as matches progress.",
+        "grass_level": 18,
+        "dryness": 45,
+        "hardness": 94,
+        "bounce": 90,
+        "spin_assistance": 30,
+        "pace_assistance": 91,
+        "batting_friendly": 57,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/778313308_1014351878094386_1799560095009375426_n.jpg?stp=dst-jpg_tt6&cstp=mx645x1192&ctp=s645x1192&_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=pfQX9hV5plIQ7kNvwGDy2Rr&_nc_oc=AdqVYGMRKBU44VfV9R0kWB8VhTrFGEHGyMoHzt5DU5or9M7n4KhOdFi7Z5OaKcmiS-w&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQERmmVgPDe_ZU0oT4v3WUkZPqX3OLKhifgCJ1TzfJxdJQ&oe=6A88AB8A"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 3,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 9,
+        "max_penalty": 8
+      },
+      "research_summary": "ESPNcricinfo’s venue analysis reports rapid early wicket loss, a temporary flattening period and later large cracks. Values therefore strongly favor hard, bouncy pace bowling while allowing a deterioration-driven late-match variable.",
+      "tags": [
+        "pace_friendly",
+        "hard",
+        "bouncy",
+        "cracks",
+        "deteriorates"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Australian pitches analysis",
+          "url": "https://www.cricinfo.com/story/ashes-2025-26-will-australia-s-pitches-be-juicy-for-the-ashes-1510752"
+        },
+        {
+          "name": "Perth Stadium reference",
+          "url": "https://en.wikipedia.org/wiki/Perth_Stadium"
+        }
+      ]
+    },
+    {
+      "id": "adelaide_oval",
+      "name": "Adelaide Oval",
+      "city": "Adelaide",
+      "country": "Australia",
+      "country_code": "AU",
+      "flag": "🇦🇺",
+      "image_url": "https://images.icc-cricket.com/image/upload/t_ratio21_9-size30-webp/prd/jeug5rop6yxdt9ptk85n",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "flat_drop_in",
+        "condition": "batting_friendly",
+        "description": "A drop-in surface widely regarded as Australia’s best batting wicket: very flat early in Tests, with spin becoming more relevant as the match wears on.",
+        "grass_level": 24,
+        "dryness": 38,
+        "hardness": 78,
+        "bounce": 68,
+        "spin_assistance": 48,
+        "pace_assistance": 56,
+        "batting_friendly": 88,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/776222436_1014351928094381_5130993671396430120_n.jpg?stp=dst-jpg_tt6&cstp=mx622x1100&ctp=s622x1100&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AifU1bd26TMQ7kNvwGAYsh0&_nc_oc=AdpHl8ef9rKi8QU-4wExkMU1WZAKOnYuPVcVAJcR5wkEDaNYEwu-D4oldkEwI61eTBQ&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQHhzyRKv52ULsNbct6U2ZlvqH5hCQbAslcoXuuGwODMSQ&oe=6A888F25"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 2,
+        "medium": 1
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 5
+      },
+      "research_summary": "The Cricbuzz profile explicitly calls Adelaide a premier batting wicket, flat for the first three Test days and increasingly helpful to spin later. The values reflect high batting friendliness and hardness with moderate late-spin potential.",
+      "tags": [
+        "batting_friendly",
+        "flat",
+        "drop_in",
+        "late_spin"
+      ],
+      "sources": [
+        {
+          "name": "Cricbuzz Adelaide Oval venue profile",
+          "url": "https://www.cricbuzz.com/cricket-venues/40/adelaide-oval"
+        },
+        {
+          "name": "ESPNcricinfo Australian pitches analysis",
+          "url": "https://www.cricinfo.com/story/ashes-2025-26-will-australia-s-pitches-be-juicy-for-the-ashes-1510752"
+        }
+      ],
+      "pitch_profiles": {
+        "ODI": {
+          "type": "flat_batting",
+          "condition": "batting_friendly",
+          "description": "ODI conditions are typically truer and shorter in duration, retaining a high batting ceiling and moderate pace value from the new ball.",
+          "grass_level": 22,
+          "dryness": 32,
+          "hardness": 80,
+          "bounce": 70,
+          "spin_assistance": 42,
+          "pace_assistance": 60,
+          "batting_friendly": 86
+        },
+        "T20I": {
+          "type": "flat_fast",
+          "condition": "batting_friendly",
+          "description": "T20 cricket rewards the hard, true drop-in surface and quick outfield, with only modest spin assistance.",
+          "grass_level": 25,
+          "dryness": 28,
+          "hardness": 82,
+          "bounce": 72,
+          "spin_assistance": 38,
+          "pace_assistance": 64,
+          "batting_friendly": 90
+        }
+      }
+    },
+    {
+      "id": "the_gabba",
+      "name": "The Gabba",
+      "city": "Brisbane",
+      "country": "Australia",
+      "country_code": "AU",
+      "flag": "🇦🇺",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/98/The_Gabba_Panorama.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "hard_bouncy",
+        "condition": "pace_friendly",
+        "description": "The Gabba is traditionally associated with hard, fast and bouncy conditions; day-night Tests can make the firm pitch and new ball especially demanding.",
+        "grass_level": 20,
+        "dryness": 42,
+        "hardness": 90,
+        "bounce": 88,
+        "spin_assistance": 32,
+        "pace_assistance": 84,
+        "batting_friendly": 61,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/776666104_1014351998094374_1866419129510737628_n.jpg?stp=dst-jpg_tt6&cstp=mx589x1128&ctp=s589x1128&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=lwP2ZKmj-McQ7kNvwH-l8Ix&_nc_oc=AdpyfSEQP17m2uTZEsJrt8qMq-WOIlktKr3r_itsusyPfbG-pWemU22M-6f1WeadgjQ&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQETR1_fOJ1rtcc0NXcSGLuhcIh77Z4X5sprYlL8hhCr3g&oe=6A88B33D"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 3,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 9,
+        "max_penalty": 8
+      },
+      "research_summary": "The researched Australian venue analysis describes a firm Gabba pitch that can remain too hard for the pink ball, while the ground’s historic identity is pace and bounce. Values strongly favor quick bowling, hard surface and high bounce.",
+      "tags": [
+        "pace_friendly",
+        "hard",
+        "bouncy",
+        "firm"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Australian pitches analysis",
+          "url": "https://www.cricinfo.com/story/ashes-2025-26-will-australia-s-pitches-be-juicy-for-the-ashes-1510752"
+        },
+        {
+          "name": "The Gabba reference",
+          "url": "https://en.wikipedia.org/wiki/The_Gabba"
+        }
+      ]
+    },
+    {
+      "id": "basin_reserve",
+      "name": "Basin Reserve",
+      "city": "Wellington",
+      "country": "New Zealand",
+      "country_code": "NZ",
+      "flag": "🇳🇿",
+      "image_url": "https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/155300/155386.3.jpg",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "balanced_batting",
+        "condition": "balanced",
+        "description": "The Basin is generally a good batting surface with quality turf preparation; wind and overhead conditions can aid seamers, but the pitch itself is not a specialist spinner’s venue.",
+        "grass_level": 28,
+        "dryness": 44,
+        "hardness": 70,
+        "bounce": 64,
+        "spin_assistance": 42,
+        "pace_assistance": 61,
+        "batting_friendly": 73,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/777828449_1014351868094387_8804601974413441346_n.jpg?stp=dst-jpg_tt6&cstp=mx699x1160&ctp=s699x1160&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AM0pqfBrKqYQ7kNvwFs8fz9&_nc_oc=AdorbURFhcQoxd-B6a94_PQPRxBGm8kh1rl-04ruKQKkxpgH9PouLCApq2afKi7dI9Y&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=2d5Xko8X3wJ9lPFA5ViDcw&_nc_ss=7b2a8&oh=00_AQFfiWg3UoZBaFNbo2qe49m63OwEPMWQOa1XTToGrw-ZKQ&oe=6A88A6C9"
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 6
+      },
+      "research_summary": "NZC-linked pitch awards recognize the Basin’s high-quality preparation, while Hagley reporting contrasts it with a surface that has become a very nice batting wicket. The values make it balanced, slightly batting-friendly and moderately pace-assisted by local conditions.",
+      "tags": [
+        "balanced",
+        "batting_friendly",
+        "wind",
+        "quality_surface"
+      ],
+      "sources": [
+        {
+          "name": "Cricket Wellington pitch award report",
+          "url": "https://www.cricketwellington.co.nz/newsarticle/90428"
+        },
+        {
+          "name": "ESPNcricinfo Hagley/Basin comparison",
+          "url": "https://www.cricinfo.com/story/all-pace-attack-always-an-option-at-bright-green-hagley-oval-1217833"
+        }
+      ]
+    },
+    {
+      "id": "hagley_oval",
+      "name": "Hagley Oval",
+      "city": "Christchurch",
+      "country": "New Zealand",
+      "country_code": "NZ",
+      "flag": "🇳🇿",
+      "image_url": "https://images.pexels.com/photos/36293965/pexels-photo-36293965/free-photo-of-cricket-match-at-delhi-sports-field.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "green_seaming",
+        "condition": "pace_friendly",
+        "description": "A bright-green, grass-covered surface with pace, carry, swing and seam movement early; statistical venue evidence shows visiting spinners have generally found little assistance.",
+        "grass_level": 52,
+        "dryness": 36,
+        "hardness": 73,
+        "bounce": 77,
+        "spin_assistance": 24,
+        "pace_assistance": 86,
+        "batting_friendly": 59,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/775243689_1014355438094030_7947883373414242628_n.jpg?stp=dst-jpg_tt6&cstp=mx570x1154&ctp=s570x1154&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YN5L4-Az5PIQ7kNvwFnMYFF&_nc_oc=AdqACpxqSaaVAG-92ELPhvFfXxwd70qS7uB_SvW5BCuGW4oxHSYRJhL9XWH3MDamkvk&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=OO5RZ1tleKIgQZpRCSwI-g&_nc_ss=7b2a8&oh=00_AQG8Au9UtlJXkWMW6EVSge0AR4i2Ut9Rwogd_qPYSdEmyw&oe=6A888D5B"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 3,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 9,
+        "max_penalty": 8
+      },
+      "research_summary": "ESPNcricinfo reports 12 mm of grass, likely seam and swing, good pace and carry, and a very poor historical spinner average at Hagley. Values strongly favor seamers while retaining a fair batting contest once the new ball softens.",
+      "tags": [
+        "pace_friendly",
+        "green",
+        "seaming",
+        "swing",
+        "carry"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Hagley Oval pitch analysis",
+          "url": "https://www.cricinfo.com/story/all-pace-attack-always-an-option-at-bright-green-hagley-oval-1217833"
+        },
+        {
+          "name": "Cricket Wellington pitch award report",
+          "url": "https://www.cricketwellington.co.nz/newsarticle/90428"
+        }
+      ]
+    },
+    {
+      "id": "eden_park",
+      "name": "Eden Park",
+      "city": "Auckland",
+      "country": "New Zealand",
+      "country_code": "NZ",
+      "flag": "🇳🇿",
+      "image_url": "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_50/lsci/db/PICTURES/CMS/285300/285383.jpg",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "slow_drop_in",
+        "condition": "batting_friendly",
+        "description": "A drop-in pitch that is generally slowish, good for batting and hard on bowlers, with limited-overs scoring shaped by short square boundaries.",
+        "grass_level": 30,
+        "dryness": 42,
+        "hardness": 72,
+        "bounce": 60,
+        "spin_assistance": 38,
+        "pace_assistance": 48,
+        "batting_friendly": 79,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/776222436_1014351928094381_5130993671396430120_n.jpg?stp=dst-jpg_tt6&cstp=mx622x1100&ctp=s622x1100&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AifU1bd26TMQ7kNvwGAYsh0&_nc_oc=AdpHl8ef9rKi8QU-4wExkMU1WZAKOnYuPVcVAJcR5wkEDaNYEwu-D4oldkEwI61eTBQ&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQHhzyRKv52ULsNbct6U2ZlvqH5hCQbAslcoXuuGwODMSQ&oe=6A888F25"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 2,
+        "medium": 1
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 5
+      },
+      "research_summary": "Cricbuzz describes Eden Park as a slowish drop-in surface that is good for batting and difficult for bowlers. The gameplay profile therefore favors batters and controlled pace rather than high spin or high bounce.",
+      "tags": [
+        "batting_friendly",
+        "slowish",
+        "drop_in",
+        "short_boundaries"
+      ],
+      "sources": [
+        {
+          "name": "Cricbuzz Eden Park venue profile",
+          "url": "https://www.cricbuzz.com/cricket-series/12543/india-tour-of-new-zealand-2026/venues/41/eden-park"
+        },
+        {
+          "name": "Wikimedia Commons Eden Park image record",
+          "url": "https://commons.wikimedia.org/wiki/File:Eden_Park_at_Dusk,_2013,_cropped.jpg"
+        }
+      ],
+      "pitch_profiles": {
+        "ODI": {
+          "type": "slow_batting",
+          "condition": "batting_friendly",
+          "description": "ODI cricket typically preserves Eden Park’s batting value while the slowish drop-in can reward change-ups and cutters.",
+          "grass_level": 32,
+          "dryness": 40,
+          "hardness": 73,
+          "bounce": 61,
+          "spin_assistance": 42,
+          "pace_assistance": 52,
+          "batting_friendly": 80
+        },
+        "T20I": {
+          "type": "slow_batting",
+          "condition": "batting_friendly",
+          "description": "T20I conditions remain batting-oriented because of the ground dimensions, but the slowish surface can reduce clean pace-on hitting.",
+          "grass_level": 35,
+          "dryness": 36,
+          "hardness": 75,
+          "bounce": 62,
+          "spin_assistance": 45,
+          "pace_assistance": 55,
+          "batting_friendly": 78
+        }
+      }
+    },
+    {
+      "id": "lords",
+      "name": "Lord’s Cricket Ground",
+      "city": "London",
+      "country": "England",
+      "country_code": "GB",
+      "flag": "🇬🇧",
+      "image_url": "https://hips.hearstapps.com/hmg-prod/images/gettyimages-81916159-1660306406.jpg?crop=0.8893229166666666xw:1xh;center,top&resize=1200:*",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "grassy_seaming",
+        "condition": "pace_friendly",
+        "description": "The slope, grass and overhead conditions can produce seam movement and variable bounce; recent Test reporting described fast-bowling dominance and a surface that made batting unusually difficult.",
+        "grass_level": 48,
+        "dryness": 40,
+        "hardness": 70,
+        "bounce": 76,
+        "spin_assistance": 23,
+        "pace_assistance": 86,
+        "batting_friendly": 47,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/775243689_1014355438094030_7947883373414242628_n.jpg?stp=dst-jpg_tt6&cstp=mx570x1154&ctp=s570x1154&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YN5L4-Az5PIQ7kNvwFnMYFF&_nc_oc=AdqACpxqSaaVAG-92ELPhvFfXxwd70qS7uB_SvW5BCuGW4oxHSYRJhL9XWH3MDamkvk&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=OO5RZ1tleKIgQZpRCSwI-g&_nc_ss=7b2a8&oh=00_AQG8Au9UtlJXkWMW6EVSge0AR4i2Ut9Rwogd_qPYSdEmyw&oe=6A888D5B"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 3,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 9,
+        "max_penalty": 9
+      },
+      "research_summary": "Lord’s is treated as a seam-and-slope venue in this dataset. Recent ESPNcricinfo reporting documents variable bounce, seam movement and almost no spin used across two days, so pace receives the strongest recommendation.",
+      "tags": [
+        "pace_friendly",
+        "grassy",
+        "seaming",
+        "slope",
+        "variable_bounce"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Lord’s pitch report",
+          "url": "https://www.cricinfo.com/story/england-vs-new-zealand-1st-test-nasser-hussain-michael-vaughan-criticise-lord-s-pitch-1539840"
+        },
+        {
+          "name": "Wikimedia Commons Lord’s image record",
+          "url": "https://commons.wikimedia.org/wiki/File:Lords-Cricket-Ground-Pavilion-06-08-2017.jpg"
+        }
+      ]
+    },
+    {
+      "id": "the_oval",
+      "name": "The Oval",
+      "city": "London",
+      "country": "England",
+      "country_code": "GB",
+      "flag": "🇬🇧",
+      "image_url": "https://sportsmatik.com/uploads/wiki-venues/the-oval_1581079491.jpg",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "true_grassy",
+        "condition": "balanced_to_batting",
+        "description": "A high-quality London Test surface that commonly offers early seam and swing before becoming a truer batting wicket; the fast outfield improves scoring once batters settle.",
+        "grass_level": 38,
+        "dryness": 36,
+        "hardness": 73,
+        "bounce": 65,
+        "spin_assistance": 30,
+        "pace_assistance": 67,
+        "batting_friendly": 74,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/777828449_1014351868094387_8804601974413441346_n.jpg?stp=dst-jpg_tt6&cstp=mx699x1160&ctp=s699x1160&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AM0pqfBrKqYQ7kNvwFs8fz9&_nc_oc=AdorbURFhcQoxd-B6a94_PQPRxBGm8kh1rl-04ruKQKkxpgH9PouLCApq2afKi7dI9Y&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=2d5Xko8X3wJ9lPFA5ViDcw&_nc_ss=7b2a8&oh=00_AQFfiWg3UoZBaFNbo2qe49m63OwEPMWQOa1XTToGrw-ZKQ&oe=6A88A6C9"
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 6
+      },
+      "research_summary": "The Oval is represented as a balanced-to-batting English venue: enough grass and overhead movement for early pace assistance, but a hard, true surface and fast outfield that support later scoring.",
+      "tags": [
+        "balanced",
+        "batting_friendly",
+        "early_seam",
+        "fast_outfield"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Kennington Oval ground profile",
+          "url": "https://www.cricinfo.com/cricket-grounds/kennington-oval-london-57127"
+        },
+        {
+          "name": "Wikimedia Commons Oval image record",
+          "url": "https://commons.wikimedia.org/wiki/File:The_Kia_Oval_-_geograph.org.uk_-_4645561.jpg"
+        }
+      ]
+    },
+    {
+      "id": "trent_bridge",
+      "name": "Trent Bridge",
+      "city": "Nottingham",
+      "country": "England",
+      "country_code": "GB",
+      "flag": "🇬🇧",
+      "image_url": "https://images.pexels.com/photos/36741130/pexels-photo-36741130/free-photo-of-vibrant-night-cricket-match-in-ahmedabad-stadium.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "true_batting_seam",
+        "condition": "batting_friendly",
+        "description": "Traditionally a superb batting surface with true bounce and a fast outfield, while atmospheric English conditions and the new ball can still create seam movement.",
+        "grass_level": 36,
+        "dryness": 34,
+        "hardness": 72,
+        "bounce": 68,
+        "spin_assistance": 28,
+        "pace_assistance": 62,
+        "batting_friendly": 82,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/776222436_1014351928094381_5130993671396430120_n.jpg?stp=dst-jpg_tt6&cstp=mx622x1100&ctp=s622x1100&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AifU1bd26TMQ7kNvwGAYsh0&_nc_oc=AdpHl8ef9rKi8QU-4wExkMU1WZAKOnYuPVcVAJcR5wkEDaNYEwu-D4oldkEwI61eTBQ&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQHhzyRKv52ULsNbct6U2ZlvqH5hCQbAslcoXuuGwODMSQ&oe=6A888F25"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 2,
+        "medium": 1
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 5
+      },
+      "research_summary": "The Sporting News pitch report characterizes Trent Bridge as superb for batting, with true bounce and pace rewarding strokeplay. The values retain moderate new-ball seam assistance but make batting the clear venue identity.",
+      "tags": [
+        "batting_friendly",
+        "true_bounce",
+        "fast_outfield",
+        "early_seam"
+      ],
+      "sources": [
+        {
+          "name": "The Sporting News Trent Bridge pitch report",
+          "url": "https://sports.yahoo.com/articles/trent-bridge-pitch-report-t20i-141243401.html"
+        },
+        {
+          "name": "Wikimedia Commons Trent Bridge image record",
+          "url": "https://commons.wikimedia.org/wiki/File:Trent_Bridge_Cricket_Ground,_new_ticket_office_-_geograph.org.uk_-_2363398.jpg"
+        }
+      ]
+    },
+    {
+      "id": "headingley",
+      "name": "Headingley",
+      "city": "Leeds",
+      "country": "England",
+      "country_code": "GB",
+      "flag": "🇬🇧",
+      "image_url": "https://images.pexels.com/photos/31739439/pexels-photo-31739439/free-photo-of-panoramic-view-of-famous-cricket-stadium.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "variable_seaming",
+        "condition": "pace_friendly",
+        "description": "A variable wicket that particularly under cloud cover aids seam bowling; the surface can offer movement and unevenness while still producing major scores when conditions ease.",
+        "grass_level": 46,
+        "dryness": 34,
+        "hardness": 68,
+        "bounce": 70,
+        "spin_assistance": 25,
+        "pace_assistance": 79,
+        "batting_friendly": 59,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/775243689_1014355438094030_7947883373414242628_n.jpg?stp=dst-jpg_tt6&cstp=mx570x1154&ctp=s570x1154&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YN5L4-Az5PIQ7kNvwFnMYFF&_nc_oc=AdqACpxqSaaVAG-92ELPhvFfXxwd70qS7uB_SvW5BCuGW4oxHSYRJhL9XWH3MDamkvk&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=OO5RZ1tleKIgQZpRCSwI-g&_nc_ss=7b2a8&oh=00_AQG8Au9UtlJXkWMW6EVSge0AR4i2Ut9Rwogd_qPYSdEmyw&oe=6A888D5B"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 3,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 8,
+        "max_penalty": 8
+      },
+      "research_summary": "The ESPNcricinfo ground profile explicitly calls the wicket variable and seam-aiding under cloud cover. Values give Headingley a strong pace identity, moderate bounce and only middling batting friendliness.",
+      "tags": [
+        "pace_friendly",
+        "variable",
+        "seaming",
+        "cloud_assisted"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Headingley ground profile",
+          "url": "https://www.cricinfo.com/cricket-grounds/headingley-leeds-57092"
+        },
+        {
+          "name": "Wikimedia Commons Headingley image record",
+          "url": "https://commons.wikimedia.org/wiki/File:HeadingleyOblique.jpg"
+        }
+      ]
+    },
+    {
+      "id": "newlands",
+      "name": "Newlands Cricket Ground",
+      "city": "Cape Town",
+      "country": "South Africa",
+      "country_code": "ZA",
+      "flag": "🇿🇦",
+      "image_url": "https://images.pexels.com/photos/31504485/pexels-photo-31504485/free-photo-of-vintage-afl-match-at-melbourne-cricket-ground.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "quick_seaming",
+        "condition": "pace_friendly",
+        "description": "Newlands usually offers a good batting contest but can become very quick, seam-friendly and uneven in bounce; the 2024 Test produced steep and low bounce from different ends.",
+        "grass_level": 34,
+        "dryness": 32,
+        "hardness": 82,
+        "bounce": 84,
+        "spin_assistance": 24,
+        "pace_assistance": 86,
+        "batting_friendly": 55,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/775243689_1014355438094030_7947883373414242628_n.jpg?stp=dst-jpg_tt6&cstp=mx570x1154&ctp=s570x1154&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YN5L4-Az5PIQ7kNvwFnMYFF&_nc_oc=AdqACpxqSaaVAG-92ELPhvFfXxwd70qS7uB_SvW5BCuGW4oxHSYRJhL9XWH3MDamkvk&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=OO5RZ1tleKIgQZpRCSwI-g&_nc_ss=7b2a8&oh=00_AQG8Au9UtlJXkWMW6EVSge0AR4i2Ut9Rwogd_qPYSdEmyw&oe=6A888D5B"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 3,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 9,
+        "max_penalty": 9
+      },
+      "research_summary": "ESPNcricinfo’s reporting records surprising pace, seam movement and inconsistent bounce at Newlands, while also noting that historical wickets have often been good. The values favor pace and bounce but avoid making batting impossible in the general profile.",
+      "tags": [
+        "pace_friendly",
+        "quick",
+        "seaming",
+        "variable_bounce"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Newlands pitch report",
+          "url": "https://www.cricinfo.com/story/south-africa-baffled-by-newlands-conditions-never-seen-a-pitch-that-quick-on-day-one-1415436"
+        },
+        {
+          "name": "Wikimedia Commons Newlands image record",
+          "url": "https://commons.wikimedia.org/wiki/File:Newlands_Cricket_Ground.jpg"
+        }
+      ]
+    },
+    {
+      "id": "wanderers_stadium",
+      "name": "Wanderers Stadium",
+      "city": "Johannesburg",
+      "country": "South Africa",
+      "country_code": "ZA",
+      "flag": "🇿🇦",
+      "image_url": "https://images.pexels.com/photos/29949985/pexels-photo-29949985/free-photo-of-vibrant-cricket-match-at-melbourne-cricket-ground.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "hard_high_bounce",
+        "condition": "pace_friendly",
+        "description": "The Highveld venue is renowned for a hard surface, substantial carry and high bounce; pace bowlers can extract steep bounce, while the altitude also increases scoring potential.",
+        "grass_level": 25,
+        "dryness": 30,
+        "hardness": 88,
+        "bounce": 94,
+        "spin_assistance": 22,
+        "pace_assistance": 89,
+        "batting_friendly": 69,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/776666104_1014351998094374_1866419129510737628_n.jpg?stp=dst-jpg_tt6&cstp=mx589x1128&ctp=s589x1128&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=lwP2ZKmj-McQ7kNvwH-l8Ix&_nc_oc=AdpyfSEQP17m2uTZEsJrt8qMq-WOIlktKr3r_itsusyPfbG-pWemU22M-6f1WeadgjQ&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQETR1_fOJ1rtcc0NXcSGLuhcIh77Z4X5sprYlL8hhCr3g&oe=6A88B33D"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 3,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 9,
+        "max_penalty": 8
+      },
+      "research_summary": "Wanderers is normalized as South Africa’s most overtly bouncy pace venue in this set. High hardness, altitude and carry make fast bowling strategically important, but batting remains dangerous once players adjust.",
+      "tags": [
+        "pace_friendly",
+        "hard",
+        "very_bouncy",
+        "high_altitude"
+      ],
+      "sources": [
+        {
+          "name": "Wanderers Stadium reference",
+          "url": "https://en.wikipedia.org/wiki/Wanderers_Stadium"
+        },
+        {
+          "name": "ESPNcricinfo South Africa grounds directory",
+          "url": "https://www.espncricinfo.com/cricket-grounds/country/south-africa-3"
+        }
+      ]
+    },
+    {
+      "id": "kingsmead",
+      "name": "Kingsmead",
+      "city": "Durban",
+      "country": "South Africa",
+      "country_code": "ZA",
+      "flag": "🇿🇦",
+      "image_url": "https://images.pexels.com/photos/37604739/pexels-photo-37604739/free-photo-of-cricket-match-in-a-sunlit-stadium.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "humid_seaming",
+        "condition": "pace_friendly",
+        "description": "A humid coastal venue where the new ball can swing and seam; the surface is generally more helpful to pace than spin, with moderate bounce and a fair batting contest.",
+        "grass_level": 38,
+        "dryness": 34,
+        "hardness": 72,
+        "bounce": 68,
+        "spin_assistance": 28,
+        "pace_assistance": 76,
+        "batting_friendly": 62,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/775243689_1014355438094030_7947883373414242628_n.jpg?stp=dst-jpg_tt6&cstp=mx570x1154&ctp=s570x1154&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YN5L4-Az5PIQ7kNvwFnMYFF&_nc_oc=AdqACpxqSaaVAG-92ELPhvFfXxwd70qS7uB_SvW5BCuGW4oxHSYRJhL9XWH3MDamkvk&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=OO5RZ1tleKIgQZpRCSwI-g&_nc_ss=7b2a8&oh=00_AQG8Au9UtlJXkWMW6EVSge0AR4i2Ut9Rwogd_qPYSdEmyw&oe=6A888D5B"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 3,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 8,
+        "max_penalty": 7
+      },
+      "research_summary": "Kingsmead receives a moderate pace-friendly profile based on its humid coastal setting and South African seam reputation. It is less extreme than Wanderers or Newlands, so batting and pace are both viable.",
+      "tags": [
+        "pace_friendly",
+        "humid",
+        "swing",
+        "seaming"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Kingsmead ground profile",
+          "url": "https://www.cricinfo.com/cricket-grounds/kingsmead-durban-59089"
+        },
+        {
+          "name": "Wikimedia Commons Kingsmead image record",
+          "url": "https://commons.wikimedia.org/wiki/File:Kingsmead_Panorama.JPG"
+        }
+      ]
+    },
+    {
+      "id": "kensington_oval",
+      "name": "Kensington Oval",
+      "city": "Bridgetown",
+      "country": "Barbados",
+      "country_code": "BB",
+      "flag": "🇧🇧",
+      "image_url": "https://images.pexels.com/photos/30678437/pexels-photo-30678437/free-photo-of-cricket-match-at-vibrant-outdoor-stadium.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "hard_bouncy",
+        "condition": "pace_friendly",
+        "description": "Barbados traditionally offers a hard, quick surface with carry and bounce, while the ground’s prepared pitches can become good batting wickets once the initial pace movement fades.",
+        "grass_level": 24,
+        "dryness": 29,
+        "hardness": 86,
+        "bounce": 88,
+        "spin_assistance": 27,
+        "pace_assistance": 82,
+        "batting_friendly": 67,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/776666104_1014351998094374_1866419129510737628_n.jpg?stp=dst-jpg_tt6&cstp=mx589x1128&ctp=s589x1128&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=lwP2ZKmj-McQ7kNvwH-l8Ix&_nc_oc=AdpyfSEQP17m2uTZEsJrt8qMq-WOIlktKr3r_itsusyPfbG-pWemU22M-6f1WeadgjQ&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQETR1_fOJ1rtcc0NXcSGLuhcIh77Z4X5sprYlL8hhCr3g&oe=6A88B33D"
+      },
+      "recommended_attack": {
+        "spinner": 1,
+        "pace": 3,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 9,
+        "max_penalty": 8
+      },
+      "research_summary": "Kensington Oval is assigned a hard, bouncy Caribbean identity: high pace assistance and bounce, low dryness and grass sufficient for movement. Batting remains attractive because the true surface rewards shots after the new-ball phase.",
+      "tags": [
+        "pace_friendly",
+        "hard",
+        "bouncy",
+        "true_bounce"
+      ],
+      "sources": [
+        {
+          "name": "Kensington Oval reference",
+          "url": "https://en.wikipedia.org/wiki/Kensington_Oval"
+        },
+        {
+          "name": "ESPNcricinfo grounds records reference",
+          "url": "https://www.cricinfo.com/records/most-matches-on-a-single-ground-284272"
+        }
+      ]
+    },
+    {
+      "id": "sabina_park",
+      "name": "Sabina Park",
+      "city": "Kingston",
+      "country": "Jamaica",
+      "country_code": "JM",
+      "flag": "🇯🇲",
+      "image_url": "https://images.pexels.com/photos/37641499/pexels-photo-37641499/free-photo-of-arun-jaitley-stadium-cricket-ground-in-new-delhi.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "hard_to_slow",
+        "condition": "balanced_to_pace",
+        "description": "Sabina Park is in Kingston’s dry area and was historically one of the Caribbean’s hardest and fastest pitches, but the surface has slowed in recent years despite relaying efforts.",
+        "grass_level": 28,
+        "dryness": 57,
+        "hardness": 80,
+        "bounce": 69,
+        "spin_assistance": 31,
+        "pace_assistance": 69,
+        "batting_friendly": 61,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/777828449_1014351868094387_8804601974413441346_n.jpg?stp=dst-jpg_tt6&cstp=mx699x1160&ctp=s699x1160&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AM0pqfBrKqYQ7kNvwFs8fz9&_nc_oc=AdorbURFhcQoxd-B6a94_PQPRxBGm8kh1rl-04ruKQKkxpgH9PouLCApq2afKi7dI9Y&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=2d5Xko8X3wJ9lPFA5ViDcw&_nc_ss=7b2a8&oh=00_AQFfiWg3UoZBaFNbo2qe49m63OwEPMWQOa1XTToGrw-ZKQ&oe=6A88A6C9"
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 8,
+        "max_penalty": 8
+      },
+      "research_summary": "The Cricinfo ground profile provides a clear historical change: very hard and fast in earlier eras, slower in recent years. The dataset preserves both identities through high hardness, moderate dryness and a balanced attack recommendation.",
+      "tags": [
+        "balanced",
+        "hard",
+        "historically_fast",
+        "slowed"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Sabina Park ground profile",
+          "url": "https://www.cricinfo.com/cricket-grounds/sabina-park-kingston-jamaica-59458"
+        },
+        {
+          "name": "Cricket West Indies official venue update",
+          "url": "https://www.windiescricket.com/news/all-systems-go-for-historic-daynight-test-at-sabina-park/"
+        }
+      ]
+    },
+    {
+      "id": "sharjah_cricket_stadium",
+      "name": "Sharjah Cricket Stadium",
+      "city": "Sharjah",
+      "country": "United Arab Emirates",
+      "country_code": "AE",
+      "flag": "🇦🇪",
+      "image_url": "https://sharjahcricket.ae/_next/image?url=https%3A%2F%2Fempedance.sgp1.digitaloceanspaces.com%2Fsharjah_stadium%2F1752574687424_whatsapp-image-2025-07-15-at-11.53.15-am.webp&w=3840&q=75",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "slow_low",
+        "condition": "spin_friendly",
+        "description": "A traditionally slow and low surface where grip and turn increase as innings progress; pacers may find limited new-ball help but spinners control the middle overs.",
+        "grass_level": 17,
+        "dryness": 73,
+        "hardness": 55,
+        "bounce": 42,
+        "spin_assistance": 83,
+        "pace_assistance": 29,
+        "batting_friendly": 53,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/774236860_1014351874761053_2243917799525328925_n.jpg?stp=dst-jpg_tt6&cstp=mx663x1086&ctp=s663x1086&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Map7czz43tkQ7kNvwG681wd&_nc_oc=Adpq5e6op8yK42nHMYTpvV7ygobDABuTIzMRzHtfHjB4dAe98qqhRsZsqloKPcmmqXE&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQH86no65ZTlaA-X7oVq6McXYjljDjDOz18K4awa1uTX0g&oe=6A88A4E8"
+      },
+      "recommended_attack": {
+        "spinner": 3,
+        "pace": 1,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 8,
+        "max_penalty": 8
+      },
+      "research_summary": "Sporting News describes Sharjah’s T20 wicket as slow, low and spin-friendly, with turn from both ends and grip as the innings progresses. Cricbuzz records also show a lower second-innings average, supporting a difficult chase profile.",
+      "tags": [
+        "spin_friendly",
+        "slow",
+        "low_bounce",
+        "grip",
+        "dry"
+      ],
+      "sources": [
+        {
+          "name": "The Sporting News Sharjah pitch report",
+          "url": "https://www.sportingnews.com/in/betting/news/sharjah-cricket-stadium-pitch-report-records-highest-scores/9255ce4368ef492c5cb1886c"
+        },
+        {
+          "name": "Cricbuzz Sharjah venue records",
+          "url": "https://www.cricbuzz.com/cricket-series/10091/west-indies-vs-nepal-in-uae-2025/venues/140/sharjah-cricket-stadium"
+        }
+      ],
+      "pitch_profiles": {
+        "T20I": {
+          "type": "slow_low",
+          "condition": "spin_friendly",
+          "description": "The T20I profile is directly supported by the venue report: slow-low bounce, grip, turn and lower average second innings scoring.",
+          "grass_level": 15,
+          "dryness": 78,
+          "hardness": 54,
+          "bounce": 39,
+          "spin_assistance": 88,
+          "pace_assistance": 24,
+          "batting_friendly": 49
+        }
+      }
+    },
+    {
+      "id": "dubai_international_cricket_stadium",
+      "name": "Dubai International Cricket Stadium",
+      "city": "Dubai",
+      "country": "United Arab Emirates",
+      "country_code": "AE",
+      "flag": "🇦🇪",
+      "image_url": "https://images.pexels.com/photos/36230651/pexels-photo-36230651/free-photo-of-night-cricket-match-at-narendra-modi-stadium.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "flat_dry_dew",
+        "condition": "batting_friendly",
+        "description": "Dubai generally offers batting-friendly surfaces with some live grass early, strong heat and dryness by day, and dew or shadow effects that can change the chase.",
+        "grass_level": 23,
+        "dryness": 66,
+        "hardness": 70,
+        "bounce": 55,
+        "spin_assistance": 49,
+        "pace_assistance": 48,
+        "batting_friendly": 76,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/774236860_1014351874761053_2243917799525328925_n.jpg?stp=dst-jpg_tt6&cstp=mx663x1086&ctp=s663x1086&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Map7czz43tkQ7kNvwG681wd&_nc_oc=Adpq5e6op8yK42nHMYTpvV7ygobDABuTIzMRzHtfHjB4dAe98qqhRsZsqloKPcmmqXE&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQH86no65ZTlaA-X7oVq6McXYjljDjDOz18K4awa1uTX0g&oe=6A88A4E8"
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 6
+      },
+      "research_summary": "The Indian Express report describes Dubai as largely batting-friendly with a little live grass, daytime heat, a shadow effect and slight night dew. Values therefore combine dryness with moderate hardness and high batting friendliness rather than a pure spin profile.",
+      "tags": [
+        "batting_friendly",
+        "dry",
+        "dew",
+        "live_grass",
+        "variable_conditions"
+      ],
+      "sources": [
+        {
+          "name": "The Indian Express Dubai pitch report",
+          "url": "https://indianexpress.com/article/sports/cricket/dubai-champions-trophy-pitch-report-weather-india-spin-tactic-9836675/"
+        },
+        {
+          "name": "ESPNcricinfo Dubai ground records",
+          "url": "https://www.espncricinfo.com/records/ground/dubai-international-cricket-stadium-2439"
+        }
+      ],
+      "pitch_profiles": {
+        "ODI": {
+          "type": "dry_batting",
+          "condition": "batting_friendly",
+          "description": "ODI matches emphasize the flat, high-scoring side of Dubai, with heat and a dry surface but occasional dew in night games.",
+          "grass_level": 20,
+          "dryness": 70,
+          "hardness": 72,
+          "bounce": 57,
+          "spin_assistance": 52,
+          "pace_assistance": 47,
+          "batting_friendly": 79
+        },
+        "T20I": {
+          "type": "dry_dew",
+          "condition": "batting_friendly",
+          "description": "T20I conditions remain batting-friendly, but dew and slower night surfaces can bring cutters and spin into the match.",
+          "grass_level": 25,
+          "dryness": 62,
+          "hardness": 68,
+          "bounce": 53,
+          "spin_assistance": 57,
+          "pace_assistance": 44,
+          "batting_friendly": 78
+        }
+      }
+    },
+    {
+      "id": "tribhuvan_university_international_cricket_ground",
+      "name": "Tribhuvan University International Cricket Ground",
+      "city": "Kirtipur",
+      "country": "Nepal",
+      "country_code": "NP",
+      "flag": "🇳🇵",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/TU_Stadium_2025.jpg",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "balanced_with_late_spin",
+        "condition": "balanced",
+        "description": "A high-altitude grass surface generally offering a balanced contest: new-ball movement can aid fast bowlers, batters score once settled, and spinners become more relevant through the middle overs.",
+        "grass_level": 32,
+        "dryness": 52,
+        "hardness": 66,
+        "bounce": 58,
+        "spin_assistance": 55,
+        "pace_assistance": 58,
+        "batting_friendly": 68,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/775243689_1014355438094030_7947883373414242628_n.jpg?stp=dst-jpg_tt6&cstp=mx570x1154&ctp=s570x1154&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YN5L4-Az5PIQ7kNvwFnMYFF&_nc_oc=AdqACpxqSaaVAG-92ELPhvFfXxwd70qS7uB_SvW5BCuGW4oxHSYRJhL9XWH3MDamkvk&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=OO5RZ1tleKIgQZpRCSwI-g&_nc_ss=7b2a8&oh=00_AQG8Au9UtlJXkWMW6EVSge0AR4i2Ut9Rwogd_qPYSdEmyw&oe=6A888D5B"
+      },
+      "pitch_profiles": {
+        "ODI": {
+          "type": "balanced",
+          "condition": "balanced",
+          "description": "ODI conditions at TU are supported by a balanced bat-ball reputation with early seam and increasing spin influence as the innings develops.",
+          "grass_level": 30,
+          "dryness": 50,
+          "hardness": 67,
+          "bounce": 60,
+          "spin_assistance": 57,
+          "pace_assistance": 60,
+          "batting_friendly": 69
+        },
+        "T20I": {
+          "type": "balanced_batting",
+          "condition": "balanced",
+          "description": "Short-format conditions are slightly more batting-friendly once the new ball softens, while spinners retain middle-over value.",
+          "grass_level": 35,
+          "dryness": 45,
+          "hardness": 70,
+          "bounce": 61,
+          "spin_assistance": 52,
+          "pace_assistance": 55,
+          "batting_friendly": 74
+        }
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 7
+      },
+      "research_summary": "The NPL venue profile describes TU as balanced: fast bowlers can find new-ball movement, batters score freely after settling, and spinners become more influential later. ESPNcricinfo identifies it as Nepal’s established international venue, so the values are balanced rather than strongly spin- or pace-led.",
+      "tags": [
+        "balanced",
+        "new_ball_seam",
+        "late_spin",
+        "high_altitude",
+        "grass_surface"
+      ],
+      "sources": [
+        {
+          "name": "NPL venue pitch and playing conditions",
+          "url": "https://nplt20league.com/npl-venue/tribhuvan-university-cricket-ground-kirtipur/"
+        },
+        {
+          "name": "ESPNcricinfo TU ground records",
+          "url": "https://www.cricinfo.com/records/ground/nep-tribhuvan-university-international-cricket-ground-kirtipur-1939"
+        },
+        {
+          "name": "Wikimedia Commons image record",
+          "url": "https://commons.wikimedia.org/wiki/File:TU_Stadium_2025.jpg"
+        }
+      ]
+    },
+    {
+      "id": "mulpani_cricket_ground",
+      "name": "Mulpani Cricket Ground",
+      "city": "Kathmandu",
+      "country": "Nepal",
+      "country_code": "NP",
+      "flag": "🇳🇵",
+      "image_url": "https://images.pexels.com/photos/2799556/pexels-photo-2799556.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "dry_seaming_balanced",
+        "condition": "balanced_to_pace",
+        "description": "A relatively dry Kathmandu surface with a documented seam-bowling identity, good enough pace and bounce for strokeplay, and increasing spin potential as the surface wears.",
+        "grass_level": 38,
+        "dryness": 62,
+        "hardness": 68,
+        "bounce": 64,
+        "spin_assistance": 48,
+        "pace_assistance": 68,
+        "batting_friendly": 64,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/774236860_1014351874761053_2243917799525328925_n.jpg?stp=dst-jpg_tt6&cstp=mx663x1086&ctp=s663x1086&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Map7czz43tkQ7kNvwG681wd&_nc_oc=Adpq5e6op8yK42nHMYTpvV7ygobDABuTIzMRzHtfHjB4dAe98qqhRsZsqloKPcmmqXE&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=4kzLOCbRzuMRJeQ_miL7FA&_nc_ss=7b2a8&oh=00_AQH86no65ZTlaA-X7oVq6McXYjljDjDOz18K4awa1uTX0g&oe=6A88A4E8"
+      },
+      "pitch_profiles": {
+        "ODI": {
+          "type": "dry_seaming",
+          "condition": "balanced_to_pace",
+          "description": "The ODI sample is limited but shows a competitive first-innings scoring environment; the venue’s established reputation gives early pace a small edge.",
+          "grass_level": 35,
+          "dryness": 65,
+          "hardness": 70,
+          "bounce": 66,
+          "spin_assistance": 44,
+          "pace_assistance": 72,
+          "batting_friendly": 61
+        },
+        "T20I": {
+          "type": "dry_balanced",
+          "condition": "balanced",
+          "description": "T20 records show moderate scoring and a balanced contest, with dry conditions bringing spin into the middle overs without overwhelming batters.",
+          "grass_level": 40,
+          "dryness": 57,
+          "hardness": 66,
+          "bounce": 61,
+          "spin_assistance": 57,
+          "pace_assistance": 58,
+          "batting_friendly": 67
+        }
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 7
+      },
+      "research_summary": "ESPNcricinfo describes Mulpani as a potential neutral venue whose pitch was expected to assist seam bowling, while Cricbuzz records an ODI average first innings of 236 and lower T20 scoring averages. The normalized profile therefore combines a dry surface, moderate pace/bounce assistance and balanced batting conditions.",
+      "tags": [
+        "balanced",
+        "dry",
+        "seam_assist",
+        "late_spin",
+        "new_international_venue"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Mulpani venue feature",
+          "url": "https://www.cricinfo.com/story/nepal-looks-to-make-case-as-neutral-venue-760605"
+        },
+        {
+          "name": "ESPNcricinfo Mulpani ground profile",
+          "url": "https://www.cricinfo.com/cricket-grounds/mulpani-cricket-ground-1147785"
+        },
+        {
+          "name": "Cricbuzz Mulpani venue records",
+          "url": "https://www.cricbuzz.com/cricket-series/7572/icc-cricket-world-cup-league-two-2023-27/venues/1489/mulpani-cricket-ground"
+        },
+        {
+          "name": "Wikimedia Commons image record",
+          "url": "https://commons.wikimedia.org/wiki/File:Mulpani_cricket_ground.jpg"
+        }
+      ]
+    },
+    {
+      "id": "wanderers_cricket_ground_windhoek",
+      "name": "Wanderers Cricket Ground",
+      "city": "Windhoek",
+      "country": "Namibia",
+      "country_code": "NA",
+      "flag": "🇳🇦",
+      "image_url": "https://images.pexels.com/photos/30387506/pexels-photo-30387506/free-photo-of-dynamic-cricket-match-in-action-on-a-sunny-day.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "image_source": "Pexels direct CDN image URL",
+      "pitch": {
+        "type": "dry_balanced",
+        "condition": "balanced",
+        "description": "A dry Windhoek surface offering a balanced contest: good pace and bounce support strokeplay, early movement can aid seamers, and spin becomes more relevant as the surface dries.",
+        "grass_level": 28,
+        "dryness": 70,
+        "hardness": 72,
+        "bounce": 68,
+        "spin_assistance": 48,
+        "pace_assistance": 58,
+        "batting_friendly": 70,
+        "image_url": "https://scontent.fktm20-1.fna.fbcdn.net/v/t39.30808-6/777828449_1014351868094387_8804601974413441346_n.jpg?stp=dst-jpg_tt6&cstp=mx699x1160&ctp=s699x1160&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AM0pqfBrKqYQ7kNvwFs8fz9&_nc_oc=AdorbURFhcQoxd-B6a94_PQPRxBGm8kh1rl-04ruKQKkxpgH9PouLCApq2afKi7dI9Y&_nc_zt=23&_nc_ht=scontent.fktm20-1.fna&_nc_gid=2d5Xko8X3wJ9lPFA5ViDcw&_nc_ss=7b2a8&oh=00_AQFfiWg3UoZBaFNbo2qe49m63OwEPMWQOa1XTToGrw-ZKQ&oe=6A88A6C9"
+      },
+      "recommended_attack": {
+        "spinner": 2,
+        "pace": 2,
+        "medium": 0
+      },
+      "modifiers": {
+        "max_bonus": 7,
+        "max_penalty": 7
+      },
+      "research_summary": "The Cricinfo ground profile confirms Wanderers as a Namibia international venue. A 2025 match pitch report describes a balanced surface with good pace and bounce, early new-ball movement, dry-surface spin later and competitive first-innings totals around 250–270. Values reflect a dry but broadly balanced venue.",
+      "tags": [
+        "balanced",
+        "dry",
+        "good_bounce",
+        "early_seam",
+        "late_spin"
+      ],
+      "sources": [
+        {
+          "name": "ESPNcricinfo Wanderers Windhoek ground profile",
+          "url": "https://www.cricinfo.com/cricket-grounds/wanderers-cricket-ground-windhoek-58678"
+        },
+        {
+          "name": "Cricket Fast Live Line pitch report",
+          "url": "https://cricketfastliveline.in/cricket-analysis/namibia-vs-netherlands-one-day-2nd-odi-match-pitch-report/226533"
+        },
+        {
+          "name": "Namibia cricket grounds directory",
+          "url": "https://www.cricinfo.com/cricket-grounds/country/namibia-28"
+        }
+      ]
+    }
+  ]
+}

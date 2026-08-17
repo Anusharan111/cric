@@ -24,12 +24,21 @@ import {
   LogIn
 } from "lucide-react";
 
-import { Character, CricketPlayer, MatchHistory, RoleId, SlottedTeam, BattleReport, MatchType } from "./types";
+import { Character, CricketPlayer, MatchHistory, RoleId, SlottedTeam, BattleReport, MatchType, Stadium, StadiumPitchProfile } from "./types";
 import { ROLE_CATEGORIES } from "./data/roles";
 import { CHARACTERS } from "./data/characters";
+import { getRandomStadium, getStadiumById, getPitchProfile } from "./data/stadiums";
 import CharacterCard from "./components/common/CharacterCard";
 import TeamSlots from "./components/common/TeamSlots";
 import DeployModal from "./components/ui/DeployModal";
+import StadiumHUD from "./components/common/StadiumHUD";
+
+const PITCH_STATS: { key: keyof StadiumPitchProfile; label: string; dot: string }[] = [
+  { key: "grass_level", label: "GRASS", dot: "bg-emerald-400" },
+  { key: "dryness", label: "DRYNESS", dot: "bg-amber-400" },
+  { key: "hardness", label: "HARDNESS", dot: "bg-slate-300" },
+  { key: "bounce", label: "BOUNCE", dot: "bg-sky-400" },
+];
 import AnimeFeudGame from "./pages/AnimeFeudGame";
 import AnimeGuessWhoGame from "./pages/AnimeGuessWhoGame";
 import AnimePartyGames from "./pages/AnimePartyGames";
@@ -416,6 +425,16 @@ export default function App() {
   // Randomly rolled once per match at game start (T20I or ODI).
   const [matchType, setMatchType] = useState<MatchType>("T20I");
   const rollMatchType = () => setMatchType(Math.random() < 0.5 ? "ODI" : "T20I");
+
+  // Randomly selected once per match at game start; shared by both players.
+  const [stadium, setStadium] = useState<Stadium | null>(null);
+  const [stadiumBgReady, setStadiumBgReady] = useState(false);
+  const rollStadium = (): Stadium => {
+    const rolled = getRandomStadium();
+    setStadium(rolled);
+    setStadiumBgReady(false);
+    return rolled;
+  };
 
   // Tactical Roles: Captain (C), Vice Captain (VC), and Wicketkeeper (WK) designated by dragging badges.
   const [captainRoleId, setCaptainRoleId] = useState<{ p1: RoleId | null; p2: RoleId | null }>({ p1: null, p2: null });
@@ -1029,7 +1048,7 @@ useEffect(() => {
       }
     });
 
-    channel.bind("client-game-started", ({ roomId: rid, p1Name, p2Name, activeAnimes, useAll, matchType: mt, p1AllowedCountries: p1Allowed, p2AllowedCountries: p2Allowed }: any) => {
+    channel.bind("client-game-started", ({ roomId: rid, p1Name, p2Name, activeAnimes, useAll, matchType: mt, stadiumId, p1AllowedCountries: p1Allowed, p2AllowedCountries: p2Allowed }: any) => {
       console.log("client-game-started received:", { rid, p1Name, p2Name, activeAnimes, useAll, p1Allowed, p2Allowed });
       setOnlineRoomId(rid);
       onlineRoomIdRef.current = rid;
@@ -1050,6 +1069,7 @@ useEffect(() => {
       setResultData(null);
       resetCinematicClash();
       setMatchType((mt as MatchType) || (Math.random() < 0.5 ? "ODI" : "T20I"));
+      setStadium(getStadiumById(stadiumId) || rollStadium());
       resetCaptaincy();
       setView("draft");
       setIsDeployModalOpen(false);
@@ -1076,6 +1096,7 @@ useEffect(() => {
       if (state.isCardFlipped !== undefined) setIsCardFlipped(state.isCardFlipped);
       if (state.mustPick !== undefined) setMustPick(state.mustPick);
       if (state.matchType !== undefined) setMatchType(state.matchType as MatchType);
+      if (state.stadiumId !== undefined) setStadium(getStadiumById(state.stadiumId as string) || rollStadium());
       if (state.view !== undefined) setView(state.view);
       if (state.loadingResult !== undefined) setLoadingResult(state.loadingResult);
       if (statsMatch(state.resultData)) {
@@ -1104,6 +1125,7 @@ useEffect(() => {
       const activeAnimes = categoryRef.current === "choose" ? [...selectedAnimesRef.current] : [];
       const useAll = allAnimeRef.current || categoryRef.current !== "choose";
       const matchTypeRoll: MatchType = Math.random() < 0.5 ? "ODI" : "T20I";
+      const stadiumRoll = rollStadium();
       channel.trigger("client-game-started", {
         roomId,
         p1Name,
@@ -1111,6 +1133,7 @@ useEffect(() => {
         activeAnimes,
         useAll,
         matchType: matchTypeRoll,
+        stadiumId: stadiumRoll.id,
         p1AllowedCountries,
         p2AllowedCountries,
       });
@@ -1281,6 +1304,7 @@ useEffect(() => {
       setResultData(null);
       resetCinematicClash();
       rollMatchType();
+      const rolledStadium = rollStadium();
       resetCaptaincy();
       setView("draft");
       setIsDeployModalOpen(false);
@@ -1302,6 +1326,7 @@ useEffect(() => {
         activeCharacter: null,
         isCardFlipped: true,
         matchType: matchType,
+        stadiumId: rolledStadium.id,
       });
 
       // Build the persistent pool before the first draw
@@ -1346,6 +1371,7 @@ useEffect(() => {
     setResultData(null);
     resetCinematicClash();
     rollMatchType();
+    rollStadium();
     resetCaptaincy();
     setIsDeployModalOpen(false);
     roundTipShownRef.current = false;
@@ -1765,7 +1791,7 @@ useEffect(() => {
     setLoadingResult(false);
   };
 
-  const renderDraftCardArea = () => {
+const renderDraftCardArea = () => {
     return (
       <>
         {poolExhausted && (
@@ -1782,7 +1808,7 @@ useEffect(() => {
           </div>
         )}
         {activeCharacter ? (
-          <div className="flex flex-col items-center gap-4 sm:gap-6 w-full animate-fadeIn relative z-10">
+          <>
             {aiIsProcessing && (
               <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/60 backdrop-blur-md rounded-3xl border border-nexus-purple/20">
                 <div className="space-y-4 sm:space-y-6 text-center p-4">
@@ -1800,13 +1826,14 @@ useEffect(() => {
                 </div>
               </div>
             )}
-
             <CharacterCard
               character={activeCharacter}
               isFlipped={isCardFlipped}
               activePlayerName={activeTurn === "p1" ? player1Name : player2Name}
               activeTurn={activeTurn}
               matchType={matchType}
+              sizeClass="w-[110px] h-[165px] sm:w-[165px] sm:h-[250px] md:w-[215px] md:h-[335px]"
+              portraitClass="h-[122px] sm:h-[183px] md:h-[238px]"
               onClickBackSide={() => {
                 if (gameMode === "online-2p" && activeTurn !== onlineSide) return;
                 setIsCardFlipped(false);
@@ -1832,66 +1859,30 @@ useEffect(() => {
                 handleSlotSelect(roleId as RoleId);
               }}
             />
-
-            <AnimatePresence>
-              {isCardFlipped ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex flex-col items-center gap-2 py-2 select-none"
+            {!isCardFlipped && !aiIsProcessing && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-2 flex flex-col gap-2 w-full max-w-[320px] sm:max-w-[360px] px-2"
+              >
+                <button
+                  id={`btn-pick-${activeCharacter.id}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (gameMode === "online-2p" && activeTurn !== onlineSide) return;
+                    setIsDeployModalOpen(true);
+                  }}
+                  className="group relative w-full py-3 sm:py-4 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(30,144,255,0.3)] hover:shadow-[0_0_40px_rgba(0,229,255,0.5)] transition-all active:scale-95 cursor-pointer touch-manipulation"
                 >
-                  <p className="text-xs sm:text-sm font-mono text-nexus-cyan font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] flex items-center justify-center gap-2 animate-pulse">
-                    <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> CLICK TO DECRYPT <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                  </p>
-                  <p className="text-[8px] sm:text-[10px] font-mono text-slate-500 font-bold uppercase tracking-widest">
-                    Identify your next tactical asset
-                  </p>
-                </motion.div>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex flex-col gap-2.5 w-full max-w-[320px] sm:max-w-[360px] px-2"
-                >
-                  {!aiIsProcessing && (
-                    <>
-                      <button
-                        id={`btn-pick-${activeCharacter.id}`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (gameMode === "online-2p" && activeTurn !== onlineSide) return;
-                          setIsDeployModalOpen(true);
-                        }}
-                        className="group relative w-full py-4 sm:py-4 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(30,144,255,0.3)] hover:shadow-[0_0_40px_rgba(0,229,255,0.5)] transition-all active:scale-95 cursor-pointer touch-manipulation"
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-nexus-blue via-nexus-cyan to-nexus-blue bg-[length:200%_100%] animate-pulse" />
-                        <div className="relative z-10 flex items-center justify-center gap-2 sm:gap-3 text-white font-black text-[10px] sm:text-xs tracking-[0.2em] uppercase">
-                          <UserPlus className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> RECRUIT TO TEAM
-                        </div>
-                      </button>
-
-                      {!isMobile && (
-                        <button
-                          id={`btn-skip-${activeCharacter.id}`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleSkip();
-                          }}
-                          disabled={activeTurn === "p1" ? p1SkipUsed : p2SkipUsed}
-                          className={`w-full py-3 sm:py-3 rounded-xl border-2 font-black text-[9px] sm:text-[10px] uppercase tracking-[0.25em] sm:tracking-[0.3em] transition-all duration-500 flex items-center justify-center gap-1.5 sm:gap-2 touch-manipulation ${(activeTurn === "p1" ? !p1SkipUsed : !p2SkipUsed)
-                              ? "border-red-500/20 bg-red-500/5 text-red-400 hover:bg-red-500/10 hover:border-red-500/40 active:scale-95 cursor-pointer shadow-lg"
-                              : "border-white/5 bg-white/5 text-slate-600 cursor-not-allowed opacity-40"
-                            }`}
-                        >
-                          <Zap className="w-3 h-3" /> TACTICAL SKIP {activeTurn === "p1" ? (p1SkipUsed ? "(OFFLINE)" : "(ACTIVE)") : (p2SkipUsed ? "(OFFLINE)" : "(ACTIVE)")}
-                        </button>
-                      )}
-                      </> )}
-                  </motion.div>
-                )}
-</AnimatePresence>
-            </div>
-          ) : (
+                  <div className="absolute inset-0 bg-gradient-to-r from-nexus-blue via-nexus-cyan to-nexus-blue bg-[length:200%_100%] animate-pulse" />
+                  <div className="relative z-10 flex items-center justify-center gap-2 sm:gap-3 text-white font-black text-[10px] sm:text-xs tracking-[0.2em] uppercase">
+                    <UserPlus className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> RECRUIT TO TEAM
+                  </div>
+                </button>
+              </motion.div>
+            )}
+          </>
+        ) : (
           <div className="flex flex-col items-center gap-3 sm:gap-4">
             <Loader2 className="w-10 h-10 sm:w-12 sm:h-12 text-nexus-blue animate-spin" />
             {gameMode === "online-2p" && activeTurn !== onlineSide ? (
@@ -1995,8 +1986,28 @@ useEffect(() => {
         </div>
       )}
 
+      {/* 🏟️ Stadium Environment Background — full-page, only for draft/results */}
+      {(view === "draft" || view === "results") && stadium?.image_url && (
+        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+          <img
+            src={stadium.image_url}
+            alt=""
+            aria-hidden
+            onLoad={() => setStadiumBgReady(true)}
+            onError={() => setStadiumBgReady(false)}
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ${stadiumBgReady ? "opacity-100" : "opacity-0"}`}
+          />
+          {/* Cinematic dark overlay for readability */}
+          <div className="absolute inset-0 bg-black/25" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/80" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(4,8,6,0.7)_100%)]" />
+          <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/70 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent" />
+        </div>
+      )}
+
       {/* MAIN CONTENT AREA */}
-      <main className={`flex-1 w-full ${view === "landing" ? "py-0" : "max-w-7xl mx-auto px-1 py-1.5 sm:p-4"} flex flex-col justify-center relative z-10 ${view === "draft" ? "min-h-0 overflow-hidden" : ""}`}>
+      <main className={`flex-1 w-full ${view === "landing" ? "py-0" : "max-w-7xl mx-auto px-1 py-0"} flex flex-col justify-start relative z-10 ${view === "draft" ? "min-h-0 overflow-hidden" : ""}`}>
         <AnimatePresence mode="wait">
           {/* 1. LANDING PAGE VIEW */}
           {view === "landing" && (
@@ -2511,9 +2522,33 @@ useEffect(() => {
             </motion.div>
           )}
 
-          {/* 2. DRAFTING ROOM VIEW */}
-           {view === "draft" && ( <>
-  <DraftView
+{/* 2. DRAFTING ROOM VIEW */}
+            {view === "draft" && ( <>
+      {/* StadiumHUD overlay - positioned at top of main game area */}
+      <div className="absolute top-0 left-0 right-0 z-20 flex justify-center lg:justify-between items-center px-1 sm:px-2 pb-1.5 lg:pb-2 pointer-events-none">
+        <StadiumHUD stadium={stadium} matchType={matchType} className="pointer-events-auto" />
+        {stadium && (
+          <div className="hidden lg:flex items-center justify-center gap-2.5 sm:gap-3 rounded-lg border border-white/10 bg-black/45 backdrop-blur-md px-2 py-1 sm:px-2.5 sm:py-1.5 pointer-events-auto">
+            {PITCH_STATS.map(({ key, label, dot }) => {
+              const value = Number(getPitchProfile(stadium, matchType)[key]) || 0;
+              return (
+                <span key={key} className="flex items-center gap-1">
+                  <span className={`${dot} w-1 h-1 rounded-full`} />
+                  <span className="text-[7px] sm:text-[8.5px] font-mono font-black tracking-[0.15em] text-slate-400">
+                    {label}
+                  </span>
+                  <span className="text-[9px] sm:text-[10px] font-black text-cricket-cream">
+                    {value}
+                  </span>
+                </span>
+              );
+            })}
+          </div>
+        )}
+      </div>
+      {/* DraftView fills entire main area from navbar down */}
+      <div className="flex-1 min-h-0 w-full relative z-0">
+        <DraftView
     isMobile={isMobile}
     isMobileDraft={isMobileDraft}
     isMobileOnlineDraft={isMobileOnlineDraft}
@@ -2550,7 +2585,13 @@ useEffect(() => {
     onClearViceCaptain={handleClearViceCaptain}
     onClearWicketkeeper={handleClearWicketkeeper}
     awaitingCaptaincy={awaitingCaptaincy}
+    stadium={stadium}
+    matchType={matchType}
+    isCardFlipped={isCardFlipped}
+    activeCharacter={activeCharacter}
+    poolExhausted={poolExhausted}
    />
+  </div>
 
               {/* Deploy Modal for scroll-free selection */}
               <AnimatePresence>

@@ -1,8 +1,9 @@
 import React from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import TeamSlots from "../common/TeamSlots";
-import { RoleId, SlottedTeam } from "../../types";
-import { Zap } from "lucide-react";
+import PitchStage from "../common/PitchStage";
+import { RoleId, SlottedTeam, Stadium, MatchType } from "../../types";
+import { Zap, Sparkles } from "lucide-react";
 
 type DraftViewProps = {
   p1AllowedCountries: string[];
@@ -41,6 +42,11 @@ type DraftViewProps = {
   onClearViceCaptain: (team: "p1" | "p2") => void;
   onClearWicketkeeper: (team: "p1" | "p2") => void;
   awaitingCaptaincy?: boolean;
+  stadium?: Stadium | null;
+  matchType?: MatchType;
+  isCardFlipped: boolean;
+  activeCharacter: any;
+  poolExhausted: boolean;
 };
 
 const SkipStrip: React.FC<{
@@ -123,6 +129,11 @@ const DraftView: React.FC<DraftViewProps> = ({
   onClearViceCaptain,
   onClearWicketkeeper,
   awaitingCaptaincy = false,
+  stadium = null,
+  matchType = "T20I" as MatchType,
+  isCardFlipped = false,
+  activeCharacter = null,
+  poolExhausted = false,
 }) => {
   const sideCanAct =
     (gameMode !== "online-2p" || onlineSide === activeTurn) &&
@@ -206,30 +217,17 @@ const DraftView: React.FC<DraftViewProps> = ({
             </div>
 
             <div className="grid min-h-0 flex-1 grid-cols-[minmax(0,1fr)_38vw] gap-2 overflow-hidden">
-              <div className="relative min-w-0 overflow-hidden rounded-2xl border border-nexus-blue/10 bg-black/20 p-1.5">
-                <div className="absolute inset-0 pointer-events-none opacity-5">
+              <div className="relative min-w-0 overflow-hidden h-full min-h-0">
+                <PitchStage stadium={stadium} matchType={matchType} isCompact className="absolute inset-0 z-0" />
+                <div className="absolute inset-0 z-[1] opacity-5 pointer-events-none">
                   <div className="h-px w-full bg-nexus-cyan absolute top-1/4 animate-pulse" />
                   <div className="h-px w-full bg-nexus-blue absolute top-3/4 animate-pulse delay-500" />
                 </div>
-                <div className="flex h-full min-h-0 flex-col items-center justify-center overflow-hidden">
-                  <div className="mb-1.5 flex-shrink-0 scale-[0.85]">
+                <div className="absolute top-[12px] left-[calc(50%+30px)] -translate-x-1/2 z-30 w-full max-w-[280px] flex flex-col items-center">
+                  <div className="mb-1 flex-shrink-0 scale-[0.85]">
                     <CaptainIcons cInteractive={cInteractive} vcInteractive={vcInteractive} wkInteractive={wkInteractive} />
                   </div>
                   {renderDraftCardArea()}
-                  <div className="mt-2 flex flex-shrink-0 gap-2">
-                    {activeTurn === ownOnlineSide && !ownOnlineSkipUsed && (
-                      <button
-                        onClick={onSkip}
-                        className="flex-1 py-2 px-3 rounded-full border-2 border-red-500/30 bg-red-500/10 text-red-400 font-black text-[7px] uppercase tracking-wider flex items-center justify-center gap-1.5 touch-manipulation active:scale-95"
-                      >
-                        <Zap className="w-3 h-3" /> TACTICAL SKIP
-                      </button>
-                    )}
-                    <div className="flex flex-shrink-0 gap-3 rounded-full border border-white/5 bg-black/30 px-2 py-1 text-[7px] font-mono font-black uppercase tracking-wider text-slate-500">
-                      <span>P1 {p1SkipUsed ? "USED" : "SKIP"}</span>
-                      <span>P2 {p2SkipUsed ? "USED" : "SKIP"}</span>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -293,13 +291,42 @@ const DraftView: React.FC<DraftViewProps> = ({
             />
           </div>
 
-          {/* Center: Active Draft Card */}
-          <div className="lg:col-span-4 flex flex-col items-center justify-center min-h-0 p-3 sm:p-4 relative nexus-glass rounded-3xl border-nexus-blue/10">
-            <div className="absolute inset-0 pointer-events-none opacity-10">
+          {/* Center: Continuous Cricketverse Arena */}
+          <div className="lg:col-span-4 relative h-full min-h-0 overflow-hidden">
+            <PitchStage stadium={stadium} matchType={matchType} className="absolute inset-0 z-0" />
+            <div className="absolute inset-0 z-[1] opacity-5 pointer-events-none">
               <div className="h-px w-full bg-nexus-cyan absolute top-1/4 animate-pulse" />
               <div className="h-px w-full bg-nexus-blue absolute top-3/4 animate-pulse delay-500" />
             </div>
-            {renderDraftCardArea()}
+            <div className="absolute top-[12px] left-[calc(50%+30px)] -translate-x-1/2 z-30 w-full max-w-[280px]">
+              {renderDraftCardArea()}
+            </div>
+            <div className="absolute top-[220px] left-1/2 -translate-x-1/2 z-20 w-full max-w-[300px] px-2 pointer-events-none">
+              <AnimatePresence mode="wait">
+                {isCardFlipped && activeCharacter && !poolExhausted && !aiIsProcessing && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex flex-col items-center gap-1.5 py-2 select-none"
+                  >
+                    <div className="flex items-center justify-center gap-2 animate-pulse">
+                      <span className="relative">
+                        <span className="absolute inset-0 bg-gradient-to-r from-nexus-cyan/30 via-nexus-blue/30 to-nexus-cyan/30 blur-xl animate-ping" />
+                        <Sparkles className="w-4 h-4 text-nexus-cyan relative z-10" />
+                      </span>
+                      <span className="text-xs sm:text-sm font-mono text-nexus-cyan font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] text-shadow-neon">
+                        CLICK TO DECRYPT
+                      </span>
+                      <Sparkles className="w-4 h-4 text-nexus-cyan" />
+                    </div>
+                    <p className="text-[8px] sm:text-[10px] font-mono text-slate-400 font-bold uppercase tracking-widest text-center">
+                      Identify your next tactical asset
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           {/* Right: P2 Roster */}

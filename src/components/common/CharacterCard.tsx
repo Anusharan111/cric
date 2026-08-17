@@ -18,6 +18,7 @@ interface CharacterCardProps {
   isCompact?: boolean;
   onTouchDrop?: (roleId: string) => void;
   sizeClass?: string;
+  portraitClass?: string;
   matchType?: MatchType;
 }
 
@@ -35,6 +36,7 @@ export default function CharacterCard({
   isCompact = false,
   onTouchDrop,
   sizeClass,
+  portraitClass,
   matchType,
 }: CharacterCardProps) {
   
@@ -275,132 +277,102 @@ export default function CharacterCard({
             if (onDragStart) onDragStart(e);
           }}
           onDragEnd={onDragEnd}
-          className={`absolute inset-0 w-full h-full rounded-2xl bg-gradient-to-b ${config.bg} border-2 ${config.border} ${config.glow} backface-hidden overflow-hidden flex flex-col ${isCompact ? 'p-1.5' : 'p-2 sm:p-4'} ${isFlipped ? "pointer-events-none" : isMobileDevice ? "cursor-default" : "cursor-grab active:cursor-grabbing"}`}
+          style={{
+            background: [
+              "radial-gradient(circle at 20% 15%, rgba(0,0,0,0.25), transparent 40%)",
+              "radial-gradient(circle at 80% 85%, rgba(0,0,0,0.3), transparent 45%)",
+              "linear-gradient(155deg, #8a6b48, #6b5138 55%, #4a3826)",
+            ].join(", "),
+            border: "1px solid rgba(217,169,74,0.35)",
+            boxShadow: "0 10px 26px rgba(0,0,0,0.5)",
+          }}
+          className={`absolute inset-0 w-full h-full rounded-[14px] backface-hidden overflow-hidden flex flex-col p-0 ${isFlipped ? "pointer-events-none" : isMobileDevice ? "cursor-default" : "cursor-grab active:cursor-grabbing"}`}
         >
-          {/* Holographic Shimmer Overlay */}
-          <div 
-            className="absolute inset-0 z-20 pointer-events-none opacity-40 mix-blend-overlay"
-            style={{
-              background: `radial-gradient(circle at ${hoverX * 100}% ${hoverY * 100}%, ${config.foil}, transparent 60%)`
-            }}
-          />
-
-          {/* Rarity Tag Header */}
-          <div className={`flex justify-between items-center ${isCompact ? 'mb-1' : 'mb-1.5 sm:mb-2'} z-30`}>
-            <div className={`${isCompact ? 'px-1 py-0' : 'px-1.5 py-0.5 sm:px-2 sm:py-1'} rounded-md border ${config.border} bg-black/60 backdrop-blur-md flex items-center gap-1 sm:gap-1.5`}>
-              <Sparkles className={`${isCompact ? 'w-2 h-2' : 'w-2 h-2 sm:w-2.5 sm:h-2.5'} ${config.text} animate-pulse`} />
-              <span className={`${isCompact ? 'text-[6px]' : 'text-[7px] sm:text-[9px]'} font-black tracking-[0.2em] uppercase ${config.text}`}>
-                {character.rarity}
-              </span>
-            </div>
-            <div className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className={`w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full ${i < rarityStars[character.rarity] ? config.text : 'bg-white/10'} shadow-sm`} />
-              ))}
-            </div>
-          </div>
-
-          {/* Portrait Container */}
-          <div className={`relative w-full ${isCompact ? 'h-[125px]' : 'h-[168px] sm:h-[260px] md:h-[350px]'} rounded-xl border border-white/10 overflow-hidden bg-black/40 group/portrait z-10 flex items-center justify-center ${isCompact ? 'mb-1' : 'mb-1.5 sm:mb-2'}`}>
-            {/* Digital Scan Line */}
-            <div className="absolute inset-0 z-20 pointer-events-none">
-              <div
-                className="w-full h-[2px] opacity-50 absolute animate-nexus-scan"
-                style={{
-                  background: `linear-gradient(90deg, transparent, ${config.color}, transparent)`,
-                }}
-              />
-            </div>
-
-            <CharacterImage 
+          {/* Photo area */}
+          <div
+            className={`relative w-full overflow-hidden ${isCompact ? 'h-[135px]' : 'h-[175px] sm:h-[260px] md:h-[340px]'}`}
+            style={{ background: "linear-gradient(180deg, #7fb8d8, #3f6f8a)" }}
+          >
+            <CharacterImage
               url={character.image}
               name={character.name}
               fallbackUrl={character.malFallbackUrl}
               themeColor={character.themeColor}
               layoutId={`char-image-${character.id}`}
-              className="w-full h-full"
-
+              className="w-full h-full object-cover object-top"
             />
-            
-            {/* Image HUD Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
-            
-            <div className={`absolute ${isCompact ? 'top-1 left-1' : 'top-1.5 left-1.5 sm:top-2 sm:left-2'} bg-black/60 backdrop-blur-md ${isCompact ? 'px-1' : 'px-1.5 py-0.5'} rounded border border-white/10 z-20`}>
-              <span className={`${isCompact ? 'text-[6px]' : 'text-[7px] sm:text-[9px]'} font-mono font-bold text-white/70`}>{character.signatureEmoji} PLAYER CARD</span>
+
+            {/* Bottom gradient fade for text legibility (no white circle) */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.75) 100%)",
+              }}
+            />
+
+            {/* Rarity badge */}
+            <div className="absolute top-2 left-2 z-20 flex items-center gap-1 rounded-md border border-[rgba(217,169,74,0.3)] bg-[rgba(12,20,16,0.6)] backdrop-blur-[3px] px-2 py-1">
+              <span className="text-[8px] leading-none text-[#d9a94a]" aria-hidden>★</span>
+              <span className="text-[8px] font-space-mono font-bold tracking-[0.5px] text-[#d9a94a] uppercase">
+                {character.rarity}
+              </span>
             </div>
 
+            {/* Country logo / crest */}
             {character.cricketData?.countryLogo ? (
               <img
                 src={character.cricketData.countryLogo}
-                alt={`${character.anime} cricket board logo`}
-                loading="lazy"
-                className={isCompact ? 'absolute bottom-1 right-1 w-6 h-6 object-contain' : 'absolute bottom-1.5 right-1.5 sm:bottom-2 sm:right-2 w-10 h-10 sm:w-11 sm:h-11 object-contain'}
+                alt={`${character.cricketData.country} cricket board logo`}
+                loading="eager"
+                referrerPolicy="no-referrer"
+                className={`absolute bottom-2 right-2 ${isCompact ? 'w-5 h-5' : 'w-6 h-6 sm:w-7 sm:h-7'} object-contain z-20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]`}
                 onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
               />
-            ) : null}
+            ) : character.cricketData?.flag ? (
+              <span className={`absolute bottom-2 right-2 ${isCompact ? 'text-sm' : 'text-base sm:text-lg'} leading-none z-20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]`} aria-hidden>
+                {character.cricketData.flag}
+              </span>
+            ) : (
+              <span className="absolute bottom-2 right-2 text-sm z-20" aria-hidden>🏏</span>
+            )}
 
-            <div className={`absolute ${isCompact ? 'bottom-1 left-1 right-1' : 'bottom-1.5 left-1.5 right-1.5 sm:bottom-2 sm:left-2 sm:right-2'} z-20`}>
-               <p className={`${isCompact ? 'text-[5px]' : 'text-[6px] sm:text-[7px]'} font-mono font-bold uppercase tracking-[0.3em] ${config.text} opacity-90 mb-0.5`}>
-                {character.anime}
-              </p>
-              <h3 className={`${isCompact ? 'text-[10px]' : 'text-xs sm:text-base md:text-xl'} font-black text-white uppercase tracking-tighter leading-none nexus-glow-text`}>
-                {character.name}
-              </h3>
+            {/* Player Name */}
+            <h3 className={`absolute bottom-1.5 left-2 right-10 z-20 font-teko font-bold text-[#f2ecd9] leading-none uppercase truncate tracking-[0.5px] ${isCompact ? 'text-[17px]' : 'text-xl sm:text-2xl md:text-[28px]'}`}>
+              {character.name}
+            </h3>
+          </div>
+
+          {/* ID block */}
+          <div className={`z-30 px-2 sm:px-2.5 ${isCompact ? 'pt-1.5 pb-0.5' : 'pt-2 pb-1'}`}>
+            <div className="flex items-baseline justify-between">
+              <span className={`${isCompact ? 'text-[6.5px]' : 'text-[7.5px]'} font-space-mono font-bold tracking-[1.5px] text-[#d9a94a] uppercase truncate`}>
+                {character.cricketData?.country || character.anime || "INTERNATIONAL"}
+              </span>
+              <span className={`${isCompact ? 'text-[6px]' : 'text-[7px]'} font-space-mono tracking-[1px] text-[#c9b89a] uppercase flex-shrink-0`}>
+                M&nbsp;<span className={`font-teko font-semibold text-[#d9a94a] ${isCompact ? 'text-[13px]' : 'text-[15px]'}`}>{getCardMatches(character, matchType)}</span>
+              </span>
             </div>
           </div>
 
-          {/* Stats HUD Matrix */}
-
-          {character.cricketData ? (
-            <CricketCareerGrid player={character.cricketData} isCompact={isCompact} matchType={matchType} />
-          ) : (
-            <div className={`grid grid-cols-2 ${isCompact ? 'gap-0.5 mb-1' : 'gap-1 sm:gap-1.5 mb-1.5 sm:mb-2'} z-30`}>
-              {[
-                { label: "STR", val: character.stats.strength, icon: Swords, color: "text-red-400" },
-                { label: "SPD", val: character.stats.speed, icon: Zap, color: "text-yellow-400" },
-                { label: "DEF", val: character.stats.defense, icon: Shield, color: "text-emerald-400" },
-                { label: "INT", val: character.stats.iq, icon: Brain, color: "text-cyan-400" },
-                { label: "MAG", val: character.stats.magic, icon: Sparkles, color: "text-purple-400" },
-              ].map((s, idx) => (
-                <div key={idx} className={`flex items-center justify-between bg-white/5 border border-white/5 ${isCompact ? 'p-0.5 px-1' : 'p-0.5 sm:p-1'} rounded-lg backdrop-blur-sm group-hover:border-white/10 transition-colors ${idx === 4 ? 'col-span-2' : ''}`}>
-                  <div className="flex items-center gap-1 sm:gap-1.5">
-                    <s.icon className={`${isCompact ? 'w-2 h-2' : 'w-2 h-2 sm:w-2.5 sm:h-2.5'} ${s.color}`} />
-                    <span className={`${isCompact ? 'text-[5px]' : 'text-[6px] sm:text-[7px]'} font-mono font-bold text-slate-400`}>{s.label}</span>
-                  </div>
-                  <span className={`${isCompact ? 'text-[7px]' : 'text-[8px] sm:text-[10px]'} font-black text-white`}>{s.val}</span>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Skills Section */}
-          {character.skills && character.skills.length > 0 && !isCompact && (
-            <div className="flex flex-wrap gap-1 mb-1.5 sm:mb-2 z-30">
-              {character.skills.slice(0, 2).map((skill, i) => (
-                <div key={i} className="px-1.5 py-0.5 sm:px-1.5 sm:py-0.5 rounded-md bg-white/5 border border-white/5 flex items-center gap-1 sm:gap-1 backdrop-blur-sm group-hover:border-white/10 transition-all">
-                   <div className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-nexus-cyan animate-pulse" />
-                   <span className="text-[6px] sm:text-[7px] font-mono font-bold text-slate-300 uppercase tracking-tighter truncate max-w-[80px] sm:max-w-[120px]">{skill}</span>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Abilities / Lore Footer */}
-          <div className="mt-auto relative z-30 bg-black/40 border border-white/5 rounded-xl p-1 sm:p-1.5 md:p-2 backdrop-blur-md overflow-hidden group/lore">
-            <div className={`absolute top-0 left-0 w-1 h-full ${config.text}`} style={{ backgroundColor: config.color }} />
-            <p className="text-[7px] sm:text-[8px] md:text-[9px] leading-tight sm:leading-relaxed text-slate-300 font-medium italic line-clamp-2">
-              "{character.quote || character.description}"
-            </p>
+          {/* Stat grid (4 stats: RUNS, WKTS, AVG, SR) */}
+          <div className="grid grid-cols-2 gap-1.5 px-2 sm:px-2.5 pb-2 sm:pb-2.5 mt-auto z-30">
+            {getCardStats(character, matchType).map((s, idx) => (
+              <div key={idx} className="flex items-center justify-between rounded-[7px] bg-[rgba(0,0,0,0.25)] px-1.5 sm:px-2 py-1 sm:py-1.5">
+                <span className={`${isCompact ? 'text-[6px]' : 'text-[7px]'} font-space-mono tracking-[0.5px] text-[#c9b89a]`}>
+                  {s.label}
+                </span>
+                <span className={`font-teko font-semibold leading-none ${s.dash ? 'text-[#c9b89a] text-[12px]' : s.gold ? 'text-[#d9a94a]' : 'text-[#f2ecd9]'} ${isCompact ? 'text-[12px]' : 'text-[14px] sm:text-[16px]'}`}>
+                  {s.value}
+                </span>
+              </div>
+            ))}
           </div>
-
-          {/* Decorative Corner Ornaments */}
-          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-white/10 to-transparent opacity-20 rotate-45 translate-x-10 -translate-y-10" />
         </div>
 
         {/* BACK SIDE */}
         <div 
           onClick={handleBackClick}
-          className={`absolute inset-0 w-full h-full rounded-2xl bg-[#0a0a1f] border-2 border-nexus-blue/30 backface-hidden rotate-y-180 shadow-[0_0_30px_rgba(30,144,255,0.2)] flex items-center justify-center overflow-hidden ${isFlipped && !isSpinning ? "cursor-pointer group-hover:border-nexus-cyan/50" : "pointer-events-none"}`}
+          className={`absolute inset-0 w-full h-full rounded-[14px] bg-[#0a0a1f] border-2 border-nexus-blue/30 backface-hidden rotate-y-180 shadow-[0_0_30px_rgba(30,144,255,0.2)] flex items-center justify-center overflow-hidden ${isFlipped && !isSpinning ? "cursor-pointer group-hover:border-nexus-cyan/50" : "pointer-events-none"}`}
         >
           {/* Interaction shield */}
           <div className="absolute inset-0 z-[100]" />
@@ -458,33 +430,41 @@ export default function CharacterCard({
   );
 }
 
-function CricketCareerGrid({ player, isCompact, matchType }: { player: CricketPlayer; isCompact: boolean; matchType?: MatchType }) {
-  const s = player.careerStats?.[matchType || "T20I"];
-  const matches = s?.matches ?? 0;
-  const runs = s?.runs ?? 0;
-  const wickets = s?.wickets ?? 0;
-  const innings = s?.innings ?? 0;
-  const avg = s && s.average > 0 ? s.average.toFixed(2) : innings > 0 ? (runs / innings).toFixed(2) : "—";
-  const sr = s && s.strikeRate > 0 ? s.strikeRate.toFixed(1) : "—";
-  const fmt = (r: number) => r >= 10000 ? `${(r / 1000).toFixed(1)}k` : r >= 1000 ? `${(r / 1000).toFixed(2)}k` : String(r);
+function getCardMatches(character: Character, matchType?: MatchType): number {
+  if (character.cricketData?.careerStats) {
+    const s = character.cricketData.careerStats[matchType || "T20I"];
+    if (s?.matches) return s.matches;
+    const odi = character.cricketData.careerStats.ODI?.matches || 0;
+    const t20 = character.cricketData.careerStats.T20I?.matches || 0;
+    return odi + t20;
+  }
+  return 20;
+}
 
-  const chips = [
-    { label: "M", value: String(matches), color: "text-white" },
-    { label: "RUNS", value: fmt(runs), color: "text-amber-300" },
-    { label: "WKTS", value: String(wickets), color: "text-red-300" },
-    { label: "AVG", value: avg, color: "text-cyan-300" },
-    { label: "SR", value: sr, color: "text-purple-300" },
+function getCardStats(character: Character, matchType?: MatchType): Array<{ label: string; value: string; gold?: boolean; dash?: boolean }> {
+  if (character.cricketData?.careerStats) {
+    const s = character.cricketData.careerStats[matchType || "T20I"] || character.cricketData.careerStats.ODI;
+    const runs = s?.runs ?? 0;
+    const wkts = s?.wickets ?? 0;
+    const innings = s?.innings ?? 0;
+    const avg = s && s.average > 0 ? s.average.toFixed(1) : innings > 0 ? (runs / innings).toFixed(1) : "—";
+    const sr = s && s.strikeRate > 0 ? s.strikeRate.toFixed(1) : "—";
+    const fmt = (r: number) => r >= 1000 ? `${(r / 1000).toFixed(1)}k` : String(r);
+
+    return [
+      { label: "RUNS", value: fmt(runs), gold: runs > 0 },
+      { label: "WKTS", value: String(wkts), gold: wkts > 0 },
+      { label: "AVG", value: avg, dash: avg === "—" },
+      { label: "SR", value: sr, dash: sr === "—" },
+    ];
+  }
+
+  // Fallback to basic character stats
+  return [
+    { label: "PWR", value: String(character.overallPower), gold: true },
+    { label: "STR", value: String(character.stats.strength) },
+    { label: "DEF", value: String(character.stats.defense) },
+    { label: "SPD", value: String(character.stats.speed) },
   ];
-
-  return (
-    <div className={`grid grid-cols-2 ${isCompact ? 'gap-0.5 mb-1' : 'gap-1 sm:gap-1.5 mb-1.5 sm:mb-2'} z-30`}>
-      {chips.map((s, idx) => (
-        <div key={idx} className={`flex items-center justify-between bg-white/5 border border-white/5 ${isCompact ? 'p-0.5 px-1' : 'p-0.5 sm:p-1'} rounded-lg backdrop-blur-sm group-hover:border-white/10 transition-colors ${idx === 4 ? 'col-span-2' : ''}`}>
-          <span className={`${isCompact ? 'text-[7px]' : 'text-[9px] sm:text-[11px]'} font-mono font-bold text-slate-300`}>{s.label}</span>
-          <span className={`${isCompact ? 'text-[10px]' : 'text-xs sm:text-sm'} font-black ${s.color}`}>{s.value}</span>
-        </div>
-      ))}
-    </div>
-  );
 }
 

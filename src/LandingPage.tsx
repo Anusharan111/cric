@@ -10,6 +10,7 @@ interface LandingPageProps {
   onSelectCricketGuessWho?: () => void;
   onSelectCricketParty?: () => void;
   onOpenAbout?: () => void;
+  onViewAllPlayers?: () => void;
 }
 
 const COUNTRIES_LIST = [
@@ -35,6 +36,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   onSelectCricketGuessWho,
   onSelectCricketParty,
   onOpenAbout,
+  onViewAllPlayers,
 }) => {
   const spotlightRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -376,6 +378,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           )}
         </div>
       </footer>
+
+      {/* View All Players Button */}
+      {onViewAllPlayers && (
+        <div className="landing-container" style={{ paddingBottom: "3rem" }}>
+          <button
+            type="button"
+            onClick={onViewAllPlayers}
+            className="w-full max-w-xl mx-auto landing-button primary"
+            style={{ marginTop: "1rem" }}
+          >
+            VIEW ALL PLAYERS <ArrowRight className="w-4 h-4 inline-block ml-2" />
+          </button>
+        </div>
+      )}
     </div>
   );
 };

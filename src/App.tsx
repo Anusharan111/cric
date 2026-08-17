@@ -45,6 +45,7 @@ import AnimePartyGames from "./pages/AnimePartyGames";
 import CricketGuessWhoGame from "./pages/CricketGuessWhoGame";
 import CricketPartyGames from "./pages/CricketPartyGames";
 import LandingPage from "./LandingPage";
+import AllPlayersView from "./pages/AllPlayersView";
 import { sfx } from "./utils/audio";
 import { getCaptainSuitability, getWicketkeeperSuitability, getRoleFitScore, getRoleSuitabilityLabel, getRoleFitMultiplier } from "./utils/roleUtils";
 import DraftView from "./components/ui/DraftView";
@@ -54,7 +55,7 @@ import { adaptRatingCharacters } from "./utils/ratingAdapter";
 import { useSEO, routeSEO } from "./hooks/useSEO";
 import { getAllPlayers, getCountries } from "./utils/cricketData";
 
-type ViewState = "landing" | "draft" | "results" | "feud" | "guesswho" | "party" | "cricket-guesswho" | "cricket-party";
+type ViewState = "landing" | "draft" | "results" | "feud" | "guesswho" | "party" | "cricket-guesswho" | "cricket-party" | "all-players";
 type GameHubMode = "hub" | "battle";
 type AppHistoryState = {
   animeBattleInternal: true;
@@ -65,12 +66,14 @@ type AppHistoryState = {
 const getRouteHash = (view: ViewState, selectedGameHubMode: GameHubMode = "hub") => {
   if (view === "landing" && selectedGameHubMode === "battle") return "#/battle";
   if (view === "landing") return "";
+  if (view === "all-players") return "#/all-players";
   return `#/${view}`;
 };
 
 const getPageStateFromHash = (): { view: ViewState; selectedGameHubMode: GameHubMode } => {
   const route = window.location.hash.replace(/^#\/?/, "").toLowerCase();
   if (route === "battle") return { view: "landing", selectedGameHubMode: "battle" };
+  if (route === "all-players") return { view: "all-players", selectedGameHubMode: "hub" };
   if (["draft", "results", "feud", "guesswho", "party", "cricket-guesswho", "cricket-party"].includes(route)) {
     return { view: route as ViewState, selectedGameHubMode: "hub" };
   }
@@ -2126,6 +2129,7 @@ const renderDraftCardArea = () => {
                       onSelectGuessWho={() => setView("cricket-guesswho")}
                       onSelectParty={() => setView("cricket-party")}
                       onOpenAbout={() => setShowAbout(true)}
+                      onViewAllPlayers={() => setView("all-players")}
                     />
                   ) : (
                     <div className="pt-4">
@@ -3135,6 +3139,20 @@ const renderDraftCardArea = () => {
               className="w-full"
             >
               <CricketPartyGames onExit={() => setView("landing")} />
+            </motion.div>
+          )}
+
+          {/* ALL PLAYERS VIEW */}
+          {view === "all-players" && (
+            <motion.div
+              key="all-players"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="w-full h-full"
+            >
+              <AllPlayersView onExit={() => setView("landing")} />
             </motion.div>
           )}
         </AnimatePresence>
